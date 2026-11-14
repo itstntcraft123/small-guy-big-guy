@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://tqnkx31t63uf"]
+
+[ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_ijpji"]
+[ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="1_liyum"]
+[ext_resource type="Script" uid="uid://doykif72smtup" path="res://scripts/options_menu.gd" id="2_hm4m4"]
+
+[node name="OptionsMenu" type="MarginContainer" unique_id=1044473709]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ijpji")
+script = ExtResource("2_hm4m4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1374439801]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1268723800]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Options"
+
+[node name="SelectMenu" parent="VBoxContainer" unique_id=543663428 instance=ExtResource("1_liyum")]
+layout_mode = 2
+
+[node name="Fullscreen" type="Button" parent="VBoxContainer/SelectMenu" unique_id=531943641]
+custom_maximum_size = Vector2(500, -1)
+layout_mode = 2
+theme_type_variation = &"ToggleButton"
+toggle_mode = true
+text = "Fullscreen: off"
+alignment = 0
+
+[node name="GoBack" type="Button" parent="VBoxContainer/SelectMenu" unique_id=56632280]
+custom_maximum_size = Vector2(250, -1)
+layout_mode = 2
+text = "Go Back"
+alignment = 0
+
+[connection signal="button_selected" from="VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]
+[connection signal="focus_entered" from="VBoxContainer/SelectMenu/Fullscreen" to="." method="_on_fullscreen_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/SelectMenu/Fullscreen" to="." method="_on_fullscreen_focus_exited"]
