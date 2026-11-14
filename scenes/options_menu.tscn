@@ -29,13 +29,13 @@ custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
-text = "Fullscreen: off"
+text = "fullscreen: off"
 alignment = 0
 
-[node name="GoBack" type="Button" parent="VBoxContainer/SelectMenu" unique_id=56632280]
+[node name="Back" type="Button" parent="VBoxContainer/SelectMenu" unique_id=56632280]
 custom_maximum_size = Vector2(250, -1)
 layout_mode = 2
-text = "Go Back"
+text = "back"
 alignment = 0
 
 [connection signal="button_selected" from="VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]

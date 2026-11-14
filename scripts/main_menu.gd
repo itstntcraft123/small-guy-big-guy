@@ -13,8 +13,7 @@ func _on_select_menu_button_selected(item: Button) -> void:
 		"Play":
 			get_tree().change_scene_to_file("res://scenes/game.tscn")
 		"Options":
-			var scene = options_menu.instantiate()
-			add_child(scene)
+			add_child(options_menu.instantiate())
 			$MarginContainer.hide()
 		"Quit":
 			if OS.has_feature("web"):

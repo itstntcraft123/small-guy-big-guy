@@ -25,4 +25,4 @@ ToggleButton/colors/font_focus_color = Color(0.20495325, 0.99999994, 0.83879304,
 ToggleButton/colors/font_hover_color = Color(0.20392157, 1, 0.8392157, 1)
 ToggleButton/colors/font_hover_pressed_color = Color(0, 1, 0, 1)
 ToggleButton/colors/font_pressed_color = Color(0, 0.74509805, 0.11764706, 1)
-VBoxContainer/constants/separation = 16
+VBoxContainer/constants/separation = 24

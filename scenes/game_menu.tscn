@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dqpupgu43dttv"]
+
+[ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_qdaa4"]
+[ext_resource type="PackedScene" uid="uid://tqnkx31t63uf" path="res://scenes/options_menu.tscn" id="2_mw6r2"]
+[ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="2_vrsc2"]
+[ext_resource type="Script" uid="uid://de5d48h5t6gsq" path="res://scripts/game_menu.gd" id="2_ysvk1"]
+
+[node name="GameMenu" type="Control" unique_id=1489002370]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ysvk1")
+options_menu = ExtResource("2_mw6r2")
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=1720955684]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=293958843]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qdaa4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1311873275]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=621706664]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Game Menu"
+
+[node name="SelectMenu" parent="MarginContainer/VBoxContainer" unique_id=543663428 instance=ExtResource("2_vrsc2")]
+layout_mode = 2
+
+[node name="BackToGame" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=1816989968]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+text = "back to game"
+alignment = 0
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=510593866]
+custom_maximum_size = Vector2(250, -1)
+layout_mode = 2
+text = "options"
+alignment = 0
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=1672113681]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+text = "quit to menu"
+alignment = 0
+
+[connection signal="button_selected" from="MarginContainer/VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]

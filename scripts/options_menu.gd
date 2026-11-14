@@ -6,7 +6,7 @@ func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
-	fullscreen_btn.text = "Fullscreen: on" if _is_fullscreen() else "Fullscreen: off"
+	fullscreen_btn.text = "fullscreen: on" if _is_fullscreen() else "fullscreen: off"
 	fullscreen_btn.set_pressed_no_signal(_is_fullscreen())
 
 func _on_select_menu_button_selected(item: Button) -> void:
@@ -16,7 +16,7 @@ func _on_select_menu_button_selected(item: Button) -> void:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			else:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		"GoBack":
+		"Back":
 			get_parent().unhide()
 			queue_free()
 
