@@ -7,7 +7,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	fullscreen_btn.text = "Fullscreen: on" if _is_fullscreen() else "Fullscreen: off"
-	fullscreen_btn.button_pressed = _is_fullscreen()
+	fullscreen_btn.set_pressed_no_signal(_is_fullscreen())
 
 func _on_select_menu_button_selected(item: Button) -> void:
 	match item.name:
