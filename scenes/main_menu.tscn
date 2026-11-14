@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_bqqt6"]
 [ext_resource type="Script" uid="uid://bjuee2jha4cbs" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://tqnkx31t63uf" path="res://scenes/options_menu.tscn" id="3_wu84c"]
 
 [node name="MainMenu" type="Control" unique_id=215592574]
 layout_mode = 3
@@ -13,6 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_bqqt6")
 script = ExtResource("1_ekxnf")
+options_menu = ExtResource("3_wu84c")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=472200006]
 layout_mode = 1

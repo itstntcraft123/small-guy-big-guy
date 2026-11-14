@@ -17,7 +17,8 @@ func _on_select_menu_button_selected(item: Button) -> void:
 			else:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		"GoBack":
-			get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+			get_parent().unhide()
+			queue_free()
 
 func _on_fullscreen_focus_entered() -> void:
 	$VBoxContainer/SelectMenu/Fullscreen.add_theme_color_override("font_pressed_color", $VBoxContainer/SelectMenu/Fullscreen.get_theme_color("font_hover_pressed_color"))
