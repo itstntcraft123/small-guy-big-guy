@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dudlapx8ux5mu"
-path="res://.godot/imported/Silkscreen.ttf-efcf820accbec2ab7b6844a394243428.fontdata"
+uid="uid://bb7ughl3q502q"
+path="res://.godot/imported/DotGothic16.ttf-12267ff3c2cfa358c85785cc65170dc8.fontdata"
 
 [deps]
 
-source_file="res://fonts/Silkscreen.ttf"
-dest_files=["res://.godot/imported/Silkscreen.ttf-efcf820accbec2ab7b6844a394243428.fontdata"]
+source_file="res://fonts/DotGothic16.ttf"
+dest_files=["res://.godot/imported/DotGothic16.ttf-12267ff3c2cfa358c85785cc65170dc8.fontdata"]
 
 [params]
 
