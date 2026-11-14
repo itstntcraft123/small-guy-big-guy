@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqd5ewi1jh22p"
-path="res://.godot/imported/tileplaceholder64x.png-9d6e1802aa7519ea0f4e9f4fadc2cd76.ctex"
+uid="uid://bu8kadvtbwsra"
+path="res://.godot/imported/tileplaceholder13tile-autotile.png-94464dddf08ef6bdc6992aad08ce4eb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tileplaceholder64x.png"
-dest_files=["res://.godot/imported/tileplaceholder64x.png-9d6e1802aa7519ea0f4e9f4fadc2cd76.ctex"]
+source_file="res://sprites/autotile/tileplaceholder13tile-autotile.png"
+dest_files=["res://.godot/imported/tileplaceholder13tile-autotile.png-94464dddf08ef6bdc6992aad08ce4eb1.ctex"]
 
 [params]
 
