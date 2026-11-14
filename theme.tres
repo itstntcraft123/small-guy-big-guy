@@ -4,19 +4,14 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbv7u"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjfk0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vj6dk"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_110ce"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05tig"]
-
 [resource]
 default_font = ExtResource("1_e1x85")
 default_font_size = 72
+Button/colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
+Button/colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+Button/colors/font_pressed_color = Color(1, 0.7058824, 0, 1)
 Button/styles/disabled = SubResource("StyleBoxEmpty_sbv7u")
-Button/styles/focus = SubResource("StyleBoxEmpty_cjfk0")
-Button/styles/hover = SubResource("StyleBoxEmpty_vj6dk")
-Button/styles/normal = SubResource("StyleBoxEmpty_110ce")
-Button/styles/pressed = SubResource("StyleBoxEmpty_05tig")
+Button/styles/focus = SubResource("StyleBoxEmpty_sbv7u")
+Button/styles/hover = SubResource("StyleBoxEmpty_sbv7u")
+Button/styles/normal = SubResource("StyleBoxEmpty_sbv7u")
+Button/styles/pressed = SubResource("StyleBoxEmpty_sbv7u")
