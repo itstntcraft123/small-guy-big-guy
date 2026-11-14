@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://c7v87tv1yon3k"]
 
+[ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_bqqt6"]
+[ext_resource type="Script" uid="uid://bjuee2jha4cbs" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="1_l6cm7"]
+
 [node name="MainMenu" type="Control" unique_id=215592574]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +11,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_bqqt6")
+script = ExtResource("1_ekxnf")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=472200006]
 layout_mode = 1
@@ -22,8 +28,24 @@ theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=2021530413]
 layout_mode = 2
+theme_override_constants/separation = 32
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=375371505]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 128
 text = "Small Guy Big Guy"
+
+[node name="SelectMenu" parent="MarginContainer/VBoxContainer" unique_id=1293153554 instance=ExtResource("1_l6cm7")]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=207298543]
+layout_mode = 2
+text = "play"
+alignment = 0
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=735927723]
+layout_mode = 2
+text = "quit"
+alignment = 0
+
+[connection signal="button_selected" from="MarginContainer/VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://r3b5g51p5fb0"]
+
+[ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_33r4d"]
+
+[node name="QuitScreen" type="CenterContainer" unique_id=1585558809]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_33r4d")
+
+[node name="ThanksLabel" type="RichTextLabel" parent="." unique_id=1986287333]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/normal_font_size = 108
+bbcode_enabled = true
+text = "Thanks for playing! [font=res://fonts/Silkscreen.ttf]:D[/font]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

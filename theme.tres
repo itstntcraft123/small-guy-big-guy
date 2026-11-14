@@ -1,0 +1,22 @@
+[gd_resource type="Theme" format=3 uid="uid://doesdkf2iqydn"]
+
+[ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="1_e1x85"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbv7u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjfk0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vj6dk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_110ce"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05tig"]
+
+[resource]
+default_font = ExtResource("1_e1x85")
+default_font_size = 72
+Button/styles/disabled = SubResource("StyleBoxEmpty_sbv7u")
+Button/styles/focus = SubResource("StyleBoxEmpty_cjfk0")
+Button/styles/hover = SubResource("StyleBoxEmpty_vj6dk")
+Button/styles/normal = SubResource("StyleBoxEmpty_110ce")
+Button/styles/pressed = SubResource("StyleBoxEmpty_05tig")
