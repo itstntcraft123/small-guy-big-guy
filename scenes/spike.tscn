@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cd3arwj17sxly"]
+
+[ext_resource type="Script" uid="uid://b7q8hkipdn5mw" path="res://scripts/spike.gd" id="1_7a7y0"]
+[ext_resource type="Texture2D" uid="uid://dg8luyl463l0g" path="res://sprites/spike32x.png" id="1_ljd5v"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_7teyg"]
+custom_solver_bias = 0.2
+points = PackedVector2Array(11, 11.5, -17, 11.5, -3, -15.5)
+
+[node name="Spike" type="Area2D" unique_id=925223878]
+script = ExtResource("1_7a7y0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1427343516]
+texture_filter = 1
+texture = ExtResource("1_ljd5v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=13301677]
+position = Vector2(3, 2.5)
+shape = SubResource("ConvexPolygonShape2D_7teyg")
