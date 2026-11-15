@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var move_left_action: String = "small_left"
 @export var move_right_action: String = "small_right"
@@ -14,8 +15,9 @@ var input_dir: float = 0.0
 var pressed_frame: int = -100
 
 @onready var small_sprite: Sprite2D = $Sprite2D
+@onready var screen_size := get_viewport_rect().size
 
-var rider1: CharacterBody2D = null
+var top_rider: Player = null
 
 func _ready() -> void:
 	add_to_group("players")
@@ -32,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	var below := KinematicCollision2D.new()
 	if test_move(global_transform, Vector2(0,2), below) and below.get_normal().y < -0.7:
 		var under = below.get_collider()
-		if under is CharacterBody2D and "weight" in under and weight > under.weight:
+		if under is Player and weight > under.weight:
 			under.pressed_frame = frame
 	
 	# Handle jump.
@@ -54,12 +56,12 @@ func _physics_process(delta: float) -> void:
 		var motion := Vector2(velocity.x * delta, 0)
 		if test_move(global_transform, motion, side) and absf(side.get_normal().x) > 0.7:
 			var other = side.get_collider()
-			if other is CharacterBody2D and "weight" in other:
+			if other is Player:
 				if weight > other.weight and other.input_dir == 0:
 					other.move_and_collide(motion)
 	
 	# small guy on big guy
-	var rider: CharacterBody2D = null
+	var rider: Player = null
 	if velocity.y < 0:
 		for other in get_tree().get_nodes_in_group("players"):
 			if other == self or other.weight >= weight:
@@ -76,20 +78,20 @@ func _physics_process(delta: float) -> void:
 					add_collision_exception_with(rider)
 				break
 	
-	if rider1:
-		add_collision_exception_with(rider1)
+	position = position.clamp(Vector2.ZERO, screen_size)
 	
 	move_and_slide()
 	
-	if rider1:
-		remove_collision_exception_with(rider1)
-		rider1 = null
+	if top_rider:
+		remove_collision_exception_with(top_rider)
+		top_rider = null
 	
 	for i in range(get_slide_collision_count()):
 		var col := get_slide_collision(i)
 		var other := col.get_collider()
 		if other in get_tree().get_nodes_in_group("players") and col.get_normal().y < -0.7:
-			other.rider1 = self
+			other.top_rider = self
+			other.add_collision_exception_with(self)
 	
 	if rider:
 		remove_collision_exception_with(rider)
