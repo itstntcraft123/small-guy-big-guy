@@ -1,14 +1,21 @@
 extends Camera2D
 
+@export var margin := Vector2(1000, 1000)
+
+
 func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
 	pass
 
-func _physics_process(delta: float) -> void:
-	var vector := Vector2.ZERO
-	var players = get_tree().get_nodes_in_group("players")
+func _physics_process(_delta: float) -> void:
+	var players: Array[Node] = get_tree().get_nodes_in_group("players")
+	var rect := Rect2(players[0].global_position, Vector2.ZERO)
 	for player: Player in players:
-		vector += player.global_position
-	global_position = vector / players.size()
+		rect = rect.expand(player.global_position)
+	global_position = rect.get_center()
+	var viewport := get_viewport_rect().size
+	var zoom_amt = minf(viewport.x / (rect.size.x + margin.x), viewport.y / (rect.size.y + margin.y))
+	print(zoom_amt)
+	zoom = Vector2(zoom_amt, zoom_amt)
