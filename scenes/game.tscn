@@ -1,30 +1,24 @@
 [gd_scene format=4 uid="uid://bwoptb407y16w"]
 
-[ext_resource type="Texture2D" uid="uid://m1kek3km4263" path="res://sprites/small_guy.png" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://duxlyg64xjhe2" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dqpupgu43dttv" path="res://scenes/game_menu.tscn" id="2_iywne"]
-[ext_resource type="Script" uid="uid://dtnkb5es2t6cp" path="res://scripts/player.gd" id="2_lnu2h"]
-[ext_resource type="TileSet" path="res://sprites/autotile/tileplaceholder13tile-autotile.tres" id="5_iywne"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ao8sq"]
-size = Vector2(46, 46)
+[ext_resource type="PackedScene" uid="uid://dd6wwlvb6o1su" path="res://scenes/player.tscn" id="3_lbhrr"]
+[ext_resource type="TileSet" uid="uid://bdb3lxiaxk6a2" path="res://sprites/autotile/tileplaceholder13tile-autotile.tres" id="5_iywne"]
 
 [node name="Game" type="Node2D" unique_id=2126916218]
 script = ExtResource("1_yqjtg")
 game_menu = ExtResource("2_iywne")
 
-[node name="SmallGuy" type="CharacterBody2D" parent="." unique_id=605948746]
-script = ExtResource("2_lnu2h")
+[node name="SmallGuy" parent="." unique_id=2137464374 instance=ExtResource("3_lbhrr")]
+size_scale = 2.0
 
-[node name="Sprite2D" type="Sprite2D" parent="SmallGuy" unique_id=1795400356]
-texture_filter = 1
-position = Vector2(22.999998, 23)
-scale = Vector2(2.8749998, 2.875)
-texture = ExtResource("1_uwrxv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SmallGuy" unique_id=1788370518]
-position = Vector2(23, 23)
-shape = SubResource("RectangleShape2D_ao8sq")
+[node name="BigGuy" parent="." unique_id=1109696247 instance=ExtResource("3_lbhrr")]
+position = Vector2(46, 0)
+rotation = -0.0011820737
+move_left_action = "big_left"
+move_right_action = "big_right"
+jump_action = "big_jump"
+size_scale = 4.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1197881366]
 texture_filter = 1
