@@ -41,3 +41,6 @@ position = Vector2(16, 528)
 
 [node name="Spike2" parent="." unique_id=125505613 instance=ExtResource("6_p57ef")]
 position = Vector2(701, 528)
+
+[node name="Spike3" parent="." unique_id=1348853029 instance=ExtResource("6_p57ef")]
+position = Vector2(1296, 528)
