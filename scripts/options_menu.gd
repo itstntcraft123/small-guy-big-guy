@@ -34,8 +34,7 @@ func _is_fullscreen() -> bool:
 	return mode == DisplayServer.WINDOW_MODE_FULLSCREEN or mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 
 func _on_select_menu_button_focus_changed(item: Button, focus: bool) -> void:
-	if true:
-		if focus:
-			item.add_theme_color_override("font_pressed_color", item.get_theme_color("font_hover_pressed_color"))
-		else:
-			item.remove_theme_color_override("font_pressed_color")
+	if focus:
+		item.add_theme_color_override("font_pressed_color", item.get_theme_color("font_hover_pressed_color"))
+	else:
+		item.remove_theme_color_override("font_pressed_color")
