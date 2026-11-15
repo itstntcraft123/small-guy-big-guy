@@ -18,7 +18,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed(jump_action) and is_on_floor():
+	# change to Input.is_action_just_pressed if you want to punish holding down jump (harder to do momentum conserve)
+	if Input.is_action_pressed(jump_action) and is_on_floor():
 		velocity.y = jump_velocity
 
 	# Get the input direction and handle the movement/deceleration.
