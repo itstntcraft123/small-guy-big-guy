@@ -120,7 +120,10 @@ rotation = -0.0011820737
 move_left_action = "big_left"
 move_right_action = "big_right"
 jump_action = "big_jump"
+speed = 150.0
+jump_velocity = -300.0
 size_scale = 2.0
+weight = 2.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=371086613]
 
