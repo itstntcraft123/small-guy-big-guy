@@ -18,6 +18,7 @@ var pressed_frame: int = -100
 @onready var screen_size := get_viewport_rect().size
 
 var top_rider: Player = null
+var pushed: Player = null
 
 func _ready() -> void:
 	add_to_group("players")
@@ -58,7 +59,11 @@ func _physics_process(delta: float) -> void:
 			var other = side.get_collider()
 			if other is Player:
 				if weight > other.weight and other.input_dir == 0:
-					other.move_and_collide(motion)
+					var blocked: KinematicCollision2D = other.move_and_collide(motion)
+					var distance := motion if blocked == null else blocked.get_travel()
+					velocity.x = distance.x / delta
+					pushed = other
+					add_collision_exception_with(other)
 	
 	# small guy on big guy
 	var rider: Player = null
@@ -83,6 +88,10 @@ func _physics_process(delta: float) -> void:
 	if top_rider:
 		remove_collision_exception_with(top_rider)
 		top_rider = null
+	
+	if pushed:
+		remove_collision_exception_with(pushed)
+		pushed = null
 	
 	for i in range(get_slide_collision_count()):
 		var col := get_slide_collision(i)
