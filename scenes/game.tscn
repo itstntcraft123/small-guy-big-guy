@@ -30,6 +30,7 @@ tile_map_data = PackedByteArray("AAAAABIAAAAJAAMAAAABABIAAAAJAAMAAAACABIAAAAJAAM
 tile_set = ExtResource("5_iywne")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=882835880]
+process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 script = ExtResource("5_p57ef")
