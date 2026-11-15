@@ -2,6 +2,12 @@ extends Control
 
 @export var options_menu: PackedScene 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().paused = false
+		$"../..".just_exited_game_menu = true
+		queue_free()
+
 func _ready() -> void:
 	pass
 

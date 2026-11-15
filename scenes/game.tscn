@@ -31,5 +31,6 @@ tile_map_data = PackedByteArray("AAAAABIAAAAJAAMAAAABABIAAAAJAAMAAAACABIAAAAJAAM
 tile_set = ExtResource("5_iywne")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=882835880]
+zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
 script = ExtResource("5_p57ef")
