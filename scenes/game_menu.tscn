@@ -51,6 +51,12 @@ layout_mode = 2
 text = "back to game"
 alignment = 0
 
+[node name="Restart" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=1945219680]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+text = "restart"
+alignment = 0
+
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=510593866]
 custom_maximum_size = Vector2(250, -1)
 layout_mode = 2

@@ -15,7 +15,6 @@ game_menu = ExtResource("2_iywne")
 
 [node name="BigGuy" parent="." unique_id=1109696247 instance=ExtResource("3_lbhrr")]
 position = Vector2(46, 0)
-rotation = -0.0011820737
 move_left_action = "big_left"
 move_right_action = "big_right"
 jump_action = "big_jump"
