@@ -1,7 +1,9 @@
 extends Camera2D
 
-@export var margin := Vector2(600, 600)
+@export var margin := Vector2(500, 500)
 @export var zoom_smooth_speed := 3.0
+@export var min_zoom := 0.5
+@export var max_zoom := 10.0
 
 func _ready() -> void:
 	pass
@@ -16,5 +18,5 @@ func _physics_process(delta: float) -> void:
 		rect = rect.expand(player.global_position)
 	global_position = rect.get_center()
 	var viewport := get_viewport_rect().size
-	var zoom_amt = minf(viewport.x / (rect.size.x + margin.x), viewport.y / (rect.size.y + margin.y))
+	var zoom_amt = clampf(minf(viewport.x / (rect.size.x + margin.x), viewport.y / (rect.size.y + margin.y)), min_zoom, max_zoom)
 	zoom = lerp(zoom, Vector2(zoom_amt, zoom_amt), zoom_smooth_speed * delta)
