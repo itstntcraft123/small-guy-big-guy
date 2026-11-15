@@ -32,12 +32,19 @@ toggle_mode = true
 text = "fullscreen: off"
 alignment = 0
 
+[node name="Vsync" type="Button" parent="VBoxContainer/SelectMenu" unique_id=271709814]
+custom_maximum_size = Vector2(500, -1)
+layout_mode = 2
+theme_type_variation = &"ToggleButton"
+toggle_mode = true
+text = "vsync: off"
+alignment = 0
+
 [node name="Back" type="Button" parent="VBoxContainer/SelectMenu" unique_id=56632280]
 custom_maximum_size = Vector2(250, -1)
 layout_mode = 2
 text = "back"
 alignment = 0
 
+[connection signal="button_focus_changed" from="VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_focus_changed"]
 [connection signal="button_selected" from="VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]
-[connection signal="focus_entered" from="VBoxContainer/SelectMenu/Fullscreen" to="." method="_on_fullscreen_focus_entered"]
-[connection signal="focus_exited" from="VBoxContainer/SelectMenu/Fullscreen" to="." method="_on_fullscreen_focus_exited"]

@@ -2,6 +2,7 @@ class_name SelectMenu
 extends Control
 
 signal button_selected(item: Button)
+signal button_focus_changed(item: Button, focus: bool)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -14,6 +15,8 @@ func _ready() -> void:
 	for child in get_children():
 		if child is Button:
 			(child as Button).pressed.connect(button_selected.emit.bind(child))
+			(child as Button).focus_entered.connect(button_focus_changed.emit.bind(child, true))
+			(child as Button).focus_exited.connect(button_focus_changed.emit.bind(child, false))
 			if not focused:
 				child.grab_focus()
 				focused = true
