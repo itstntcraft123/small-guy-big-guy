@@ -15,6 +15,8 @@ var pressed_frame: int = -100
 
 @onready var small_sprite: Sprite2D = $Sprite2D
 
+var rider1: CharacterBody2D = null
+
 func _ready() -> void:
 	add_to_group("players")
 	small_sprite.scale = Vector2(size_scale, size_scale)
@@ -22,7 +24,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var frame := Engine.get_physics_frames()
-	
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -47,14 +48,14 @@ func _physics_process(delta: float) -> void:
 		small_sprite.flip_h = input_dir < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
-		
+	
 	if input_dir != 0:
 		var side := KinematicCollision2D.new()
 		var motion := Vector2(velocity.x * delta, 0)
 		if test_move(global_transform, motion, side) and absf(side.get_normal().x) > 0.7:
 			var other = side.get_collider()
 			if other is CharacterBody2D and "weight" in other:
-				if weight > other.weight and other.input_dir == 00:
+				if weight > other.weight and other.input_dir == 0:
 					other.move_and_collide(motion)
 	
 	# small guy on big guy
@@ -63,16 +64,32 @@ func _physics_process(delta: float) -> void:
 		for other in get_tree().get_nodes_in_group("players"):
 			if other == self or other.weight >= weight:
 				continue
+			
 			var col := KinematicCollision2D.new()
 			var standing_on_me: bool = other.test_move(other.global_transform, Vector2(0, 2), col) and col.get_collider() == self and col.get_normal().y < -0.7
+			
 			if standing_on_me:
 				var lift := Vector2(0, velocity.y * delta)
+				
 				if other.move_and_collide(lift) == null:
 					rider = other
 					add_collision_exception_with(rider)
 				break
 	
+	if rider1:
+		add_collision_exception_with(rider1)
+	
 	move_and_slide()
+	
+	if rider1:
+		remove_collision_exception_with(rider1)
+		rider1 = null
+	
+	for i in range(get_slide_collision_count()):
+		var col := get_slide_collision(i)
+		var other := col.get_collider()
+		if other in get_tree().get_nodes_in_group("players") and col.get_normal().y < -0.7:
+			other.rider1 = self
 	
 	if rider:
 		remove_collision_exception_with(rider)
