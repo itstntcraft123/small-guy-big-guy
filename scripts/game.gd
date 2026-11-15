@@ -15,4 +15,8 @@ func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
-	pass
+	if Settings.fps_on:
+		$CanvasLayer/Theme/FPS.show()
+		$CanvasLayer/Theme/FPS.text = "fps: " + str(Engine.get_frames_per_second())
+	else:
+		$CanvasLayer/Theme/FPS.hide()

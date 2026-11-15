@@ -40,6 +40,14 @@ toggle_mode = true
 text = "vsync: off"
 alignment = 0
 
+[node name="FPSCounter" type="Button" parent="VBoxContainer/SelectMenu" unique_id=1568388223]
+custom_maximum_size = Vector2(500, -1)
+layout_mode = 2
+theme_type_variation = &"ToggleButton"
+toggle_mode = true
+text = "fps counter: off"
+alignment = 0
+
 [node name="Back" type="Button" parent="VBoxContainer/SelectMenu" unique_id=56632280]
 custom_maximum_size = Vector2(250, -1)
 layout_mode = 2

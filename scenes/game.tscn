@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://d1cv7dwf6x5r5" path="res://sprites/autotile/tileplaceholder13tile-autotile.tres" id="5_iywne"]
 [ext_resource type="Script" uid="uid://c34kn6cj0d2w1" path="res://scripts/camera.gd" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cd3arwj17sxly" path="res://scenes/spike.tscn" id="6_p57ef"]
+[ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="7_u5sy4"]
 
 [node name="Game" type="Node2D" unique_id=2126916218]
 script = ExtResource("1_yqjtg")
@@ -22,8 +23,6 @@ speed = 150.0
 jump_velocity = -300.0
 size_scale = 2.0
 weight = 2.0
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=371086613]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=752737559]
 texture_filter = 1
@@ -43,3 +42,23 @@ position = Vector2(701, 528)
 
 [node name="Spike3" parent="." unique_id=1348853029 instance=ExtResource("6_p57ef")]
 position = Vector2(1296, 528)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=371086613]
+
+[node name="Theme" type="Control" parent="CanvasLayer" unique_id=1341032163]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_u5sy4")
+
+[node name="FPS" type="Label" parent="CanvasLayer/Theme" unique_id=642936865]
+visible = false
+layout_mode = 0
+offset_top = -5.0
+offset_right = 89.0
+offset_bottom = 28.0
+theme_override_font_sizes/font_size = 32
+text = "FPS: 60"
