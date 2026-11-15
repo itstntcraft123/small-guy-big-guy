@@ -78,8 +78,6 @@ func _physics_process(delta: float) -> void:
 					add_collision_exception_with(rider)
 				break
 	
-	position = position.clamp(Vector2.ZERO, screen_size)
-	
 	move_and_slide()
 	
 	if top_rider:
