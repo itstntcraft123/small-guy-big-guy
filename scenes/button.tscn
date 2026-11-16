@@ -15,6 +15,9 @@ size = Vector2(26, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhj8v"]
 size = Vector2(24, 6)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ao8sq"]
+size = Vector2(32, 4)
+
 [node name="Button" type="Area2D" unique_id=1331368196]
 position = Vector2(0, 11)
 script = ExtResource("1_rhj8v")
@@ -31,3 +34,9 @@ shape = SubResource("RectangleShape2D_mi6dp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1352269263]
 shape = SubResource("RectangleShape2D_rhj8v")
+
+[node name="Base" type="StaticBody2D" parent="." unique_id=1984807727]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Base" unique_id=204755877]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_ao8sq")
