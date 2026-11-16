@@ -25,7 +25,7 @@ func _ready() -> void:
 	sprite.centered = false
 	strip.shape = strip.shape.duplicate()
 	platform_shape.shape = platform_shape.shape.duplicate()
-	# platform_shape.position = Vector2.ZERO
+	platform_shape.position = Vector2.ZERO
 	_apply_texture(tex_idle)
 	_setup_strip()
 
@@ -97,7 +97,7 @@ func _apply_texture(tex: Texture2D) -> void:
 	sprite.offset = Vector2(-w / 2.0, -h)
 	
 	var plat_h: float = (platform_shape.shape as RectangleShape2D).size.y
-	# platform_shape.position.y = -h + plat_h / 2.0
+	platform_shape.position.y = -h + plat_h / 2.0
 
 func _add_with_riders(body: Node, counted: Array) -> void:
 	if body in counted:
