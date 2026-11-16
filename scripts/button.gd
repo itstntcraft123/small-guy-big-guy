@@ -1,3 +1,4 @@
+@tool
 extends Area2D
 
 enum Type { GREEN, BLUE, PURPLE }
@@ -12,18 +13,39 @@ enum Type { GREEN, BLUE, PURPLE }
 @export var tex_pressed: Texture2D
 
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var strip: CollisionShape2D = $CollisionShape2D
+@onready var platform: AnimatableBody2D = $Platform
+@onready var platform_shape: CollisionShape2D = $Platform/CollisionShape2D
 
 var active := false
+var current_tex: Texture2D = null
 
-func _add_with_riders(body: Node, counted: Array) -> void:
-	if body in counted:
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	sprite.centered = false
+	strip.shape = strip.shape.duplicate()
+	platform_shape.shape = platform_shape.shape.duplicate()
+	# platform_shape.position = Vector2.ZERO
+	_apply_texture(tex_idle)
+	_setup_strip()
+
+func _setup_strip() -> void:
+	if tex_idle == null:
 		return
-	counted.append(body)
-	for other in get_tree().get_nodes_in_group("players"):
-		if other != body and other.standing_on == body:
-			_add_with_riders(other, counted)
+	var idle_h := tex_idle.get_height()
+	var pressed_h := idle_h
+	if tex_pressed != null:
+		pressed_h = tex_pressed.get_height()
+	
+	var top := -idle_h - 1.0
+	var bottom := -pressed_h + 2.0
+	(strip.shape as RectangleShape2D).size.y = bottom - top
+	strip.position.y = (top + bottom) / 2.0
 
 func _physics_process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+		
 	var small_on := false
 	var big_on := false
 	
@@ -58,19 +80,35 @@ func _physics_process(_delta: float) -> void:
 				tex = tex_big
 			elif small_on:
 				tex = tex_small
-	sprite.texture = tex
+	_apply_texture(tex if tex != null else tex_idle)
 	
 	if now_active and not active:
 		execute()
 	active = now_active
+	
+func _apply_texture(tex: Texture2D) -> void:
+	if tex == null or tex == current_tex:
+		return
+	current_tex = tex
+	sprite.texture = tex
+	
+	var w := tex.get_width()
+	var h := tex.get_height()
+	sprite.offset = Vector2(-w / 2.0, -h)
+	
+	var plat_h: float = (platform_shape.shape as RectangleShape2D).size.y
+	# platform_shape.position.y = -h + plat_h / 2.0
+
+func _add_with_riders(body: Node, counted: Array) -> void:
+	if body in counted:
+		return
+	counted.append(body)
+	for other in get_tree().get_nodes_in_group("players"):
+		if other != body and other.standing_on == body:
+			_add_with_riders(other, counted)
+
 func execute() -> void:
 	pass
-	
-	
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
