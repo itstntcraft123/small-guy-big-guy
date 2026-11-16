@@ -14,8 +14,9 @@ func _on_select_menu_button_selected(item: Button) -> void:
 			get_tree().paused = false
 			queue_free()
 		"Restart":
+			Save.delete_save_data()
 			get_tree().paused = false
-			get_tree().change_scene_to_file("res://scenes/game.tscn")
+			get_tree().reload_current_scene()
 		"Options":
 			add_child(options_menu.instantiate())
 			$MarginContainer.hide()

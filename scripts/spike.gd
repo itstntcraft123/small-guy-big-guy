@@ -13,4 +13,5 @@ func _on_body_entered(body: Node2D) -> void:
 	get_tree().paused = true
 	await get_tree().create_timer(0.3).timeout
 	get_tree().paused = false
-	get_tree().call_deferred("reload_current_scene")
+	Save.delete_save_data()
+	get_tree().reload_current_scene.call_deferred()
