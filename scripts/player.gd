@@ -110,3 +110,13 @@ func _physics_process(delta: float) -> void:
 	
 	if rider:
 		remove_collision_exception_with(rider)
+
+func save_dict() -> Dictionary:
+	return {
+		"position": global_position,
+		"velocity": velocity
+	}
+
+func load_dict(save_data: Dictionary) -> void:
+	global_position = save_data["position"]
+	velocity = save_data["velocity"]
