@@ -100,24 +100,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_u5sy4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Theme" unique_id=1446655793]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/separation = -6
-
-[node name="FPS" type="Label" parent="CanvasLayer/Theme/VBoxContainer" unique_id=642936865]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "FPS: 60"
-
-[node name="TPS" type="Label" parent="CanvasLayer/Theme/VBoxContainer" unique_id=1802787977]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "TPS: 60"
-
 [node name="ButtonGreen" parent="." unique_id=1331368196 instance=ExtResource("8_gee14")]
 position = Vector2(437, 416)
 tex_idle = SubResource("AtlasTexture_6lldf")

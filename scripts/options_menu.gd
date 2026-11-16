@@ -8,6 +8,7 @@ class_name Settings
 
 static var fps_on := false
 static var tps_on := false
+static var save_indicator_on := false
 
 func _process(_delta: float) -> void:
 	fullscreen_btn.text = "fullscreen: on" if _is_fullscreen() else "fullscreen: off"

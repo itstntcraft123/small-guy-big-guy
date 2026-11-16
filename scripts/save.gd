@@ -12,6 +12,8 @@ func save_data() -> void:
 	
 	file.store_var(data)
 	file.close()
+	
+	DebugLayer.just_saved = true
 
 func load_save() -> void:
 	if not FileAccess.file_exists("user://save.bin"):
