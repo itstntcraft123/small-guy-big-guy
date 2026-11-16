@@ -2,6 +2,8 @@ extends Node2D
 
 @export var game_menu: PackedScene
 var just_exited_game_menu := false
+@onready var fps_label := $CanvasLayer/Theme/VBoxContainer/FPS
+@onready var tps_label := $CanvasLayer/Theme/VBoxContainer/TPS
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel") and !has_node("CanvasLayer/EscapeScreen"):
@@ -16,7 +18,23 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Settings.fps_on:
-		$CanvasLayer/Theme/FPS.show()
-		$CanvasLayer/Theme/FPS.text = "fps: " + str(Engine.get_frames_per_second())
+		fps_label.show()
+		fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
 	else:
-		$CanvasLayer/Theme/FPS.hide()
+		fps_label.hide()
+
+# TPS counter
+var _timer := 0.0
+var _ticks := 0
+
+func _physics_process(delta: float) -> void:
+	if Settings.tps_on:
+		tps_label.show()
+		_timer += delta
+		_ticks += 1
+		if _timer >= 1.0:
+			tps_label.text = "TPS: " + str(_ticks)
+			_timer = 0.0
+			_ticks = 0
+	else:
+		tps_label.hide()

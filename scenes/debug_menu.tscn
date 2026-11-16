@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://io2cdsjc7ao6"]
+
+[ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_7bace"]
+[ext_resource type="Script" uid="uid://drh4hll5dki0i" path="res://scripts/debug_menu.gd" id="2_7bace"]
+[ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="3_unqbv"]
+
+[node name="DebugMenu" type="MarginContainer" unique_id=1044473709]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7bace")
+script = ExtResource("2_7bace")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1374439801]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=1268723800]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Debug Options"
+
+[node name="SelectMenu" parent="VBoxContainer" unique_id=543663428 instance=ExtResource("3_unqbv")]
+layout_mode = 2
+
+[node name="FPSCounter" type="Button" parent="VBoxContainer/SelectMenu" unique_id=1568388223]
+custom_maximum_size = Vector2(500, -1)
+layout_mode = 2
+theme_type_variation = &"ToggleButton"
+toggle_mode = true
+text = "fps counter: off"
+alignment = 0
+
+[node name="TPSCounter" type="Button" parent="VBoxContainer/SelectMenu" unique_id=1793952085]
+custom_maximum_size = Vector2(700, -1)
+layout_mode = 2
+theme_type_variation = &"ToggleButton"
+toggle_mode = true
+text = "physics tps counter: off"
+alignment = 0
+
+[node name="Back" type="Button" parent="VBoxContainer/SelectMenu" unique_id=56632280]
+custom_maximum_size = Vector2(250, -1)
+layout_mode = 2
+text = "back"
+alignment = 0
+
+[connection signal="button_focus_changed" from="VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_focus_changed"]
+[connection signal="button_selected" from="VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]

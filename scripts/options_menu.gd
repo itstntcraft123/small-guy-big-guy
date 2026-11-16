@@ -1,11 +1,13 @@
-extends MarginContainer
+extends Control
 class_name Settings
 
-@onready var fullscreen_btn: Button = $VBoxContainer/SelectMenu/Fullscreen
-@onready var vsync_btn: Button = $VBoxContainer/SelectMenu/Vsync
-@onready var fps_btn: Button = $VBoxContainer/SelectMenu/FPSCounter
+@export var debug_options: PackedScene
+
+@onready var fullscreen_btn: Button = $MarginContainer/VBoxContainer/SelectMenu/Fullscreen
+@onready var vsync_btn: Button = $MarginContainer/VBoxContainer/SelectMenu/Vsync
 
 static var fps_on := false
+static var tps_on := false
 
 func _ready() -> void:
 	pass
@@ -15,8 +17,6 @@ func _process(_delta: float) -> void:
 	fullscreen_btn.set_pressed_no_signal(_is_fullscreen())
 	vsync_btn.text = "vsync: on" if DisplayServer.window_get_vsync_mode() else "vsync: off"
 	vsync_btn.set_pressed_no_signal(DisplayServer.window_get_vsync_mode())
-	fps_btn.text = "fps counter: on" if fps_on else "fps counter: off"
-	fps_btn.set_pressed_no_signal(fps_on)
 
 func _on_select_menu_button_selected(item: Button) -> void:
 	match item.name:
@@ -30,8 +30,9 @@ func _on_select_menu_button_selected(item: Button) -> void:
 				DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 			else:
 				DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
-		"FPSCounter":
-			fps_on = fps_btn.button_pressed
+		"Debug":
+			add_child(debug_options.instantiate())
+			$MarginContainer.hide()
 		"Back":
 			get_parent().unhide()
 			queue_free()
@@ -41,7 +42,12 @@ func _is_fullscreen() -> bool:
 	return mode == DisplayServer.WINDOW_MODE_FULLSCREEN or mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 
 func _on_select_menu_button_focus_changed(item: Button, focus: bool) -> void:
-	if focus:
-		item.add_theme_color_override("font_pressed_color", item.get_theme_color("font_hover_pressed_color"))
-	else:
-		item.remove_theme_color_override("font_pressed_color")
+	if item.toggle_mode:
+		if focus:
+			item.add_theme_color_override("font_pressed_color", item.get_theme_color("font_hover_pressed_color"))
+		else:
+			item.remove_theme_color_override("font_pressed_color")
+
+func unhide() -> void:
+	$MarginContainer.show()
+	$MarginContainer/VBoxContainer/SelectMenu/Debug.grab_focus()

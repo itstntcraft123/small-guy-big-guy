@@ -93,32 +93,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_u5sy4")
 
-[node name="FPS" type="Label" parent="CanvasLayer/Theme" unique_id=642936865]
-visible = false
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Theme" unique_id=1446655793]
 layout_mode = 0
-offset_top = -5.0
-offset_right = 89.0
-offset_bottom = 28.0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = -6
+
+[node name="FPS" type="Label" parent="CanvasLayer/Theme/VBoxContainer" unique_id=642936865]
+visible = false
+layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "FPS: 60"
 
-[node name="ButtonGreen" parent="." unique_id=1331368196 instance=ExtResource("8_gee14")]
-position = Vector2(473, 404)
-tex_idle = SubResource("AtlasTexture_0tnpc")
-tex_pressed = SubResource("AtlasTexture_vtaks")
-
-[node name="ButtonBlue" parent="." unique_id=1129485913 instance=ExtResource("8_gee14")]
-position = Vector2(269, 531)
-type = 1
-big_weight_threshold = 2.0
-tex_idle = SubResource("AtlasTexture_kvpfn")
-tex_small = SubResource("AtlasTexture_ir15t")
-tex_pressed = SubResource("AtlasTexture_dinhu")
-
-[node name="ButtonPurple" parent="." unique_id=773823343 instance=ExtResource("8_gee14")]
-position = Vector2(303, 721)
-type = 2
-tex_idle = SubResource("AtlasTexture_kvuet")
-tex_small = SubResource("AtlasTexture_ca42v")
-tex_big = SubResource("AtlasTexture_rysoc")
-tex_pressed = SubResource("AtlasTexture_trtic")
+[node name="TPS" type="Label" parent="CanvasLayer/Theme/VBoxContainer" unique_id=1802787977]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "TPS: 60"
