@@ -13,6 +13,7 @@ class_name Player
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var input_dir: float = 0.0
 var pressed_frame: int = -100
+var standing_on: Node = null
 
 @onready var small_sprite: Sprite2D = $Sprite2D
 @onready var screen_size := get_viewport_rect().size
@@ -84,6 +85,13 @@ func _physics_process(delta: float) -> void:
 				break
 	
 	move_and_slide()
+	
+	standing_on = null
+	for i in get_slide_collision_count():
+		var c := get_slide_collision(i)
+		if c.get_normal().y < -0.7:
+			standing_on = c.get_collider()
+			break
 	
 	if top_rider:
 		remove_collision_exception_with(top_rider)

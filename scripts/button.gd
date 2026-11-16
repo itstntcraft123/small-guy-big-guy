@@ -15,15 +15,28 @@ enum Type { GREEN, BLUE, PURPLE }
 
 var active := false
 
+func _add_with_riders(body: Node, counted: Array) -> void:
+	if body in counted:
+		return
+	counted.append(body)
+	for other in get_tree().get_nodes_in_group("players"):
+		if other != body and other.standing_on == body:
+			_add_with_riders(other, counted)
+
 func _physics_process(_delta: float) -> void:
 	var small_on := false
 	var big_on := false
+	
+	var counted: Array = []
 	for body in get_overlapping_bodies():
 		if body.is_in_group("players"):
-			if body.weight >= big_weight_threshold:
-				big_on = true
-			else:
-				small_on = true
+			_add_with_riders(body, counted)
+	for body in counted:
+		if body.weight >= big_weight_threshold:
+			big_on = true
+		else:
+			small_on = true
+	
 	var now_active := false
 	var tex := tex_idle
 	
@@ -50,7 +63,6 @@ func _physics_process(_delta: float) -> void:
 	if now_active and not active:
 		execute()
 	active = now_active
-	
 func execute() -> void:
 	pass
 	
