@@ -3,9 +3,9 @@ extends Node
 const SAVE_PATH := "user://save.bin"
 
 func save_data() -> void:
-	var data := {}
-	for player in get_tree().get_nodes_in_group("players") + get_tree().get_nodes_in_group("save"):
-		data[player.get_path()] = player.save_dict()
+	var data := get_save_data()
+	for node in get_tree().get_nodes_in_group("players") + get_tree().get_nodes_in_group("save"):
+		data[node.get_path()] = node.save_dict()
 	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file == null:
@@ -17,19 +17,25 @@ func save_data() -> void:
 	
 	DebugLayer.just_saved = true
 
-func load_save() -> void:
+func load_save(settings_only: bool = false) -> void:
+	var data := get_save_data()
+	for key in data:
+		if settings_only and str(key) != "/root/Settings":
+			continue
+		var node := get_node(key)
+		if node != null:
+			node.load_dict(data[key])
+
+func get_save_data() -> Dictionary:
 	if not FileAccess.file_exists(SAVE_PATH):
-		return
+		return {}
 	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if file == null:
 		push_error("FileAccess open", SAVE_PATH, "for read failed", FileAccess.get_open_error())
-		return
+		return {}
 	
-	var data: Dictionary = file.get_var(true)
-	for key in data:
-		var node := get_node(key)
-		node.load_dict(data[key])
+	return file.get_var(false)
 
 func delete_save_data() -> void:
 	if FileAccess.file_exists(SAVE_PATH):

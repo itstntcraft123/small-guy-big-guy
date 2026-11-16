@@ -1,14 +1,12 @@
 extends Control
-class_name Settings
 
 @export var debug_options: PackedScene
 
 @onready var fullscreen_btn: Button = $MarginContainer/VBoxContainer/SelectMenu/Fullscreen
 @onready var vsync_btn: Button = $MarginContainer/VBoxContainer/SelectMenu/Vsync
 
-static var fps_on := false
-static var tps_on := false
-static var save_indicator_on := false
+func _ready() -> void:
+	Save.load_save(true)
 
 func _process(_delta: float) -> void:
 	fullscreen_btn.text = "fullscreen: on" if _is_fullscreen() else "fullscreen: off"
@@ -33,6 +31,7 @@ func _on_select_menu_button_selected(item: Button) -> void:
 			$MarginContainer.hide()
 		"Back":
 			get_parent().unhide()
+			Save.save_data()
 			queue_free()
 
 func _is_fullscreen() -> bool:
