@@ -114,9 +114,11 @@ func _physics_process(delta: float) -> void:
 func save_dict() -> Dictionary:
 	return {
 		"position": global_position,
-		"velocity": velocity
+		"velocity": velocity,
+		"facing": small_sprite.flip_h
 	}
 
 func load_dict(save_data: Dictionary) -> void:
-	global_position = save_data["position"]
-	velocity = save_data["velocity"]
+	global_position = save_data.get("position", global_position)
+	velocity = save_data.get("velocity", velocity)
+	small_sprite.flip_h = save_data.get("facing", small_sprite.flip_h)

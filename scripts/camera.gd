@@ -36,8 +36,8 @@ func load_dict(save_data: Dictionary) -> void:
 	position_smoothing_enabled = false
 	
 	# set position from save data
-	global_position = save_data["position"]
-	zoom = save_data["zoom"]
+	global_position = save_data.get("position", global_position)
+	zoom = save_data.get("zoom", zoom)
 	
 	# stop game from processing to prevent frame of camera at wrong position 
 	get_parent().process_mode = Node.PROCESS_MODE_DISABLED
