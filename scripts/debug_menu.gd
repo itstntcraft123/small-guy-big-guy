@@ -9,9 +9,6 @@ func _ready() -> void:
 	tps_btn.text = "physics tps counter: on" if Settings.tps_on else "physics tps counter: off"
 	tps_btn.set_pressed_no_signal(Settings.tps_on)
 
-func _process(_delta: float) -> void:
-	pass
-
 func _on_select_menu_button_selected(item: Button) -> void:
 	match item.name:
 		"FPSCounter":

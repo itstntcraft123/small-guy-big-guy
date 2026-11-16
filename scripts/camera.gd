@@ -5,12 +5,6 @@ extends Camera2D
 @export var min_zoom := 0.5
 @export var max_zoom := 10.0
 
-func _ready() -> void:
-	pass
-
-func _process(_delta: float) -> void:
-	pass
-
 func _physics_process(delta: float) -> void:
 	var players: Array[Node] = get_tree().get_nodes_in_group("players")
 	var rect := Rect2(players[0].global_position, Vector2.ZERO)

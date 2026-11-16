@@ -13,9 +13,6 @@ func _input(event: InputEvent) -> void:
 			$CanvasLayer.add_child(game_menu.instantiate())
 			get_tree().paused = true
 
-func _ready() -> void:
-	pass
-
 func _process(_delta: float) -> void:
 	if Settings.fps_on:
 		fps_label.show()

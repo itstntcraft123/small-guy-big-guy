@@ -9,9 +9,6 @@ class_name Settings
 static var fps_on := false
 static var tps_on := false
 
-func _ready() -> void:
-	pass
-
 func _process(_delta: float) -> void:
 	fullscreen_btn.text = "fullscreen: on" if _is_fullscreen() else "fullscreen: off"
 	fullscreen_btn.set_pressed_no_signal(_is_fullscreen())
