@@ -14,6 +14,3 @@ func _on_body_entered(body: Node2D) -> void:
 	await get_tree().create_timer(0.3).timeout
 	get_tree().paused = false
 	get_tree().call_deferred("reload_current_scene")
-
-func _process(_delta: float) -> void:
-	pass

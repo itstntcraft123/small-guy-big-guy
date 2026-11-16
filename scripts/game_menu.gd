@@ -8,12 +8,6 @@ func _input(event: InputEvent) -> void:
 		$"../..".just_exited_game_menu = true
 		queue_free()
 
-func _ready() -> void:
-	pass
-
-func _process(_delta: float) -> void:
-	pass
-
 func _on_select_menu_button_selected(item: Button) -> void:
 	match item.name:
 		"BackToGame":

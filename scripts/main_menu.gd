@@ -2,12 +2,6 @@ extends Control
 
 @export var options_menu: PackedScene 
 
-func _ready() -> void:
-	pass
-
-func _process(_delta: float) -> void:
-	pass
-
 func _on_select_menu_button_selected(item: Button) -> void:
 	match item.name:
 		"Play":

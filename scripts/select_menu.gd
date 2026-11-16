@@ -20,6 +20,3 @@ func _ready() -> void:
 			if not focused:
 				child.grab_focus()
 				focused = true
-
-func _process(_delta: float) -> void:
-	pass
