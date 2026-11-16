@@ -20,6 +20,10 @@ enum Type { GREEN, BLUE, PURPLE }
 var active := false
 var current_tex: Texture2D = null
 
+var held: Array = []
+var grace := 0
+const GRACE_FRAMES := 4
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sprite.centered = false
@@ -50,9 +54,19 @@ func _physics_process(_delta: float) -> void:
 	var big_on := false
 	
 	var counted: Array = []
-	for body in get_overlapping_bodies():
-		if body.is_in_group("players"):
+	for body in get_tree().get_nodes_in_group("players"):
+		if body.standing_on == platform:
 			_add_with_riders(body, counted)
+			
+	if not counted.is_empty():
+			held = counted.duplicate()
+			grace = GRACE_FRAMES
+	elif grace > 0:
+			grace -= 1
+			counted = held
+	else:
+		held = []
+	
 	for body in counted:
 		if body.weight >= big_weight_threshold:
 			big_on = true
@@ -97,7 +111,7 @@ func _apply_texture(tex: Texture2D) -> void:
 	sprite.offset = Vector2(-w / 2.0, -h)
 	
 	var plat_h: float = (platform_shape.shape as RectangleShape2D).size.y
-	platform_shape.position.y = -h + plat_h / 2.0
+	platform.position.y = -h + plat_h / 2.0
 
 func _add_with_riders(body: Node, counted: Array) -> void:
 	if body in counted:

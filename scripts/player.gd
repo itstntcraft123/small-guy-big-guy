@@ -25,6 +25,7 @@ func _ready() -> void:
 	add_to_group("players")
 	small_sprite.scale = Vector2(size_scale, size_scale)
 	$CollisionShape2D.scale = Vector2(size_scale, size_scale)
+	floor_snap_length = 6.0
 
 func _physics_process(delta: float) -> void:
 	var frame := Engine.get_physics_frames()
