@@ -48,6 +48,14 @@ toggle_mode = true
 text = "fps counter: off"
 alignment = 0
 
+[node name="TPSCounter" type="Button" parent="VBoxContainer/SelectMenu" unique_id=1793952085]
+custom_maximum_size = Vector2(700, -1)
+layout_mode = 2
+theme_type_variation = &"ToggleButton"
+toggle_mode = true
+text = "physics tps counter: off"
+alignment = 0
+
 [node name="Back" type="Button" parent="VBoxContainer/SelectMenu" unique_id=56632280]
 custom_maximum_size = Vector2(250, -1)
 layout_mode = 2
