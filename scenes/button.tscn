@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bh5qmpvjyanud"]
+
+[ext_resource type="Script" uid="uid://dvhc1ne4s0mtm" path="res://scripts/button.gd" id="1_rhj8v"]
+[ext_resource type="Texture2D" uid="uid://b7vhtyspydtbd" path="res://sprites/buttons.png" id="2_3q610"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63sl8"]
+atlas = ExtResource("2_3q610")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ao8sq"]
+size = Vector2(26, 1)
+
+[node name="Button" type="Area2D" unique_id=1331368196]
+script = ExtResource("1_rhj8v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=140090410]
+texture_filter = 1
+texture = SubResource("AtlasTexture_63sl8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=200025766]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_ao8sq")

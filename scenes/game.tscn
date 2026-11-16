@@ -7,6 +7,44 @@
 [ext_resource type="Script" uid="uid://c34kn6cj0d2w1" path="res://scripts/camera.gd" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cd3arwj17sxly" path="res://scenes/spike.tscn" id="6_p57ef"]
 [ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://bh5qmpvjyanud" path="res://scenes/button.tscn" id="8_gee14"]
+[ext_resource type="Texture2D" uid="uid://b7vhtyspydtbd" path="res://sprites/buttons.png" id="9_0tnpc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tnpc"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtaks"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvpfn"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir15t"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dinhu"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvuet"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca42v"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rysoc"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trtic"]
+atlas = ExtResource("9_0tnpc")
+region = Rect2(96, 64, 32, 32)
 
 [node name="Game" type="Node2D" unique_id=2126916218]
 script = ExtResource("1_yqjtg")
@@ -63,3 +101,24 @@ offset_right = 89.0
 offset_bottom = 28.0
 theme_override_font_sizes/font_size = 32
 text = "FPS: 60"
+
+[node name="ButtonGreen" parent="." unique_id=1331368196 instance=ExtResource("8_gee14")]
+position = Vector2(473, 404)
+tex_idle = SubResource("AtlasTexture_0tnpc")
+tex_pressed = SubResource("AtlasTexture_vtaks")
+
+[node name="ButtonBlue" parent="." unique_id=1129485913 instance=ExtResource("8_gee14")]
+position = Vector2(269, 531)
+type = 1
+big_weight_threshold = 2.0
+tex_idle = SubResource("AtlasTexture_kvpfn")
+tex_small = SubResource("AtlasTexture_ir15t")
+tex_pressed = SubResource("AtlasTexture_dinhu")
+
+[node name="ButtonPurple" parent="." unique_id=773823343 instance=ExtResource("8_gee14")]
+position = Vector2(303, 721)
+type = 2
+tex_idle = SubResource("AtlasTexture_kvuet")
+tex_small = SubResource("AtlasTexture_ca42v")
+tex_big = SubResource("AtlasTexture_rysoc")
+tex_pressed = SubResource("AtlasTexture_trtic")
