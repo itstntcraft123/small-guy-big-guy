@@ -3,28 +3,39 @@
 [ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_ijpji"]
 [ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="1_liyum"]
 [ext_resource type="Script" uid="uid://doykif72smtup" path="res://scripts/options_menu.gd" id="2_hm4m4"]
+[ext_resource type="PackedScene" uid="uid://io2cdsjc7ao6" path="res://scenes/debug_menu.tscn" id="3_lfjc7"]
 
-[node name="OptionsMenu" type="MarginContainer" unique_id=1044473709]
+[node name="OptionsMenu" type="Control" unique_id=221413966]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_hm4m4")
+debug_options = ExtResource("3_lfjc7")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1044473709]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ijpji")
-script = ExtResource("2_hm4m4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1374439801]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1374439801]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1268723800]
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1268723800]
 layout_mode = 2
 theme_override_font_sizes/font_size = 96
 text = "Options"
 
-[node name="SelectMenu" parent="VBoxContainer" unique_id=543663428 instance=ExtResource("1_liyum")]
+[node name="SelectMenu" parent="MarginContainer/VBoxContainer" unique_id=543663428 instance=ExtResource("1_liyum")]
 layout_mode = 2
 
-[node name="Fullscreen" type="Button" parent="VBoxContainer/SelectMenu" unique_id=531943641]
+[node name="Fullscreen" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=531943641]
 custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
@@ -32,7 +43,7 @@ toggle_mode = true
 text = "fullscreen: off"
 alignment = 0
 
-[node name="Vsync" type="Button" parent="VBoxContainer/SelectMenu" unique_id=271709814]
+[node name="Vsync" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=271709814]
 custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
@@ -40,27 +51,17 @@ toggle_mode = true
 text = "vsync: off"
 alignment = 0
 
-[node name="FPSCounter" type="Button" parent="VBoxContainer/SelectMenu" unique_id=1568388223]
+[node name="Debug" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=1568388223]
 custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
-theme_type_variation = &"ToggleButton"
-toggle_mode = true
-text = "fps counter: off"
+text = "debug options"
 alignment = 0
 
-[node name="TPSCounter" type="Button" parent="VBoxContainer/SelectMenu" unique_id=1793952085]
-custom_maximum_size = Vector2(700, -1)
-layout_mode = 2
-theme_type_variation = &"ToggleButton"
-toggle_mode = true
-text = "physics tps counter: off"
-alignment = 0
-
-[node name="Back" type="Button" parent="VBoxContainer/SelectMenu" unique_id=56632280]
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=56632280]
 custom_maximum_size = Vector2(250, -1)
 layout_mode = 2
 text = "back"
 alignment = 0
 
-[connection signal="button_focus_changed" from="VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_focus_changed"]
-[connection signal="button_selected" from="VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]
+[connection signal="button_focus_changed" from="MarginContainer/VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_focus_changed"]
+[connection signal="button_selected" from="MarginContainer/VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]
