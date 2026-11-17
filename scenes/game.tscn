@@ -98,7 +98,7 @@ grow_vertical = 2
 theme = ExtResource("7_u5sy4")
 
 [node name="ButtonGreen" parent="." unique_id=1331368196 instance=ExtResource("8_gee14")]
-position = Vector2(437, 416)
+position = Vector2(427, 416)
 tex_idle = SubResource("AtlasTexture_6lldf")
 tex_pressed = SubResource("AtlasTexture_wa765")
 
@@ -118,7 +118,11 @@ tex_big = SubResource("AtlasTexture_kvpfn")
 tex_pressed = SubResource("AtlasTexture_dinhu")
 
 [node name="DoorGreen" parent="." unique_id=1193654706 instance=ExtResource("10_vtaks")]
-position = Vector2(492, 400)
+position = Vector2(496, 400)
+
+[node name="DoorBlue" parent="." unique_id=1256624869 instance=ExtResource("10_vtaks")]
+position = Vector2(102, 528)
+color = 1
 
 [node name="DoorPurple" parent="." unique_id=737698692 instance=ExtResource("10_vtaks")]
 position = Vector2(437, 720)
