@@ -4,6 +4,7 @@ extends Control
 
 @onready var fullscreen_btn: Button = $MarginContainer/VBoxContainer/SelectMenu/Fullscreen
 @onready var vsync_btn: Button = $MarginContainer/VBoxContainer/SelectMenu/Vsync
+@onready var restart_btn: Button = $MarginContainer/VBoxContainer/SelectMenu/RestartKey
 
 func _ready() -> void:
 	Save.load_save(true)
@@ -13,6 +14,8 @@ func _process(_delta: float) -> void:
 	fullscreen_btn.set_pressed_no_signal(_is_fullscreen())
 	vsync_btn.text = "vsync: on" if DisplayServer.window_get_vsync_mode() else "vsync: off"
 	vsync_btn.set_pressed_no_signal(DisplayServer.window_get_vsync_mode())
+	restart_btn.text = "r to restart: on" if Settings.r_to_restart else "r to restart: off"
+	restart_btn.set_pressed_no_signal(Settings.r_to_restart)
 
 func _on_select_menu_button_selected(item: Button) -> void:
 	match item.name:
@@ -26,6 +29,8 @@ func _on_select_menu_button_selected(item: Button) -> void:
 				DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 			else:
 				DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+		"RestartKey":
+			Settings.r_to_restart = restart_btn.button_pressed
 		"Debug":
 			add_child(debug_options.instantiate())
 			$MarginContainer.hide()
