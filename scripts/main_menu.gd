@@ -5,7 +5,7 @@ extends Control
 func _on_select_menu_button_selected(item: Object) -> void:
 	match item.name:
 		"Play":
-			get_tree().change_scene_to_file("res://scenes/game.tscn")
+			Gamemgr.load_current_level()
 		"Options":
 			add_child(options_menu.instantiate())
 			$MarginContainer.hide()
