@@ -23,6 +23,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ijpji")
+theme_override_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1374439801]
 layout_mode = 2
@@ -64,6 +65,14 @@ custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 text = "debug options"
 alignment = 0
+
+[node name="Source" type="LinkButton" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=1854103576]
+custom_maximum_size = Vector2(500, -1)
+layout_mode = 2
+focus_mode = 2
+text = "source code"
+underline = 2
+uri = "https://github.com/itstntcraft123/small-guy-big-guy"
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=56632280]
 custom_maximum_size = Vector2(250, -1)

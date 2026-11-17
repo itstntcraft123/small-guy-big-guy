@@ -12,10 +12,10 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if DisplayServer.window_get_vsync_mode() != prev_vsync:
-		Save.save_data()
+		Save.save_cfg()
 	prev_vsync = DisplayServer.window_get_vsync_mode()
 	if DisplayServer.window_get_mode() != prev_fullscreen:
-		Save.save_data()
+		Save.save_cfg()
 	prev_fullscreen = DisplayServer.window_get_mode()
 
 func save_dict() -> Dictionary:

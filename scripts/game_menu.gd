@@ -8,7 +8,7 @@ func _input(event: InputEvent) -> void:
 		$"../..".just_exited_game_menu = true
 		queue_free()
 
-func _on_select_menu_button_selected(item: Button) -> void:
+func _on_select_menu_button_selected(item: Object) -> void:
 	match item.name:
 		"BackToGame":
 			get_tree().paused = false

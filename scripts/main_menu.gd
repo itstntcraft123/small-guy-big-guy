@@ -2,7 +2,7 @@ extends Control
 
 @export var options_menu: PackedScene 
 
-func _on_select_menu_button_selected(item: Button) -> void:
+func _on_select_menu_button_selected(item: Object) -> void:
 	match item.name:
 		"Play":
 			get_tree().change_scene_to_file("res://scenes/game.tscn")

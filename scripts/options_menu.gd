@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 	restart_btn.text = "r to restart: on" if Settings.r_to_restart else "r to restart: off"
 	restart_btn.set_pressed_no_signal(Settings.r_to_restart)
 
-func _on_select_menu_button_selected(item: Button) -> void:
+func _on_select_menu_button_selected(item: Object) -> void:
 	match item.name:
 		"Fullscreen":
 			if !fullscreen_btn.button_pressed:
@@ -43,7 +43,7 @@ func _is_fullscreen() -> bool:
 	var mode = DisplayServer.window_get_mode()
 	return mode == DisplayServer.WINDOW_MODE_FULLSCREEN or mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 
-func _on_select_menu_button_focus_changed(item: Button, focus: bool) -> void:
+func _on_select_menu_button_focus_changed(item: Object, focus: bool) -> void:
 	if item.toggle_mode:
 		if focus:
 			item.add_theme_color_override("font_pressed_color", item.get_theme_color("font_hover_pressed_color"))

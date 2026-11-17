@@ -12,7 +12,7 @@ func _ready() -> void:
 	save_indicator.text = "save indicator: on" if Settings.save_indicator_on else "save indicator: off"
 	save_indicator.set_pressed_no_signal(Settings.save_indicator_on)
 
-func _on_select_menu_button_selected(item: Button) -> void:
+func _on_select_menu_button_selected(item: Object) -> void:
 	match item.name:
 		"FPSCounter":
 			Settings.fps_on = fps_btn.button_pressed
@@ -27,7 +27,7 @@ func _on_select_menu_button_selected(item: Button) -> void:
 			get_parent().unhide()
 			queue_free()
 
-func _on_select_menu_button_focus_changed(item: Button, focus: bool) -> void:
+func _on_select_menu_button_focus_changed(item: Object, focus: bool) -> void:
 	if focus:
 		item.add_theme_color_override("font_pressed_color", item.get_theme_color("font_hover_pressed_color"))
 	else:
