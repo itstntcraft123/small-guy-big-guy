@@ -11,7 +11,7 @@ func save_game() -> void:
 	
 	var file = FileAccess.open(LEVEL_PATH, FileAccess.WRITE)
 	if file == null:
-		push_error("FileAccess open", LEVEL_PATH, "for write failed", FileAccess.get_open_error())
+		push_error("FileAccess open ", LEVEL_PATH, " for write failed ", FileAccess.get_open_error())
 		return
 	
 	file.store_var(data)
@@ -22,8 +22,6 @@ func save_game() -> void:
 func load_game() -> void:
 	var data := get_game_save()
 	for key in data:
-		#if settings_only and str(key) != "/root/Settings":
-			#continue
 		var node := get_node(key)
 		if node != null:
 			node.load_dict(data[key])
@@ -34,7 +32,7 @@ func get_game_save() -> Dictionary:
 	
 	var file = FileAccess.open(LEVEL_PATH, FileAccess.READ)
 	if file == null:
-		push_error("FileAccess open", LEVEL_PATH, "for read failed", FileAccess.get_open_error())
+		push_error("FileAccess open ", LEVEL_PATH, " for read failed ", FileAccess.get_open_error())
 		return {}
 	
 	return file.get_var(false)
@@ -43,7 +41,7 @@ func delete_game_save() -> void:
 	if FileAccess.file_exists(LEVEL_PATH):
 		var result = DirAccess.remove_absolute(LEVEL_PATH)
 		if result != OK:
-			push_error("DirAccess delete", LEVEL_PATH, "failed", DirAccess.get_open_error())
+			push_error("DirAccess delete ", LEVEL_PATH, " failed ", DirAccess.get_open_error())
 
 
 func save_cfg() -> void:
@@ -73,7 +71,7 @@ func save_progress() -> void:
 	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file == null:
-		push_error("FileAccess open", SAVE_PATH, "for write failed", FileAccess.get_open_error())
+		push_error("FileAccess open ", SAVE_PATH, " for write failed" , FileAccess.get_open_error())
 		return
 	
 	file.store_var(level)
@@ -84,7 +82,7 @@ func save_progress() -> void:
 func load_progress() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if file == null:
-		push_error("FileAccess open", LEVEL_PATH, "for read failed", FileAccess.get_open_error())
+		push_error("FileAccess open ", LEVEL_PATH, " for read failed ", FileAccess.get_open_error())
 		return
 	
 	Gamemgr.level = file.get_var(false)

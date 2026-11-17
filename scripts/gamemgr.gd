@@ -5,6 +5,7 @@ var level: int = 1
 
 func _ready() -> void:
 	Save.load_progress()
+	Save.save_progress()
 
 func load_current_level() -> void:
 	load_level(level)
