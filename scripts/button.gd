@@ -26,6 +26,7 @@ const GRACE_FRAMES := 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("buttons")
 	sprite.centered = false
 	strip.shape = strip.shape.duplicate()
 	platform_shape.shape = platform_shape.shape.duplicate()

@@ -1,7 +1,5 @@
 [gd_scene format=4 uid="uid://bwoptb407y16w"]
 
-[ext_resource type="Script" uid="uid://duxlyg64xjhe2" path="res://scripts/game.gd" id="1_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://dqpupgu43dttv" path="res://scenes/game_menu.tscn" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://dd6wwlvb6o1su" path="res://scenes/player.tscn" id="3_lbhrr"]
 [ext_resource type="TileSet" uid="uid://d1cv7dwf6x5r5" path="res://sprites/autotile/tileplaceholder13tile-autotile.tres" id="5_iywne"]
 [ext_resource type="Script" uid="uid://c34kn6cj0d2w1" path="res://scripts/camera.gd" id="5_p57ef"]
@@ -9,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bh5qmpvjyanud" path="res://scenes/button.tscn" id="8_gee14"]
 [ext_resource type="Texture2D" uid="uid://bhiw5gndhxxao" path="res://sprites/buttons.png" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="10_vtaks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6lldf"]
 atlas = ExtResource("9_0tnpc")
@@ -50,8 +49,6 @@ atlas = SubResource("CompressedTexture2D_mi6dp")
 region = Rect2(96, 57, 32, 9)
 
 [node name="Game" type="Node2D" unique_id=2126916218]
-script = ExtResource("1_yqjtg")
-game_menu = ExtResource("2_iywne")
 
 [node name="Autosave" type="Timer" parent="." unique_id=996129589]
 wait_time = 10.0
@@ -119,5 +116,16 @@ tex_idle = SubResource("AtlasTexture_0tnpc")
 tex_small = SubResource("AtlasTexture_vtaks")
 tex_big = SubResource("AtlasTexture_kvpfn")
 tex_pressed = SubResource("AtlasTexture_dinhu")
+
+[node name="DoorGreen" parent="." unique_id=1193654706 instance=ExtResource("10_vtaks")]
+position = Vector2(492, 400)
+
+[node name="DoorPurple" parent="." unique_id=737698692 instance=ExtResource("10_vtaks")]
+position = Vector2(437, 720)
+color = 2
+
+[node name="DoorPurple2" parent="." unique_id=1214280603 instance=ExtResource("10_vtaks")]
+position = Vector2(437, 688)
+color = 2
 
 [connection signal="timeout" from="Autosave" to="." method="_on_autosave_timeout"]
