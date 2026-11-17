@@ -7,7 +7,7 @@ extends Control
 @onready var restart_btn: Button = $MarginContainer/VBoxContainer/SelectMenu/RestartKey
 
 func _ready() -> void:
-	Save.load_save(true)
+	Save.load_cfg()
 
 func _process(_delta: float) -> void:
 	fullscreen_btn.text = "fullscreen: on" if _is_fullscreen() else "fullscreen: off"
@@ -36,7 +36,7 @@ func _on_select_menu_button_selected(item: Button) -> void:
 			$MarginContainer.hide()
 		"Back":
 			get_parent().unhide()
-			Save.save_data()
+			Save.save_cfg()
 			queue_free()
 
 func _is_fullscreen() -> bool:

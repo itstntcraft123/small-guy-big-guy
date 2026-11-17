@@ -1,9 +1,10 @@
 extends Node
 
 const SAVE_PATH := "user://save.bin"
+const CONFIG_PATH := "user://config.cfg"
 
-func save_data() -> void:
-	var data := get_save_data()
+func save_game() -> void:
+	var data := get_game_save()
 	for node in get_tree().get_nodes_in_group("players") + get_tree().get_nodes_in_group("save"):
 		data[node.get_path()] = node.save_dict()
 	
@@ -17,16 +18,16 @@ func save_data() -> void:
 	
 	DebugLayer.just_saved = true
 
-func load_save(settings_only: bool = false) -> void:
-	var data := get_save_data()
+func load_game() -> void:
+	var data := get_game_save()
 	for key in data:
-		if settings_only and str(key) != "/root/Settings":
-			continue
+		#if settings_only and str(key) != "/root/Settings":
+			#continue
 		var node := get_node(key)
 		if node != null:
 			node.load_dict(data[key])
 
-func get_save_data() -> Dictionary:
+func get_game_save() -> Dictionary:
 	if not FileAccess.file_exists(SAVE_PATH):
 		return {}
 	
@@ -37,8 +38,30 @@ func get_save_data() -> Dictionary:
 	
 	return file.get_var(false)
 
-func delete_save_data() -> void:
+func delete_game_save() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
-		var code = DirAccess.remove_absolute(SAVE_PATH)
-		if code != OK:
+		var result = DirAccess.remove_absolute(SAVE_PATH)
+		if result != OK:
 			push_error("DirAccess delete", SAVE_PATH, "failed", DirAccess.get_open_error())
+
+
+func save_cfg() -> void:
+	var config := ConfigFile.new()
+	var data: Dictionary = Settings.save_dict()
+	for key in data:
+		config.set_value("Settings", key, data[key])
+	config.save(CONFIG_PATH)
+	
+	DebugLayer.just_saved = true
+
+func load_cfg() -> void:
+	var config = ConfigFile.new()
+	var result = config.load(CONFIG_PATH)
+	if result != OK:
+		push_error("ConfigFile load", CONFIG_PATH, "failed")
+		return
+	
+	var data := {}
+	for key in config.get_section_keys("Settings"):
+		data[key] = config.get_value("Settings", key)
+	Settings.load_dict(data)

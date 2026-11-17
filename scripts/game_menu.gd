@@ -14,7 +14,7 @@ func _on_select_menu_button_selected(item: Button) -> void:
 			get_tree().paused = false
 			queue_free()
 		"Restart":
-			Save.delete_save_data()
+			Save.delete_game_save()
 			get_tree().paused = false
 			get_tree().reload_current_scene()
 		"Options":

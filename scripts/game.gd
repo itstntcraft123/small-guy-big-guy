@@ -12,16 +12,16 @@ func _input(event: InputEvent) -> void:
 			just_exited_game_menu = false
 		else:
 			$CanvasLayer.add_child(game_menu.instantiate())
-			Save.save_data()
+			Save.save_game()
 			get_tree().paused = true
 
 func restart_level() -> void:
-	Save.delete_save_data()
+	Save.delete_game_save()
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 	
 func _ready() -> void:
-	Save.load_save()
+	Save.load_game()
 
 func _on_autosave_timeout() -> void:
-	Save.save_data()
+	Save.save_game()

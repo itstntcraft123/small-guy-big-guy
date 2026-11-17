@@ -8,8 +8,7 @@ var prev_vsync := DisplayServer.window_get_vsync_mode()
 var prev_fullscreen := DisplayServer.window_get_mode()
 
 func _ready() -> void:
-	add_to_group("save")
-	Save.load_save(true)
+	Save.load_cfg()
 
 func _process(_delta: float) -> void:
 	if DisplayServer.window_get_vsync_mode() != prev_vsync:
