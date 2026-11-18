@@ -85,18 +85,13 @@ func _physics_process(delta: float) -> void:
 
 
 func _show_state(flashing: bool, remaining: float, flash: float) -> void:
-	var show := not is_open
+	var shown := not is_open
 	if flashing:
 		var seg := mini(int(remaining / (flash / 4.0)), 3)
 		if seg % 2 == 1:
-			show = not show
-	sprite.visible = show
+			shown = not shown
+	sprite.visible = shown
 
 func _set_open(open: bool) -> void:
 	is_open = open
 	shape.set_deferred("disabled", open)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

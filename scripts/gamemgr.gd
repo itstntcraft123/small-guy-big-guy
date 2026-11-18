@@ -12,7 +12,7 @@ func load_current_level() -> void:
 
 func next_level() -> void:
 	level += 1
-	Save.save_game()
+	Save.delete_game_save()
 	Save.save_progress()
 	load_current_level()
 
