@@ -1,18 +1,19 @@
 [gd_scene format=3 uid="uid://cxwxhs8g18clk"]
 
 [ext_resource type="Script" uid="uid://buucw8nco34nq" path="res://scripts/door.gd" id="1_uvdjg"]
-[ext_resource type="Texture2D" uid="uid://ek8t77wjl8l7" path="res://sprites/doors.png" id="2_83dcw"]
+[ext_resource type="Texture2D" uid="uid://cyethhs3i58kj" path="res://sprites/doors.png" id="2_83dcw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63sl8"]
 size = Vector2(32, 32)
 
 [node name="Door" type="StaticBody2D" unique_id=1193654706]
 script = ExtResource("1_uvdjg")
+inverted = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2139393573]
 texture_filter = 1
 texture = ExtResource("2_83dcw")
-hframes = 3
+hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1136704778]
 shape = SubResource("RectangleShape2D_63sl8")

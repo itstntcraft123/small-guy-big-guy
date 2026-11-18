@@ -6,6 +6,10 @@ extends StaticBody2D
 		color = value
 		_update_sprite()
 
+@export var inverted := false:
+	set(value):
+		inverted = value
+		_update_sprite()
 @export var use_buffer := true
 @export var hold_open_time := 1.0
 @export var open_delay := 0.0
@@ -21,13 +25,20 @@ var hold_timer := 0.0
 var delay_timer := 0.0
 
 func _ready() -> void:
-	# add_to_group("buttons")
+	if inverted and not Engine.is_editor_hint():
+		_set_open(true)
 	_update_sprite()
 
 func _update_sprite() -> void:
 	if not is_node_ready():
 		return
-	sprite.frame = color
+	sprite.visible = true
+	sprite.frame = _frame_for(not is_open)
+
+func _frame_for(solid: bool) -> int:
+	if not inverted: 
+		return color
+	return 3 if solid else 4
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -35,11 +46,16 @@ func _physics_process(delta: float) -> void:
 	
 	var powered := false
 	for b in get_tree().get_nodes_in_group("buttons"):
-		if not ("type" in b and "active" in b):
+		if not ("type" in b and "active" in b and "inverted" in b):
 			continue
-		if b.type == color and b.active:
+		if b.inverted != inverted:
+			continue
+		if not inverted and b.type != color:
+			continue
+		if b.active:
 			powered = true
 			break
+	powered = powered != inverted
 	
 	var hold := hold_open_time if use_buffer else 0.0
 	var delay := open_delay if use_buffer else 0.0
@@ -85,12 +101,18 @@ func _physics_process(delta: float) -> void:
 
 
 func _show_state(flashing: bool, remaining: float, flash: float) -> void:
-	var shown := not is_open
+	var solid := not is_open
 	if flashing:
 		var seg := mini(int(remaining / (flash / 4.0)), 3)
 		if seg % 2 == 1:
-			shown = not shown
-	sprite.visible = shown
+			solid = not solid
+	
+	if inverted:
+		sprite.visible = true
+		sprite.frame = _frame_for(solid)
+	else:
+		sprite.visible = solid
+		sprite.frame = color
 
 func _set_open(open: bool) -> void:
 	is_open = open

@@ -4,6 +4,7 @@ extends Area2D
 enum Type { GREEN, BLUE, PURPLE }
 # green is for small, blue is for big, purple is for both
 
+@export var inverted := false
 @export var type: Type = Type.GREEN
 @export var big_weight_threshold: float = 1.5
 
