@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://7hrgq1nk230s" path="res://sprites/small_guy.png" id="2_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ao8sq"]
-size = Vector2(32, 32)
+size = Vector2(31.9, 31.9)
 
 [node name="Player" type="CharacterBody2D" unique_id=2137464374]
 script = ExtResource("1_g2els")

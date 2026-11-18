@@ -14,4 +14,4 @@ func _on_body_entered(body: Node2D) -> void:
 	await get_tree().create_timer(0.3).timeout
 	get_tree().paused = false
 	Save.delete_game_save()
-	get_tree().reload_current_scene.call_deferred()
+	Gamemgr.load_current_level.call_deferred()

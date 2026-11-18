@@ -12,7 +12,7 @@ script = ExtResource("1_yqjtg")
 game_menu = ExtResource("2_iywne")
 
 [node name="Autosave" type="Timer" parent="." unique_id=996129589]
-wait_time = 10.0
+wait_time = 5.0
 autostart = true
 
 [node name="SmallGuy" parent="." unique_id=2137464374 instance=ExtResource("3_lbhrr")]

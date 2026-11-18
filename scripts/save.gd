@@ -27,7 +27,8 @@ func load_game() -> void:
 			node.load_dict(data[key])
 
 func get_game_save() -> Dictionary:
-	if not FileAccess.file_exists(LEVEL_PATH):
+	if !FileAccess.file_exists(LEVEL_PATH):
+		#print("file doesn't exist: ", LEVEL_PATH)
 		return {}
 	
 	var file = FileAccess.open(LEVEL_PATH, FileAccess.READ)
@@ -54,6 +55,10 @@ func save_cfg() -> void:
 	DebugLayer.just_saved = true
 
 func load_cfg() -> void:
+	if !FileAccess.file_exists(CONFIG_PATH):
+		#print("file doesn't exist: ", CONFIG_PATH)
+		return
+	
 	var config = ConfigFile.new()
 	var result = config.load(CONFIG_PATH)
 	if result != OK:
@@ -80,9 +85,22 @@ func save_progress() -> void:
 	DebugLayer.just_saved = true
 
 func load_progress() -> void:
+	if !FileAccess.file_exists(SAVE_PATH):
+		#print("file doesn't exist: ", SAVE_PATH)
+		return
+	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if file == null:
 		push_error("FileAccess open ", LEVEL_PATH, " for read failed ", FileAccess.get_open_error())
 		return
 	
 	Gamemgr.level = file.get_var(false)
+
+func delete_progress() -> void:
+	if !FileAccess.file_exists(SAVE_PATH):
+		#print("file doesn't exist: ", SAVE_PATH)
+		return
+	
+	var result = DirAccess.remove_absolute(SAVE_PATH)
+	if result != OK:
+		push_error("DirAccess delete ", SAVE_PATH, " failed ", DirAccess.get_open_error())

@@ -16,7 +16,12 @@ func _on_select_menu_button_selected(item: Object) -> void:
 		"Restart":
 			Save.delete_game_save()
 			get_tree().paused = false
-			get_tree().reload_current_scene()
+			Gamemgr.load_current_level()
+		"Reset":
+			Save.delete_progress()
+			Save.delete_game_save()
+			get_tree().paused = false
+			Gamemgr.load_level(1)
 		"Options":
 			add_child(options_menu.instantiate())
 			$MarginContainer.hide()

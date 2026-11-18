@@ -18,7 +18,7 @@ func _input(event: InputEvent) -> void:
 func restart_level() -> void:
 	Save.delete_game_save()
 	get_tree().paused = false
-	get_tree().reload_current_scene()
+	Gamemgr.load_current_level()
 	
 func _ready() -> void:
 	Save.load_game()
