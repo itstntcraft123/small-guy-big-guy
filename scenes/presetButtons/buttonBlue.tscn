@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cfuoai66ktlsi"]
+
+[ext_resource type="Script" uid="uid://dvhc1ne4s0mtm" path="res://scripts/button.gd" id="1_2f1fq"]
+[ext_resource type="Texture2D" uid="uid://bhiw5gndhxxao" path="res://sprites/buttons.png" id="2_f6av4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dipcc"]
+atlas = ExtResource("2_f6av4")
+region = Rect2(0, 22, 32, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6av4"]
+atlas = ExtResource("2_f6av4")
+region = Rect2(32, 22, 32, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doc57"]
+atlas = ExtResource("2_f6av4")
+region = Rect2(64, 22, 32, 22)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mi6dp"]
+load_path = "res://.godot/imported/buttons.png-f4913ad2a84bfeace2dd271f2c57ef3d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63sl8"]
+atlas = SubResource("CompressedTexture2D_mi6dp")
+region = Rect2(0, 0, 32, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6vdq"]
+size = Vector2(26, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2rgk"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ao8sq"]
+size = Vector2(32, 4)
+
+[node name="ButtonBlue" type="Area2D" unique_id=1331368196]
+position = Vector2(0, 11)
+script = ExtResource("1_2f1fq")
+type = 1
+tex_idle = SubResource("AtlasTexture_dipcc")
+tex_small = SubResource("AtlasTexture_f6av4")
+tex_pressed = SubResource("AtlasTexture_doc57")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=140090410]
+texture_filter = 1
+texture = SubResource("AtlasTexture_63sl8")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=200025766]
+shape = SubResource("RectangleShape2D_n6vdq")
+
+[node name="Platform" type="AnimatableBody2D" parent="." unique_id=1865990670]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1352269263]
+shape = SubResource("RectangleShape2D_n2rgk")
+
+[node name="Base" type="StaticBody2D" parent="." unique_id=1984807727]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Base" unique_id=204755877]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_ao8sq")

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://boeiut3vvglmq"]
+
+[ext_resource type="Script" uid="uid://dvhc1ne4s0mtm" path="res://scripts/button.gd" id="1_q0j8l"]
+[ext_resource type="Texture2D" uid="uid://bhiw5gndhxxao" path="res://sprites/buttons.png" id="2_0s74k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yc2n"]
+atlas = ExtResource("2_0s74k")
+region = Rect2(0, 0, 32, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5bo2"]
+atlas = ExtResource("2_0s74k")
+region = Rect2(32, 0, 32, 22)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mi6dp"]
+load_path = "res://.godot/imported/buttons.png-f4913ad2a84bfeace2dd271f2c57ef3d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63sl8"]
+atlas = SubResource("CompressedTexture2D_mi6dp")
+region = Rect2(0, 0, 32, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2f1fq"]
+size = Vector2(26, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6av4"]
+size = Vector2(24, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ao8sq"]
+size = Vector2(32, 4)
+
+[node name="buttonGreen" type="Area2D" unique_id=1331368196]
+position = Vector2(0, 11)
+script = ExtResource("1_q0j8l")
+tex_idle = SubResource("AtlasTexture_5yc2n")
+tex_pressed = SubResource("AtlasTexture_x5bo2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=140090410]
+texture_filter = 1
+texture = SubResource("AtlasTexture_63sl8")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=200025766]
+shape = SubResource("RectangleShape2D_2f1fq")
+
+[node name="Platform" type="AnimatableBody2D" parent="." unique_id=1865990670]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1352269263]
+shape = SubResource("RectangleShape2D_f6av4")
+
+[node name="Base" type="StaticBody2D" parent="." unique_id=1984807727]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Base" unique_id=204755877]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_ao8sq")
