@@ -1,0 +1,53 @@
+[gd_scene format=4 uid="uid://bbv04we8vnbto"]
+
+[ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_8rpwu"]
+[ext_resource type="PackedScene" uid="uid://cfuoai66ktlsi" path="res://scenes/presetButtons/buttonBlue.tscn" id="2_rdsj4"]
+[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="3_e127x"]
+[ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="4_heu5o"]
+[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="5_s45gt"]
+
+[node name="Game" unique_id=2126916218 instance=ExtResource("1_8rpwu")]
+
+[node name="TileMapLayer" parent="." index="3" unique_id=752737559]
+tile_map_data = PackedByteArray("AAD+/wMAAAACAAMAAAD//wMAAAACAAMAAAAAAAMAAAACAAMAAAABAAMAAAACAAMAAAACAAMAAAACAAMAAAADAAMAAAACAAMAAAAEAAMAAAACAAMAAAAFAAMAAAACAAMAAAAGAAMAAAACAAMAAAAHAAMAAAACAAMAAAAIAAMAAAACAAMAAAAJAAMAAAACAAMAAAAKAAMAAAACAAMAAAALAAMAAAACAAMAAAAMAAMAAAACAAMAAAANAAMAAAACAAMAAAAOAAMAAAACAAMAAAAPAAMAAAACAAMAAAAQAAMAAAACAAMAAAARAAMAAAACAAMAAAD9/wMAAAACAAMAAAD8/wMAAAACAAMAAAD7/wMAAAACAAMAAAD6/wMAAAABAAIAAAD6/wIAAAAAAAEAAAD6/wEAAAAAAAEAAAD6/wAAAAAAAAEAAAD6////AAAAAAEAAAD6//7/AAAAAAEAAAD6//3/AAAAAAEAAAD6//z/AAAAAAEAAAD6//v/AAAAAAEAAAD6//r/AAAAAAEAAAD6//n/AAAAAAEAAAD6//j/AAAAAAEAAAD6//f/AAAAAAEAAAD6//b/AAAAAAEAAAD6//X/AAAAAAEAAAD6//T/AAAAAAEAAAD6//P/AAAAAAEAAAD6//L/AAAAAAEAAAD6//H/AAAAAAEAAAD6//D/AAAAAAEAAAD6/+//AAAAAAEAAAD6/+7/AAAAAAAAAAASAAMAAAACAAMAAAATAAMAAAACAAMAAAAUAAMAAAACAAMAAAAVAAMAAAACAAMAAAAWAAMAAAACAAMAAAAXAAMAAAADAAIAAAAXAAIAAAAAAAEAAAAXAAEAAAAAAAEAAAAXAAAAAAAAAAEAAAAXAP//AAAAAAEAAAAXAP7/AAAAAAEAAAAXAP3/AAAAAAEAAAAXAPz/AAAAAAEAAAAXAPv/AAAAAAEAAAAXAPr/AAAAAAEAAAAXAPn/AAAAAAEAAAAXAPj/AAAAAAEAAAAXAPf/AAAAAAEAAAAXAPb/AAAAAAEAAAAXAPX/AAAAAAEAAAAXAPT/AAAAAAEAAAAXAPP/AAAAAAEAAAAXAPL/AAAAAAEAAAAXAPH/AAAAAAEAAAAXAPD/AAAAAAEAAAAXAO//AAAAAAEAAAAXAO7/AAAAAAAAAAA=")
+
+[node name="ButtonBlue" parent="." index="6" unique_id=1331368196 instance=ExtResource("2_rdsj4")]
+position = Vector2(162, 96)
+
+[node name="Door" parent="." index="7" unique_id=1193654706 instance=ExtResource("3_e127x")]
+position = Vector2(257, 16)
+color = 1
+
+[node name="Door2" parent="." index="8" unique_id=1184006038 instance=ExtResource("3_e127x")]
+position = Vector2(257, 48)
+color = 1
+
+[node name="Door3" parent="." index="9" unique_id=1828789075 instance=ExtResource("3_e127x")]
+position = Vector2(257, 80)
+color = 1
+
+[node name="Label" type="Label" parent="." index="10" unique_id=238649676]
+offset_left = 40.0
+offset_top = -4.0
+offset_right = 290.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("4_heu5o")
+text = "big guy is heavy enough 
+to push this button 
+:/"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." index="11" unique_id=920353427]
+offset_left = 304.0
+offset_top = 7.0
+offset_right = 554.0
+offset_bottom = 84.0
+theme_override_fonts/font = ExtResource("4_heu5o")
+text = "if you get softlocked
+esc -> restart
+or
+esc -> options -> r to restart"
+horizontal_alignment = 1
+
+[node name="Portal" parent="." index="12" unique_id=1527810771 instance=ExtResource("5_s45gt")]
+position = Vector2(563, 80)

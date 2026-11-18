@@ -21,9 +21,9 @@ theme_override_fonts/font = ExtResource("3_bfxgj")
 text = "WASD and arrow keys to move around!"
 
 [node name="Label2" type="Label" parent="." index="8" unique_id=520314787]
-offset_left = 289.0
-offset_top = 194.0
-offset_right = 591.0
-offset_bottom = 217.0
+offset_left = 296.0
+offset_top = 253.0
+offset_right = 598.0
+offset_bottom = 276.0
 theme_override_fonts/font = ExtResource("3_bfxgj")
 text = "Get both smallguy and big guy to the portal! ->"

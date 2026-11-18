@@ -1,0 +1,49 @@
+[gd_scene format=4 uid="uid://ha1s2h1qwkm3"]
+
+[ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_467l6"]
+[ext_resource type="PackedScene" uid="uid://dluceyrb8yq6g" path="res://scenes/presetButtons/buttonPurple.tscn" id="2_0yael"]
+[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="3_v1pya"]
+[ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="4_qsj6i"]
+[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="5_dju2a"]
+
+[node name="Game" unique_id=2126916218 instance=ExtResource("1_467l6")]
+
+[node name="TileMapLayer" parent="." index="3" unique_id=752737559]
+tile_map_data = PackedByteArray("AAD+/wQAAAACAAMAAAD//wQAAAACAAMAAAAAAAQAAAACAAMAAAABAAQAAAACAAMAAAACAAQAAAACAAMAAAADAAQAAAACAAMAAAAEAAQAAAACAAMAAAAFAAQAAAACAAMAAAAGAAQAAAACAAMAAAAHAAQAAAACAAMAAAAIAAQAAAACAAMAAAAJAAQAAAACAAMAAAAKAAQAAAACAAMAAAALAAQAAAACAAMAAAAMAAQAAAACAAMAAAANAAQAAAACAAMAAAAOAAQAAAACAAMAAAAPAAQAAAACAAMAAAAQAAQAAAACAAMAAAARAAQAAAACAAMAAAASAAQAAAACAAMAAAATAAQAAAACAAMAAAD9/wQAAAACAAMAAAD8/wQAAAACAAMAAAD7/wQAAAACAAMAAAD6/wQAAAABAAIAAAD6/wMAAAAAAAEAAAD6/wIAAAAAAAEAAAD6/wEAAAAAAAEAAAD6/wAAAAAAAAEAAAD6////AAAAAAEAAAD6//7/AAAAAAEAAAD6//3/AAAAAAEAAAD6//z/AAAAAAEAAAD6//v/AAAAAAEAAAD6//r/AAAAAAEAAAD6//n/AAAAAAEAAAD6//j/AAAAAAEAAAD6//f/AAAAAAEAAAD6//b/AAAAAAEAAAD6//X/AAAAAAEAAAD6//T/AAAAAAEAAAD6//P/AAAAAAAAAAAUAAQAAAADAAIAAAAUAAMAAAAAAAEAAAAUAAIAAAAAAAEAAAAUAAEAAAAAAAEAAAAUAAAAAAAAAAEAAAAUAP//AAAAAAEAAAAUAP7/AAAAAAEAAAAUAP3/AAAAAAEAAAAUAPz/AAAAAAEAAAAUAPv/AAAAAAEAAAAUAPr/AAAAAAEAAAAUAPn/AAAAAAEAAAAUAPj/AAAAAAEAAAAUAPf/AAAAAAEAAAAUAPb/AAAAAAEAAAAUAPX/AAAAAAEAAAAUAPT/AAAAAAEAAAAUAPP/AAAAAAAAAAA=")
+
+[node name="ButtonPurple" parent="." index="6" unique_id=1331368196 instance=ExtResource("2_0yael")]
+position = Vector2(176, 128)
+
+[node name="Door" parent="." index="7" unique_id=1193654706 instance=ExtResource("3_v1pya")]
+position = Vector2(253, 48)
+color = 2
+
+[node name="Door2" parent="." index="8" unique_id=1120397437 instance=ExtResource("3_v1pya")]
+position = Vector2(253, 80)
+color = 2
+
+[node name="Door3" parent="." index="9" unique_id=1867494556 instance=ExtResource("3_v1pya")]
+position = Vector2(253, 112)
+color = 2
+
+[node name="Label" type="Label" parent="." index="10" unique_id=1257942363]
+offset_left = 101.0
+offset_top = 42.0
+offset_right = 236.0
+offset_bottom = 79.0
+theme_override_fonts/font = ExtResource("4_qsj6i")
+text = "i wonder how you can 
+open the door..."
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." index="11" unique_id=1080905568]
+offset_left = 428.0
+offset_top = 60.0
+offset_right = 563.0
+offset_bottom = 77.0
+theme_override_fonts/font = ExtResource("4_qsj6i")
+text = "ur big brain ig"
+horizontal_alignment = 1
+
+[node name="Portal" parent="." index="12" unique_id=1527810771 instance=ExtResource("5_dju2a")]
+position = Vector2(535, 112)
