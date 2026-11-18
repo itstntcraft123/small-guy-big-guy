@@ -4,6 +4,12 @@ extends MarginContainer
 @onready var tps_btn: Button = $VBoxContainer/SelectMenu/TPSCounter
 @onready var save_indicator: Button = $VBoxContainer/SelectMenu/SaveIndicator
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		get_parent().unhide()
+		queue_free()
+		get_viewport().set_input_as_handled()
+
 func _ready() -> void:
 	fps_btn.text = "fps counter: on" if Settings.fps_on else "fps counter: off"
 	fps_btn.set_pressed_no_signal(Settings.fps_on)
