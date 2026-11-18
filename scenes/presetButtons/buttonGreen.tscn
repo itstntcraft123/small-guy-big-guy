@@ -9,19 +9,12 @@ region = Rect2(0, 0, 32, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x5bo2"]
 atlas = ExtResource("2_0s74k")
-region = Rect2(32, 0, 32, 22)
+region = Rect2(32, 13, 32, 7)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mi6dp"]
-load_path = "res://.godot/imported/buttons.png-f4913ad2a84bfeace2dd271f2c57ef3d.ctex"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s74k"]
+size = Vector2(26, 3)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_63sl8"]
-atlas = SubResource("CompressedTexture2D_mi6dp")
-region = Rect2(0, 0, 32, 22)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2f1fq"]
-size = Vector2(26, 4)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6av4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6vdq"]
 size = Vector2(24, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ao8sq"]
@@ -35,16 +28,19 @@ tex_pressed = SubResource("AtlasTexture_x5bo2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=140090410]
 texture_filter = 1
-texture = SubResource("AtlasTexture_63sl8")
+texture = SubResource("AtlasTexture_5yc2n")
 centered = false
+offset = Vector2(-16, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=200025766]
-shape = SubResource("RectangleShape2D_2f1fq")
+position = Vector2(0, -21.5)
+shape = SubResource("RectangleShape2D_0s74k")
 
 [node name="Platform" type="AnimatableBody2D" parent="." unique_id=1865990670]
+position = Vector2(0, -19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1352269263]
-shape = SubResource("RectangleShape2D_f6av4")
+shape = SubResource("RectangleShape2D_n6vdq")
 
 [node name="Base" type="StaticBody2D" parent="." unique_id=1984807727]
 

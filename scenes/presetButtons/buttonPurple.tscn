@@ -9,15 +9,15 @@ region = Rect2(0, 44, 32, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6av4"]
 atlas = ExtResource("2_moukm")
-region = Rect2(32, 44, 32, 22)
+region = Rect2(32, 47, 32, 19)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_urtef"]
 atlas = ExtResource("2_moukm")
-region = Rect2(64, 44, 32, 22)
+region = Rect2(64, 51, 32, 15)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_doc57"]
 atlas = ExtResource("2_moukm")
-region = Rect2(96, 44, 32, 22)
+region = Rect2(96, 57, 32, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dipcc"]
 atlas = ExtResource("2_moukm")
