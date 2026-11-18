@@ -6,6 +6,13 @@ extends Control
 @onready var vsync_btn: Button = $MarginContainer/VBoxContainer/SelectMenu/Vsync
 @onready var restart_btn: Button = $MarginContainer/VBoxContainer/SelectMenu/RestartKey
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		get_parent().unhide()
+		Save.save_cfg()
+		queue_free()
+		get_viewport().set_input_as_handled()
+
 func _ready() -> void:
 	Save.load_cfg()
 

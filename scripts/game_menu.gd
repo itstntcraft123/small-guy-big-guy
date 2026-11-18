@@ -5,8 +5,8 @@ extends Control
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().paused = false
-		$"../..".just_exited_game_menu = true
 		queue_free()
+		get_viewport().set_input_as_handled()
 
 func _on_select_menu_button_selected(item: Object) -> void:
 	match item.name:
