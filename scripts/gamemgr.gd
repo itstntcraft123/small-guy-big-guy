@@ -1,7 +1,7 @@
 extends Node
 
 var level: int = 1
-@onready var levels := DirAccess.get_files_at("res://scenes/levels")
+@onready var levels := ResourceLoader.list_directory("res://scenes/levels")
 
 func _ready() -> void:
 	Save.load_progress()
