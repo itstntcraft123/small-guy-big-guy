@@ -11,4 +11,4 @@ Grab a copy for your OS and architecture from releases and run it. To run the we
 This game was made in Godot 4. To avoid spending time tiling the floor, this awesome [autotiler](https://route1rodent.itch.io/autotiler) was used.
 
 ## Collaborators
-This game was made by rbird6 and itstntcraft123 as a team. rbird6 made most of the sprites, and we both worked on the code.
+This game was made by rbird6 and itstntcraft123 as a team. rbird6 made most of the sprites, and we both worked on the code and levels.
