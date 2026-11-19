@@ -35,11 +35,11 @@ func _absorb(body: Node2D) -> Tween:
 		tween.tween_property(body, "global_position", $CollisionShape2D.global_position, move_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	return tween
 	
-	# unreachable?
-	if shrink:
-		tween.tween_property(body, "scale", Vector2.ZERO, move_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
-	if spin:
-		tween.tween_property(body, "rotation", body.rotation + TAU * spin_turns, move_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	# unreachable
+	#if shrink:
+	#	tween.tween_property(body, "scale", Vector2.ZERO, move_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	#if spin:
+	#	tween.tween_property(body, "rotation", body.rotation + TAU * spin_turns, move_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func go_to_next_level() -> void:
 	#print("Both characters have entered portal!")

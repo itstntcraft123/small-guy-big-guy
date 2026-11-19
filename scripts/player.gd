@@ -111,6 +111,11 @@ func _physics_process(delta: float) -> void:
 	
 	if rider:
 		remove_collision_exception_with(rider)
+	
+	if position.y > 1000:
+		Save.delete_game_save()
+		get_tree().paused = false
+		Gamemgr.load_current_level()
 
 func save_dict() -> Dictionary:
 	return {
