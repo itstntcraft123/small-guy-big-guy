@@ -1,5 +1,5 @@
 # Small Guy Big Guy
-Small Guy Big Guy is a platformer made in Godot.
+Small Guy Big Guy is a platformer made in Godot. In this multiplayer game, you and your friend will try to solve levels together by reaching the portal. However, one of you is the small guy, who can walk faster and jump faster, while the other is the big guy, who can hit heavier tricky buttons and boost you up.
 
 # Development
 To develop, `git clone` this repo and use the Godot 4 editor.
