@@ -7,7 +7,7 @@ signal button_focus_changed(item: Object, focus: bool)
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		for child in get_children():
-			if child is Button or child is LinkButton and child == get_viewport().gui_get_hovered_control():
+			if (child is Button or child is LinkButton) and child == get_viewport().gui_get_hovered_control():
 				child.grab_focus()
 
 func _ready() -> void:

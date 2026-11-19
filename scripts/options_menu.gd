@@ -2,11 +2,16 @@ extends Control
 
 @export var debug_options: PackedScene
 
-@onready var fullscreen_btn: Button = $MarginContainer/VBoxContainer/SelectMenu/Fullscreen
-@onready var vsync_btn: Button = $MarginContainer/VBoxContainer/SelectMenu/Vsync
-@onready var restart_btn: Button = $MarginContainer/VBoxContainer/SelectMenu/RestartKey
+@onready var fullscreen_btn: Button = $MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/Fullscreen
+@onready var vsync_btn: Button = $MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/Vsync
+@onready var restart_btn: Button = $MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/RestartKey
+@onready var scroll: ScrollContainer = $MarginContainer/VBoxContainer/ScrollContainer
 
 func _input(event: InputEvent) -> void:
+	scroll.follow_focus = true
+	if event is InputEventMouseMotion:
+		scroll.follow_focus = false
+	
 	if event.is_action_pressed("ui_cancel"):
 		get_parent().unhide()
 		Save.save_cfg()
@@ -59,4 +64,4 @@ func _on_select_menu_button_focus_changed(item: Object, focus: bool) -> void:
 
 func unhide() -> void:
 	$MarginContainer.show()
-	$MarginContainer/VBoxContainer/SelectMenu/Debug.grab_focus()
+	$MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/Debug.grab_focus()

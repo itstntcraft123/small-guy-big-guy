@@ -20,10 +20,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = -30.0
-offset_right = 3.0
-offset_bottom = -29.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ijpji")
@@ -37,10 +34,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 96
 text = "Options"
 
-[node name="SelectMenu" parent="MarginContainer/VBoxContainer" unique_id=543663428 instance=ExtResource("1_liyum")]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=1088985844]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+follow_focus = true
+
+[node name="SelectMenu" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=543663428 instance=ExtResource("1_liyum")]
 layout_mode = 2
 
-[node name="Fullscreen" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=531943641]
+[node name="Fullscreen" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=531943641]
 custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
@@ -48,7 +50,7 @@ toggle_mode = true
 text = "fullscreen: off"
 alignment = 0
 
-[node name="Vsync" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=271709814]
+[node name="Vsync" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=271709814]
 custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
@@ -56,7 +58,7 @@ toggle_mode = true
 text = "vsync: off"
 alignment = 0
 
-[node name="RestartKey" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=1939248948]
+[node name="RestartKey" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=1939248948]
 custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
@@ -64,13 +66,13 @@ toggle_mode = true
 text = "r to restart: off"
 alignment = 0
 
-[node name="Debug" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=1568388223]
+[node name="Debug" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=1568388223]
 custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 text = "debug options"
 alignment = 0
 
-[node name="Source" type="LinkButton" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=1854103576]
+[node name="Source" type="LinkButton" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=1854103576]
 custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 focus_mode = 2
@@ -78,11 +80,11 @@ text = "view source"
 underline = 2
 uri = "https://github.com/itstntcraft123/small-guy-big-guy"
 
-[node name="Back" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=56632280]
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=56632280]
 custom_maximum_size = Vector2(250, -1)
 layout_mode = 2
 text = "back"
 alignment = 0
 
-[connection signal="button_focus_changed" from="MarginContainer/VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_focus_changed"]
-[connection signal="button_selected" from="MarginContainer/VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]
+[connection signal="button_focus_changed" from="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" to="." method="_on_select_menu_button_focus_changed"]
+[connection signal="button_selected" from="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]
