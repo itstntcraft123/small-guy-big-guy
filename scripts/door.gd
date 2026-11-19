@@ -17,6 +17,11 @@ extends StaticBody2D
 var opening := false
 var opening_timer := 0.0
 
+# antidoor logic
+enum Inv { GONE, APPEARING, SOLID, VANISHING}
+var inv_state := Inv.GONE
+var inv_timer := 0.0
+
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var shape: CollisionShape2D = $CollisionShape2D
 
@@ -55,7 +60,10 @@ func _physics_process(delta: float) -> void:
 		if b.active:
 			powered = true
 			break
-	powered = powered != inverted
+	
+	if inverted:
+		_inverted_step(delta, powered)
+		return
 	
 	var hold := hold_open_time if use_buffer else 0.0
 	var delay := open_delay if use_buffer else 0.0
@@ -117,3 +125,64 @@ func _show_state(flashing: bool, remaining: float, flash: float) -> void:
 func _set_open(open: bool) -> void:
 	is_open = open
 	shape.set_deferred("disabled", open)
+
+
+func _inverted_step(delta: float, pressed: bool) -> void:
+	var flash := flash_time if use_buffer else 0.0
+	var hold := hold_open_time if use_buffer else 0.0
+	var flashing = false
+	var base_solid := false
+	
+	match inv_state:
+		Inv.GONE:
+			if pressed:
+				if flash > 0.0:
+					inv_state = Inv.APPEARING
+					inv_timer = flash
+				else:
+					_inv_become_solid(hold)
+		Inv.APPEARING:
+			inv_timer -= delta
+			if inv_timer <= 0.0:
+				_inv_become_solid(hold)
+			else:
+				flashing = true
+				base_solid = false
+		Inv.SOLID:
+			if pressed:
+				inv_timer = hold
+			else:
+				inv_timer -= delta
+				if inv_timer <= 0.0:
+					if flash > 0.0:
+						inv_state = Inv.VANISHING
+						inv_timer = flash
+						shape.set_deferred("disabled", true)
+					else:
+						_inv_become_gone()
+		Inv.VANISHING:
+			inv_timer -= delta
+			if inv_timer <= 0.0:
+				_inv_become_gone()
+			else:
+				flashing = true
+				base_solid = true
+				
+	if flashing:
+		var solid := base_solid
+		var seg := mini(int(inv_timer / (flash / 4.0)), 3)
+		if seg % 2 == 1:
+			solid = not solid
+		sprite.frame = _frame_for(solid)
+	else:
+		sprite.frame = _frame_for(inv_state == Inv.SOLID)
+	sprite.visible = true
+	
+func _inv_become_solid(hold: float) -> void:
+	inv_state = Inv.SOLID
+	inv_timer = hold
+	_set_open(false)
+
+func _inv_become_gone() -> void:
+	inv_state = Inv.GONE
+	_set_open(true)
