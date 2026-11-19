@@ -54,4 +54,18 @@ layout_mode = 2
 text = "quit"
 alignment = 0
 
+[node name="Version" type="Label" parent="." unique_id=812306638]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -71.0
+offset_right = 154.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.48925245, 0.8516775, 0.99999994, 1)
+theme_override_font_sizes/font_size = 48
+text = "v1.0.0"
+
 [connection signal="button_selected" from="MarginContainer/VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]
