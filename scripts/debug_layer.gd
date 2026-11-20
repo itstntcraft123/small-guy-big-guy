@@ -10,7 +10,7 @@ var just_saved := false
 func _process(_delta: float) -> void:
 	if Settings.fps_on:
 		fps_label.show()
-		fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
+		fps_label.text = "FPS: " + str(int(Engine.get_frames_per_second()))
 	else:
 		fps_label.hide()
 	if just_saved and Settings.save_indicator_on:
