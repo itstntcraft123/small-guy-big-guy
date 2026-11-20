@@ -1,40 +1,27 @@
-[gd_scene format=4 uid="uid://cm60lqjdco1gf"]
+[gd_scene format=4 uid="uid://bjh3d7i160pus"]
 
-[ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_e0cvd"]
-[ext_resource type="PackedScene" uid="uid://cd3arwj17sxly" path="res://scenes/spike.tscn" id="2_71baw"]
-[ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="3_niitk"]
-[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="4_niitk"]
+[ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_268cy"]
+[ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="2_geu6g"]
 
-[node name="Game" unique_id=2126916218 instance=ExtResource("1_e0cvd")]
+[node name="Game" unique_id=2126916218 instance=ExtResource("1_268cy")]
 
 [node name="TileMapLayer" parent="." index="3" unique_id=752737559]
-tile_map_data = PackedByteArray("AAD7/wkAAAACAAMAAAD8/wkAAAACAAMAAAD9/wkAAAACAAMAAAD+/wkAAAACAAMAAAD//wkAAAACAAMAAAAAAAkAAAACAAMAAAABAAkAAAACAAMAAAACAAkAAAACAAMAAAADAAkAAAADAAEAAAAJAAkAAAABAAAAAAAKAAkAAAACAAMAAAALAAkAAAACAAMAAAAMAAkAAAACAAMAAAANAAkAAAACAAMAAAAOAAkAAAACAAMAAAAPAAkAAAACAAMAAAAQAAkAAAACAAMAAAD6/wkAAAACAAMAAAD5/wkAAAABAAIAAAD5/wgAAAAAAAEAAAD5/wcAAAAAAAEAAAD5/wYAAAAAAAEAAAD5/wUAAAAAAAEAAAD5/wQAAAAAAAEAAAD5/wMAAAAAAAEAAAD5/wIAAAAAAAEAAAD5/wEAAAAAAAEAAAD5/wAAAAAAAAEAAAD5////AAAAAAEAAAD5//7/AAAAAAEAAAD5//3/AAAAAAEAAAD5//z/AAAAAAEAAAD5//v/AAAAAAEAAAD5//r/AAAAAAEAAAD5//n/AAAAAAEAAAD5//j/AAAAAAEAAAD5//f/AAAAAAEAAAD5//b/AAAAAAAAAAARAAkAAAACAAMAAAASAAkAAAACAAMAAAATAAkAAAACAAMAAAAUAAkAAAACAAMAAAAVAAkAAAACAAMAAAAWAAkAAAACAAMAAAAXAAkAAAACAAMAAAAYAAkAAAACAAMAAAAZAAkAAAACAAMAAAAaAAkAAAACAAMAAAAbAAkAAAACAAMAAAAcAAkAAAADAAIAAAAEAAgAAAADAAIAAAADAAgAAAABAAAAAAAEAAcAAAABAAAAAAAFAAYAAAABAAAAAAAGAAUAAAABAAAAAAAHAAQAAAABAAAAAAAFAAcAAAADAAIAAAAGAAYAAAADAAIAAAAHAAUAAAADAAIAAAAIAAQAAAADAAMAAAAJAAoAAAAAAAEAAAAJAAsAAAADAAIAAAAIAAsAAAACAAMAAAAHAAsAAAACAAMAAAAGAAsAAAACAAMAAAAFAAsAAAACAAMAAAAEAAsAAAACAAMAAAADAAsAAAABAAIAAAADAAoAAAAAAAEAAAAcAAgAAAAAAAEAAAAcAAcAAAAAAAEAAAAcAAYAAAAAAAEAAAAcAAUAAAAAAAEAAAAcAAQAAAAAAAEAAAAcAAMAAAAAAAEAAAAcAAIAAAAAAAEAAAAcAAEAAAAAAAEAAAAcAAAAAAAAAAEAAAAcAP//AAAAAAEAAAAcAP7/AAAAAAEAAAAcAP3/AAAAAAEAAAAcAPz/AAAAAAEAAAAcAPv/AAAAAAEAAAAcAPr/AAAAAAEAAAAcAPn/AAAAAAEAAAAcAPj/AAAAAAEAAAAcAPf/AAAAAAEAAAAcAPb/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAIAAcAAAACAAMAAAAFAAcAAAACAAMAAAAEAAcAAAACAAMAAAADAAcAAAACAAMAAAACAAcAAAACAAMAAAABAAcAAAACAAMAAAAAAAcAAAACAAMAAAD//wcAAAACAAMAAAD+/wcAAAACAAMAAAD9/wcAAAACAAMAAAD8/wcAAAACAAMAAAD7/wcAAAACAAMAAAD6/wcAAAACAAMAAAD5/wcAAAACAAMAAAD4/wcAAAACAAMAAAD3/wcAAAABAAIAAAD3/wYAAAAAAAEAAAD3/wUAAAAAAAEAAAD3/wQAAAAAAAEAAAD3/wMAAAAAAAEAAAD3/wIAAAAAAAEAAAD3/wEAAAAAAAEAAAD3/wAAAAAAAAEAAAD3////AAAAAAEAAAD3//7/AAAAAAEAAAD3//3/AAAAAAEAAAD3//z/AAAAAAEAAAD3//v/AAAAAAEAAAD3//r/AAAAAAEAAAD3//n/AAAAAAEAAAD3//j/AAAAAAEAAAD3//f/AAAAAAEAAAD3//b/AAABAAAAAAAKAAcAAAADAAIAAAAJAAcAAAACAAMAAAAHAAcAAAACAAMAAAAGAAcAAAACAAMAAAAKAPb/AAADAAAAAAAJAPb/AAACAAMAAAAIAPb/AAACAAMAAAAHAPb/AAACAAMAAAAGAPb/AAACAAMAAAAFAPb/AAACAAMAAAAEAPb/AAACAAMAAAADAPb/AAACAAMAAAACAPb/AAACAAMAAAABAPb/AAACAAMAAAAAAPb/AAACAAMAAAD///b/AAACAAMAAAD+//b/AAACAAMAAAD9//b/AAACAAMAAAD8//b/AAACAAMAAAD7//b/AAACAAMAAAD6//b/AAACAAMAAAD5//b/AAACAAMAAAD4//b/AAACAAMAAAAKAAYAAAAAAAEAAAAKAAUAAAAAAAEAAAAKAAQAAAAAAAEAAAAKAAMAAAAAAAEAAAAKAAIAAAAAAAEAAAAKAAEAAAAAAAEAAAAKAAAAAAAAAAEAAAAKAP//AAAAAAEAAAAKAP7/AAAAAAEAAAAKAP3/AAAAAAEAAAAKAPz/AAAAAAEAAAAKAPv/AAAAAAEAAAAKAPr/AAAAAAEAAAAKAPn/AAAAAAEAAAAKAPj/AAAAAAEAAAAKAPf/AAAAAAEAAAA=")
 
-[node name="Spike" parent="." index="6" unique_id=925223878 instance=ExtResource("2_71baw")]
-position = Vector2(176, 336)
+[node name="Label" type="RichTextLabel" parent="." index="5" unique_id=788617583]
+offset_left = -256.0
+offset_top = -119.0
+offset_right = 320.0
+offset_bottom = 106.0
+theme = ExtResource("2_geu6g")
+bbcode_enabled = true
+text = "Thanks for playing!
+More levels and
+features soon [font_size=50][font=res://fonts/DotGothic16.ttf]:D[/font][/font_size]"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
 
-[node name="Spike2" parent="." index="7" unique_id=1158480477 instance=ExtResource("2_71baw")]
-position = Vector2(272, 336)
-
-[node name="Spike3" parent="." index="8" unique_id=1166421375 instance=ExtResource("2_71baw")]
-position = Vector2(208, 336)
-
-[node name="Spike4" parent="." index="9" unique_id=201238237 instance=ExtResource("2_71baw")]
-position = Vector2(240, 336)
-
-[node name="Spike6" parent="." index="10" unique_id=1227291186 instance=ExtResource("2_71baw")]
-position = Vector2(144, 336)
-
-[node name="Spike5" parent="." index="11" unique_id=113046009 instance=ExtResource("2_71baw")]
-position = Vector2(336, 272)
-
-[node name="Label" type="Label" parent="." index="12" unique_id=411154002]
-offset_left = 185.0
-offset_top = 205.0
-offset_right = 487.0
-offset_bottom = 228.0
-theme_override_fonts/font = ExtResource("3_niitk")
-text = "Please don't touch spikes, they are bad for you"
-
-[node name="Portal" parent="." index="13" unique_id=1527810771 instance=ExtResource("4_niitk")]
-position = Vector2(633, 264)
+[node name="Theme" parent="CanvasLayer" parent_id_path=PackedInt32Array(371086613) index="0" unique_id=1341032163]
+offset_top = 11.0
+offset_bottom = 11.0

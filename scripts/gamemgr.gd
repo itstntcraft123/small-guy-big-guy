@@ -1,9 +1,10 @@
 extends Node
 
 var level: int = 1
-@onready var levels := ResourceLoader.list_directory("res://scenes/levels")
+@onready var levels := Array(ResourceLoader.list_directory("res://scenes/levels"))
 
 func _ready() -> void:
+	levels.sort_custom(func(a, b): return a.naturalnocasecmp_to(b) < 0)
 	Save.load_progress()
 	Save.save_progress()
 
