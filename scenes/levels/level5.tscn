@@ -17,14 +17,17 @@ position = Vector2(176, 128)
 [node name="Door" parent="." index="7" unique_id=1193654706 instance=ExtResource("3_v1pya")]
 position = Vector2(253, 48)
 color = 2
+inverted = false
 
 [node name="Door2" parent="." index="8" unique_id=1120397437 instance=ExtResource("3_v1pya")]
 position = Vector2(253, 80)
 color = 2
+inverted = false
 
 [node name="Door3" parent="." index="9" unique_id=1867494556 instance=ExtResource("3_v1pya")]
 position = Vector2(253, 112)
 color = 2
+inverted = false
 
 [node name="Label" type="Label" parent="." index="10" unique_id=1257942363]
 offset_left = 101.0
