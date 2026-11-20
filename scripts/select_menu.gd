@@ -8,6 +8,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		for child in get_children():
 			if (child is Button or child is LinkButton) and child == get_viewport().gui_get_hovered_control():
+				child.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+				child.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 				child.grab_focus()
 
 func _ready() -> void:

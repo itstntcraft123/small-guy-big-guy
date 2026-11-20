@@ -61,6 +61,8 @@ func _on_select_menu_button_focus_changed(item: Object, focus: bool) -> void:
 			item.add_theme_color_override("font_pressed_color", item.get_theme_color("font_hover_pressed_color"))
 		else:
 			item.remove_theme_color_override("font_pressed_color")
+	if item is LinkButton:
+		item.underline = LinkButton.UNDERLINE_MODE_ALWAYS if focus else LinkButton.UNDERLINE_MODE_NEVER
 
 func unhide() -> void:
 	$MarginContainer.show()

@@ -46,31 +46,26 @@ text = "Game Menu"
 layout_mode = 2
 
 [node name="BackToGame" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=1816989968]
-custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 text = "back to game"
 alignment = 0
 
 [node name="Restart" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=1945219680]
-custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 text = "restart"
 alignment = 0
 
 [node name="Reset" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=142398735]
-custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 text = "reset entire save"
 alignment = 0
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=510593866]
-custom_maximum_size = Vector2(250, -1)
 layout_mode = 2
 text = "options"
 alignment = 0
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=1672113681]
-custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 text = "quit to menu"
 alignment = 0

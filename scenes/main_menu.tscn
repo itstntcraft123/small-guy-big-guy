@@ -37,19 +37,16 @@ text = "small guy BIG GUY"
 layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=207298543]
-custom_maximum_size = Vector2(150, -1)
 layout_mode = 2
 text = "play"
 alignment = 0
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=1028601492]
-custom_maximum_size = Vector2(250, -1)
 layout_mode = 2
 text = "options"
 alignment = 0
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=735927723]
-custom_maximum_size = Vector2(150, -1)
 layout_mode = 2
 text = "quit"
 alignment = 0
