@@ -1,5 +1,6 @@
 @tool
 extends StaticBody2D
+class_name Door
 
 @export_enum("Green", "Blue", "Purple") var color: int = 0:
 	set(value):

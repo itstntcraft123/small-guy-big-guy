@@ -105,9 +105,14 @@ func _physics_process(delta: float) -> void:
 	for i in range(get_slide_collision_count()):
 		var col := get_slide_collision(i)
 		var other := col.get_collider()
-		if other in get_tree().get_nodes_in_group("players") and col.get_normal().y < -0.7:
+		if other is Player and col.get_normal().y < -0.7:
 			other.top_rider = self
 			other.add_collision_exception_with(self)
+		if other is Door and col.get_depth() > 1:
+			if !test_point(Vector2(position.x + 32, 0)):
+				position.x += 32
+			elif !test_point(Vector2(position.x - 32, 0)):
+				position.x -= 32
 	
 	if rider:
 		remove_collision_exception_with(rider)
@@ -116,6 +121,14 @@ func _physics_process(delta: float) -> void:
 		Save.delete_game_save()
 		get_tree().paused = false
 		Gamemgr.load_current_level()
+
+func test_point(point: Vector2):
+	var space := get_world_2d().direct_space_state
+	var query := PhysicsPointQueryParameters2D.new()
+	query.position = point
+	query.collide_with_areas = true
+	query.exclude = [get_rid()]
+	return space.intersect_point(query).size() > 0
 
 func save_dict() -> Dictionary:
 	return {
