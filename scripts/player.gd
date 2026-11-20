@@ -85,7 +85,7 @@ func _physics_process(delta: float) -> void:
 					add_collision_exception_with(rider)
 				break
 	
-	if test_move(global_transform, Vector2(0, 0.5)) and (test_move(global_transform.translated(Vector2(0, 0.5)), Vector2(-1, 0)) or test_move(global_transform.translated(Vector2(0, 0.5)), Vector2(1, 0))):
+	if test_move(global_transform, Vector2(input_dir, 0)) and !test_move(global_transform.translated(Vector2(0, -0.5)), Vector2(input_dir, 0)):
 		move_and_collide(Vector2(0, -0.5))
 	
 	move_and_slide()
