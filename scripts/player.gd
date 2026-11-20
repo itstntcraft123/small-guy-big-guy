@@ -85,6 +85,9 @@ func _physics_process(delta: float) -> void:
 					add_collision_exception_with(rider)
 				break
 	
+	if test_move(global_transform, Vector2(0, 0.5)) and (test_move(global_transform.translated(Vector2(0, 0.5)), Vector2(-1, 0)) or test_move(global_transform.translated(Vector2(0, 0.5)), Vector2(1, 0))):
+		move_and_collide(Vector2(0, -0.5))
+	
 	move_and_slide()
 	
 	standing_on = null
@@ -109,9 +112,9 @@ func _physics_process(delta: float) -> void:
 			other.top_rider = self
 			other.add_collision_exception_with(self)
 		if other is Door and col.get_depth() > 1:
-			if !test_point(Vector2(position.x + 32, 0)):
+			if !test_point(Vector2(position.x + 32, position.y)):
 				position.x += 32
-			elif !test_point(Vector2(position.x - 32, 0)):
+			elif !test_point(Vector2(position.x - 32, position.y)):
 				position.x -= 32
 	
 	if rider:
