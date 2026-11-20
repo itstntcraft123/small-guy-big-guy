@@ -15,6 +15,7 @@ This game features:
 - a game menu that can be accessed using escape or tab
 - both keyboard and mouse support for UI
 - FPS and TPS counter in options > debug options
+- smooth camera with auto-zoom
 
 # Development
 To develop, `git clone` this repo and use the Godot 4 editor.

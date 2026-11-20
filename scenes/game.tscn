@@ -34,7 +34,7 @@ tile_set = ExtResource("5_iywne")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=882835880 groups=["save"]]
 process_callback = 0
 position_smoothing_enabled = true
-position_smoothing_speed = 3.0
+position_smoothing_speed = 1.0
 script = ExtResource("5_p57ef")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=371086613]
