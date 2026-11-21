@@ -22,12 +22,9 @@ func _ready() -> void:
 	Save.load_cfg()
 
 func _process(_delta: float) -> void:
-	fullscreen_btn.text = "fullscreen: on" if _is_fullscreen() else "fullscreen: off"
-	fullscreen_btn.set_pressed_no_signal(_is_fullscreen())
-	vsync_btn.text = "vsync: on" if DisplayServer.window_get_vsync_mode() else "vsync: off"
-	vsync_btn.set_pressed_no_signal(DisplayServer.window_get_vsync_mode())
-	restart_btn.text = "r to restart: on" if Settings.r_to_restart else "r to restart: off"
-	restart_btn.set_pressed_no_signal(Settings.r_to_restart)
+	Utils.set_settings_state(fullscreen_btn, "fullscreen", _is_fullscreen())
+	Utils.set_settings_state(vsync_btn, "vsync", DisplayServer.window_get_vsync_mode())
+	Utils.set_settings_state(restart_btn, "r to restart", Settings.r_to_restart)
 
 func _on_select_menu_button_selected(item: Control) -> void:
 	match item.name:

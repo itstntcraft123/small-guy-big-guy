@@ -16,3 +16,7 @@ func get_first_child_of_type(node: Node, type: Variant) -> Node:
 func connect_focus_signal(node: Node, function: Callable) -> void:
 	node.focus_entered.connect(function.bind(node, true))
 	node.focus_exited.connect(function.bind(node, false))
+
+func set_settings_state(node: Control, string: String, match_state: bool):
+	node.text = string + ": on" if match_state else string + ": off"
+	node.set_pressed_no_signal(match_state)

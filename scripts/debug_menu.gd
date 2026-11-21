@@ -11,12 +11,9 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func _ready() -> void:
-	fps_btn.text = "fps counter: on" if Settings.fps_on else "fps counter: off"
-	fps_btn.set_pressed_no_signal(Settings.fps_on)
-	tps_btn.text = "physics tps counter: on" if Settings.tps_on else "physics tps counter: off"
-	tps_btn.set_pressed_no_signal(Settings.tps_on)
-	save_indicator.text = "save indicator: on" if Settings.save_indicator_on else "save indicator: off"
-	save_indicator.set_pressed_no_signal(Settings.save_indicator_on)
+	Utils.set_settings_state(fps_btn, "fps counter", Settings.fps_on)
+	Utils.set_settings_state(tps_btn, "physics tps counter", Settings.tps_on)
+	Utils.set_settings_state(save_indicator, "save indicator", Settings.save_indicator_on)
 
 func _on_select_menu_button_selected(item: Object) -> void:
 	match item.name:
