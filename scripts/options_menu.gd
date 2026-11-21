@@ -25,21 +25,24 @@ func _process(_delta: float) -> void:
 	Utils.set_settings_state(fullscreen_btn, "fullscreen", _is_fullscreen())
 	Utils.set_settings_state(vsync_btn, "vsync", DisplayServer.window_get_vsync_mode())
 	Utils.set_settings_state(restart_btn, "r to restart", Settings.r_to_restart)
+	$MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed/SpinBox.value = Settings.autosave_speed
 
 func _on_select_menu_button_selected(item: Control) -> void:
 	match item.name:
 		"Fullscreen":
-			if !fullscreen_btn.button_pressed:
+			if !item.button_pressed:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			else:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		"Vsync":
-			if !vsync_btn.button_pressed:
+			if !item.button_pressed:
 				DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 			else:
 				DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 		"RestartKey":
-			Settings.r_to_restart = restart_btn.button_pressed
+			Settings.r_to_restart = item.button_pressed
+		"SaveSpeed":
+			Settings.autosave_speed = int(item.get_child(0).value)
 		"Debug":
 			add_child(debug_options.instantiate())
 			$MarginContainer.hide()

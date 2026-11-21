@@ -20,6 +20,11 @@ func restart_level() -> void:
 	
 func _ready() -> void:
 	Save.load_game()
+	reset_timer()
+
+func reset_timer() -> void:
+	$Autosave.wait_time = Settings.autosave_speed
+	$Autosave.start()
 
 func _on_autosave_timeout() -> void:
 	Save.save_game()

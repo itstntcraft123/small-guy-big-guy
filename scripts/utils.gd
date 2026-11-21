@@ -20,3 +20,10 @@ func connect_focus_signal(node: Node, function: Callable) -> void:
 func set_settings_state(node: Control, string: String, match_state: bool):
 	node.text = string + ": on" if match_state else string + ": off"
 	node.set_pressed_no_signal(match_state)
+
+func update_from_save(self_node: Node, save_data: Dictionary, var_name: StringName):
+	self_node.set(var_name, save_data.get(var_name, self_node.get(var_name)))
+
+func update_multiple_from_save(self_node: Node, save_data: Dictionary, var_array: Array[StringName]):
+	for item in var_array:
+		update_from_save(self_node, save_data, item)

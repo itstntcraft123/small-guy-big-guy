@@ -70,7 +70,7 @@ focus_mode = 2
 mouse_filter = 0
 text = "autosave speed"
 
-[node name="LineEdit" type="SpinBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed" unique_id=389701017]
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed" unique_id=389701017]
 layout_mode = 0
 offset_left = 700.0
 offset_right = 842.0
@@ -80,7 +80,7 @@ max_value = 10000.0
 rounded = true
 alignment = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed/LineEdit" unique_id=790592582]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed/SpinBox" unique_id=790592582]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0

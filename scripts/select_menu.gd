@@ -57,6 +57,7 @@ func _ready() -> void:
 			Utils.connect_focus_signal(spinbox.get_line_edit(), _focus_changed)
 			spinbox.get_line_edit().max_length = 4
 			spinbox.get_line_edit().text_changed.connect(_on_spin_box_line_edit_changed.bind(spinbox))
+			spinbox.value_changed.connect(func (_value): button_selected.emit(child))
 
 func _focus_changed(item: Control, focus: bool):
 	if item is Button and item.toggle_mode:
