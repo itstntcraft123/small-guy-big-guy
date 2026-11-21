@@ -15,10 +15,19 @@ func _input(event: InputEvent) -> void:
 				child.grab_focus()
 				return
 	
-	#if event is InputEventKey:
-		#var focused := get_viewport().gui_get_focus_owner()
-		#if focused is LineEdit and focused.get_parent() is SpinBox:
-			#var spinbox := focused.get_parent() as SpinBox
+	if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
+		var focused := get_viewport().gui_get_focus_owner()
+		if focused is LineEdit and focused.get_parent() is SpinBox:
+			var children := get_children()
+			var diff := -1 if event.is_action_pressed("ui_up") else 1
+			var focused_index := -1
+			for i in children.size():
+				if children[i] == focused.get_parent().get_parent():
+					focused_index = i
+			var new_node := children[focused_index + diff]
+			if focused_index != -1 and new_node is Control and new_node.focus_mode != Control.FOCUS_NONE:
+				new_node.grab_focus()
+			get_viewport().set_input_as_handled()
 
 func _on_spin_box_line_edit_changed(text: String, spinbox: SpinBox) -> void:
 	var lineedit := spinbox.get_line_edit()
