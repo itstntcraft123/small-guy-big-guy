@@ -76,6 +76,8 @@ offset_left = 700.0
 offset_right = 842.0
 offset_bottom = 81.0
 focus_mode = 1
+max_value = 10000.0
+rounded = true
 alignment = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed/LineEdit" unique_id=790592582]

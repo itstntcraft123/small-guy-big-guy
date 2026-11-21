@@ -2,6 +2,7 @@ class_name SelectMenu
 extends Control
 
 signal button_selected(item: Control)
+var strip_non_numbers_regex := RegEx.new()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -13,8 +14,24 @@ func _input(event: InputEvent) -> void:
 					return
 				child.grab_focus()
 				return
+	
+	#if event is InputEventKey:
+		#var focused := get_viewport().gui_get_focus_owner()
+		#if focused is LineEdit and focused.get_parent() is SpinBox:
+			#var spinbox := focused.get_parent() as SpinBox
+
+func _on_spin_box_line_edit_changed(text: String, spinbox: SpinBox) -> void:
+	var lineedit := spinbox.get_line_edit()
+	var caret := lineedit.caret_column
+	var new_text := strip_non_numbers_regex.sub(text, "", true)
+	if text == new_text:
+		return
+	lineedit.text = new_text
+	lineedit.caret_column = caret - 1
 
 func _ready() -> void:
+	strip_non_numbers_regex.compile("\\D")
+	
 	var focused = false
 	for child in get_children():
 		if child is Button or child is LinkButton:
@@ -29,6 +46,8 @@ func _ready() -> void:
 		var spinbox := Utils.get_first_child_of_type(child, SpinBox) as SpinBox
 		if spinbox:
 			Utils.connect_focus_signal(spinbox.get_line_edit(), _focus_changed)
+			spinbox.get_line_edit().max_length = 4
+			spinbox.get_line_edit().text_changed.connect(_on_spin_box_line_edit_changed.bind(spinbox))
 
 func _focus_changed(item: Control, focus: bool):
 	if item is Button and item.toggle_mode:
