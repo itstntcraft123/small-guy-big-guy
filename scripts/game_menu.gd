@@ -8,7 +8,7 @@ func _input(event: InputEvent) -> void:
 		queue_free()
 		get_viewport().set_input_as_handled()
 
-func _on_select_menu_button_selected(item: Object) -> void:
+func _on_select_menu_button_selected(item: Control) -> void:
 	match item.name:
 		"BackToGame":
 			get_tree().paused = false

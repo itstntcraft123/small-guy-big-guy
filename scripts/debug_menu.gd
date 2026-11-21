@@ -32,9 +32,3 @@ func _on_select_menu_button_selected(item: Object) -> void:
 		"Back":
 			get_parent().unhide()
 			queue_free()
-
-func _on_select_menu_button_focus_changed(item: Object, focus: bool) -> void:
-	if focus:
-		item.add_theme_color_override("font_pressed_color", item.get_theme_color("font_hover_pressed_color"))
-	else:
-		item.remove_theme_color_override("font_pressed_color")

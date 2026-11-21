@@ -9,16 +9,18 @@
 [resource]
 default_font = ExtResource("1_e1x85")
 default_font_size = 72
-Button/colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
-Button/colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 0, 1)
 Button/colors/font_pressed_color = Color(1, 0.7058824, 0, 1)
 Button/styles/disabled = SubResource("StyleBoxEmpty_sbv7u")
 Button/styles/focus = SubResource("StyleBoxEmpty_sbv7u")
 Button/styles/hover = SubResource("StyleBoxEmpty_sbv7u")
 Button/styles/normal = SubResource("StyleBoxEmpty_sbv7u")
 Button/styles/pressed = SubResource("StyleBoxEmpty_sbv7u")
-LinkButton/colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
-LinkButton/colors/font_hover_color = Color(0.9490196, 0.9490196, 0, 1)
+LinkButton/colors/font_color = Color(1, 1, 1, 1)
+LinkButton/colors/font_focus_color = Color(1, 1, 0, 1)
+LinkButton/colors/font_hover_color = Color(1, 1, 0, 1)
 LinkButton/colors/font_pressed_color = Color(1, 0.7058824, 0, 1)
 LinkButton/styles/focus = SubResource("StyleBoxEmpty_lfjc7")
 MarginContainer/constants/margin_bottom = 50

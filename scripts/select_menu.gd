@@ -1,24 +1,55 @@
 class_name SelectMenu
 extends Control
 
-signal button_selected(item: Object)
-signal button_focus_changed(item: Object, focus: bool)
+signal button_selected(item: Control)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
+		var hovered := get_viewport().gui_get_hovered_control()
+		var focused := get_viewport().gui_get_focus_owner()
 		for child in get_children():
-			if (child is Button or child is LinkButton) and child == get_viewport().gui_get_hovered_control():
-				child.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-				child.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+			if (child is Button or child is LinkButton or child is Label) and child == hovered:
+				if child == focused or (focused and child.is_ancestor_of(focused)):
+					return
 				child.grab_focus()
+				return
 
 func _ready() -> void:
 	var focused = false
 	for child in get_children():
 		if child is Button or child is LinkButton:
 			child.pressed.connect(button_selected.emit.bind(child))
-			child.focus_entered.connect(button_focus_changed.emit.bind(child, true))
-			child.focus_exited.connect(button_focus_changed.emit.bind(child, false))
+		if child is Button or child is LinkButton or child is Label:
+			child.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+			child.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+			Utils.connect_focus_signal(child, _focus_changed)
 			if not focused:
 				child.grab_focus()
 				focused = true
+		var spinbox := Utils.get_first_child_of_type(child, SpinBox) as SpinBox
+		if spinbox:
+			Utils.connect_focus_signal(spinbox.get_line_edit(), _focus_changed)
+
+func _focus_changed(item: Control, focus: bool):
+	if item is Button and item.toggle_mode:
+		if focus:
+			item.add_theme_color_override("font_pressed_color", item.get_theme_color("font_hover_pressed_color"))
+		else:
+			item.remove_theme_color_override("font_pressed_color")
+	
+	if item is LinkButton:
+		item.underline = LinkButton.UNDERLINE_MODE_ALWAYS if focus else LinkButton.UNDERLINE_MODE_NEVER
+	
+	var spinbox := Utils.get_first_child_of_type(item, SpinBox) as SpinBox
+	if spinbox and focus:
+		var lineedit := spinbox.get_line_edit()
+		lineedit.grab_focus()
+		lineedit.edit()
+		lineedit.select()
+	
+	if item is LineEdit:
+		var button: Control = item.get_parent().get_parent()
+		if focus:
+			button.add_theme_color_override("font_color", button.get_theme_color("font_focus_color", "Button"))
+		else:
+			button.remove_theme_color_override("font_color")
