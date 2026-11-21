@@ -14,12 +14,12 @@ var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var input_dir: float = 0.0
 var pressed_frame: int = -100
 var standing_on: Node = null
+var top_rider: Player = null
+var pushed: Player = null
 
 @onready var small_sprite: Sprite2D = $Sprite2D
 @onready var screen_size := get_viewport_rect().size
-
-var top_rider: Player = null
-var pushed: Player = null
+@onready var original_pos := position
 
 func _ready() -> void:
 	add_to_group("players")
@@ -121,9 +121,7 @@ func _physics_process(delta: float) -> void:
 		remove_collision_exception_with(rider)
 	
 	if position.y > 1000:
-		Save.delete_game_save()
-		get_tree().paused = false
-		Gamemgr.load_current_level()
+		die()
 
 func test_point(point: Vector2):
 	var space := get_world_2d().direct_space_state
@@ -144,3 +142,10 @@ func load_dict(save_data: Dictionary) -> void:
 	global_position = save_data.get("position", global_position)
 	velocity = save_data.get("velocity", velocity)
 	small_sprite.flip_h = save_data.get("facing", small_sprite.flip_h)
+
+func die() -> void:
+	hide()
+	velocity = Vector2.ZERO
+	position = original_pos
+	await get_tree().create_timer(0.3).timeout
+	show()

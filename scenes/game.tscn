@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dd6wwlvb6o1su" path="res://scenes/player.tscn" id="3_lbhrr"]
 [ext_resource type="TileSet" uid="uid://d1cv7dwf6x5r5" path="res://sprites/autotile/tileplaceholder13tile-autotile.tres" id="5_iywne"]
 [ext_resource type="Script" uid="uid://c34kn6cj0d2w1" path="res://scripts/camera.gd" id="5_p57ef"]
-[ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="7_u5sy4"]
 
 [node name="Game" type="Node2D" unique_id=2126916218]
 script = ExtResource("1_yqjtg")
@@ -36,16 +35,5 @@ process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 1.0
 script = ExtResource("5_p57ef")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=371086613]
-
-[node name="Theme" type="Control" parent="CanvasLayer" unique_id=1341032163]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("7_u5sy4")
 
 [connection signal="timeout" from="Autosave" to="." method="_on_autosave_timeout"]

@@ -7,7 +7,9 @@ func _input(event: InputEvent) -> void:
 		restart_level()
 		return
 	if event.is_action_pressed("ui_cancel") and !has_node("CanvasLayer/EscapeScreen"):
-		$CanvasLayer.add_child(game_menu.instantiate())
+		var canvas := CanvasLayer.new()
+		add_child(canvas)
+		canvas.add_child(game_menu.instantiate())
 		Save.save_game()
 		get_tree().paused = true
 

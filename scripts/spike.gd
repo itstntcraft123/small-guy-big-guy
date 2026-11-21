@@ -1,17 +1,8 @@
 extends Area2D
 
-var triggered := false
-
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node2D) -> void:
-	if triggered or not body.is_in_group("players"):
-		return
-	triggered = true
-
-	get_tree().paused = true
-	await get_tree().create_timer(0.3).timeout
-	get_tree().paused = false
-	Save.delete_game_save()
-	Gamemgr.load_current_level.call_deferred()
+	if body is Player:
+		body.die()
