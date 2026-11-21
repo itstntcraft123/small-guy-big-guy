@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="1_liyum"]
 [ext_resource type="Script" uid="uid://doykif72smtup" path="res://scripts/options_menu.gd" id="2_hm4m4"]
 [ext_resource type="PackedScene" uid="uid://io2cdsjc7ao6" path="res://scenes/debug_menu.tscn" id="3_lfjc7"]
+[ext_resource type="PackedScene" uid="uid://c358ma2blmwr7" path="res://scenes/arrow.tscn" id="5_3xsyx"]
 
 [node name="OptionsMenu" type="Control" unique_id=221413966]
 layout_mode = 3
@@ -106,6 +107,11 @@ uri = "https://github.com/itstntcraft123/small-guy-big-guy"
 layout_mode = 2
 text = "debug options"
 alignment = 0
+
+[node name="Arrow" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/Debug" unique_id=100825024 instance=ExtResource("5_3xsyx")]
+layout_mode = 0
+offset_left = 900.0
+offset_right = 943.0
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=56632280]
 layout_mode = 2

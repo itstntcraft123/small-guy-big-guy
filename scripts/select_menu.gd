@@ -82,3 +82,10 @@ func _focus_changed(item: Control, focus: bool):
 			button.add_theme_color_override("font_color", button.get_theme_color("font_focus_color", "Button"))
 		else:
 			button.remove_theme_color_override("font_color")
+	
+	var arrow := Utils.get_first_child_of_type(item, Label) as Label
+	if arrow:
+		if focus:
+			arrow.add_theme_color_override("font_color", item.get_theme_color("font_focus_color"))
+		else:
+			arrow.remove_theme_color_override("font_color")
