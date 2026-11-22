@@ -1,0 +1,102 @@
+[gd_scene format=4 uid="uid://dh0nf5gahqnsa"]
+
+[ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_wg8oe"]
+[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="2_m05wh"]
+[ext_resource type="PackedScene" uid="uid://cgdanea4bubb8" path="res://scenes/presetButtons/anti_button.tscn" id="2_ycof1"]
+[ext_resource type="PackedScene" uid="uid://boeiut3vvglmq" path="res://scenes/presetButtons/button_green.tscn" id="4_avc4n"]
+[ext_resource type="PackedScene" uid="uid://dluceyrb8yq6g" path="res://scenes/presetButtons/button_purple.tscn" id="5_2re2y"]
+[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="6_737d1"]
+
+[node name="Game" unique_id=2126916218 instance=ExtResource("1_wg8oe")]
+
+[node name="SmallGuy" parent="." index="1" unique_id=2137464374]
+position = Vector2(-232, 144)
+
+[node name="BigGuy" parent="." index="2" unique_id=1109696247]
+position = Vector2(-168, 144)
+
+[node name="TileMapLayer" parent="." index="3" unique_id=752737559]
+position = Vector2(1, 0)
+tile_map_data = PackedByteArray("AAACAAcAAAAJAAMAAAABAAcAAAAJAAMAAAAAAAcAAAAJAAMAAAD//wcAAAAJAAMAAAD+/wcAAAAFAAMAAAD9/wcAAAACAAMAAAD8/wcAAAACAAMAAAD7/wcAAAACAAMAAAD6/wcAAAACAAMAAAD5/wcAAAACAAMAAAD4/wcAAAACAAMAAAD3/wcAAAACAAMAAAD2/wcAAAACAAMAAAD1/wcAAAABAAIAAAD1/wYAAAAAAAEAAAD1/wUAAAAAAAEAAAD1/wQAAAAAAAEAAAD1/wMAAAAAAAEAAAD1/wIAAAAAAAEAAAD1/wEAAAAAAAEAAAD1/wAAAAAAAAEAAAD1////AAAAAAEAAAD1//7/AAAAAAEAAAD1//3/AAABAAAAAAD+/wYAAAAIAAAAAAD//wYAAAAKAAAAAAAAAAYAAAAKAAAAAAABAAYAAAAFAAEAAAACAAYAAAAJAAIAAAABAAUAAAAIAAAAAAACAAUAAAAKAAAAAAADAAYAAAAJAAIAAAADAAUAAAAKAAAAAAADAAcAAAAJAAMAAAAEAAcAAAAJAAMAAAAFAAcAAAAJAAMAAAAGAAcAAAAJAAMAAAAHAAcAAAAJAAMAAAAIAAcAAAAJAAMAAAAJAAcAAAAJAAMAAAAKAAcAAAAGAAMAAAAKAAYAAAALAAIAAAAJAAYAAAAJAAIAAAAIAAYAAAAJAAIAAAAHAAYAAAAJAAIAAAAGAAYAAAAJAAIAAAAFAAYAAAAJAAIAAAAEAAYAAAAJAAIAAAAIAAUAAAAKAAAAAAAHAAUAAAAKAAAAAAAFAAUAAAAKAAAAAAAEAAUAAAAKAAAAAAAJAAUAAAAKAAAAAAAKAAUAAAALAAAAAAD2//3/AAACAAMAAAD3//3/AAACAAMAAAD4//3/AAACAAMAAAD5//3/AAACAAMAAAD6//3/AAACAAMAAAD7//3/AAACAAMAAAD8//3/AAADAAIAAAD8//z/AAABAAAAAAD9//z/AAACAAMAAAD+//z/AAACAAMAAAAAAPz/AAACAAMAAAD///z/AAACAAMAAAACAPz/AAACAAMAAAABAPz/AAACAAMAAAAEAPz/AAACAAMAAAADAPz/AAACAAMAAAAGAPz/AAACAAMAAAAFAPz/AAACAAMAAAAHAPz/AAACAAMAAAAIAPz/AAACAAMAAAAJAPz/AAACAAMAAAAKAPz/AAACAAMAAAALAPz/AAACAAMAAAAMAPz/AAACAAMAAAANAPz/AAADAAMAAAAKAAIAAAAIAAAAAAALAAIAAAAKAAAAAAAMAAIAAAAKAAAAAAALAAcAAAACAAMAAAAMAAcAAAACAAMAAAANAAcAAAACAAMAAAAOAAcAAAACAAMAAAAPAAcAAAACAAMAAAAQAAcAAAACAAMAAAARAAcAAAADAAMAAAASAAEAAAABAAMAAAATAAEAAAACAAMAAAAUAAEAAAACAAMAAAAVAAEAAAACAAMAAAAWAAEAAAADAAAAAAANAAIAAAAKAAAAAAAOAAIAAAAKAAAAAAAPAAIAAAALAAAAAAAGAAUAAAAKAAAAAAAKAAMAAAAIAAMAAAALAAMAAAAJAAMAAAAMAAMAAAAJAAMAAAANAAMAAAAJAAMAAAAOAAMAAAAJAAMAAAAPAAMAAAALAAMAAAAXAAIAAAAKAAAAAAAWAAIAAAAEAAEAAAAWAAMAAAAIAAMAAAAXAAMAAAAJAAMAAAAYAAMAAAAJAAMAAAAYAAIAAAAKAAAAAAAZAAIAAAAKAAAAAAAZAAMAAAAJAAMAAAAaAAMAAAAJAAMAAAAaAAIAAAAFAAEAAAAbAAIAAAAJAAIAAAAcAAIAAAALAAIAAAAaAAEAAAAIAAAAAAAbAAEAAAAKAAAAAAAcAAEAAAAGAAAAAAAbAAMAAAAJAAMAAAAcAAMAAAALAAMAAAAfAPz/AAACAAMAAAAgAPz/AAACAAMAAAAhAPz/AAACAAMAAAAiAPz/AAADAAMAAAAeAPz/AAACAAMAAAAdAPz/AAABAAMAAAAbAAcAAAABAAMAAAAcAAcAAAACAAMAAAAdAAcAAAACAAMAAAAeAAcAAAACAAMAAAAfAAcAAAACAAMAAAAgAAcAAAACAAMAAAAhAAcAAAADAAMAAAAdAAAAAAAAAAEAAAAdAAEAAAADAAIAAAAdAP//AAAAAAAAAAASAAgAAAABAAMAAAATAAgAAAACAAMAAAAUAAgAAAACAAMAAAAVAAgAAAACAAMAAAAWAAgAAAACAAMAAAAXAAgAAAACAAMAAAAYAAgAAAACAAMAAAAZAAgAAAACAAMAAAAaAAgAAAADAAMAAAA=")
+
+[node name="antiButton" parent="." index="5" unique_id=1331368196 instance=ExtResource("2_ycof1")]
+position = Vector2(528, 224)
+
+[node name="Door" parent="." index="6" unique_id=1193654706 instance=ExtResource("2_m05wh")]
+position = Vector2(240, 144)
+inverted = true
+
+[node name="Door2" parent="." index="7" unique_id=904994778 instance=ExtResource("2_m05wh")]
+position = Vector2(304, 112)
+inverted = true
+
+[node name="Door3" parent="." index="8" unique_id=1324873041 instance=ExtResource("2_m05wh")]
+position = Vector2(592, 176)
+inverted = true
+
+[node name="Door4" parent="." index="9" unique_id=657378750 instance=ExtResource("2_m05wh")]
+position = Vector2(560, 112)
+inverted = true
+
+[node name="buttonGreen" parent="." index="10" unique_id=1959062821 instance=ExtResource("4_avc4n")]
+position = Vector2(368, 224)
+type = 1
+
+[node name="ButtonPurple" parent="." index="11" unique_id=1582391861 instance=ExtResource("5_2re2y")]
+position = Vector2(752, 64)
+
+[node name="Door5" parent="." index="12" unique_id=469091350 instance=ExtResource("2_m05wh")]
+position = Vector2(592, 240)
+color = 2
+inverted = false
+
+[node name="Door6" parent="." index="13" unique_id=196381858 instance=ExtResource("2_m05wh")]
+position = Vector2(624, 240)
+color = 2
+inverted = false
+
+[node name="Door7" parent="." index="14" unique_id=2000562336 instance=ExtResource("2_m05wh")]
+position = Vector2(656, 240)
+color = 2
+inverted = false
+
+[node name="Door8" parent="." index="15" unique_id=1139992968 instance=ExtResource("2_m05wh")]
+position = Vector2(688, 240)
+color = 2
+inverted = false
+
+[node name="Door9" parent="." index="16" unique_id=695660282 instance=ExtResource("2_m05wh")]
+position = Vector2(720, 240)
+color = 2
+inverted = false
+
+[node name="Door10" parent="." index="17" unique_id=1617020100 instance=ExtResource("2_m05wh")]
+position = Vector2(752, 240)
+color = 2
+inverted = false
+
+[node name="Door11" parent="." index="18" unique_id=2104858842 instance=ExtResource("2_m05wh")]
+position = Vector2(784, 240)
+color = 2
+inverted = false
+
+[node name="Door12" parent="." index="19" unique_id=705798006 instance=ExtResource("2_m05wh")]
+position = Vector2(816, 240)
+color = 2
+inverted = false
+
+[node name="Door13" parent="." index="20" unique_id=832828761 instance=ExtResource("2_m05wh")]
+position = Vector2(848, 240)
+color = 2
+inverted = false
+
+[node name="Door14" parent="." index="21" unique_id=1474205045 instance=ExtResource("2_m05wh")]
+position = Vector2(944, -48)
+inverted = true
+
+[node name="Door15" parent="." index="22" unique_id=69032890 instance=ExtResource("2_m05wh")]
+position = Vector2(912, 16)
+inverted = true
+
+[node name="Portal" parent="." index="23" unique_id=1527810771 instance=ExtResource("6_737d1")]
+position = Vector2(1032, 208)
