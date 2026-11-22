@@ -89,3 +89,10 @@ func _focus_changed(item: Control, focus: bool):
 			arrow.add_theme_color_override("font_color", item.get_theme_color("font_focus_color"))
 		else:
 			arrow.remove_theme_color_override("font_color")
+	
+	var texturerect := Utils.get_first_child_of_type(item, TextureRect) as TextureRect
+	if texturerect:
+		if focus:
+			texturerect.self_modulate = Color.YELLOW
+		else:
+			texturerect.self_modulate = Color.WHITE
