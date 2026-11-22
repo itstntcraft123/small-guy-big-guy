@@ -107,10 +107,10 @@ uri = "https://github.com/itstntcraft123/small-guy-big-guy"
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/Source" unique_id=1052529247]
 texture_filter = 1
 layout_mode = 0
-offset_left = 890.0
-offset_top = 24.5
+offset_left = 886.0
+offset_top = 22.5
 offset_right = 938.0
-offset_bottom = 72.5
+offset_bottom = 74.5
 texture = ExtResource("5_dhn0l")
 
 [node name="Debug" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=1568388223]
