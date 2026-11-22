@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="1_liyum"]
 [ext_resource type="Script" uid="uid://doykif72smtup" path="res://scripts/options_menu.gd" id="2_hm4m4"]
 [ext_resource type="PackedScene" uid="uid://io2cdsjc7ao6" path="res://scenes/debug_menu.tscn" id="3_lfjc7"]
+[ext_resource type="PackedScene" uid="uid://c358ma2blmwr7" path="res://scenes/arrow.tscn" id="5_3xsyx"]
+[ext_resource type="Texture2D" uid="uid://crsdifxp57evn" path="res://sprites/arrow.png" id="5_dhn0l"]
 
 [node name="OptionsMenu" type="Control" unique_id=221413966]
 layout_mode = 3
@@ -41,6 +43,7 @@ follow_focus = true
 
 [node name="SelectMenu" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=543663428 instance=ExtResource("1_liyum")]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Fullscreen" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=531943641]
 layout_mode = 2
@@ -63,10 +66,36 @@ toggle_mode = true
 text = "r to restart: off"
 alignment = 0
 
-[node name="Debug" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=1568388223]
+[node name="SaveSpeed" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=483443534]
 layout_mode = 2
-text = "debug options"
-alignment = 0
+focus_mode = 2
+mouse_filter = 0
+text = "autosave speed"
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed" unique_id=389701017]
+layout_mode = 0
+offset_left = 700.0
+offset_right = 842.0
+offset_bottom = 81.0
+focus_mode = 1
+max_value = 10000.0
+rounded = true
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed/SpinBox" unique_id=790592582]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -36.5
+offset_right = 128.0
+offset_bottom = 36.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "secs"
 
 [node name="Source" type="LinkButton" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=1854103576]
 layout_mode = 2
@@ -75,10 +104,28 @@ text = "view source"
 underline = 2
 uri = "https://github.com/itstntcraft123/small-guy-big-guy"
 
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/Source" unique_id=1052529247]
+texture_filter = 1
+layout_mode = 0
+offset_left = 886.0
+offset_top = 22.5
+offset_right = 938.0
+offset_bottom = 74.5
+texture = ExtResource("5_dhn0l")
+
+[node name="Debug" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=1568388223]
+layout_mode = 2
+text = "debug options"
+alignment = 0
+
+[node name="Arrow" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/Debug" unique_id=100825024 instance=ExtResource("5_3xsyx")]
+layout_mode = 0
+offset_left = 900.0
+offset_right = 943.0
+
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=56632280]
 layout_mode = 2
 text = "back"
 alignment = 0
 
-[connection signal="button_focus_changed" from="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" to="." method="_on_select_menu_button_focus_changed"]
 [connection signal="button_selected" from="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]

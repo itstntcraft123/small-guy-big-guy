@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bjuee2jha4cbs" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://tqnkx31t63uf" path="res://scenes/options_menu.tscn" id="3_wu84c"]
+[ext_resource type="PackedScene" uid="uid://c358ma2blmwr7" path="res://scenes/arrow.tscn" id="5_8ln24"]
 
 [node name="MainMenu" type="Control" unique_id=215592574]
 layout_mode = 3
@@ -46,6 +47,9 @@ layout_mode = 2
 text = "options"
 alignment = 0
 
+[node name="Arrow" parent="MarginContainer/VBoxContainer/SelectMenu/Options" unique_id=100825024 instance=ExtResource("5_8ln24")]
+layout_mode = 1
+
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=735927723]
 layout_mode = 2
 text = "quit"
@@ -57,9 +61,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 24.0
-offset_top = -71.0
+offset_top = -64.0
 offset_right = 154.0
-offset_bottom = -16.0
+offset_bottom = -9.0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.48925245, 0.8516775, 0.99999994, 1)
 theme_override_font_sizes/font_size = 48

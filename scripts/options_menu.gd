@@ -22,27 +22,27 @@ func _ready() -> void:
 	Save.load_cfg()
 
 func _process(_delta: float) -> void:
-	fullscreen_btn.text = "fullscreen: on" if _is_fullscreen() else "fullscreen: off"
-	fullscreen_btn.set_pressed_no_signal(_is_fullscreen())
-	vsync_btn.text = "vsync: on" if DisplayServer.window_get_vsync_mode() else "vsync: off"
-	vsync_btn.set_pressed_no_signal(DisplayServer.window_get_vsync_mode())
-	restart_btn.text = "r to restart: on" if Settings.r_to_restart else "r to restart: off"
-	restart_btn.set_pressed_no_signal(Settings.r_to_restart)
+	Utils.set_settings_state(fullscreen_btn, "fullscreen", _is_fullscreen())
+	Utils.set_settings_state(vsync_btn, "vsync", DisplayServer.window_get_vsync_mode())
+	Utils.set_settings_state(restart_btn, "r to restart", Settings.r_to_restart)
+	$MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed/SpinBox.value = Settings.autosave_speed
 
-func _on_select_menu_button_selected(item: Object) -> void:
+func _on_select_menu_button_selected(item: Control) -> void:
 	match item.name:
 		"Fullscreen":
-			if !fullscreen_btn.button_pressed:
+			if !item.button_pressed:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			else:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		"Vsync":
-			if !vsync_btn.button_pressed:
+			if !item.button_pressed:
 				DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 			else:
 				DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 		"RestartKey":
-			Settings.r_to_restart = restart_btn.button_pressed
+			Settings.r_to_restart = item.button_pressed
+		"SaveSpeed":
+			Settings.autosave_speed = int(item.get_child(0).value)
 		"Debug":
 			add_child(debug_options.instantiate())
 			$MarginContainer.hide()
@@ -54,15 +54,6 @@ func _on_select_menu_button_selected(item: Object) -> void:
 func _is_fullscreen() -> bool:
 	var mode = DisplayServer.window_get_mode()
 	return mode == DisplayServer.WINDOW_MODE_FULLSCREEN or mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
-
-func _on_select_menu_button_focus_changed(item: Object, focus: bool) -> void:
-	if item.toggle_mode:
-		if focus:
-			item.add_theme_color_override("font_pressed_color", item.get_theme_color("font_hover_pressed_color"))
-		else:
-			item.remove_theme_color_override("font_pressed_color")
-	if item is LinkButton:
-		item.underline = LinkButton.UNDERLINE_MODE_ALWAYS if focus else LinkButton.UNDERLINE_MODE_NEVER
 
 func unhide() -> void:
 	$MarginContainer.show()

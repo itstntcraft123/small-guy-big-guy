@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c358ma2blmwr7"]
+
+[ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_umosx"]
+
+[node name="Arrow" type="Label" unique_id=100825024]
+offset_left = 980.0
+offset_right = 1023.0
+offset_bottom = 88.0
+theme = ExtResource("1_umosx")
+text = ">"
+vertical_alignment = 1

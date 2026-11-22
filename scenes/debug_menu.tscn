@@ -50,5 +50,4 @@ layout_mode = 2
 text = "back"
 alignment = 0
 
-[connection signal="button_focus_changed" from="VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_focus_changed"]
 [connection signal="button_selected" from="VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]

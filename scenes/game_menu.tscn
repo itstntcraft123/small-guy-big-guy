@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://tqnkx31t63uf" path="res://scenes/options_menu.tscn" id="2_mw6r2"]
 [ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="2_vrsc2"]
 [ext_resource type="Script" uid="uid://de5d48h5t6gsq" path="res://scripts/game_menu.gd" id="2_ysvk1"]
+[ext_resource type="PackedScene" uid="uid://c358ma2blmwr7" path="res://scenes/arrow.tscn" id="5_ldg7d"]
 
 [node name="GameMenu" type="Control" unique_id=1489002370]
 process_mode = 3
@@ -64,6 +65,9 @@ alignment = 0
 layout_mode = 2
 text = "options"
 alignment = 0
+
+[node name="Arrow" parent="MarginContainer/VBoxContainer/SelectMenu/Options" unique_id=100825024 instance=ExtResource("5_ldg7d")]
+layout_mode = 1
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/SelectMenu" unique_id=1672113681]
 layout_mode = 2
