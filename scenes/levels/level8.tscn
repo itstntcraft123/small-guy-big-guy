@@ -109,6 +109,7 @@ inverted = true
 [node name="DoorAnti11" parent="." index="26" unique_id=2079809872 instance=ExtResource("3_rrpq3")]
 position = Vector2(688, 272)
 color = Color(1, 0, 0.6392157, 1)
+inverted = true
 
 [node name="Spike" parent="." index="27" unique_id=925223878 instance=ExtResource("6_ujtvf")]
 position = Vector2(368, 304)
