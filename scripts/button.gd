@@ -1,11 +1,15 @@
 @tool
 extends Area2D
 
-enum Type { GREEN, BLUE, PURPLE }
-# green is for small, blue is for big, purple is for both
+enum Type { SMALL, BIG, HEAVY}
 
 @export var inverted := false
-@export var type: Type = Type.GREEN
+@export var type: Type = Type.SMALL
+@export var color: Color = Color.WHITE:
+	set(value):
+		color = value
+		if is_node_ready():
+			sprite.modulate = color
 @export var big_weight_threshold: float = 1.5
 
 @export var tex_idle: Texture2D
@@ -29,6 +33,7 @@ const GRACE_FRAMES := 4
 func _ready() -> void:
 	add_to_group("buttons")
 	sprite.centered = false
+	sprite.modulate = color
 	strip.shape = strip.shape.duplicate()
 	platform_shape.shape = platform_shape.shape.duplicate()
 	platform_shape.position = Vector2.ZERO
@@ -79,16 +84,16 @@ func _physics_process(_delta: float) -> void:
 	var tex := tex_idle
 	
 	match type: 
-		Type.GREEN: 
+		Type.SMALL: 
 			now_active = small_on or big_on
 			tex = tex_pressed if now_active else tex_idle
-		Type.BLUE: 
+		Type.BIG: 
 			now_active = big_on
 			if now_active:
 				tex = tex_pressed
 			elif small_on:
 				tex = tex_small
-		Type.PURPLE: 
+		Type.HEAVY: 
 			now_active = small_on and big_on
 			if now_active:
 				tex = tex_pressed

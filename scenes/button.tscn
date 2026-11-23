@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://bh5qmpvjyanud"]
 
 [ext_resource type="Script" uid="uid://dvhc1ne4s0mtm" path="res://scripts/button.gd" id="1_rhj8v"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mi6dp"]
-load_path = "res://.godot/imported/buttons.png-f4913ad2a84bfeace2dd271f2c57ef3d.ctex"
+[ext_resource type="Texture2D" uid="uid://cd5mtt51l6axr" path="res://sprites/buttonsGray.png" id="2_rhj8v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_63sl8"]
-atlas = SubResource("CompressedTexture2D_mi6dp")
+atlas = ExtResource("2_rhj8v")
 region = Rect2(0, 0, 32, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi6dp"]
@@ -21,6 +19,7 @@ size = Vector2(32, 4)
 [node name="Button" type="Area2D" unique_id=1331368196]
 position = Vector2(0, 11)
 script = ExtResource("1_rhj8v")
+color = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=140090410]
 texture_filter = 1

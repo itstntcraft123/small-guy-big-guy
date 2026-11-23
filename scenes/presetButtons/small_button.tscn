@@ -1,26 +1,26 @@
 [gd_scene format=3 uid="uid://boeiut3vvglmq"]
 
 [ext_resource type="Script" uid="uid://dvhc1ne4s0mtm" path="res://scripts/button.gd" id="1_q0j8l"]
-[ext_resource type="Texture2D" uid="uid://bhiw5gndhxxao" path="res://sprites/buttons.png" id="2_0s74k"]
+[ext_resource type="Texture2D" uid="uid://cd5mtt51l6axr" path="res://sprites/buttonsGray.png" id="2_yv2ee"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5yc2n"]
-atlas = ExtResource("2_0s74k")
+atlas = ExtResource("2_yv2ee")
 region = Rect2(0, 0, 32, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x5bo2"]
-atlas = ExtResource("2_0s74k")
+atlas = ExtResource("2_yv2ee")
 region = Rect2(32, 13, 32, 7)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s74k"]
-size = Vector2(26, 3)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjukr"]
+size = Vector2(26, 18)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6vdq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0sdl"]
 size = Vector2(24, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ao8sq"]
 size = Vector2(32, 4)
 
-[node name="buttonGreen" type="Area2D" unique_id=1331368196]
+[node name="small_button" type="Area2D" unique_id=1331368196]
 position = Vector2(0, 11)
 script = ExtResource("1_q0j8l")
 tex_idle = SubResource("AtlasTexture_5yc2n")
@@ -33,14 +33,14 @@ centered = false
 offset = Vector2(-16, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=200025766]
-position = Vector2(0, -21.5)
-shape = SubResource("RectangleShape2D_0s74k")
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_jjukr")
 
 [node name="Platform" type="AnimatableBody2D" parent="." unique_id=1865990670]
 position = Vector2(0, -19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1352269263]
-shape = SubResource("RectangleShape2D_n6vdq")
+shape = SubResource("RectangleShape2D_j0sdl")
 
 [node name="Base" type="StaticBody2D" parent="." unique_id=1984807727]
 

@@ -1,30 +1,30 @@
 [gd_scene format=3 uid="uid://cfuoai66ktlsi"]
 
 [ext_resource type="Script" uid="uid://dvhc1ne4s0mtm" path="res://scripts/button.gd" id="1_qdcu2"]
-[ext_resource type="Texture2D" uid="uid://bhiw5gndhxxao" path="res://sprites/buttons.png" id="2_45fla"]
+[ext_resource type="Texture2D" uid="uid://cd5mtt51l6axr" path="res://sprites/buttonsGray.png" id="2_qj2jf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dipcc"]
-atlas = ExtResource("2_45fla")
+atlas = ExtResource("2_qj2jf")
 region = Rect2(0, 22, 32, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6av4"]
-atlas = ExtResource("2_45fla")
+atlas = ExtResource("2_qj2jf")
 region = Rect2(32, 27, 32, 17)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_doc57"]
-atlas = ExtResource("2_45fla")
+atlas = ExtResource("2_qj2jf")
 region = Rect2(64, 35, 32, 7)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l86cc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_erd8s"]
 size = Vector2(26, 18)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_55e80"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkggr"]
 size = Vector2(24, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ao8sq"]
 size = Vector2(32, 4)
 
-[node name="ButtonBlue" type="Area2D" unique_id=1331368196]
+[node name="big_button" type="Area2D" unique_id=1331368196]
 position = Vector2(0, 11)
 script = ExtResource("1_qdcu2")
 type = 1
@@ -40,13 +40,13 @@ offset = Vector2(-16, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=200025766]
 position = Vector2(0, -14)
-shape = SubResource("RectangleShape2D_l86cc")
+shape = SubResource("RectangleShape2D_erd8s")
 
 [node name="Platform" type="AnimatableBody2D" parent="." unique_id=1865990670]
 position = Vector2(0, -19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1352269263]
-shape = SubResource("RectangleShape2D_55e80")
+shape = SubResource("RectangleShape2D_gkggr")
 
 [node name="Base" type="StaticBody2D" parent="." unique_id=1984807727]
 
