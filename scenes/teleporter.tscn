@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://gmykn3i87u1c"]
+
+[ext_resource type="Script" uid="uid://bg5pjl7vat3u2" path="res://scripts/teleporter.gd" id="1_pce0k"]
+[ext_resource type="Texture2D" uid="uid://dui8mtv1k32wu" path="res://sprites/teleporter.png" id="1_vurns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63sl8"]
+size = Vector2(24, 28)
+
+[node name="Teleporter" type="Area2D" unique_id=1418464480]
+script = ExtResource("1_pce0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=891922562]
+shape = SubResource("RectangleShape2D_63sl8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=440862313]
+texture_filter = 1
+texture = ExtResource("1_vurns")
+hframes = 4
