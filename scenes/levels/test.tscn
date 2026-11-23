@@ -5,11 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://dluceyrb8yq6g" path="res://scenes/presetButtons/heavy_button.tscn" id="3_kw13u"]
 [ext_resource type="PackedScene" uid="uid://cfuoai66ktlsi" path="res://scenes/presetButtons/big_button.tscn" id="4_im2du"]
 [ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="5_f5esd"]
+[ext_resource type="PackedScene" uid="uid://c7we4uuf3g5jb" path="res://scenes/moving_platform.tscn" id="6_koekj"]
+[ext_resource type="PackedScene" uid="uid://dwpvb7swdbvug" path="res://scenes/lever.tscn" id="7_kw13u"]
 
 [node name="Game" unique_id=2126916218 instance=ExtResource("1_7115g")]
 
 [node name="TileMapLayer" parent="." index="3" unique_id=752737559]
-tile_map_data = PackedByteArray("AAD9/wkAAAACAAMAAAD+/wkAAAACAAMAAAD//wkAAAACAAMAAAAAAAkAAAACAAMAAAABAAkAAAACAAMAAAACAAkAAAACAAMAAAADAAkAAAACAAMAAAAEAAkAAAACAAMAAAAFAAkAAAACAAMAAAAGAAkAAAACAAMAAAAHAAkAAAACAAMAAAAIAAkAAAACAAMAAAAJAAkAAAACAAMAAAAKAAkAAAACAAMAAAALAAkAAAACAAMAAAAMAAkAAAACAAMAAAANAAkAAAACAAMAAAAOAAkAAAACAAMAAAAPAAkAAAACAAMAAAAQAAkAAAACAAMAAAD8/wkAAAACAAMAAAD7/wkAAAACAAMAAAD6/wkAAAACAAMAAAD5/wkAAAACAAMAAAD4/wkAAAACAAMAAAD3/wkAAAACAAMAAAD2/wkAAAACAAMAAAD1/wkAAAACAAMAAAD0/wkAAAABAAMAAAARAAkAAAACAAMAAAASAAkAAAACAAMAAAATAAkAAAACAAMAAAAUAAkAAAACAAMAAAAVAAkAAAACAAMAAAAWAAkAAAACAAMAAAAXAAkAAAACAAMAAAAYAAkAAAACAAMAAAAZAAkAAAACAAMAAAAaAAkAAAACAAMAAAAbAAkAAAACAAMAAAAcAAkAAAACAAMAAAAdAAkAAAACAAMAAAAeAAkAAAACAAMAAAAfAAkAAAACAAMAAAAgAAkAAAACAAMAAAAhAAkAAAADAAMAAAA=")
+tile_map_data = PackedByteArray("AAABAAkAAAACAAMAAAACAAkAAAACAAMAAAADAAkAAAACAAMAAAAEAAkAAAACAAMAAAAFAAkAAAACAAMAAAAGAAkAAAACAAMAAAAHAAkAAAACAAMAAAAIAAkAAAACAAMAAAAJAAkAAAACAAMAAAAKAAkAAAACAAMAAAALAAkAAAACAAMAAAAMAAkAAAACAAMAAAANAAkAAAACAAMAAAAOAAkAAAACAAMAAAAPAAkAAAACAAMAAAAQAAkAAAACAAMAAAARAAkAAAACAAMAAAASAAkAAAACAAMAAAATAAkAAAACAAMAAAAUAAkAAAACAAMAAAAVAAkAAAACAAMAAAAWAAkAAAACAAMAAAAXAAkAAAACAAMAAAAYAAkAAAACAAMAAAAZAAkAAAACAAMAAAAaAAkAAAACAAMAAAAbAAkAAAACAAMAAAAcAAkAAAACAAMAAAAdAAkAAAACAAMAAAAeAAkAAAACAAMAAAAfAAkAAAACAAMAAAAgAAkAAAACAAMAAAAhAAkAAAADAAMAAADz/wkAAAACAAMAAADy/wkAAAACAAMAAADx/wkAAAACAAMAAADw/wkAAAACAAMAAADv/wkAAAACAAMAAADu/wkAAAACAAMAAADt/wkAAAACAAMAAADs/wkAAAACAAMAAADr/wkAAAACAAMAAADq/wkAAAACAAMAAADp/wkAAAACAAMAAADo/wkAAAACAAMAAADn/wkAAAACAAMAAADm/wkAAAACAAMAAADl/wkAAAACAAMAAADk/wkAAAACAAMAAADj/wkAAAACAAMAAADi/wkAAAACAAMAAADh/wkAAAACAAMAAADg/wkAAAACAAMAAADf/wkAAAACAAMAAADe/wkAAAACAAMAAADd/wkAAAABAAMAAAAAAAkAAAACAAMAAAD//wkAAAACAAMAAAD+/wkAAAACAAMAAAD9/wkAAAACAAMAAAD8/wkAAAACAAMAAAD7/wkAAAACAAMAAAD6/wkAAAACAAMAAAD5/wkAAAACAAMAAAD0/wkAAAACAAMAAAA=")
 
 [node name="small_button" parent="." index="5" unique_id=1331368196 instance=ExtResource("2_koekj")]
 position = Vector2(258, 288)
@@ -25,14 +27,22 @@ color = Color(1, 0, 0, 1)
 [node name="Door" parent="." index="8" unique_id=1193654706 instance=ExtResource("5_f5esd")]
 position = Vector2(334, 272)
 color = Color(1, 0, 0, 1)
-inverted = false
 
 [node name="Door2" parent="." index="9" unique_id=697542208 instance=ExtResource("5_f5esd")]
 position = Vector2(398, 272)
 color = Color(1, 0, 0, 1)
-inverted = false
 
 [node name="Door3" parent="." index="10" unique_id=1744958558 instance=ExtResource("5_f5esd")]
 position = Vector2(462, 272)
 color = Color(1, 0, 0, 1)
-inverted = false
+
+[node name="MovingPlatform" parent="." index="11" unique_id=480596936 instance=ExtResource("6_koekj")]
+position = Vector2(-336, 304)
+travel = Vector2(96, 0)
+
+[node name="Lever" parent="." index="12" unique_id=56859663 instance=ExtResource("7_kw13u")]
+position = Vector2(-544, 273)
+undoable = true
+
+[node name="Door4" parent="." index="13" unique_id=1320839147 instance=ExtResource("5_f5esd")]
+position = Vector2(-585, 272)
