@@ -1,0 +1,38 @@
+[gd_scene format=4 uid="uid://gooeuw30ql7g"]
+
+[ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_7115g"]
+[ext_resource type="PackedScene" uid="uid://boeiut3vvglmq" path="res://scenes/presetButtons/small_button.tscn" id="2_koekj"]
+[ext_resource type="PackedScene" uid="uid://dluceyrb8yq6g" path="res://scenes/presetButtons/heavy_button.tscn" id="3_kw13u"]
+[ext_resource type="PackedScene" uid="uid://cfuoai66ktlsi" path="res://scenes/presetButtons/big_button.tscn" id="4_im2du"]
+[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="5_f5esd"]
+
+[node name="Game" unique_id=2126916218 instance=ExtResource("1_7115g")]
+
+[node name="TileMapLayer" parent="." index="3" unique_id=752737559]
+tile_map_data = PackedByteArray("AAD9/wkAAAACAAMAAAD+/wkAAAACAAMAAAD//wkAAAACAAMAAAAAAAkAAAACAAMAAAABAAkAAAACAAMAAAACAAkAAAACAAMAAAADAAkAAAACAAMAAAAEAAkAAAACAAMAAAAFAAkAAAACAAMAAAAGAAkAAAACAAMAAAAHAAkAAAACAAMAAAAIAAkAAAACAAMAAAAJAAkAAAACAAMAAAAKAAkAAAACAAMAAAALAAkAAAACAAMAAAAMAAkAAAACAAMAAAANAAkAAAACAAMAAAAOAAkAAAACAAMAAAAPAAkAAAACAAMAAAAQAAkAAAACAAMAAAD8/wkAAAACAAMAAAD7/wkAAAACAAMAAAD6/wkAAAACAAMAAAD5/wkAAAACAAMAAAD4/wkAAAACAAMAAAD3/wkAAAACAAMAAAD2/wkAAAACAAMAAAD1/wkAAAACAAMAAAD0/wkAAAABAAMAAAARAAkAAAACAAMAAAASAAkAAAACAAMAAAATAAkAAAACAAMAAAAUAAkAAAACAAMAAAAVAAkAAAACAAMAAAAWAAkAAAACAAMAAAAXAAkAAAACAAMAAAAYAAkAAAACAAMAAAAZAAkAAAACAAMAAAAaAAkAAAACAAMAAAAbAAkAAAACAAMAAAAcAAkAAAACAAMAAAAdAAkAAAACAAMAAAAeAAkAAAACAAMAAAAfAAkAAAACAAMAAAAgAAkAAAACAAMAAAAhAAkAAAADAAMAAAA=")
+
+[node name="small_button" parent="." index="5" unique_id=1331368196 instance=ExtResource("2_koekj")]
+position = Vector2(258, 288)
+
+[node name="heavy_button" parent="." index="6" unique_id=1268958242 instance=ExtResource("3_kw13u")]
+position = Vector2(204, 288)
+color = Color(0, 1, 0, 1)
+
+[node name="big_button" parent="." index="7" unique_id=1678444242 instance=ExtResource("4_im2du")]
+position = Vector2(154, 288)
+color = Color(1, 0, 0, 1)
+
+[node name="Door" parent="." index="8" unique_id=1193654706 instance=ExtResource("5_f5esd")]
+position = Vector2(334, 272)
+color = Color(1, 0, 0, 1)
+inverted = false
+
+[node name="Door2" parent="." index="9" unique_id=697542208 instance=ExtResource("5_f5esd")]
+position = Vector2(398, 272)
+color = Color(1, 0, 0, 1)
+inverted = false
+
+[node name="Door3" parent="." index="10" unique_id=1744958558 instance=ExtResource("5_f5esd")]
+position = Vector2(462, 272)
+color = Color(1, 0, 0, 1)
+inverted = false

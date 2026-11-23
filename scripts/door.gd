@@ -2,7 +2,7 @@
 extends StaticBody2D
 class_name Door
 
-@export_enum("Green", "Blue", "Purple") var color: int = 0:
+@export var color: Color = Color.WHITE:
 	set(value):
 		color = value
 		_update_sprite()
@@ -39,11 +39,12 @@ func _update_sprite() -> void:
 	if not is_node_ready():
 		return
 	sprite.visible = true
+	sprite.modulate = color
 	sprite.frame = _frame_for(not is_open)
 
 func _frame_for(solid: bool) -> int:
 	if not inverted: 
-		return color
+		return 0
 	return 3 if solid else 4
 
 func _physics_process(delta: float) -> void:
@@ -52,11 +53,11 @@ func _physics_process(delta: float) -> void:
 	
 	var powered := false
 	for b in get_tree().get_nodes_in_group("buttons"):
-		if not ("type" in b and "active" in b and "inverted" in b):
+		if not ("color" in b and "active" in b and "inverted" in b):
 			continue
 		if b.inverted != inverted:
 			continue
-		if not inverted and b.type != color:
+		if not b.color.is_equal_approx(color):
 			continue
 		if b.active:
 			powered = true
@@ -121,7 +122,7 @@ func _show_state(flashing: bool, remaining: float, flash: float) -> void:
 		sprite.frame = _frame_for(solid)
 	else:
 		sprite.visible = solid
-		sprite.frame = color
+		sprite.frame = 0
 
 func _set_open(open: bool) -> void:
 	is_open = open
