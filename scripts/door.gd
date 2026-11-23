@@ -45,7 +45,7 @@ func _update_sprite() -> void:
 func _frame_for(solid: bool) -> int:
 	if not inverted: 
 		return 0
-	return 3 if solid else 4
+	return 1 if solid else 2
 
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
