@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_tb8ci"]
 [ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="2_ujtvf"]
 [ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="3_h1dae"]
-[ext_resource type="PackedScene" uid="uid://boeiut3vvglmq" path="res://scenes/presetButtons/button_green.tscn" id="4_infop"]
-[ext_resource type="PackedScene" uid="uid://cfuoai66ktlsi" path="res://scenes/presetButtons/button_blue.tscn" id="5_s4x5n"]
+[ext_resource type="PackedScene" uid="uid://boeiut3vvglmq" path="res://scenes/presetButtons/small_button.tscn" id="4_infop"]
+[ext_resource type="PackedScene" uid="uid://cfuoai66ktlsi" path="res://scenes/presetButtons/big_button.tscn" id="5_s4x5n"]
 [ext_resource type="PackedScene" uid="uid://cgdanea4bubb8" path="res://scenes/presetButtons/anti_button.tscn" id="6_8kjvp"]
 
 [node name="Game" unique_id=2126916218 instance=ExtResource("1_tb8ci")]

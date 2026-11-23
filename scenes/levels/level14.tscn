@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://duhen5wplmq3w"]
 
 [ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_ym4sx"]
-[ext_resource type="PackedScene" uid="uid://boeiut3vvglmq" path="res://scenes/presetButtons/button_green.tscn" id="2_klv8x"]
+[ext_resource type="PackedScene" uid="uid://boeiut3vvglmq" path="res://scenes/presetButtons/small_button.tscn" id="2_klv8x"]
 [ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="3_0duk4"]
 [ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="4_l8rxl"]
 
@@ -18,9 +18,11 @@ tile_map_data = PackedByteArray("AAAFAAcAAAACAAMAAAAEAAcAAAACAAMAAAADAAcAAAACAAM
 
 [node name="buttonGreen" parent="." index="5" unique_id=1331368196 instance=ExtResource("2_klv8x")]
 position = Vector2(528, 416)
+color = null
 
 [node name="buttonGreen" parent="buttonGreen" index="4" unique_id=586288619 instance=ExtResource("2_klv8x")]
 position = Vector2(2048, 0)
+color = null
 
 [node name="Door" parent="buttonGreen" index="5" unique_id=1193654706 instance=ExtResource("3_0duk4")]
 position = Vector2(2208, -176)
@@ -131,6 +133,7 @@ position = Vector2(3680, 208)
 
 [node name="buttonGreen2" parent="." index="23" unique_id=750142714 instance=ExtResource("2_klv8x")]
 position = Vector2(3600, 224)
+color = null
 
 [node name="Door23" parent="." index="24" unique_id=1269672020 instance=ExtResource("3_0duk4")]
 position = Vector2(-528, 208)
@@ -146,15 +149,19 @@ inverted = false
 
 [node name="buttonGreen3" parent="." index="27" unique_id=344180162 instance=ExtResource("2_klv8x")]
 position = Vector2(3112, 224)
+color = null
 
 [node name="buttonGreen4" parent="." index="28" unique_id=867437802 instance=ExtResource("2_klv8x")]
 position = Vector2(2808, 224)
+color = null
 
 [node name="buttonGreen5" parent="." index="29" unique_id=890808513 instance=ExtResource("2_klv8x")]
 position = Vector2(2888, 224)
+color = null
 
 [node name="buttonGreen6" parent="." index="30" unique_id=2052534800 instance=ExtResource("2_klv8x")]
 position = Vector2(3024, 224)
+color = null
 
 [node name="Door26" parent="." index="31" unique_id=291912328 instance=ExtResource("3_0duk4")]
 position = Vector2(1168, 112)
@@ -166,9 +173,11 @@ inverted = false
 
 [node name="buttonGreen7" parent="." index="33" unique_id=1563732573 instance=ExtResource("2_klv8x")]
 position = Vector2(1808, 0)
+color = null
 
 [node name="buttonGreen8" parent="." index="34" unique_id=885354552 instance=ExtResource("2_klv8x")]
 position = Vector2(1072, 0)
+color = null
 
 [node name="Door11" parent="." index="35" unique_id=439269401 instance=ExtResource("3_0duk4")]
 position = Vector2(3248, 208)

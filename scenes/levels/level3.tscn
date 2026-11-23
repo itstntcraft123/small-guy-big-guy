@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_02w4s"]
 [ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="2_sru4k"]
-[ext_resource type="PackedScene" uid="uid://boeiut3vvglmq" path="res://scenes/presetButtons/button_green.tscn" id="3_t275y"]
+[ext_resource type="PackedScene" uid="uid://boeiut3vvglmq" path="res://scenes/presetButtons/small_button.tscn" id="3_t275y"]
 [ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="4_f5jb5"]
 [ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="5_f5jb5"]
 
@@ -11,28 +11,31 @@
 [node name="TileMapLayer" parent="." index="3" unique_id=752737559]
 tile_map_data = PackedByteArray("AAD6/wkAAAACAAMAAAD7/wkAAAACAAMAAAD8/wkAAAACAAMAAAD9/wkAAAACAAMAAAD+/wkAAAACAAMAAAD//wkAAAACAAMAAAAAAAkAAAACAAMAAAABAAkAAAACAAMAAAACAAkAAAACAAMAAAADAAkAAAACAAMAAAAEAAkAAAACAAMAAAAFAAkAAAACAAMAAAAGAAkAAAACAAMAAAAHAAkAAAACAAMAAAAIAAkAAAACAAMAAAAJAAkAAAACAAMAAAAKAAkAAAACAAMAAAALAAkAAAACAAMAAAAMAAkAAAACAAMAAAANAAkAAAACAAMAAAAOAAkAAAACAAMAAAD5/wkAAAABAAIAAAD5/wgAAAAAAAEAAAD5/wcAAAAAAAEAAAD5/wYAAAAAAAEAAAD5/wUAAAAAAAEAAAD5/wQAAAAAAAEAAAD5/wMAAAAAAAEAAAD5/wIAAAAAAAEAAAD5/wEAAAAAAAEAAAD5/wAAAAAAAAEAAAD5////AAAAAAEAAAD5//7/AAAAAAEAAAD5//3/AAAAAAEAAAD5//z/AAAAAAEAAAD5//v/AAAAAAEAAAD5//r/AAAAAAEAAAD5//n/AAAAAAEAAAD5//j/AAAAAAEAAAD5//f/AAAAAAEAAAD5//b/AAAAAAAAAAAPAAkAAAADAAIAAAAPAAgAAAAAAAEAAAAPAAcAAAAAAAEAAAAPAAYAAAAAAAEAAAAPAAUAAAAAAAEAAAAPAAQAAAAAAAEAAAAPAAMAAAAAAAEAAAAPAAIAAAAAAAEAAAAPAAEAAAAAAAEAAAAPAAAAAAAAAAEAAAAPAP//AAAAAAEAAAAPAP7/AAAAAAEAAAAPAP3/AAAAAAEAAAAPAPz/AAAAAAEAAAAPAPv/AAAAAAEAAAAPAPr/AAAAAAEAAAAPAPn/AAAAAAEAAAAPAPj/AAAAAAEAAAAPAPf/AAAAAAEAAAAPAPb/AAAAAAAAAAA=")
 
-[node name="Label" type="Label" parent="." index="6" unique_id=1862027753]
-offset_left = -51.0
-offset_top = 224.0
-offset_right = 212.0
-offset_bottom = 247.0
+[node name="Label" type="Label" parent="." index="5" unique_id=1862027753]
+offset_left = -42.0
+offset_top = 195.0
+offset_right = 221.0
+offset_bottom = 252.0
 theme_override_fonts/font = ExtResource("2_sru4k")
-text = "Buttons open their corrosponding doors :D"
+text = "buttons open their corrosponding 
+(symbol + color)
+ doors :D"
+horizontal_alignment = 1
 
-[node name="buttonGreen" parent="." index="7" unique_id=1331368196 instance=ExtResource("3_t275y")]
+[node name="buttonGreen" parent="." index="6" unique_id=1331368196 instance=ExtResource("3_t275y")]
 position = Vector2(128, 288)
 
-[node name="Door" parent="." index="8" unique_id=1193654706 instance=ExtResource("4_f5jb5")]
+[node name="Door" parent="." index="7" unique_id=1193654706 instance=ExtResource("4_f5jb5")]
 position = Vector2(241, 272)
 inverted = false
 
-[node name="Door2" parent="." index="9" unique_id=1444586212 instance=ExtResource("4_f5jb5")]
+[node name="Door2" parent="." index="8" unique_id=1444586212 instance=ExtResource("4_f5jb5")]
 position = Vector2(241, 240)
 inverted = false
 
-[node name="Door3" parent="." index="10" unique_id=1398660262 instance=ExtResource("4_f5jb5")]
+[node name="Door3" parent="." index="9" unique_id=1398660262 instance=ExtResource("4_f5jb5")]
 position = Vector2(241, 208)
 inverted = false
 
-[node name="Portal" parent="." index="11" unique_id=1527810771 instance=ExtResource("5_f5jb5")]
+[node name="Portal" parent="." index="10" unique_id=1527810771 instance=ExtResource("5_f5jb5")]
 position = Vector2(386, 272)

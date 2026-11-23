@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_ipv6b"]
 [ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="2_v51bf"]
 [ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="3_es4ea"]
-[ext_resource type="PackedScene" uid="uid://boeiut3vvglmq" path="res://scenes/presetButtons/button_green.tscn" id="4_blmkr"]
+[ext_resource type="PackedScene" uid="uid://boeiut3vvglmq" path="res://scenes/presetButtons/small_button.tscn" id="4_blmkr"]
 
 [node name="Game" unique_id=2126916218 instance=ExtResource("1_ipv6b")]
 
@@ -33,6 +33,7 @@ inverted = false
 
 [node name="buttonGreen" parent="." index="9" unique_id=1331368196 instance=ExtResource("4_blmkr")]
 position = Vector2(776, 224)
+color = null
 
 [node name="Door6" parent="." index="10" unique_id=1951634726 instance=ExtResource("3_es4ea")]
 position = Vector2(624, 176)
@@ -112,6 +113,7 @@ inverted = false
 
 [node name="buttonGreen2" parent="." index="29" unique_id=823517975 instance=ExtResource("4_blmkr")]
 position = Vector2(-272, -800)
+color = null
 
 [node name="Door25" parent="." index="30" unique_id=527846723 instance=ExtResource("3_es4ea")]
 position = Vector2(496, -816)
@@ -179,6 +181,7 @@ inverted = false
 
 [node name="buttonGreen3" parent="." index="46" unique_id=2025032611 instance=ExtResource("4_blmkr")]
 position = Vector2(336, -1280)
+color = null
 
 [node name="Door41" parent="." index="47" unique_id=1124036545 instance=ExtResource("3_es4ea")]
 position = Vector2(176, -1264)
