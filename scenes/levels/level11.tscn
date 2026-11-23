@@ -20,16 +20,15 @@ tile_map_data = PackedByteArray("AAAIAAcAAAACAAMAAAAFAAcAAAACAAMAAAAEAAcAAAACAAM
 
 [node name="Door" parent="." index="5" unique_id=1193654706 instance=ExtResource("2_oamp7")]
 position = Vector2(-272, 208)
-color = 1
-inverted = false
+color = Color(0.29411766, 0.5529412, 0.9490196, 1)
 
 [node name="Door2" parent="." index="6" unique_id=887986691 instance=ExtResource("2_oamp7")]
 position = Vector2(-272, 176)
-color = 1
-inverted = false
+color = Color(0.29411766, 0.5529412, 0.9490196, 1)
 
 [node name="ButtonBlue" parent="." index="7" unique_id=1331368196 instance=ExtResource("3_bun4u")]
 position = Vector2(1328, 96)
+color = Color(0.29365665, 0.55173844, 0.9505871, 1)
 
 [node name="buttonGreen" parent="." index="8" unique_id=1989557733 instance=ExtResource("4_nhh57")]
 position = Vector2(840, 99)
@@ -37,6 +36,8 @@ position = Vector2(840, 99)
 [node name="ButtonPurple" parent="." index="9" unique_id=855468243 instance=ExtResource("5_dh7xv")]
 position = Vector2(144, 99)
 inverted = true
+type = 0
+color = Color(0.1759797, 0.630588, 0.48825705, 1)
 
 [node name="Portal" parent="." index="10" unique_id=1527810771 instance=ExtResource("6_x7awu")]
 position = Vector2(560, -304)
@@ -46,24 +47,28 @@ position = Vector2(-496, 112)
 
 [node name="Door3" parent="." index="12" unique_id=1440634885 instance=ExtResource("2_oamp7")]
 position = Vector2(-400, 176)
+color = Color(0.1764706, 0.6313726, 0.49019608, 1)
 inverted = true
 
 [node name="ButtonPurple2" parent="." index="13" unique_id=1291676806 instance=ExtResource("5_dh7xv")]
 position = Vector2(-448, 131)
+inverted = true
+type = 1
+color = Color(0.99187475, 0.38113907, 0.2810667, 1)
 
 [node name="Door4" parent="." index="14" unique_id=230466368 instance=ExtResource("2_oamp7")]
 position = Vector2(816, -192)
-color = 2
+color = Color(0.99215686, 0.38039216, 0.28235295, 1)
 inverted = true
 
 [node name="Door5" parent="." index="15" unique_id=1906801865 instance=ExtResource("2_oamp7")]
 position = Vector2(760, -240)
-color = 2
+color = Color(0.99215686, 0.38039216, 0.28235295, 1)
 inverted = true
 
 [node name="Door6" parent="." index="16" unique_id=1391193698 instance=ExtResource("2_oamp7")]
 position = Vector2(720, -272)
-color = 2
+color = Color(0.99215686, 0.38039216, 0.28235295, 1)
 inverted = true
 
 [node name="Portal3" parent="." index="17" unique_id=76027083 instance=ExtResource("6_x7awu")]
