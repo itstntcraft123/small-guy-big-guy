@@ -18,56 +18,61 @@ position = Vector2(-34, 0)
 [node name="TileMapLayer" parent="." index="3" unique_id=752737559]
 tile_map_data = PackedByteArray("AAD7/wQAAAACAAMAAAD8/wQAAAACAAMAAAD9/wQAAAACAAMAAAD+/wQAAAACAAMAAAD//wQAAAACAAMAAAAAAAQAAAACAAMAAAAGAAQAAAACAAMAAAAHAAQAAAACAAIAAAAIAAQAAAACAAMAAAAJAAQAAAACAAMAAAAKAAQAAAACAAMAAAALAAQAAAADAAMAAAD6/wQAAAABAAMAAAAOAAQAAAABAAMAAAAPAAQAAAACAAMAAAAQAAQAAAACAAIAAAARAAQAAAACAAMAAAASAAQAAAACAAMAAAATAAQAAAACAAMAAAAUAAQAAAACAAMAAAAWAAQAAAACAAMAAAAXAAQAAAADAAMAAAAcAAQAAAABAAMAAAAdAAQAAAACAAMAAAAeAAQAAAACAAMAAAAfAAQAAAACAAMAAAAgAAQAAAACAAMAAAAhAAQAAAACAAMAAAAiAAQAAAACAAMAAAAjAAQAAAACAAMAAAAkAAQAAAACAAMAAAAlAAQAAAACAAMAAAAmAAQAAAACAAMAAAAnAAQAAAACAAMAAAAoAAQAAAACAAMAAAApAAQAAAADAAMAAAAFAP7/AAADAAAAAAAEAP7/AAACAAMAAAADAP7/AAACAAMAAAACAP7/AAABAAMAAAD8/wgAAAADAAMAAAD7/wgAAAACAAMAAAD6/wgAAAACAAMAAAD5/wgAAAACAAMAAAD4/wgAAAACAAMAAAD3/wgAAAACAAMAAAD2/wgAAAABAAMAAAAGAAEAAAABAAIAAAAGAAAAAAADAAAAAAAFAP//AAAAAAEAAAAHAPv/AAABAAMAAAAIAPv/AAACAAMAAAAJAPv/AAACAAMAAAAKAPv/AAACAAMAAAALAPv/AAACAAMAAAAMAPv/AAADAAIAAAAMAPr/AAABAAAAAAANAPr/AAACAAMAAAAOAPr/AAACAAMAAAAPAPr/AAADAAMAAAAIAAYAAAAAAAAAAAAIAAcAAAAAAAEAAAAFAAAAAAABAAIAAAACAAwAAAABAAMAAAADAAwAAAACAAMAAAAEAAwAAAACAAMAAAAFAAwAAAACAAMAAAAGAAwAAAACAAMAAAAHAAwAAAACAAMAAAAIAAwAAAADAAMAAAD9/wkAAAABAAMAAAD+/wkAAAADAAMAAAD//woAAAAAAAMAAAAAAAsAAAABAAMAAAABAAsAAAADAAMAAAAOAA8AAAADAAMAAAANAA8AAAACAAMAAAAMAA8AAAACAAMAAAALAA8AAAACAAMAAAAKAA8AAAACAAMAAAAJAA8AAAACAAMAAAAIAA8AAAABAAMAAAASAAgAAAADAAMAAAARAAgAAAACAAMAAAAQAAgAAAACAAMAAAAPAAgAAAACAAMAAAAOAAgAAAACAAMAAAANAAgAAAACAAMAAAAMAAgAAAACAAMAAAALAAgAAAACAAMAAAAKAAgAAAACAAMAAAAJAAgAAAACAAMAAAAIAAgAAAABAAIAAAAUAAsAAAAAAAMAAAATAAwAAAADAAMAAAASAAwAAAABAAMAAAARAA0AAAADAAMAAAAQAA0AAAABAAMAAAAPAA4AAAAAAAMAAAAVAAoAAAABAAMAAAAWAAoAAAADAAMAAAAbAAUAAAAAAAMAAAAaAAYAAAAAAAMAAAAZAAcAAAAAAAMAAAAYAAgAAAAAAAMAAAAXAAkAAAAAAAMAAAAVAAQAAAACAAMAAAAHAAMAAAAAAAEAAAAHAAIAAAAAAAEAAAAHAAEAAAADAAAAAAAQAAEAAAAAAAEAAAAQAAIAAAAAAAEAAAAQAAMAAAAAAAEAAAAQAAAAAAAAAAAAAAAFAAQAAAACAAMAAAAEAAQAAAACAAMAAAADAAQAAAACAAMAAAACAAQAAAACAAMAAAABAAQAAAACAAMAAAA=")
 
-[node name="Portal" parent="." index="6" unique_id=1527810771 instance=ExtResource("2_ujtvf")]
+[node name="Portal" parent="." index="5" unique_id=1527810771 instance=ExtResource("2_ujtvf")]
 position = Vector2(592, 112)
 
-[node name="Door6" parent="." index="7" unique_id=1866936365 instance=ExtResource("3_h1dae")]
+[node name="Door6" parent="." index="6" unique_id=1866936365 instance=ExtResource("3_h1dae")]
 position = Vector2(784, 144)
-inverted = false
+color = Color(0, 1, 0, 1)
 
-[node name="Door8" parent="." index="8" unique_id=1493438535 instance=ExtResource("3_h1dae")]
+[node name="Door8" parent="." index="7" unique_id=1493438535 instance=ExtResource("3_h1dae")]
 position = Vector2(816, 144)
-inverted = false
+color = Color(0, 1, 0, 1)
 
-[node name="Door9" parent="." index="9" unique_id=8665650 instance=ExtResource("3_h1dae")]
+[node name="Door9" parent="." index="8" unique_id=8665650 instance=ExtResource("3_h1dae")]
 position = Vector2(848, 144)
-inverted = false
+color = Color(0, 1, 0, 1)
 
-[node name="Door10" parent="." index="10" unique_id=2037211446 instance=ExtResource("3_h1dae")]
+[node name="Door10" parent="." index="9" unique_id=2037211446 instance=ExtResource("3_h1dae")]
 position = Vector2(880, 144)
-inverted = false
+color = Color(0, 1, 0, 1)
 
-[node name="buttonGreen" parent="." index="11" unique_id=1331368196 instance=ExtResource("4_infop")]
+[node name="buttonGreen" parent="." index="10" unique_id=1331368196 instance=ExtResource("4_infop")]
 position = Vector2(496, -192)
+color = Color(0, 1, 0, 1)
 
-[node name="Door4" parent="." index="12" unique_id=319997460 instance=ExtResource("3_h1dae")]
+[node name="Door4" parent="." index="11" unique_id=319997460 instance=ExtResource("3_h1dae")]
 position = Vector2(400, 144)
-color = 1
-inverted = false
+color = Color(0, 1, 1, 1)
 
-[node name="Door5" parent="." index="13" unique_id=1917046444 instance=ExtResource("3_h1dae")]
+[node name="Door5" parent="." index="12" unique_id=1917046444 instance=ExtResource("3_h1dae")]
 position = Vector2(432, 144)
-color = 1
-inverted = false
+color = Color(0, 1, 1, 1)
 
-[node name="ButtonBlue" parent="." index="14" unique_id=652138413 instance=ExtResource("5_s4x5n")]
+[node name="ButtonBlue" parent="." index="13" unique_id=652138413 instance=ExtResource("5_s4x5n")]
 position = Vector2(-208, 256)
+color = Color(0, 1, 1, 1)
 
-[node name="antiButton" parent="." index="15" unique_id=1777467108 instance=ExtResource("6_8kjvp")]
+[node name="antiButton" parent="." index="14" unique_id=1777467108 instance=ExtResource("6_8kjvp")]
 position = Vector2(416, 256)
+color = Color(1, 0, 0.6392157, 1)
 
-[node name="Door7" parent="." index="16" unique_id=1528023479 instance=ExtResource("3_h1dae")]
+[node name="Door7" parent="." index="15" unique_id=1528023479 instance=ExtResource("3_h1dae")]
 position = Vector2(-272, 208)
+color = Color(1, 0, 0.6392157, 1)
 inverted = true
 
-[node name="Door3" parent="." index="17" unique_id=1488638056 instance=ExtResource("3_h1dae")]
+[node name="Door3" parent="." index="16" unique_id=1488638056 instance=ExtResource("3_h1dae")]
 position = Vector2(208, -80)
+color = Color(1, 0, 0.6392157, 1)
 inverted = true
 
-[node name="Door11" parent="." index="18" unique_id=1251507211 instance=ExtResource("3_h1dae")]
+[node name="Door11" parent="." index="17" unique_id=1251507211 instance=ExtResource("3_h1dae")]
 position = Vector2(-48, 80)
+color = Color(1, 0, 0.6392157, 1)
 inverted = true
 
-[node name="Door12" parent="." index="19" unique_id=1423270347 instance=ExtResource("3_h1dae")]
+[node name="Door12" parent="." index="18" unique_id=1423270347 instance=ExtResource("3_h1dae")]
 position = Vector2(24, 16)
+color = Color(1, 0, 0.6392157, 1)
 inverted = true

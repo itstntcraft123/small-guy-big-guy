@@ -37,14 +37,15 @@ position = Vector2(432, 304)
 
 [node name="small_button" parent="." index="13" unique_id=1331368196 instance=ExtResource("3_un2t2")]
 position = Vector2(528, 224)
+color = Color(0, 1, 0, 1)
 
 [node name="Door" parent="." index="14" unique_id=1193654706 instance=ExtResource("4_8ipv8")]
 position = Vector2(272, 176)
-inverted = false
+color = Color(0, 1, 0, 1)
 
 [node name="Door2" parent="." index="15" unique_id=368274457 instance=ExtResource("4_8ipv8")]
 position = Vector2(368, 176)
-inverted = false
+color = Color(0, 1, 0, 1)
 
 [node name="Portal" parent="." index="16" unique_id=1527810771 instance=ExtResource("5_62n21")]
 position = Vector2(671, 208)
