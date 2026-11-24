@@ -164,5 +164,6 @@ func die() -> void:
 	hide()
 	velocity = Vector2.ZERO
 	global_position = original_pos
+	Save.save_game()
 	await get_tree().create_timer(0.3).timeout
 	show()
