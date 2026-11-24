@@ -15,100 +15,121 @@ tile_map_data = PackedByteArray("AAD8/wQAAAACAAMAAAD9/wQAAAACAAMAAAD+/wQAAAACAAM
 
 [node name="buttonGreen" parent="." index="5" unique_id=1331368196 instance=ExtResource("2_jbeo8")]
 position = Vector2(208, -160)
-color = Color(0, 1, 0, 1)
+preset_color = 1
+color = Color(0.322, 0.844, 0, 1)
 
 [node name="DoorGreen" parent="." index="6" unique_id=1193654706 instance=ExtResource("3_rrpq3")]
 position = Vector2(208, 112)
-color = Color(0, 1, 0, 1)
+preset_color = 1
+color = Color(0.322, 0.844, 0, 1)
 
 [node name="ButtonBlue" parent="." index="7" unique_id=1515362360 instance=ExtResource("4_rrpq3")]
 position = Vector2(336, 128)
-color = Color(0, 0.63529414, 1, 1)
+preset_color = 2
+color = Color(0.297, 0.648, 1, 1)
 
 [node name="DoorBlue" parent="." index="8" unique_id=2132033894 instance=ExtResource("3_rrpq3")]
 position = Vector2(432, 16)
-color = Color(0, 0.63529414, 1, 1)
+preset_color = 2
+color = Color(0.297, 0.648, 1, 1)
 
 [node name="DoorBlue6" parent="." index="9" unique_id=1523796313 instance=ExtResource("3_rrpq3")]
 position = Vector2(432, -16)
-color = Color(0, 0.63529414, 1, 1)
+preset_color = 2
+color = Color(0.297, 0.648, 1, 1)
 
 [node name="DoorBlue7" parent="." index="10" unique_id=2023517682 instance=ExtResource("3_rrpq3")]
 position = Vector2(432, -48)
-color = Color(0, 0.63529414, 1, 1)
+preset_color = 2
+color = Color(0.297, 0.648, 1, 1)
 
 [node name="DoorBlue8" parent="." index="11" unique_id=1275801032 instance=ExtResource("3_rrpq3")]
 position = Vector2(432, -80)
-color = Color(0, 0.63529414, 1, 1)
+preset_color = 2
+color = Color(0.297, 0.648, 1, 1)
 
 [node name="DoorBlue5" parent="." index="12" unique_id=1348438386 instance=ExtResource("3_rrpq3")]
 position = Vector2(384, 88)
-color = Color(0, 0.63529414, 1, 1)
+preset_color = 2
+color = Color(0.297, 0.648, 1, 1)
 
 [node name="DoorBlue3" parent="." index="13" unique_id=966809206 instance=ExtResource("3_rrpq3")]
 position = Vector2(496, -80)
-color = Color(0, 0.63529414, 1, 1)
+preset_color = 2
+color = Color(0.297, 0.648, 1, 1)
 
 [node name="DoorBlue4" parent="." index="14" unique_id=1965798646 instance=ExtResource("3_rrpq3")]
 position = Vector2(560, -112)
-color = Color(0, 0.63529414, 1, 1)
+preset_color = 2
+color = Color(0.297, 0.648, 1, 1)
 
 [node name="Portal" parent="." index="15" unique_id=1527810771 instance=ExtResource("5_mdxo6")]
 position = Vector2(890.0395, 87.80643)
 
 [node name="DoorAnti" parent="." index="16" unique_id=39009999 instance=ExtResource("3_rrpq3")]
 position = Vector2(368, 272)
-color = Color(1, 0, 0.6392157, 1)
+preset_color = 3
+color = Color(0.924, 0.321, 0.937, 1)
 inverted = true
 
 [node name="DoorAnti2" parent="." index="17" unique_id=1313414859 instance=ExtResource("3_rrpq3")]
 position = Vector2(400, 272)
-color = Color(1, 0, 0.6392157, 1)
+preset_color = 3
+color = Color(0.924, 0.321, 0.937, 1)
 inverted = true
 
 [node name="DoorAnti3" parent="." index="18" unique_id=2070179555 instance=ExtResource("3_rrpq3")]
 position = Vector2(432, 272)
-color = Color(1, 0, 0.6392157, 1)
+preset_color = 3
+color = Color(0.924, 0.321, 0.937, 1)
 inverted = true
 
 [node name="DoorAnti4" parent="." index="19" unique_id=897429754 instance=ExtResource("3_rrpq3")]
 position = Vector2(464, 272)
-color = Color(1, 0, 0.6392157, 1)
+preset_color = 3
+color = Color(0.924, 0.321, 0.937, 1)
 inverted = true
 
 [node name="DoorAnti5" parent="." index="20" unique_id=762475385 instance=ExtResource("3_rrpq3")]
 position = Vector2(496, 272)
-color = Color(1, 0, 0.6392157, 1)
+preset_color = 3
+color = Color(0.924, 0.321, 0.937, 1)
 inverted = true
 
 [node name="DoorAnti6" parent="." index="21" unique_id=1721595475 instance=ExtResource("3_rrpq3")]
 position = Vector2(528, 272)
-color = Color(1, 0, 0.6392157, 1)
+preset_color = 3
+color = Color(0.924, 0.321, 0.937, 1)
 inverted = true
 
 [node name="DoorAnti7" parent="." index="22" unique_id=1952196771 instance=ExtResource("3_rrpq3")]
 position = Vector2(560, 272)
-color = Color(1, 0, 0.6392157, 1)
+preset_color = 3
+color = Color(0.924, 0.321, 0.937, 1)
 inverted = true
 
 [node name="DoorAnti8" parent="." index="23" unique_id=1599490106 instance=ExtResource("3_rrpq3")]
 position = Vector2(592, 272)
-color = Color(1, 0, 0.6392157, 1)
+preset_color = 3
+color = Color(0.924, 0.321, 0.937, 1)
 inverted = true
 
 [node name="DoorAnti9" parent="." index="24" unique_id=22301334 instance=ExtResource("3_rrpq3")]
 position = Vector2(624, 272)
-color = Color(1, 0, 0.6392157, 1)
+preset_color = 3
+color = Color(0.924, 0.321, 0.937, 1)
 inverted = true
 
 [node name="DoorAnti10" parent="." index="25" unique_id=306269610 instance=ExtResource("3_rrpq3")]
 position = Vector2(656, 272)
-color = Color(1, 0, 0.6392157, 1)
+preset_color = 3
+color = Color(0.924, 0.321, 0.937, 1)
 inverted = true
 
 [node name="DoorAnti11" parent="." index="26" unique_id=2079809872 instance=ExtResource("3_rrpq3")]
 position = Vector2(688, 272)
-color = Color(1, 0, 0.6392157, 1)
+preset_color = 3
+color = Color(0.924, 0.321, 0.937, 1)
 inverted = true
 
 [node name="Spike" parent="." index="27" unique_id=925223878 instance=ExtResource("6_ujtvf")]
@@ -146,4 +167,5 @@ position = Vector2(688, 304)
 
 [node name="antiButton" parent="." index="38" unique_id=123782241 instance=ExtResource("7_h1dae")]
 position = Vector2(656, -96)
-color = Color(1, 0, 0.6392157, 1)
+preset_color = 3
+color = Color(0.924, 0.321, 0.937, 1)

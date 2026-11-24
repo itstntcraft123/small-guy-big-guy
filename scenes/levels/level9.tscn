@@ -23,19 +23,23 @@ position = Vector2(592, 112)
 
 [node name="Door6" parent="." index="6" unique_id=1866936365 instance=ExtResource("3_h1dae")]
 position = Vector2(784, 144)
-color = Color(0, 1, 0, 1)
+preset_color = 1
+color = Color(0.322, 0.844, 0, 1)
 
 [node name="Door8" parent="." index="7" unique_id=1493438535 instance=ExtResource("3_h1dae")]
 position = Vector2(816, 144)
-color = Color(0, 1, 0, 1)
+preset_color = 1
+color = Color(0.322, 0.844, 0, 1)
 
 [node name="Door9" parent="." index="8" unique_id=8665650 instance=ExtResource("3_h1dae")]
 position = Vector2(848, 144)
-color = Color(0, 1, 0, 1)
+preset_color = 1
+color = Color(0.322, 0.844, 0, 1)
 
 [node name="Door10" parent="." index="9" unique_id=2037211446 instance=ExtResource("3_h1dae")]
 position = Vector2(880, 144)
-color = Color(0, 1, 0, 1)
+preset_color = 1
+color = Color(0.322, 0.844, 0, 1)
 
 [node name="buttonGreen" parent="." index="10" unique_id=1331368196 instance=ExtResource("4_infop")]
 position = Vector2(496, -192)
@@ -43,11 +47,13 @@ color = Color(0, 1, 0, 1)
 
 [node name="Door4" parent="." index="11" unique_id=319997460 instance=ExtResource("3_h1dae")]
 position = Vector2(400, 144)
-color = Color(0, 1, 1, 1)
+preset_color = 2
+color = Color(0.297, 0.648, 1, 1)
 
 [node name="Door5" parent="." index="12" unique_id=1917046444 instance=ExtResource("3_h1dae")]
 position = Vector2(432, 144)
-color = Color(0, 1, 1, 1)
+preset_color = 2
+color = Color(0.297, 0.648, 1, 1)
 
 [node name="ButtonBlue" parent="." index="13" unique_id=652138413 instance=ExtResource("5_s4x5n")]
 position = Vector2(-208, 256)

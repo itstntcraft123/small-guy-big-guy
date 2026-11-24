@@ -1,11 +1,12 @@
+@tool
 extends Node
 
 enum PresetColors { NONE, GREEN, BLUE, PURPLE }
 const PRESET_COLORS_DATA: Dictionary[PresetColors, Color] = {
 	PresetColors.NONE: Color.WHITE,
-	PresetColors.GREEN: Color(0.537, 1.0, 0.384),
-	PresetColors.BLUE: Color(0.462, 0.723, 1.0),
-	PresetColors.PURPLE: Color(0.938, 0.415, 0.946)
+	PresetColors.GREEN: Color(0.422, 1.0, 0.165, 1.0),
+	PresetColors.BLUE: Color(0.378, 0.683, 1.0, 1.0),
+	PresetColors.PURPLE: Color(0.924, 0.321, 0.937, 1.0)
 }
 
 func get_children_of_type(node: Node, type: Variant) -> Array[Node]:

@@ -35,7 +35,6 @@ var held: Array = []
 var grace := 0
 const GRACE_FRAMES := 4
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("buttons")
 	sprite.centered = false
@@ -45,6 +44,9 @@ func _ready() -> void:
 	platform_shape.position = Vector2.ZERO
 	_apply_texture(tex_idle)
 	_setup_strip()
+	if Utils.PRESET_COLORS_DATA.has(preset_color) and preset_color != Utils.PresetColors.NONE:
+		color = Utils.PRESET_COLORS_DATA[preset_color]
+		#sprite.modulate = Utils.PRESET_COLORS_DATA[preset_color]
 
 func _setup_strip() -> void:
 	if tex_idle == null:

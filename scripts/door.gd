@@ -8,11 +8,13 @@ class_name Door
 		if Utils.PRESET_COLORS_DATA.has(preset_color) and preset_color != Utils.PresetColors.NONE:
 			color = Utils.PRESET_COLORS_DATA[preset_color]
 		notify_property_list_changed()
+var ignore_color := false
 @export var color: Color = Color.WHITE:
 	set(value):
 		color = value
-		_update_sprite()
-
+		if not ignore_color:
+			_update_sprite()
+		ignore_color = false
 @export var inverted := false:
 	set(value):
 		inverted = value
@@ -45,7 +47,12 @@ func _update_sprite() -> void:
 	if not is_node_ready():
 		return
 	sprite.visible = true
-	sprite.modulate = color
+	if Utils.PRESET_COLORS_DATA.has(preset_color) and preset_color != Utils.PresetColors.NONE:
+		ignore_color = true
+		color = Utils.PRESET_COLORS_DATA[preset_color]
+		sprite.modulate = Utils.PRESET_COLORS_DATA[preset_color]
+	else:
+		sprite.modulate = color
 	sprite.frame = _frame_for(not is_open)
 
 func _frame_for(solid: bool) -> int:
