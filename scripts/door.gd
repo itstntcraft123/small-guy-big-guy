@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 			continue
 		if b.inverted != inverted:
 			continue
-		if b.color != color:
+		if b.color.to_html(false) != color.to_html(false):
 			continue
 		if b.active:
 			# print(name, " powered by ", b.name)
