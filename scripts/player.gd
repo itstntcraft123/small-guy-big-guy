@@ -19,12 +19,13 @@ var pushed: Player = null
 
 @onready var small_sprite: Sprite2D = $Sprite2D
 @onready var screen_size := get_viewport_rect().size
-@onready var original_pos := position
+@onready var original_pos := global_position
+@onready var shape: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
 	add_to_group("players")
 	small_sprite.scale = Vector2(size_scale, size_scale)
-	$CollisionShape2D.scale = Vector2(size_scale, size_scale)
+	shape.scale = Vector2(size_scale, size_scale)
 	floor_snap_length = 6.0
 
 func _physics_process(delta: float) -> void:
@@ -112,24 +113,32 @@ func _physics_process(delta: float) -> void:
 			other.top_rider = self
 			other.add_collision_exception_with(self)
 		if other is Door and col.get_depth() > 1:
-			if !test_point(Vector2(position.x + 32, position.y)):
-				position.x += 32
-			elif !test_point(Vector2(position.x - 32, position.y)):
-				position.x -= 32
+			position += find_player_spawn()
 	
 	if rider:
 		remove_collision_exception_with(rider)
 	
-	if position.y > 1000:
+	if global_position.y > 1000:
 		die()
 
-func test_point(point: Vector2):
+func find_player_spawn(offset: Vector2 = Vector2(0, 0)) -> Vector2:
 	var space := get_world_2d().direct_space_state
-	var query := PhysicsPointQueryParameters2D.new()
-	query.position = point
+	var probe := RectangleShape2D.new()
+	probe.size = shape.shape.size
+	var query := PhysicsShapeQueryParameters2D.new()
+	query.shape = probe
 	query.collide_with_areas = true
 	query.exclude = [get_rid()]
-	return space.intersect_point(query).size() > 0
+	query.transform = Transform2D(0.0, position + offset)
+	if len(space.intersect_shape(query)) > 0:
+		if offset > Vector2(128, 0):
+			return find_player_spawn(Vector2(-1, 0))
+		elif offset < Vector2(0, 0):
+			return find_player_spawn(offset + Vector2(-1, 0))
+		else:
+			return find_player_spawn(offset + Vector2(1, 0))
+	else:
+		return offset
 
 func save_dict() -> Dictionary:
 	return {
@@ -146,6 +155,6 @@ func load_dict(save_data: Dictionary) -> void:
 func die() -> void:
 	hide()
 	velocity = Vector2.ZERO
-	position = original_pos
+	global_position = original_pos
 	await get_tree().create_timer(0.3).timeout
 	show()
