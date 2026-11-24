@@ -109,9 +109,11 @@ func _physics_process(delta: float) -> void:
 	for i in range(get_slide_collision_count()):
 		var col := get_slide_collision(i)
 		var other := col.get_collider()
+		
 		if other is Player and col.get_normal().y < -0.7:
 			other.top_rider = self
 			other.add_collision_exception_with(self)
+		
 		if other is Door and col.get_depth() > 1:
 			position += find_player_spawn()
 	
@@ -121,24 +123,30 @@ func _physics_process(delta: float) -> void:
 	if global_position.y > 1000:
 		die()
 
-func find_player_spawn(offset: Vector2 = Vector2(0, 0)) -> Vector2:
+func find_player_spawn() -> Vector2:
 	var space := get_world_2d().direct_space_state
 	var probe := RectangleShape2D.new()
-	probe.size = shape.shape.size
+	probe.size = shape.shape.size * shape.scale
+	
 	var query := PhysicsShapeQueryParameters2D.new()
 	query.shape = probe
 	query.collide_with_areas = true
 	query.exclude = [get_rid()]
-	query.transform = Transform2D(0.0, position + offset)
-	if len(space.intersect_shape(query)) > 0:
-		if offset > Vector2(128, 0):
-			return find_player_spawn(Vector2(-1, 0))
-		elif offset < Vector2(0, 0):
-			return find_player_spawn(offset + Vector2(-1, 0))
-		else:
-			return find_player_spawn(offset + Vector2(1, 0))
-	else:
-		return offset
+	
+	var offset := Vector2(0, 0)
+	
+	while offset.x < 128:
+		query.transform = Transform2D(0.0, global_position + offset)
+		if space.intersect_shape(query, 1).is_empty():
+			return offset
+		
+		query.transform = Transform2D(0.0, global_position - offset)
+		if space.intersect_shape(query, 1).is_empty():
+			return -offset
+		
+		offset.x += 1
+	
+	return Vector2.ZERO
 
 func save_dict() -> Dictionary:
 	return {
