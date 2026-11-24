@@ -214,3 +214,6 @@ color = Color(0.15166962, 0.6288134, 0.71567136, 1)
 [node name="small_button9" parent="." index="38" unique_id=454026014 instance=ExtResource("2_klv8x")]
 position = Vector2(-592, 224)
 color = Color(0.9254902, 0.30588236, 0.4117647, 1)
+
+[node name="Portal2" parent="." index="39" unique_id=1735641839 instance=ExtResource("4_l8rxl")]
+position = Vector2(56, 208)
