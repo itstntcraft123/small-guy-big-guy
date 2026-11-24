@@ -53,15 +53,18 @@ func _physics_process(delta: float) -> void:
 	
 	var powered := false
 	for b in get_tree().get_nodes_in_group("buttons"):
+		# print(name, " ", color.to_html(false), " | ", b.name, " ", b.color.to_html(false), " active=", b.active)
 		if not ("color" in b and "active" in b and "inverted" in b):
 			continue
 		if b.inverted != inverted:
 			continue
-		if not b.color.is_equal_approx(color):
+		if b.color.to_html(false) != color.to_html(false):
 			continue
 		if b.active:
+			# print(name, " powered by ", b.name)
 			powered = true
 			break
+			
 	
 	if inverted:
 		_inverted_step(delta, powered)
