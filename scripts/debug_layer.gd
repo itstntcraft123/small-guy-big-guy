@@ -7,11 +7,12 @@ extends CanvasLayer
 
 var just_saved := false
 
-func set_touch(on: bool) -> void:
-	$Theme/LeftVirtualJoystick.visible = on
-	$Theme/RightVirtualJoystick.visible = on
+func update_touch() -> void:
+	$Theme/LeftVirtualJoystick.visible = Settings.touch_controls and Utils.in_game
+	$Theme/RightVirtualJoystick.visible = Settings.touch_controls and Utils.in_game
 
 func _process(_delta: float) -> void:
+	update_touch()
 	if Settings.fps_on:
 		fps_label.show()
 		fps_label.text = "FPS: " + str(int(Engine.get_frames_per_second()))

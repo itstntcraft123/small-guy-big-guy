@@ -7,6 +7,7 @@ func _input(event: InputEvent) -> void:
 		restart_level()
 		return
 	if event.is_action_pressed("ui_cancel") and !has_node("CanvasLayer/EscapeScreen"):
+		Utils.in_game = false
 		var canvas := CanvasLayer.new()
 		add_child(canvas)
 		canvas.add_child(game_menu.instantiate())
@@ -19,7 +20,7 @@ func restart_level() -> void:
 	get_tree().reload_current_scene()
 	
 func _ready() -> void:
-	Save.load_game()
+	Utils.in_game = true
 	reset_timer()
 
 func reset_timer() -> void:

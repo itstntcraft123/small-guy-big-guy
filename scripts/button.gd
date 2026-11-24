@@ -46,7 +46,6 @@ func _ready() -> void:
 	_setup_strip()
 	if Utils.PRESET_COLORS_DATA.has(preset_color) and preset_color != Utils.PresetColors.NONE:
 		color = Utils.PRESET_COLORS_DATA[preset_color]
-		#sprite.modulate = Utils.PRESET_COLORS_DATA[preset_color]
 
 func _setup_strip() -> void:
 	if tex_idle == null:

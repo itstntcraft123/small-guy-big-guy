@@ -37,7 +37,6 @@ func _on_select_menu_button_selected(item: Control) -> void:
 				DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
 		"Touch":
 			Settings.touch_controls = item.button_pressed
-			DebugLayer.set_touch(Settings.touch_controls)
 		"RestartKey":
 			Settings.r_to_restart = item.button_pressed
 		"SaveSpeed":

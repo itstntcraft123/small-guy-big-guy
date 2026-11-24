@@ -8,6 +8,7 @@ const PRESET_COLORS_DATA: Dictionary[PresetColors, Color] = {
 	PresetColors.BLUE: Color(0.378, 0.683, 1.0, 1.0),
 	PresetColors.PURPLE: Color(0.924, 0.321, 0.937, 1.0)
 }
+var in_game := false
 
 func get_children_of_type(node: Node, type: Variant) -> Array[Node]:
 	var result: Array[Node] = []
