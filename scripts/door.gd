@@ -2,6 +2,12 @@
 extends StaticBody2D
 class_name Door
 
+@export var preset_color: Utils.PresetColors = Utils.PresetColors.NONE:
+	set(value):
+		preset_color = value
+		if Utils.PRESET_COLORS_DATA.has(preset_color) and preset_color != Utils.PresetColors.NONE:
+			color = Utils.PRESET_COLORS_DATA[preset_color]
+		notify_property_list_changed()
 @export var color: Color = Color.WHITE:
 	set(value):
 		color = value
@@ -58,13 +64,12 @@ func _physics_process(delta: float) -> void:
 			continue
 		if b.inverted != inverted:
 			continue
-		if b.color.to_html(false) != color.to_html(false):
+		if b.color != color:
 			continue
 		if b.active:
 			# print(name, " powered by ", b.name)
 			powered = true
 			break
-			
 	
 	if inverted:
 		_inverted_step(delta, powered)
@@ -191,3 +196,10 @@ func _inv_become_solid(hold: float) -> void:
 func _inv_become_gone() -> void:
 	inv_state = Inv.GONE
 	_set_open(true)
+
+func _validate_property(property: Dictionary) -> void:
+	if property.name == "color":
+		if Utils.PRESET_COLORS_DATA.has(preset_color) and preset_color != Utils.PresetColors.NONE:
+			property.usage |= PROPERTY_USAGE_READ_ONLY
+		else:
+			property.usage &= ~PROPERTY_USAGE_READ_ONLY

@@ -24,19 +24,23 @@ horizontal_alignment = 1
 
 [node name="buttonGreen" parent="." index="6" unique_id=1331368196 instance=ExtResource("3_t275y")]
 position = Vector2(128, 288)
-color = Color(0, 1, 0, 1)
+preset_color = 1
+color = Color(0.537, 1, 0.384, 1)
 
 [node name="Door" parent="." index="7" unique_id=1193654706 instance=ExtResource("4_f5jb5")]
 position = Vector2(241, 272)
-color = Color(0, 1, 0, 1)
+preset_color = 1
+color = Color(0.537, 1, 0.384, 1)
 
 [node name="Door2" parent="." index="8" unique_id=1444586212 instance=ExtResource("4_f5jb5")]
 position = Vector2(241, 240)
-color = Color(0, 1, 0, 1)
+preset_color = 1
+color = Color(0.537, 1, 0.384, 1)
 
 [node name="Door3" parent="." index="9" unique_id=1398660262 instance=ExtResource("4_f5jb5")]
 position = Vector2(241, 208)
-color = Color(0, 1, 0, 1)
+preset_color = 1
+color = Color(0.537, 1, 0.384, 1)
 
 [node name="Portal" parent="." index="10" unique_id=1527810771 instance=ExtResource("5_f5jb5")]
 position = Vector2(386, 272)

@@ -1,10 +1,16 @@
 @tool
 extends Area2D
 
-enum Type { SMALL, BIG, HEAVY}
+enum Type { SMALL, BIG, HEAVY }
 
 @export var inverted := false
 @export var type: Type = Type.SMALL
+@export var preset_color: Utils.PresetColors = Utils.PresetColors.NONE:
+	set(value):
+		preset_color = value
+		if Utils.PRESET_COLORS_DATA.has(preset_color) and preset_color != Utils.PresetColors.NONE:
+			color = Utils.PRESET_COLORS_DATA[preset_color]
+		notify_property_list_changed()
 @export var color: Color = Color.WHITE:
 	set(value):
 		color = value
@@ -130,3 +136,10 @@ func _add_with_riders(body: Node, counted: Array) -> void:
 
 func execute() -> void:
 	pass
+
+func _validate_property(property: Dictionary) -> void:
+	if property.name == "color":
+		if Utils.PRESET_COLORS_DATA.has(preset_color) and preset_color != Utils.PresetColors.NONE:
+			property.usage |= PROPERTY_USAGE_READ_ONLY
+		else:
+			property.usage &= ~PROPERTY_USAGE_READ_ONLY

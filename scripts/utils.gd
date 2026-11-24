@@ -1,5 +1,13 @@
 extends Node
 
+enum PresetColors { NONE, GREEN, BLUE, PURPLE }
+const PRESET_COLORS_DATA: Dictionary[PresetColors, Color] = {
+	PresetColors.NONE: Color.WHITE,
+	PresetColors.GREEN: Color(0.537, 1.0, 0.384),
+	PresetColors.BLUE: Color(0.462, 0.723, 1.0),
+	PresetColors.PURPLE: Color(0.938, 0.415, 0.946)
+}
+
 func get_children_of_type(node: Node, type: Variant) -> Array[Node]:
 	var result: Array[Node] = []
 	for child in node.get_children():

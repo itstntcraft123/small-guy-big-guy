@@ -6,16 +6,11 @@ extends Area2D
 @export var shrink := true
 @export var spin := true
 @export var spin_turns := 3.0
-
 var entered: Array = []
-
 @onready var portal_sprite: Sprite2D = $Sprite2D
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
-
-func _process(delta: float) -> void:
-	pass
 
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("players") or body in entered:
