@@ -5,12 +5,17 @@ extends Area2D
 @export var pull_to_center := true
 @export var shrink := true
 @export var spin := true
-@export var spin_turns := 1.0
+@export var spin_turns := 3.0
 
 var entered: Array = []
 
+@onready var portal_sprite: Sprite2D = $Sprite2D
+
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
+
+func _process(delta: float) -> void:
+	pass
 
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("players") or body in entered:
@@ -24,6 +29,8 @@ func _on_body_entered(body: Node2D) -> void:
 		go_to_next_level()
 	
 func _absorb(body: Node2D) -> Tween:
+	var sprite: Sprite2D = body.get_node("Sprite2D")
+	
 	body.set_physics_process(false)
 	body.velocity = Vector2.ZERO
 	body.standing_on = null
@@ -35,8 +42,16 @@ func _absorb(body: Node2D) -> Tween:
 	
 	var tween := create_tween().set_parallel(true)
 	tween.tween_property(body, "modulate:a", 0.0, fade_time).set_delay(move_time - fade_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	
 	if pull_to_center:
 		tween.tween_property(body, "global_position", final_pos, move_time).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+	if spin:
+		tween.tween_property(sprite, "rotation", sprite.rotation + TAU * spin_turns, move_time).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	
+	if shrink:
+		tween.tween_property(sprite, "scale", Vector2.ZERO, move_time).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	
 	return tween
 	
 	# unreachable
