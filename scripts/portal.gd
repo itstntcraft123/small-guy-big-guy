@@ -47,7 +47,6 @@ func _absorb(body: Node2D) -> Tween:
 
 func _visual_center(body: Node2D) -> Vector2:
 	var sprite: Sprite2D = body.get_node("Sprite2D")
-	var size := sprite.get_rect().size * sprite.global_scale.abs()
 	var local_center := sprite.get_rect().get_center()
 	return sprite.to_global(local_center)
 
