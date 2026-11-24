@@ -2,15 +2,10 @@ extends Control
 
 @export var debug_options: PackedScene
 
-@onready var fullscreen_btn: Button = $MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/Fullscreen
-@onready var vsync_btn: Button = $MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/Vsync
-@onready var restart_btn: Button = $MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/RestartKey
-@onready var scroll: ScrollContainer = $MarginContainer/VBoxContainer/ScrollContainer
-
 func _input(event: InputEvent) -> void:
-	scroll.follow_focus = true
+	%ScrollContainer.follow_focus = true
 	if event is InputEventMouseMotion:
-		scroll.follow_focus = false
+		%ScrollContainer.follow_focus = false
 	
 	if event.is_action_pressed("ui_cancel"):
 		get_parent().unhide()
@@ -22,10 +17,11 @@ func _ready() -> void:
 	Save.load_cfg()
 
 func _process(_delta: float) -> void:
-	Utils.set_settings_state(fullscreen_btn, "fullscreen", _is_fullscreen())
-	Utils.set_settings_state(vsync_btn, "vsync", DisplayServer.window_get_vsync_mode())
-	Utils.set_settings_state(restart_btn, "r to restart", Settings.r_to_restart)
-	$MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed/SpinBox.value = Settings.autosave_speed
+	Utils.set_settings_state(%Fullscreen, "fullscreen", _is_fullscreen())
+	Utils.set_settings_state(%Vsync, "vsync", DisplayServer.window_get_vsync_mode())
+	Utils.set_settings_state(%RestartKey, "r to restart", Settings.r_to_restart)
+	Utils.set_settings_state(%Touch, "touch controls", Settings.touch_controls)
+	%SaveSpeedSpinBox.value = Settings.autosave_speed
 
 func _on_select_menu_button_selected(item: Control) -> void:
 	match item.name:
@@ -39,6 +35,9 @@ func _on_select_menu_button_selected(item: Control) -> void:
 				DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 			else:
 				DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+		"Touch":
+			Settings.touch_controls = item.button_pressed
+			DebugLayer.set_touch(Settings.touch_controls)
 		"RestartKey":
 			Settings.r_to_restart = item.button_pressed
 		"SaveSpeed":
@@ -57,4 +56,4 @@ func _is_fullscreen() -> bool:
 
 func unhide() -> void:
 	$MarginContainer.show()
-	$MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/Debug.grab_focus()
+	%Debug.grab_focus()

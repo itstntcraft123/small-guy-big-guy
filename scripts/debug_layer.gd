@@ -7,6 +7,10 @@ extends CanvasLayer
 
 var just_saved := false
 
+func set_touch(on: bool) -> void:
+	$Theme/LeftVirtualJoystick.visible = on
+	$Theme/RightVirtualJoystick.visible = on
+
 func _process(_delta: float) -> void:
 	if Settings.fps_on:
 		fps_label.show()

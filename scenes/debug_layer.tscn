@@ -19,7 +19,7 @@ mouse_filter = 2
 theme = ExtResource("1_tsu2q")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Theme" unique_id=1994482546]
-layout_mode = 0
+layout_mode = 1
 offset_top = -6.0
 offset_right = 40.0
 offset_bottom = 34.0
@@ -42,6 +42,45 @@ visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Saved!"
+
+[node name="LeftVirtualJoystick" type="VirtualJoystick" parent="Theme" unique_id=1816065918]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -250.0
+offset_right = 250.0
+offset_bottom = -40.0
+grow_vertical = 0
+joystick_mode = 1
+joystick_size = 210.0
+tip_size = 90.0
+action_left = &"small_left"
+action_right = &"small_right"
+action_up = &"small_jump"
+
+[node name="RightVirtualJoystick" type="VirtualJoystick" parent="Theme" unique_id=139351018]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -250.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+joystick_mode = 2
+joystick_size = 210.0
+tip_size = 90.0
+action_left = &"big_left"
+action_right = &"big_right"
+action_up = &"big_jump"
 
 [node name="SaveTimer" type="Timer" parent="." unique_id=624484049]
 one_shot = true

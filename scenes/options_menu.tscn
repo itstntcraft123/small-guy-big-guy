@@ -37,6 +37,7 @@ theme_override_font_sizes/font_size = 96
 text = "Options"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=1088985844]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 follow_focus = true
@@ -46,6 +47,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Fullscreen" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=531943641]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
@@ -53,13 +55,23 @@ text = "fullscreen: off"
 alignment = 0
 
 [node name="Vsync" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=271709814]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
 text = "vsync: off"
 alignment = 0
 
+[node name="Touch" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=1413440157]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ToggleButton"
+toggle_mode = true
+text = "touch controls: off"
+alignment = 0
+
 [node name="RestartKey" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=1939248948]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
@@ -72,7 +84,8 @@ focus_mode = 2
 mouse_filter = 0
 text = "autosave speed"
 
-[node name="SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed" unique_id=389701017]
+[node name="SaveSpeedSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed" unique_id=389701017]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 700.0
 offset_right = 842.0
@@ -82,7 +95,7 @@ max_value = 10000.0
 rounded = true
 alignment = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed/SpinBox" unique_id=790592582]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed/SaveSpeedSpinBox" unique_id=790592582]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -114,6 +127,7 @@ offset_bottom = 74.5
 texture = ExtResource("5_dhn0l")
 
 [node name="Debug" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=1568388223]
+unique_name_in_owner = true
 layout_mode = 2
 text = "debug options"
 alignment = 0

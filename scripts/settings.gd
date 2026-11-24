@@ -2,6 +2,7 @@ extends Node
 
 var fps_on := false
 var tps_on := false
+var touch_controls := DisplayServer.is_touchscreen_available()
 var r_to_restart := false
 var save_indicator_on := false
 var prev_vsync := DisplayServer.window_get_vsync_mode()
@@ -23,6 +24,7 @@ func save_dict() -> Dictionary:
 	return {
 		"fps_on": fps_on,
 		"tps_on": tps_on,
+		"touch_controls": touch_controls,
 		"r_to_restart": r_to_restart,
 		"save_indicator_on": save_indicator_on,
 		"autosave_speed": autosave_speed,
@@ -32,7 +34,8 @@ func save_dict() -> Dictionary:
 
 func load_dict(save_data: Dictionary) -> void:
 	Utils.update_multiple_from_save(self, save_data,
-		[&"save_indicator_on", &"autosave_speed", &"r_to_restart", &"fps_on", &"tps_on"]
+		[&"save_indicator_on", &"autosave_speed", &"touch_controls", &"r_to_restart", &"fps_on", &"tps_on"]
 	)
+	DebugLayer.set_touch(touch_controls)
 	DisplayServer.window_set_vsync_mode(save_data.get("vsync", DisplayServer.window_get_vsync_mode()))
 	DisplayServer.window_set_mode(save_data.get("fullscreen", DisplayServer.window_get_mode()))
