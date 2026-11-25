@@ -8,10 +8,10 @@ func _input(event: InputEvent) -> void:
 		%ScrollContainer.follow_focus = false
 	
 	if event.is_action_pressed("ui_cancel"):
+		get_viewport().set_input_as_handled()
 		get_parent().unhide()
 		Save.save_cfg()
 		queue_free()
-		get_viewport().set_input_as_handled()
 
 func _ready() -> void:
 	Save.load_cfg()

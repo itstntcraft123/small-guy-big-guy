@@ -4,8 +4,10 @@ extends Node2D
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("restart") and Settings.r_to_restart and !get_tree().paused:
+		get_viewport().set_input_as_handled()
 		restart_level()
 		return
+	
 	if event.is_action_pressed("ui_cancel") and !has_node("CanvasLayer/EscapeScreen"):
 		get_viewport().set_input_as_handled()
 		Utils.in_game = false

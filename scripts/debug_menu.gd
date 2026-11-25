@@ -6,9 +6,9 @@ extends MarginContainer
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
+		get_viewport().set_input_as_handled()
 		get_parent().unhide()
 		queue_free()
-		get_viewport().set_input_as_handled()
 
 func _ready() -> void:
 	Utils.set_settings_state(fps_btn, "fps counter", Settings.fps_on)
