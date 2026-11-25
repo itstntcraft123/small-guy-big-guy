@@ -32,6 +32,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _teleport(body: Node2D, target: Vector2) -> void:
 	body.global_position = target
+	reset_physics_interpolation()
 	
 func _on_body_exited(body: Node2D) -> void:
 	ignored.erase(body)
