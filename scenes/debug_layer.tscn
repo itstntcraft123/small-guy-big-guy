@@ -63,16 +63,24 @@ action_left = &"big_left"
 action_right = &"big_right"
 action_up = &"big_jump"
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="Theme" unique_id=1564694599]
-position = Vector2(150, 30)
+[node name="Anchor" type="Control" parent="Theme" unique_id=346785137]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Theme/Anchor" unique_id=1564694599]
+position = Vector2(-30, 30)
 rotation = 1.5707964
+scale = Vector2(1.2, 1.2)
 texture_normal = ExtResource("3_e2brh")
 texture_pressed = ExtResource("4_on846")
 shape = SubResource("CapsuleShape2D_yei77")
 shape_visible = false
 action = "ui_cancel"
 
-[node name="Label" type="Label" parent="Theme/TouchScreenButton" unique_id=1456117263]
+[node name="Label" type="Label" parent="Theme/Anchor/TouchScreenButton" unique_id=1456117263]
 offset_top = 120.0
 offset_right = 120.0
 offset_bottom = 180.0
