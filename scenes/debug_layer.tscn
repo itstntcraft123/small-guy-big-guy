@@ -3,19 +3,8 @@
 [ext_resource type="Script" uid="uid://n3qe01d088ca" path="res://scripts/debug_layer.gd" id="1_0k8tn"]
 [ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_tsu2q"]
 [ext_resource type="Texture2D" uid="uid://dvaoei16ubjm1" path="res://sprites/esc_button.svg" id="3_e2brh"]
-[ext_resource type="Texture2D" uid="uid://c378y64f51mni" path="res://sprites/arrow_left.png" id="3_xgvs8"]
-[ext_resource type="Texture2D" uid="uid://c4nc341bhwiwx" path="res://sprites/arrow_up.png" id="4_i24r8"]
+[ext_resource type="PackedScene" uid="uid://dri0mma72ajbr" path="res://scenes/dpad.tscn" id="3_rnsjt"]
 [ext_resource type="Texture2D" uid="uid://dsjg8wyyotwmf" path="res://sprites/esc_button_pressed.svg" id="4_on846"]
-[ext_resource type="Texture2D" uid="uid://dhwnbs3tgorvl" path="res://sprites/arrow_right.png" id="5_k37fq"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgvs8"]
-size = Vector2(48, 28)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k37fq"]
-size = Vector2(44, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i24r8"]
-size = Vector2(48, 28)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yei77"]
 radius = 45.0
@@ -97,68 +86,25 @@ offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LeftDpad" type="Control" parent="Theme/Dpad" unique_id=2052352806]
-visible = false
+[node name="LeftDpad" parent="Theme/Dpad" unique_id=1460934075 instance=ExtResource("3_rnsjt")]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
-scale = Vector2(4, 4)
 
-[node name="Left" type="TouchScreenButton" parent="Theme/Dpad/LeftDpad" unique_id=308762340]
-position = Vector2(0, -28)
-texture_normal = ExtResource("3_xgvs8")
-shape = SubResource("RectangleShape2D_xgvs8")
-passby_press = true
-action = "small_left"
-
-[node name="Up" type="TouchScreenButton" parent="Theme/Dpad/LeftDpad" unique_id=2023831880]
-position = Vector2(26, -60)
-texture_normal = ExtResource("4_i24r8")
-shape = SubResource("RectangleShape2D_k37fq")
-passby_press = true
-action = "small_jump"
-
-[node name="Right" type="TouchScreenButton" parent="Theme/Dpad/LeftDpad" unique_id=550304472]
-position = Vector2(48, -28)
-texture_normal = ExtResource("5_k37fq")
-shape = SubResource("RectangleShape2D_i24r8")
-passby_press = true
-action = "small_right"
-
-[node name="RightDpad" type="Control" parent="Theme/Dpad" unique_id=758957607]
-visible = false
+[node name="RightDpad" parent="Theme/Dpad" unique_id=1412950923 instance=ExtResource("3_rnsjt")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -320.0
+offset_right = -320.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(4, 4)
-
-[node name="Left" type="TouchScreenButton" parent="Theme/Dpad/RightDpad" unique_id=821372718]
-position = Vector2(-80, -28)
-texture_normal = ExtResource("3_xgvs8")
-shape = SubResource("RectangleShape2D_xgvs8")
-passby_press = true
-action = "big_left"
-
-[node name="Up" type="TouchScreenButton" parent="Theme/Dpad/RightDpad" unique_id=744039890]
-position = Vector2(-54, -60)
-texture_normal = ExtResource("4_i24r8")
-shape = SubResource("RectangleShape2D_k37fq")
-passby_press = true
-action = "big_jump"
-
-[node name="Right" type="TouchScreenButton" parent="Theme/Dpad/RightDpad" unique_id=1483948119]
-position = Vector2(-32, -28)
-texture_normal = ExtResource("5_k37fq")
-shape = SubResource("RectangleShape2D_i24r8")
-passby_press = true
-action = "big_right"
+prefix = "big"
 
 [node name="TopRight" type="Control" parent="Theme" unique_id=346785137]
 unique_name_in_owner = true

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dri0mma72ajbr"]
+
+[ext_resource type="Texture2D" uid="uid://c378y64f51mni" path="res://sprites/arrow_left.png" id="1_8ho7a"]
+[ext_resource type="Script" uid="uid://cpcjpflvd2wxq" path="res://scripts/dpad.gd" id="1_35btk"]
+[ext_resource type="Texture2D" uid="uid://c4nc341bhwiwx" path="res://sprites/arrow_up.png" id="2_35btk"]
+[ext_resource type="Texture2D" uid="uid://dhwnbs3tgorvl" path="res://sprites/arrow_right.png" id="3_tooam"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_lmuhm"]
+points = PackedVector2Array(-24, -30, 6, -30, 6, -14, 24, -14, 24, 22, -24, 22)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_31r72"]
+points = PackedVector2Array(-30, -24, -30, 12, -14, 12, -14, 16, -8, 16, -8, 24, 8, 24, 8, 16, 14, 16, 14, 12, 30, 12, 30, -24)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_8ho7a"]
+points = PackedVector2Array(-24, -14, -6, -14, -6, -30, 24, -30, 24, 22, -24, 22)
+
+[node name="Dpad" type="Control" unique_id=1460934075]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(4, 4)
+script = ExtResource("1_35btk")
+
+[node name="Left" type="TouchScreenButton" parent="." unique_id=1662202407]
+position = Vector2(0, -28)
+texture_normal = ExtResource("1_8ho7a")
+shape = SubResource("ConvexPolygonShape2D_lmuhm")
+passby_press = true
+action = "small_left"
+
+[node name="Up" type="TouchScreenButton" parent="." unique_id=656346676]
+position = Vector2(26, -60)
+texture_normal = ExtResource("2_35btk")
+shape = SubResource("ConvexPolygonShape2D_31r72")
+passby_press = true
+action = "small_jump"
+
+[node name="Right" type="TouchScreenButton" parent="." unique_id=1199944380]
+position = Vector2(48, -28)
+texture_normal = ExtResource("3_tooam")
+shape = SubResource("ConvexPolygonShape2D_8ho7a")
+passby_press = true
+action = "small_right"
