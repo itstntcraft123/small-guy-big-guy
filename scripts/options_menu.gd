@@ -15,10 +15,17 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	Save.load_cfg()
-	if OS.has_feature("web"):
-		%Vsync.hide() # browsers force vsync
-	if OS.has_feature("web_ios") or OS.has_feature("web_android") or OS.has_feature("mobile"):
-		%Fullscreen.hide() # mobile has no fullscreen
+	refresh_visible()
+
+func refresh_visible() -> void:
+	if Settings.show_all:
+		%Vsync.show()
+		%Fullscreen.show()
+	else:
+		if OS.has_feature("web"):
+			%Vsync.hide() # browsers force vsync
+		if OS.has_feature("web_ios") or OS.has_feature("web_android") or OS.has_feature("mobile"):
+			%Fullscreen.hide() # mobile has no fullscreen
 
 func _process(_delta: float) -> void:
 	Utils.set_settings_state(%Fullscreen, "fullscreen", _is_fullscreen())

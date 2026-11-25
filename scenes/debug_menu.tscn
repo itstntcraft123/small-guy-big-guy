@@ -25,6 +25,7 @@ text = "Debug Options"
 layout_mode = 2
 
 [node name="FPSCounter" type="Button" parent="VBoxContainer/SelectMenu" unique_id=1568388223]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
@@ -32,6 +33,7 @@ text = "fps counter: off"
 alignment = 0
 
 [node name="TPSCounter" type="Button" parent="VBoxContainer/SelectMenu" unique_id=1793952085]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
@@ -39,10 +41,19 @@ text = "physics tps counter: off"
 alignment = 0
 
 [node name="SaveIndicator" type="Button" parent="VBoxContainer/SelectMenu" unique_id=933645393]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
 text = "save indicator: off"
+alignment = 0
+
+[node name="ShowAll" type="Button" parent="VBoxContainer/SelectMenu" unique_id=637507791]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ToggleButton"
+toggle_mode = true
+text = "show all options: off"
 alignment = 0
 
 [node name="Back" type="Button" parent="VBoxContainer/SelectMenu" unique_id=56632280]
