@@ -61,8 +61,3 @@ func save_dict() -> Dictionary:
 func load_dict(data: Dictionary) -> void:
 	Utils.update_from_save(self, data, &"active")
 	_apply_frame()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

@@ -3,11 +3,23 @@
 [ext_resource type="Script" uid="uid://n3qe01d088ca" path="res://scripts/debug_layer.gd" id="1_0k8tn"]
 [ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_tsu2q"]
 [ext_resource type="Texture2D" uid="uid://dvaoei16ubjm1" path="res://sprites/esc_button.svg" id="3_e2brh"]
+[ext_resource type="Texture2D" uid="uid://c378y64f51mni" path="res://sprites/arrow_left.png" id="3_xgvs8"]
+[ext_resource type="Texture2D" uid="uid://c4nc341bhwiwx" path="res://sprites/arrow_up.png" id="4_i24r8"]
 [ext_resource type="Texture2D" uid="uid://dsjg8wyyotwmf" path="res://sprites/esc_button_pressed.svg" id="4_on846"]
+[ext_resource type="Texture2D" uid="uid://dhwnbs3tgorvl" path="res://sprites/arrow_right.png" id="5_k37fq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgvs8"]
+size = Vector2(48, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k37fq"]
+size = Vector2(44, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i24r8"]
+size = Vector2(48, 28)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yei77"]
-radius = 30.0
-height = 120.0
+radius = 45.0
+height = 150.0
 
 [node name="DebugLayer" type="CanvasLayer" unique_id=787991888]
 process_mode = 3
@@ -24,16 +36,27 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_tsu2q")
 
-[node name="LeftVirtualJoystick" type="VirtualJoystick" parent="Theme" unique_id=1816065918]
+[node name="Joysticks" type="Control" parent="Theme" unique_id=31185005]
+unique_name_in_owner = true
 visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftVirtualJoystick" type="VirtualJoystick" parent="Theme/Joysticks" unique_id=1816065918]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = -310.0
-offset_right = 310.0
-offset_bottom = -40.0
+offset_top = -270.0
+offset_right = 270.0
 grow_vertical = 0
 joystick_mode = 1
 joystick_size = 210.0
@@ -42,18 +65,15 @@ action_left = &"small_left"
 action_right = &"small_right"
 action_up = &"small_jump"
 
-[node name="RightVirtualJoystick" type="VirtualJoystick" parent="Theme" unique_id=139351018]
-visible = false
+[node name="RightVirtualJoystick" type="VirtualJoystick" parent="Theme/Joysticks" unique_id=139351018]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -310.0
-offset_top = -310.0
-offset_right = -40.0
-offset_bottom = -40.0
+offset_left = -270.0
+offset_top = -270.0
 grow_horizontal = 0
 grow_vertical = 0
 joystick_mode = 1
@@ -63,24 +83,102 @@ action_left = &"big_left"
 action_right = &"big_right"
 action_up = &"big_jump"
 
-[node name="Anchor" type="Control" parent="Theme" unique_id=346785137]
+[node name="Dpad" type="Control" parent="Theme" unique_id=297032311]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftDpad" type="Control" parent="Theme/Dpad" unique_id=2052352806]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+scale = Vector2(4, 4)
+
+[node name="Left" type="TouchScreenButton" parent="Theme/Dpad/LeftDpad" unique_id=308762340]
+position = Vector2(0, -28)
+texture_normal = ExtResource("3_xgvs8")
+shape = SubResource("RectangleShape2D_xgvs8")
+passby_press = true
+action = "small_left"
+
+[node name="Up" type="TouchScreenButton" parent="Theme/Dpad/LeftDpad" unique_id=2023831880]
+position = Vector2(26, -60)
+texture_normal = ExtResource("4_i24r8")
+shape = SubResource("RectangleShape2D_k37fq")
+passby_press = true
+action = "small_jump"
+
+[node name="Right" type="TouchScreenButton" parent="Theme/Dpad/LeftDpad" unique_id=550304472]
+position = Vector2(48, -28)
+texture_normal = ExtResource("5_k37fq")
+shape = SubResource("RectangleShape2D_i24r8")
+passby_press = true
+action = "small_right"
+
+[node name="RightDpad" type="Control" parent="Theme/Dpad" unique_id=758957607]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(4, 4)
+
+[node name="Left" type="TouchScreenButton" parent="Theme/Dpad/RightDpad" unique_id=821372718]
+position = Vector2(-80, -28)
+texture_normal = ExtResource("3_xgvs8")
+shape = SubResource("RectangleShape2D_xgvs8")
+passby_press = true
+action = "big_left"
+
+[node name="Up" type="TouchScreenButton" parent="Theme/Dpad/RightDpad" unique_id=744039890]
+position = Vector2(-54, -60)
+texture_normal = ExtResource("4_i24r8")
+shape = SubResource("RectangleShape2D_k37fq")
+passby_press = true
+action = "big_jump"
+
+[node name="Right" type="TouchScreenButton" parent="Theme/Dpad/RightDpad" unique_id=1483948119]
+position = Vector2(-32, -28)
+texture_normal = ExtResource("5_k37fq")
+shape = SubResource("RectangleShape2D_i24r8")
+passby_press = true
+action = "big_right"
+
+[node name="TopRight" type="Control" parent="Theme" unique_id=346785137]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 grow_horizontal = 0
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="Theme/Anchor" unique_id=1564694599]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Theme/TopRight" unique_id=1564694599]
 position = Vector2(-30, 30)
 rotation = 1.5707964
 scale = Vector2(1.2, 1.2)
 texture_normal = ExtResource("3_e2brh")
 texture_pressed = ExtResource("4_on846")
 shape = SubResource("CapsuleShape2D_yei77")
-shape_visible = false
 action = "ui_cancel"
 
-[node name="Label" type="Label" parent="Theme/Anchor/TouchScreenButton" unique_id=1456117263]
+[node name="Label" type="Label" parent="Theme/TopRight/TouchScreenButton" unique_id=1456117263]
 offset_top = 120.0
 offset_right = 120.0
 offset_bottom = 180.0

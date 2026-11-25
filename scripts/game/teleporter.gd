@@ -36,7 +36,3 @@ func _teleport(body: Node2D, target: Vector2) -> void:
 	
 func _on_body_exited(body: Node2D) -> void:
 	ignored.erase(body)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
