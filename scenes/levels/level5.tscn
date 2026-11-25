@@ -14,22 +14,22 @@ tile_map_data = PackedByteArray("AAD+/wQAAAACAAMAAAD//wQAAAACAAMAAAAAAAQAAAACAAM
 [node name="ButtonPurple" parent="." index="5" unique_id=1331368196 instance=ExtResource("2_0yael")]
 position = Vector2(176, 128)
 preset_color = 3
-color = Color(0.938, 0.415, 0.946, 1)
+color = Color(0.924, 0.321, 0.937, 1)
 
 [node name="Door" parent="." index="6" unique_id=1193654706 instance=ExtResource("3_v1pya")]
 position = Vector2(253, 48)
 preset_color = 3
-color = Color(0.938, 0.415, 0.946, 1)
+color = Color(0.924, 0.321, 0.937, 1)
 
 [node name="Door2" parent="." index="7" unique_id=1120397437 instance=ExtResource("3_v1pya")]
 position = Vector2(253, 80)
 preset_color = 3
-color = Color(0.938, 0.415, 0.946, 1)
+color = Color(0.924, 0.321, 0.937, 1)
 
 [node name="Door3" parent="." index="8" unique_id=1867494556 instance=ExtResource("3_v1pya")]
 position = Vector2(253, 112)
 preset_color = 3
-color = Color(0.938, 0.415, 0.946, 1)
+color = Color(0.924, 0.321, 0.937, 1)
 
 [node name="Label" type="Label" parent="." index="9" unique_id=1257942363]
 offset_left = 101.0

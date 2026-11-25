@@ -19,12 +19,12 @@ tile_map_data = PackedByteArray("AAD7/wQAAAACAAMAAAD8/wQAAAACAAMAAAD9/wQAAAACAAM
 [node name="buttonGreen" parent="." index="5" unique_id=1331368196 instance=ExtResource("3_mnr30")]
 position = Vector2(720, -64)
 preset_color = 1
-color = Color(0.322, 0.844, 0, 1)
+color = Color(0.422, 1, 0.165, 1)
 
 [node name="DoorGreen" parent="." index="6" unique_id=1193654706 instance=ExtResource("4_yu5ka")]
 position = Vector2(112, 80)
 preset_color = 1
-color = Color(0.322, 0.844, 0, 1)
+color = Color(0.422, 1, 0.165, 1)
 
 [node name="Portal" parent="." index="7" unique_id=1527810771 instance=ExtResource("5_0g6gi")]
 position = Vector2(1053, 96)

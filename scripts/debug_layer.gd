@@ -10,6 +10,7 @@ var just_saved := false
 func update_touch() -> void:
 	$Theme/LeftVirtualJoystick.visible = Settings.touch_controls and Utils.in_game
 	$Theme/RightVirtualJoystick.visible = Settings.touch_controls and Utils.in_game
+	$Theme/TouchScreenButton.visible = Settings.touch_controls
 
 func _process(_delta: float) -> void:
 	update_touch()
@@ -41,3 +42,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_save_timer_timeout() -> void:
 	save_indicator.hide()
+
+func _on_touch_screen_button_released() -> void:
+	Input.action_press("ui_cancel")
+	Input.action_release("ui_cancel")

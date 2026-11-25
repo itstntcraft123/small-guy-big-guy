@@ -16,52 +16,52 @@ tile_map_data = PackedByteArray("AAD8/wQAAAACAAMAAAD9/wQAAAACAAMAAAD+/wQAAAACAAM
 [node name="buttonGreen" parent="." index="5" unique_id=1331368196 instance=ExtResource("2_jbeo8")]
 position = Vector2(208, -160)
 preset_color = 1
-color = Color(0.322, 0.844, 0, 1)
+color = Color(0.422, 1, 0.165, 1)
 
 [node name="DoorGreen" parent="." index="6" unique_id=1193654706 instance=ExtResource("3_rrpq3")]
 position = Vector2(208, 112)
 preset_color = 1
-color = Color(0.322, 0.844, 0, 1)
+color = Color(0.422, 1, 0.165, 1)
 
 [node name="ButtonBlue" parent="." index="7" unique_id=1515362360 instance=ExtResource("4_rrpq3")]
 position = Vector2(336, 128)
 preset_color = 2
-color = Color(0.297, 0.648, 1, 1)
+color = Color(0.378, 0.683, 1, 1)
 
 [node name="DoorBlue" parent="." index="8" unique_id=2132033894 instance=ExtResource("3_rrpq3")]
 position = Vector2(432, 16)
 preset_color = 2
-color = Color(0.297, 0.648, 1, 1)
+color = Color(0.378, 0.683, 1, 1)
 
 [node name="DoorBlue6" parent="." index="9" unique_id=1523796313 instance=ExtResource("3_rrpq3")]
 position = Vector2(432, -16)
 preset_color = 2
-color = Color(0.297, 0.648, 1, 1)
+color = Color(0.378, 0.683, 1, 1)
 
 [node name="DoorBlue7" parent="." index="10" unique_id=2023517682 instance=ExtResource("3_rrpq3")]
 position = Vector2(432, -48)
 preset_color = 2
-color = Color(0.297, 0.648, 1, 1)
+color = Color(0.378, 0.683, 1, 1)
 
 [node name="DoorBlue8" parent="." index="11" unique_id=1275801032 instance=ExtResource("3_rrpq3")]
 position = Vector2(432, -80)
 preset_color = 2
-color = Color(0.297, 0.648, 1, 1)
+color = Color(0.378, 0.683, 1, 1)
 
 [node name="DoorBlue5" parent="." index="12" unique_id=1348438386 instance=ExtResource("3_rrpq3")]
 position = Vector2(384, 88)
 preset_color = 2
-color = Color(0.297, 0.648, 1, 1)
+color = Color(0.378, 0.683, 1, 1)
 
 [node name="DoorBlue3" parent="." index="13" unique_id=966809206 instance=ExtResource("3_rrpq3")]
 position = Vector2(496, -80)
 preset_color = 2
-color = Color(0.297, 0.648, 1, 1)
+color = Color(0.378, 0.683, 1, 1)
 
 [node name="DoorBlue4" parent="." index="14" unique_id=1965798646 instance=ExtResource("3_rrpq3")]
 position = Vector2(560, -112)
 preset_color = 2
-color = Color(0.297, 0.648, 1, 1)
+color = Color(0.378, 0.683, 1, 1)
 
 [node name="Portal" parent="." index="15" unique_id=1527810771 instance=ExtResource("5_mdxo6")]
 position = Vector2(890.0395, 87.80643)

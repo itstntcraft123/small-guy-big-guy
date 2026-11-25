@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://n3qe01d088ca" path="res://scripts/debug_layer.gd" id="1_0k8tn"]
 [ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_tsu2q"]
+[ext_resource type="Texture2D" uid="uid://dvaoei16ubjm1" path="res://sprites/esc_button.svg" id="3_e2brh"]
+[ext_resource type="Texture2D" uid="uid://dsjg8wyyotwmf" path="res://sprites/esc_button_pressed.svg" id="4_on846"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yei77"]
+radius = 30.0
+height = 120.0
 
 [node name="DebugLayer" type="CanvasLayer" unique_id=787991888]
 process_mode = 3
@@ -17,31 +23,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_tsu2q")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Theme" unique_id=1994482546]
-layout_mode = 1
-offset_top = -6.0
-offset_right = 40.0
-offset_bottom = 34.0
-theme_override_constants/separation = -6
-
-[node name="FPS" type="Label" parent="Theme/VBoxContainer" unique_id=2121157156]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "FPS: 60"
-
-[node name="TPS" type="Label" parent="Theme/VBoxContainer" unique_id=1846498335]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "TPS: 60"
-
-[node name="SaveIndicator" type="Label" parent="Theme/VBoxContainer" unique_id=1825418965]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Saved!"
 
 [node name="LeftVirtualJoystick" type="VirtualJoystick" parent="Theme" unique_id=1816065918]
 visible = false
@@ -81,6 +62,50 @@ tip_size = 90.0
 action_left = &"big_left"
 action_right = &"big_right"
 action_up = &"big_jump"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Theme" unique_id=1564694599]
+position = Vector2(150, 30)
+rotation = 1.5707964
+texture_normal = ExtResource("3_e2brh")
+texture_pressed = ExtResource("4_on846")
+shape = SubResource("CapsuleShape2D_yei77")
+shape_visible = false
+action = "ui_cancel"
+
+[node name="Label" type="Label" parent="Theme/TouchScreenButton" unique_id=1456117263]
+offset_top = 120.0
+offset_right = 120.0
+offset_bottom = 180.0
+rotation = -1.5707964
+theme = ExtResource("1_tsu2q")
+theme_override_font_sizes/font_size = 40
+text = "ESC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Theme" unique_id=1994482546]
+layout_mode = 0
+offset_top = -5.0
+offset_bottom = -5.0
+theme_override_constants/separation = -6
+
+[node name="FPS" type="Label" parent="Theme/VBoxContainer" unique_id=2121157156]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "FPS: 60"
+
+[node name="TPS" type="Label" parent="Theme/VBoxContainer" unique_id=1846498335]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "TPS: 60"
+
+[node name="SaveIndicator" type="Label" parent="Theme/VBoxContainer" unique_id=1825418965]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Saved!"
 
 [node name="SaveTimer" type="Timer" parent="." unique_id=624484049]
 one_shot = true
