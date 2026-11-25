@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://ckuvf4bd12t7f"]
 
 [ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_5px8r"]
-[ext_resource type="PackedScene" uid="uid://c7we4uuf3g5jb" path="res://scenes/moving_platform.tscn" id="2_uwxly"]
-[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="3_6wnbf"]
-[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="4_6wnbf"]
-[ext_resource type="PackedScene" uid="uid://dwpvb7swdbvug" path="res://scenes/lever.tscn" id="5_iyknm"]
+[ext_resource type="PackedScene" uid="uid://c7we4uuf3g5jb" path="res://scenes/objects/moving_platform.tscn" id="2_uwxly"]
+[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/objects/portal.tscn" id="3_6wnbf"]
+[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/objects/door.tscn" id="4_6wnbf"]
+[ext_resource type="PackedScene" uid="uid://dwpvb7swdbvug" path="res://scenes/objects/lever.tscn" id="5_iyknm"]
 
 [node name="Game" unique_id=2126916218 instance=ExtResource("1_5px8r")]
 

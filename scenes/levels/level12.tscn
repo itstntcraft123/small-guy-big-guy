@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://dh0nf5gahqnsa"]
 
 [ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_uwcyj"]
-[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="2_4iysr"]
-[ext_resource type="PackedScene" uid="uid://dwpvb7swdbvug" path="res://scenes/lever.tscn" id="3_f1eed"]
+[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/objects/door.tscn" id="2_4iysr"]
+[ext_resource type="PackedScene" uid="uid://dwpvb7swdbvug" path="res://scenes/objects/lever.tscn" id="3_f1eed"]
 [ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="4_k3qoh"]
-[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="5_gmvg6"]
+[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/objects/portal.tscn" id="5_gmvg6"]
 
 [node name="Game" unique_id=2126916218 instance=ExtResource("1_uwcyj")]
 

@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_felwe"]
 [ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="2_nfcjj"]
-[ext_resource type="PackedScene" uid="uid://cgdanea4bubb8" path="res://scenes/presetButtons/anti_button.tscn" id="3_75k5w"]
-[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="4_nlk6b"]
-[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="5_ntw4r"]
-[ext_resource type="PackedScene" uid="uid://cd3arwj17sxly" path="res://scenes/spike.tscn" id="6_75k5w"]
+[ext_resource type="PackedScene" uid="uid://cgdanea4bubb8" path="res://scenes/objects/presetButtons/anti_button.tscn" id="3_75k5w"]
+[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/objects/door.tscn" id="4_nlk6b"]
+[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/objects/portal.tscn" id="5_ntw4r"]
+[ext_resource type="PackedScene" uid="uid://cd3arwj17sxly" path="res://scenes/objects/spike.tscn" id="6_75k5w"]
 
 [node name="Game" unique_id=2126916218 instance=ExtResource("1_felwe")]
 

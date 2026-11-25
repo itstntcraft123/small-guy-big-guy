@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://cm60lqjdco1gf"]
 
 [ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_e0cvd"]
-[ext_resource type="PackedScene" uid="uid://cd3arwj17sxly" path="res://scenes/spike.tscn" id="2_71baw"]
+[ext_resource type="PackedScene" uid="uid://cd3arwj17sxly" path="res://scenes/objects/spike.tscn" id="2_71baw"]
 [ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="3_niitk"]
-[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="4_niitk"]
+[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/objects/portal.tscn" id="4_niitk"]
 
 [node name="Game" unique_id=2126916218 instance=ExtResource("1_e0cvd")]
 

@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://gooeuw30ql7g"]
 
 [ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_7115g"]
-[ext_resource type="PackedScene" uid="uid://boeiut3vvglmq" path="res://scenes/presetButtons/small_button.tscn" id="2_koekj"]
-[ext_resource type="PackedScene" uid="uid://dluceyrb8yq6g" path="res://scenes/presetButtons/heavy_button.tscn" id="3_kw13u"]
-[ext_resource type="PackedScene" uid="uid://cfuoai66ktlsi" path="res://scenes/presetButtons/big_button.tscn" id="4_im2du"]
-[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="5_f5esd"]
-[ext_resource type="PackedScene" uid="uid://c7we4uuf3g5jb" path="res://scenes/moving_platform.tscn" id="6_koekj"]
-[ext_resource type="PackedScene" uid="uid://dwpvb7swdbvug" path="res://scenes/lever.tscn" id="7_kw13u"]
+[ext_resource type="PackedScene" uid="uid://boeiut3vvglmq" path="res://scenes/objects/presetButtons/small_button.tscn" id="2_koekj"]
+[ext_resource type="PackedScene" uid="uid://dluceyrb8yq6g" path="res://scenes/objects/presetButtons/heavy_button.tscn" id="3_kw13u"]
+[ext_resource type="PackedScene" uid="uid://cfuoai66ktlsi" path="res://scenes/objects/presetButtons/big_button.tscn" id="4_im2du"]
+[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/objects/door.tscn" id="5_f5esd"]
+[ext_resource type="PackedScene" uid="uid://c7we4uuf3g5jb" path="res://scenes/objects/moving_platform.tscn" id="6_koekj"]
+[ext_resource type="PackedScene" uid="uid://dwpvb7swdbvug" path="res://scenes/objects/lever.tscn" id="7_kw13u"]
 
 [node name="Game" unique_id=2126916218 instance=ExtResource("1_7115g")]
 
