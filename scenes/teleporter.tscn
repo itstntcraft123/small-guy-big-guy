@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://gmykn3i87u1c"]
 
-[ext_resource type="Script" uid="uid://bg5pjl7vat3u2" path="res://scripts/teleporter.gd" id="1_pce0k"]
+[ext_resource type="Script" uid="uid://bg5pjl7vat3u2" path="res://scripts/game/teleporter.gd" id="1_pce0k"]
 [ext_resource type="Texture2D" uid="uid://dui8mtv1k32wu" path="res://sprites/teleporter.png" id="1_vurns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63sl8"]

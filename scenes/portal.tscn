@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bi0nb5x6oanyb"]
 
-[ext_resource type="Script" uid="uid://ekidv6rd28f4" path="res://scripts/portal.gd" id="1_1ffj6"]
+[ext_resource type="Script" uid="uid://ekidv6rd28f4" path="res://scripts/game/portal.gd" id="1_1ffj6"]
 [ext_resource type="Texture2D" uid="uid://777ld0khrb6s" path="res://sprites/portal.png" id="2_jr6l0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ao8sq"]

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bwoptb407y16w"]
 
-[ext_resource type="Script" uid="uid://duxlyg64xjhe2" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://duxlyg64xjhe2" path="res://scripts/game/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://dqpupgu43dttv" path="res://scenes/game_menu.tscn" id="2_iywne"]
 [ext_resource type="PackedScene" uid="uid://dd6wwlvb6o1su" path="res://scenes/player.tscn" id="3_lbhrr"]
 [ext_resource type="TileSet" uid="uid://d1cv7dwf6x5r5" path="res://sprites/autotile/tileplaceholder13tile-autotile.tres" id="5_iywne"]
-[ext_resource type="Script" uid="uid://c34kn6cj0d2w1" path="res://scripts/camera.gd" id="5_p57ef"]
+[ext_resource type="Script" uid="uid://c34kn6cj0d2w1" path="res://scripts/game/camera.gd" id="5_p57ef"]
 
 [node name="Game" type="Node2D" unique_id=2126916218]
 script = ExtResource("1_yqjtg")

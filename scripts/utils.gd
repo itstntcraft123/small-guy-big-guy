@@ -9,6 +9,7 @@ const PRESET_COLORS_DATA: Dictionary[PresetColors, Color] = {
 	PresetColors.PURPLE: Color(0.924, 0.321, 0.937, 1.0)
 }
 var in_game := false
+var button_padding := 40
 
 func get_children_of_type(node: Node, type: Variant) -> Array[Node]:
 	var result: Array[Node] = []

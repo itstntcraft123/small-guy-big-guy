@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://boeiut3vvglmq"]
 
-[ext_resource type="Script" uid="uid://dvhc1ne4s0mtm" path="res://scripts/button.gd" id="1_q0j8l"]
+[ext_resource type="Script" uid="uid://dvhc1ne4s0mtm" path="res://scripts/game/button.gd" id="1_q0j8l"]
 [ext_resource type="Texture2D" uid="uid://bddboy556orx" path="res://sprites/buttonsGray.png" id="2_yv2ee"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5yc2n"]

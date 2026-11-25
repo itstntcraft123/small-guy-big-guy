@@ -3,6 +3,9 @@ extends Control
 
 signal button_selected(item: Control)
 var strip_non_numbers_regex := RegEx.new()
+const wide_btn_script: Script = preload("res://scripts/wide_button.gd")
+const wide_linkbtn_script: Script = preload("res://scripts/wide_link_button.gd")
+const wide_label_script: Script = preload("res://scripts/wide_label.gd")
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -43,6 +46,13 @@ func _ready() -> void:
 	
 	var focused = false
 	for child in get_children():
+		if child is Button:
+			child.set_script(wide_btn_script)
+		if child is LinkButton:
+			child.set_script(wide_linkbtn_script)
+		if child is Label:
+			child.set_script(wide_label_script)
+		
 		if child is Button or child is LinkButton:
 			child.pressed.connect(button_selected.emit.bind(child))
 		if child is Button or child is LinkButton or child is Label:

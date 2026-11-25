@@ -26,12 +26,19 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ijpji")
-theme_override_constants/margin_bottom = 0
+theme_override_constants/margin_left = 40
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1374439801]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1268723800]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=2011689184]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=1268723800]
 layout_mode = 2
 theme_override_font_sizes/font_size = 96
 text = "Options"
@@ -42,11 +49,18 @@ custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 follow_focus = true
 
-[node name="SelectMenu" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=543663428 instance=ExtResource("1_liyum")]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=1377343716]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="SelectMenu" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer" unique_id=543663428 instance=ExtResource("1_liyum")]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Fullscreen" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=531943641]
+[node name="Fullscreen" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu" unique_id=531943641]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
@@ -54,7 +68,7 @@ toggle_mode = true
 text = "fullscreen: off"
 alignment = 0
 
-[node name="Vsync" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=271709814]
+[node name="Vsync" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu" unique_id=271709814]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
@@ -62,7 +76,7 @@ toggle_mode = true
 text = "vsync: off"
 alignment = 0
 
-[node name="Touch" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=1413440157]
+[node name="Touch" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu" unique_id=1413440157]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
@@ -70,7 +84,7 @@ toggle_mode = true
 text = "touch controls: off"
 alignment = 0
 
-[node name="RestartKey" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=1939248948]
+[node name="RestartKey" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu" unique_id=1939248948]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
@@ -78,13 +92,13 @@ toggle_mode = true
 text = "r to restart: off"
 alignment = 0
 
-[node name="SaveSpeed" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=483443534]
+[node name="SaveSpeed" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu" unique_id=483443534]
 layout_mode = 2
 focus_mode = 2
 mouse_filter = 0
 text = "autosave speed"
 
-[node name="SaveSpeedSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed" unique_id=389701017]
+[node name="SaveSpeedSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu/SaveSpeed" unique_id=389701017]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 700.0
@@ -95,7 +109,7 @@ max_value = 10000.0
 rounded = true
 alignment = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/SaveSpeed/SaveSpeedSpinBox" unique_id=790592582]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu/SaveSpeed/SaveSpeedSpinBox" unique_id=790592582]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -110,14 +124,14 @@ grow_horizontal = 0
 grow_vertical = 2
 text = "secs"
 
-[node name="Source" type="LinkButton" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=1854103576]
+[node name="Source" type="LinkButton" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu" unique_id=1854103576]
 layout_mode = 2
 focus_mode = 2
 text = "view source"
 underline = 2
 uri = "https://github.com/itstntcraft123/small-guy-big-guy"
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/Source" unique_id=1052529247]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu/Source" unique_id=1052529247]
 texture_filter = 1
 layout_mode = 0
 offset_left = 886.0
@@ -126,20 +140,20 @@ offset_right = 938.0
 offset_bottom = 74.5
 texture = ExtResource("5_dhn0l")
 
-[node name="Debug" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=1568388223]
+[node name="Debug" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu" unique_id=1568388223]
 unique_name_in_owner = true
 layout_mode = 2
 text = "debug options"
 alignment = 0
 
-[node name="Arrow" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu/Debug" unique_id=100825024 instance=ExtResource("5_3xsyx")]
+[node name="Arrow" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu/Debug" unique_id=100825024 instance=ExtResource("5_3xsyx")]
 layout_mode = 0
 offset_left = 900.0
 offset_right = 943.0
 
-[node name="Back" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" unique_id=56632280]
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu" unique_id=56632280]
 layout_mode = 2
 text = "back"
 alignment = 0
 
-[connection signal="button_selected" from="MarginContainer/VBoxContainer/ScrollContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]
+[connection signal="button_selected" from="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]

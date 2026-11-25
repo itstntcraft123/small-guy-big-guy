@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7we4uuf3g5jb"]
 
-[ext_resource type="Script" uid="uid://bj44on8wtf3bf" path="res://scripts/moving_platform.gd" id="1_1tdcd"]
+[ext_resource type="Script" uid="uid://bj44on8wtf3bf" path="res://scripts/game/moving_platform.gd" id="1_1tdcd"]
 [ext_resource type="Texture2D" uid="uid://rxdgjqa0rj0x" path="res://sprites/autotile/tileplaceholder13tile-autotile.png" id="2_mb26n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63sl8"]
