@@ -15,6 +15,8 @@ func _input(event: InputEvent) -> void:
 
 func _ready() -> void:
 	Save.load_cfg()
+	if OS.has_feature("web"):
+		%Vsync.hide()
 
 func _process(_delta: float) -> void:
 	Utils.set_settings_state(%Fullscreen, "fullscreen", _is_fullscreen())
