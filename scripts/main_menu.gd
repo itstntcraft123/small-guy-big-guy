@@ -1,10 +1,10 @@
 extends Control
 
 @export var options_menu: PackedScene 
-@export var title_slide_time := 0.6
-@export var button_slide_time := 0.8
+@export var title_slide_time := 1.0
+@export var button_slide_time := 1.0
 @export var button_stagger := 0.3
-@export var button_delay := 0.3
+@export var button_delay := 0.1
 
 func _ready() -> void:
 	await get_tree().process_frame
