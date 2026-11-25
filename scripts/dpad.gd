@@ -3,6 +3,8 @@ extends Control
 @export var prefix := "small"
 
 func _process(_delta: float) -> void:
+	if not Settings.touch_controls:
+		return
 	check_input($Left, "_left")
 	check_input($Up, "_jump")
 	check_input($Right, "_right")
@@ -14,5 +16,4 @@ func check_input(node: Node, suffix: String):
 				return
 			Input.action_press(prefix + suffix)
 			return
-	if Input.is_action_pressed(prefix + suffix):
-		Input.action_release(prefix + suffix)
+	Input.action_release(prefix + suffix)
