@@ -2,7 +2,16 @@ extends Control
 
 @export var prefix := "small"
 
-func _ready() -> void:
-	$Left.action = prefix + "_left"
-	$Up.action = prefix + "_jump"
-	$Right.action = prefix + "_right"
+func _process(_delta: float) -> void:
+	check_input($Left, "_left")
+	check_input($Up, "_jump")
+	check_input($Right, "_right")
+
+func check_input(node: Node, suffix: String):
+	for child: TouchScreenButton in node.get_children():
+		if child.is_pressed():
+			if Input.is_action_pressed(prefix + suffix):
+				return
+			Input.action_press(prefix + suffix)
+			return
+	Input.action_release(prefix + suffix)
