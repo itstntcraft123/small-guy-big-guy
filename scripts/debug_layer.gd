@@ -10,7 +10,7 @@ var just_saved := false
 func update_touch() -> void:
 	$Theme/LeftVirtualJoystick.visible = Settings.touch_controls and Utils.in_game
 	$Theme/RightVirtualJoystick.visible = Settings.touch_controls and Utils.in_game
-	$Theme/TouchScreenButton.visible = Settings.touch_controls
+	$Theme/Anchor/TouchScreenButton.visible = Settings.touch_controls
 
 func _process(_delta: float) -> void:
 	update_touch()
