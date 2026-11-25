@@ -1,112 +1,82 @@
-[gd_scene format=4 uid="uid://dh0nf5gahqnsa"]
+[gd_scene format=4 uid="uid://6gyim3jq6fef"]
 
-[ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_wg8oe"]
-[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="2_m05wh"]
-[ext_resource type="PackedScene" uid="uid://cgdanea4bubb8" path="res://scenes/presetButtons/anti_button.tscn" id="2_ycof1"]
-[ext_resource type="PackedScene" uid="uid://boeiut3vvglmq" path="res://scenes/presetButtons/small_button.tscn" id="4_avc4n"]
-[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="6_737d1"]
-[ext_resource type="PackedScene" uid="uid://cfuoai66ktlsi" path="res://scenes/presetButtons/big_button.tscn" id="6_wg8oe"]
+[ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_uwcyj"]
+[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="2_4iysr"]
+[ext_resource type="PackedScene" uid="uid://dwpvb7swdbvug" path="res://scenes/lever.tscn" id="3_f1eed"]
+[ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="4_k3qoh"]
+[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="5_gmvg6"]
 
-[node name="Game" unique_id=2126916218 instance=ExtResource("1_wg8oe")]
-
-[node name="SmallGuy" parent="." index="1" unique_id=2137464374]
-position = Vector2(-232, 144)
-
-[node name="BigGuy" parent="." index="2" unique_id=1109696247]
-position = Vector2(-168, 144)
+[node name="Game" unique_id=2126916218 instance=ExtResource("1_uwcyj")]
 
 [node name="TileMapLayer" parent="." index="3" unique_id=752737559]
-position = Vector2(1, 0)
-tile_map_data = PackedByteArray("AAACAAcAAAAJAAMAAAABAAcAAAAJAAMAAAAAAAcAAAAJAAMAAAD//wcAAAAJAAMAAAD+/wcAAAAFAAMAAAD9/wcAAAACAAMAAAD8/wcAAAACAAMAAAD7/wcAAAACAAMAAAD6/wcAAAACAAMAAAD5/wcAAAACAAMAAAD4/wcAAAACAAMAAAD3/wcAAAACAAMAAAD2/wcAAAACAAMAAAD1/wcAAAABAAIAAAD1/wYAAAAAAAEAAAD1/wUAAAAAAAEAAAD1/wQAAAAAAAEAAAD1/wMAAAAAAAEAAAD1/wIAAAAAAAEAAAD1/wEAAAAAAAEAAAD1/wAAAAAAAAEAAAD1////AAAAAAEAAAD1//7/AAAAAAEAAAD1//3/AAABAAAAAAD+/wYAAAAIAAAAAAD//wYAAAAKAAAAAAAAAAYAAAAKAAAAAAABAAYAAAAFAAEAAAACAAYAAAAJAAIAAAABAAUAAAAIAAAAAAACAAUAAAAKAAAAAAADAAYAAAAJAAIAAAADAAUAAAAKAAAAAAADAAcAAAAJAAMAAAAEAAcAAAAJAAMAAAAFAAcAAAAJAAMAAAAGAAcAAAAJAAMAAAAHAAcAAAAJAAMAAAAIAAcAAAAJAAMAAAAJAAcAAAAJAAMAAAAKAAcAAAAGAAMAAAAKAAYAAAALAAIAAAAJAAYAAAAJAAIAAAAIAAYAAAAJAAIAAAAHAAYAAAAJAAIAAAAGAAYAAAAJAAIAAAAFAAYAAAAJAAIAAAAEAAYAAAAJAAIAAAAIAAUAAAAKAAAAAAAHAAUAAAAKAAAAAAAFAAUAAAAKAAAAAAAEAAUAAAAKAAAAAAAJAAUAAAAKAAAAAAAKAAUAAAALAAAAAAD2//3/AAACAAMAAAD3//3/AAACAAMAAAD4//3/AAACAAMAAAD5//3/AAACAAMAAAD6//3/AAACAAMAAAD7//3/AAACAAMAAAD8//3/AAADAAIAAAD8//z/AAABAAAAAAD9//z/AAACAAMAAAD+//z/AAACAAMAAAAAAPz/AAACAAMAAAD///z/AAACAAMAAAACAPz/AAACAAMAAAABAPz/AAACAAMAAAAEAPz/AAACAAMAAAADAPz/AAACAAMAAAAGAPz/AAACAAMAAAAFAPz/AAACAAMAAAAHAPz/AAACAAMAAAAIAPz/AAACAAMAAAAJAPz/AAACAAMAAAAKAPz/AAACAAMAAAALAPz/AAACAAMAAAAMAPz/AAACAAMAAAANAPz/AAACAAMAAAAKAAIAAAAIAAAAAAALAAIAAAAKAAAAAAAMAAIAAAAKAAAAAAALAAcAAAACAAMAAAAMAAcAAAACAAMAAAANAAcAAAACAAMAAAAOAAcAAAACAAMAAAAPAAcAAAACAAMAAAAQAAcAAAACAAMAAAARAAcAAAADAAMAAAASAAEAAAABAAMAAAATAAEAAAACAAMAAAAUAAEAAAACAAMAAAAVAAEAAAACAAMAAAAWAAEAAAADAAAAAAANAAIAAAAKAAAAAAAOAAIAAAAKAAAAAAAPAAIAAAALAAAAAAAGAAUAAAAKAAAAAAAKAAMAAAAIAAMAAAALAAMAAAAJAAMAAAAMAAMAAAAJAAMAAAANAAMAAAAJAAMAAAAOAAMAAAAJAAMAAAAPAAMAAAALAAMAAAAXAAIAAAAKAAAAAAAWAAIAAAAEAAEAAAAWAAMAAAAIAAMAAAAXAAMAAAAJAAMAAAAYAAMAAAAJAAMAAAAYAAIAAAAKAAAAAAAZAAIAAAAKAAAAAAAZAAMAAAAJAAMAAAAaAAMAAAAJAAMAAAAaAAIAAAAFAAEAAAAbAAIAAAAJAAIAAAAcAAIAAAALAAIAAAAaAAEAAAAIAAAAAAAbAAEAAAAKAAAAAAAcAAEAAAAGAAAAAAAbAAMAAAAJAAMAAAAcAAMAAAALAAMAAAAfAPz/AAACAAMAAAAgAPz/AAACAAMAAAAhAPz/AAACAAMAAAAiAPz/AAADAAAAAAAeAPz/AAACAAMAAAAdAPz/AAACAAMAAAAbAAcAAAABAAMAAAAcAAcAAAACAAMAAAAdAAcAAAACAAMAAAAeAAcAAAACAAMAAAAfAAcAAAACAAMAAAAgAAcAAAACAAMAAAAhAAcAAAACAAMAAAAdAAAAAAAAAAEAAAAdAAEAAAADAAIAAAAdAP//AAAAAAAAAAASAAgAAAABAAMAAAATAAgAAAACAAMAAAAUAAgAAAACAAMAAAAVAAgAAAACAAMAAAAWAAgAAAACAAMAAAAXAAgAAAACAAMAAAAYAAgAAAACAAMAAAAZAAgAAAACAAMAAAAaAAgAAAADAAMAAAAiAP3/AAAAAAEAAAAiAP7/AAAAAAEAAAAiAP//AAAAAAEAAAAiAAAAAAAAAAEAAAAiAAEAAAAAAAEAAAAiAAIAAAAAAAEAAAAiAAMAAAAAAAEAAAAiAAQAAAAAAAEAAAAiAAUAAAAAAAEAAAAiAAYAAAAAAAEAAAAiAAcAAAADAAIAAAAOAPz/AAACAAMAAAAPAPz/AAACAAMAAAAQAPz/AAACAAMAAAARAPz/AAACAAMAAAASAPz/AAACAAMAAAATAPz/AAACAAMAAAAUAPz/AAACAAMAAAAVAPz/AAACAAMAAAAWAPz/AAACAAMAAAAXAPz/AAACAAMAAAAYAPz/AAACAAMAAAAZAPz/AAACAAMAAAAaAPz/AAACAAMAAAAbAPz/AAACAAMAAAAcAPz/AAACAAMAAAA=")
+tile_map_data = PackedByteArray("AAD8/wkAAAACAAMAAAD9/wkAAAACAAMAAAD+/wkAAAACAAMAAAD//wkAAAACAAMAAAAAAAkAAAACAAMAAAABAAkAAAACAAMAAAACAAkAAAACAAMAAAADAAkAAAACAAMAAAAEAAkAAAACAAMAAAAFAAkAAAACAAMAAAAGAAkAAAACAAMAAAAHAAkAAAACAAMAAAAIAAkAAAACAAMAAAAJAAkAAAACAAMAAAAKAAkAAAACAAMAAAALAAkAAAACAAMAAAAMAAkAAAACAAMAAAANAAkAAAACAAMAAAAOAAkAAAACAAMAAAAPAAkAAAACAAMAAAAQAAkAAAACAAMAAAD7/wkAAAABAAIAAAD7/wgAAAAAAAEAAAD7/wcAAAAAAAEAAAD7/wYAAAAAAAEAAAD7/wUAAAAAAAEAAAD7/wQAAAAAAAEAAAD7/wMAAAAAAAEAAAD7/wIAAAAAAAEAAAD7/wEAAAAAAAEAAAD7/wAAAAAAAAEAAAD7////AAAAAAEAAAD7//7/AAAAAAEAAAD7//3/AAAAAAEAAAD7//z/AAAAAAEAAAD7//v/AAAAAAEAAAD7//r/AAAAAAEAAAD7//n/AAAAAAEAAAD7//j/AAAAAAEAAAD7//f/AAAAAAEAAAD7//b/AAAAAAAAAAARAAkAAAACAAMAAAASAAkAAAACAAMAAAATAAkAAAACAAMAAAAUAAkAAAACAAMAAAAVAAkAAAACAAMAAAAWAAkAAAADAAMAAAAcAAkAAAABAAMAAAAdAAkAAAACAAMAAAAeAAkAAAACAAMAAAAfAAkAAAACAAMAAAAgAAkAAAACAAMAAAAhAAkAAAACAAMAAAAiAAkAAAACAAMAAAAjAAkAAAACAAMAAAAkAAkAAAACAAMAAAAlAAkAAAACAAMAAAAmAAkAAAACAAMAAAAnAAgAAAAAAAEAAAAnAAcAAAAAAAEAAAAnAAYAAAAAAAEAAAAnAAUAAAAAAAEAAAAnAAQAAAAAAAEAAAAnAAMAAAAAAAEAAAAnAAIAAAAAAAEAAAAnAAEAAAAAAAEAAAAnAAAAAAAAAAEAAAAnAP//AAAAAAEAAAAnAP7/AAAAAAEAAAAnAP3/AAAAAAEAAAAnAPz/AAAAAAEAAAAnAPv/AAAAAAEAAAAnAPr/AAAAAAEAAAAnAPn/AAAAAAEAAAAnAPj/AAAAAAEAAAAnAPf/AAAAAAEAAAAnAPb/AAAAAAEAAAAnAAkAAAADAAIAAAAnAPX/AAAAAAAAAAA=")
 
-[node name="Door" parent="." index="5" unique_id=1193654706 instance=ExtResource("2_m05wh")]
-position = Vector2(240, 144)
-color = Color(0.7529412, 0.5882353, 0.17254902, 1)
+[node name="Door" parent="." index="5" unique_id=1193654706 instance=ExtResource("2_4iysr")]
+position = Vector2(560, 272)
+color = Color(0, 1, 0, 1)
+
+[node name="Door2" parent="." index="6" unique_id=878371077 instance=ExtResource("2_4iysr")]
+position = Vector2(560, 240)
+color = Color(0, 1, 0, 1)
+
+[node name="Door3" parent="." index="7" unique_id=591498726 instance=ExtResource("2_4iysr")]
+position = Vector2(560, 208)
+color = Color(0, 1, 0, 1)
+
+[node name="Lever" parent="." index="8" unique_id=56859663 instance=ExtResource("3_f1eed")]
+position = Vector2(431, 273)
+color = Color(0, 1, 0, 1)
+
+[node name="Label" type="Label" parent="." index="9" unique_id=231574685]
+offset_left = 240.0
+offset_top = 208.0
+offset_right = 606.0
+offset_bottom = 245.0
+theme_override_fonts/font = ExtResource("4_k3qoh")
+text = "click \"e\" while standing (either) 
+on a lever to activate!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." index="10" unique_id=415059843]
+offset_left = 631.0
+offset_top = 223.0
+offset_right = 997.0
+offset_bottom = 260.0
+theme_override_fonts/font = ExtResource("4_k3qoh")
+text = "some levers are reversible, others are not...
+flick wisely."
+horizontal_alignment = 1
+
+[node name="Lever2" parent="." index="11" unique_id=1272946127 instance=ExtResource("3_f1eed")]
+position = Vector2(692, 273)
+color = Color(1, 0, 0, 1)
+inverted = true
+undoable = true
+
+[node name="Door4" parent="." index="12" unique_id=1709123916 instance=ExtResource("2_4iysr")]
+position = Vector2(752, 304)
+color = Color(1, 0, 0, 1)
 inverted = true
 
-[node name="Door2" parent="." index="6" unique_id=904994778 instance=ExtResource("2_m05wh")]
-position = Vector2(304, 112)
-color = Color(0.7529412, 0.5882353, 0.17254902, 1)
+[node name="Door5" parent="." index="13" unique_id=1608560106 instance=ExtResource("2_4iysr")]
+position = Vector2(784, 304)
+color = Color(1, 0, 0, 1)
 inverted = true
 
-[node name="Door3" parent="." index="7" unique_id=1324873041 instance=ExtResource("2_m05wh")]
-position = Vector2(592, 176)
-color = Color(0.7529412, 0.5882353, 0.17254902, 1)
+[node name="Door6" parent="." index="14" unique_id=1900259475 instance=ExtResource("2_4iysr")]
+position = Vector2(816, 304)
+color = Color(1, 0, 0, 1)
 inverted = true
 
-[node name="Door4" parent="." index="8" unique_id=657378750 instance=ExtResource("2_m05wh")]
-position = Vector2(560, 112)
-color = Color(0.7529412, 0.5882353, 0.17254902, 1)
+[node name="Door7" parent="." index="15" unique_id=1694412086 instance=ExtResource("2_4iysr")]
+position = Vector2(848, 304)
+color = Color(1, 0, 0, 1)
 inverted = true
 
-[node name="Door5" parent="." index="9" unique_id=469091350 instance=ExtResource("2_m05wh")]
-position = Vector2(592, 240)
-color = Color(0.8352941, 0.3764706, 0.5294118, 1)
+[node name="Door8" parent="." index="16" unique_id=624108924 instance=ExtResource("2_4iysr")]
+position = Vector2(880, 304)
+color = Color(1, 0, 0, 1)
 inverted = true
 
-[node name="Door6" parent="." index="10" unique_id=196381858 instance=ExtResource("2_m05wh")]
-position = Vector2(624, 240)
-color = Color(0.8352941, 0.3764706, 0.5294118, 1)
-inverted = true
-
-[node name="Door7" parent="." index="11" unique_id=2000562336 instance=ExtResource("2_m05wh")]
-position = Vector2(656, 240)
-color = Color(0.8352941, 0.3764706, 0.5294118, 1)
-inverted = true
-
-[node name="Door8" parent="." index="12" unique_id=1139992968 instance=ExtResource("2_m05wh")]
-position = Vector2(688, 240)
-color = Color(0.8352941, 0.3764706, 0.5294118, 1)
-inverted = true
-
-[node name="Door9" parent="." index="13" unique_id=695660282 instance=ExtResource("2_m05wh")]
-position = Vector2(720, 240)
-color = Color(0.8352941, 0.3764706, 0.5294118, 1)
-inverted = true
-
-[node name="Door10" parent="." index="14" unique_id=1617020100 instance=ExtResource("2_m05wh")]
-position = Vector2(752, 240)
-color = Color(0.8352941, 0.3764706, 0.5294118, 1)
-inverted = true
-
-[node name="Door11" parent="." index="15" unique_id=2104858842 instance=ExtResource("2_m05wh")]
-position = Vector2(784, 240)
-color = Color(0.8352941, 0.3764706, 0.5294118, 1)
-inverted = true
-
-[node name="Door12" parent="." index="16" unique_id=705798006 instance=ExtResource("2_m05wh")]
-position = Vector2(816, 240)
-color = Color(0.8352941, 0.3764706, 0.5294118, 1)
-inverted = true
-
-[node name="Door13" parent="." index="17" unique_id=832828761 instance=ExtResource("2_m05wh")]
-position = Vector2(848, 240)
-color = Color(0.8352941, 0.3764706, 0.5294118, 1)
-inverted = true
-
-[node name="Door14" parent="." index="18" unique_id=1474205045 instance=ExtResource("2_m05wh")]
-position = Vector2(944, -48)
-color = Color(0.2784314, 0.58431375, 0.9137255, 1)
-inverted = true
-
-[node name="Door15" parent="." index="19" unique_id=69032890 instance=ExtResource("2_m05wh")]
-position = Vector2(912, 16)
-color = Color(0.2784314, 0.58431375, 0.9137255, 1)
-inverted = true
-
-[node name="Portal" parent="." index="20" unique_id=1527810771 instance=ExtResource("6_737d1")]
-position = Vector2(1032, 208)
-
-[node name="antiButton" parent="." index="21" unique_id=1331368196 instance=ExtResource("2_ycof1")]
-position = Vector2(540, 224)
-color = Color(0.7529412, 0.5882353, 0.17254902, 1)
-
-[node name="small_button" parent="." index="22" unique_id=1147536261 instance=ExtResource("4_avc4n")]
-position = Vector2(368, 224)
-inverted = true
-color = Color(0.2784314, 0.58431375, 0.9137255, 1)
-
-[node name="big_button" parent="." index="23" unique_id=1226405759 instance=ExtResource("6_wg8oe")]
-position = Vector2(752, 64)
-inverted = true
-color = Color(0.8352941, 0.3764706, 0.5294118, 1)
+[node name="Portal" parent="." index="17" unique_id=1527810771 instance=ExtResource("5_gmvg6")]
+position = Vector2(1146, 270)

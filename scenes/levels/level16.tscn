@@ -1,82 +1,36 @@
-[gd_scene format=4 uid="uid://6gyim3jq6fef"]
+[gd_scene format=4 uid="uid://dh7bx3hf4ltwe"]
 
-[ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_uwcyj"]
-[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/door.tscn" id="2_4iysr"]
-[ext_resource type="PackedScene" uid="uid://dwpvb7swdbvug" path="res://scenes/lever.tscn" id="3_f1eed"]
-[ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="4_k3qoh"]
-[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="5_gmvg6"]
+[ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_fm0qh"]
+[ext_resource type="PackedScene" uid="uid://gmykn3i87u1c" path="res://scenes/teleporter.tscn" id="2_4vd6d"]
+[ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="3_67pyw"]
+[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/portal.tscn" id="4_67pyw"]
 
-[node name="Game" unique_id=2126916218 instance=ExtResource("1_uwcyj")]
+[node name="Game" unique_id=2126916218 instance=ExtResource("1_fm0qh")]
+
+[node name="SmallGuy" parent="." index="1" unique_id=2137464374]
+position = Vector2(-184, 0)
+
+[node name="BigGuy" parent="." index="2" unique_id=1109696247]
+position = Vector2(-98, 0)
 
 [node name="TileMapLayer" parent="." index="3" unique_id=752737559]
-tile_map_data = PackedByteArray("AAD8/wkAAAACAAMAAAD9/wkAAAACAAMAAAD+/wkAAAACAAMAAAD//wkAAAACAAMAAAAAAAkAAAACAAMAAAABAAkAAAACAAMAAAACAAkAAAACAAMAAAADAAkAAAACAAMAAAAEAAkAAAACAAMAAAAFAAkAAAACAAMAAAAGAAkAAAACAAMAAAAHAAkAAAACAAMAAAAIAAkAAAACAAMAAAAJAAkAAAACAAMAAAAKAAkAAAACAAMAAAALAAkAAAACAAMAAAAMAAkAAAACAAMAAAANAAkAAAACAAMAAAAOAAkAAAACAAMAAAAPAAkAAAACAAMAAAAQAAkAAAACAAMAAAD7/wkAAAABAAIAAAD7/wgAAAAAAAEAAAD7/wcAAAAAAAEAAAD7/wYAAAAAAAEAAAD7/wUAAAAAAAEAAAD7/wQAAAAAAAEAAAD7/wMAAAAAAAEAAAD7/wIAAAAAAAEAAAD7/wEAAAAAAAEAAAD7/wAAAAAAAAEAAAD7////AAAAAAEAAAD7//7/AAAAAAEAAAD7//3/AAAAAAEAAAD7//z/AAAAAAEAAAD7//v/AAAAAAEAAAD7//r/AAAAAAEAAAD7//n/AAAAAAEAAAD7//j/AAAAAAEAAAD7//f/AAAAAAEAAAD7//b/AAAAAAAAAAARAAkAAAACAAMAAAASAAkAAAACAAMAAAATAAkAAAACAAMAAAAUAAkAAAACAAMAAAAVAAkAAAACAAMAAAAWAAkAAAADAAMAAAAcAAkAAAABAAMAAAAdAAkAAAACAAMAAAAeAAkAAAACAAMAAAAfAAkAAAACAAMAAAAgAAkAAAACAAMAAAAhAAkAAAACAAMAAAAiAAkAAAACAAMAAAAjAAkAAAACAAMAAAAkAAkAAAACAAMAAAAlAAkAAAACAAMAAAAmAAkAAAACAAMAAAAnAAgAAAAAAAEAAAAnAAcAAAAAAAEAAAAnAAYAAAAAAAEAAAAnAAUAAAAAAAEAAAAnAAQAAAAAAAEAAAAnAAMAAAAAAAEAAAAnAAIAAAAAAAEAAAAnAAEAAAAAAAEAAAAnAAAAAAAAAAEAAAAnAP//AAAAAAEAAAAnAP7/AAAAAAEAAAAnAP3/AAAAAAEAAAAnAPz/AAAAAAEAAAAnAPv/AAAAAAEAAAAnAPr/AAAAAAEAAAAnAPn/AAAAAAEAAAAnAPj/AAAAAAEAAAAnAPf/AAAAAAEAAAAnAPb/AAAAAAEAAAAnAAkAAAADAAIAAAAnAPX/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD//wYAAAACAAMAAAAAAAYAAAACAAMAAAABAAYAAAACAAMAAAACAAYAAAACAAMAAAADAAYAAAACAAMAAAAEAAYAAAACAAMAAAAFAAYAAAACAAMAAAAGAAYAAAACAAMAAAAHAAYAAAACAAMAAAAIAAYAAAACAAIAAAAJAAYAAAACAAMAAAAKAAYAAAACAAMAAAALAAYAAAACAAMAAAAMAAYAAAACAAMAAAANAAYAAAACAAMAAAAOAAYAAAACAAMAAAAPAAYAAAACAAMAAAAQAAYAAAACAAMAAAARAAYAAAACAAMAAAASAAYAAAACAAMAAAATAAYAAAACAAMAAAAUAAYAAAACAAMAAAAVAAYAAAACAAMAAAD+/wYAAAACAAMAAAD9/wYAAAACAAMAAAD8/wYAAAACAAMAAAD7/wYAAAACAAMAAAD6/wYAAAACAAMAAAD5/wYAAAACAAMAAAD4/wYAAAACAAMAAAD3/wYAAAACAAMAAAD2/wYAAAACAAMAAAD1/wYAAAABAAIAAAD1/wUAAAAAAAEAAAD1/wQAAAAAAAEAAAD1/wMAAAAAAAEAAAD1/wIAAAAAAAEAAAD1/wEAAAAAAAEAAAD1/wAAAAAAAAEAAAD1////AAAAAAEAAAD1//7/AAAAAAEAAAD1//3/AAAAAAEAAAD1//z/AAAAAAEAAAD1//v/AAAAAAEAAAD1//r/AAAAAAEAAAD1//n/AAAAAAEAAAD1//j/AAAAAAEAAAD1//b/AAABAAAAAAD1//f/AAAAAAEAAAAIAAUAAAAAAAEAAAAIAAQAAAAAAAEAAAAIAAMAAAAAAAEAAAAIAAIAAAAAAAEAAAAIAAEAAAAAAAEAAAAIAAAAAAAAAAEAAAAIAP//AAAAAAEAAAAIAP7/AAAAAAEAAAAIAP3/AAAAAAEAAAAIAPz/AAAAAAEAAAAIAPv/AAAAAAEAAAAIAPr/AAAAAAEAAAAIAPn/AAAAAAEAAAAIAPj/AAAAAAEAAAAIAPf/AAAAAAEAAAAIAPb/AAACAAAAAAD2//b/AAACAAMAAAD3//b/AAACAAMAAAD4//b/AAACAAMAAAD5//b/AAACAAMAAAD6//b/AAACAAMAAAD7//b/AAACAAMAAAD8//b/AAACAAMAAAD9//b/AAACAAMAAAD+//b/AAACAAMAAAD///b/AAACAAMAAAAAAPb/AAACAAMAAAABAPb/AAACAAMAAAACAPb/AAACAAMAAAADAPb/AAACAAMAAAAEAPb/AAACAAMAAAAFAPb/AAACAAMAAAAGAPb/AAACAAMAAAAHAPb/AAACAAMAAAAWAAYAAAADAAIAAAAWAAUAAAAAAAEAAAAWAAQAAAAAAAEAAAAWAAMAAAAAAAEAAAAWAAIAAAAAAAEAAAAWAAEAAAAAAAEAAAAWAAAAAAAAAAEAAAAWAP//AAAAAAEAAAAWAP7/AAAAAAEAAAAWAP3/AAAAAAEAAAAWAPz/AAAAAAEAAAAWAPv/AAAAAAEAAAAWAPr/AAAAAAEAAAAWAPn/AAAAAAEAAAAWAPj/AAAAAAEAAAAWAPf/AAAAAAEAAAAWAPb/AAADAAAAAAAJAPb/AAACAAMAAAAKAPb/AAACAAMAAAALAPb/AAACAAMAAAAMAPb/AAACAAMAAAANAPb/AAACAAMAAAAOAPb/AAACAAMAAAAPAPb/AAACAAMAAAAQAPb/AAACAAMAAAARAPb/AAACAAMAAAASAPb/AAACAAMAAAATAPb/AAACAAMAAAAUAPb/AAACAAMAAAAVAPb/AAACAAMAAAA=")
 
-[node name="Door" parent="." index="5" unique_id=1193654706 instance=ExtResource("2_4iysr")]
-position = Vector2(560, 272)
-color = Color(0, 1, 0, 1)
+[node name="Teleporter" parent="." index="5" unique_id=1418464480 instance=ExtResource("2_4vd6d")]
+position = Vector2(225, 174)
 
-[node name="Door2" parent="." index="6" unique_id=878371077 instance=ExtResource("2_4iysr")]
-position = Vector2(560, 240)
-color = Color(0, 1, 0, 1)
+[node name="Teleporter2" parent="." index="6" unique_id=1513624502 instance=ExtResource("2_4vd6d")]
+position = Vector2(353, 174)
 
-[node name="Door3" parent="." index="7" unique_id=591498726 instance=ExtResource("2_4iysr")]
-position = Vector2(560, 208)
-color = Color(0, 1, 0, 1)
-
-[node name="Lever" parent="." index="8" unique_id=56859663 instance=ExtResource("3_f1eed")]
-position = Vector2(431, 273)
-color = Color(0, 1, 0, 1)
-
-[node name="Label" type="Label" parent="." index="9" unique_id=231574685]
-offset_left = 240.0
-offset_top = 208.0
-offset_right = 606.0
-offset_bottom = 245.0
-theme_override_fonts/font = ExtResource("4_k3qoh")
-text = "click \"e\" while standing (either) 
-on a lever to activate!"
+[node name="Label" type="Label" parent="." index="7" unique_id=1568449310]
+offset_left = 111.0
+offset_top = 108.0
+offset_right = 252.0
+offset_bottom = 145.0
+theme_override_fonts/font = ExtResource("3_67pyw")
+text = "teleporters teleport! 
+:O"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="." index="10" unique_id=415059843]
-offset_left = 631.0
-offset_top = 223.0
-offset_right = 997.0
-offset_bottom = 260.0
-theme_override_fonts/font = ExtResource("4_k3qoh")
-text = "some levers are reversible, others are not...
-flick wisely."
-horizontal_alignment = 1
-
-[node name="Lever2" parent="." index="11" unique_id=1272946127 instance=ExtResource("3_f1eed")]
-position = Vector2(692, 273)
-color = Color(1, 0, 0, 1)
-inverted = true
-undoable = true
-
-[node name="Door4" parent="." index="12" unique_id=1709123916 instance=ExtResource("2_4iysr")]
-position = Vector2(752, 304)
-color = Color(1, 0, 0, 1)
-inverted = true
-
-[node name="Door5" parent="." index="13" unique_id=1608560106 instance=ExtResource("2_4iysr")]
-position = Vector2(784, 304)
-color = Color(1, 0, 0, 1)
-inverted = true
-
-[node name="Door6" parent="." index="14" unique_id=1900259475 instance=ExtResource("2_4iysr")]
-position = Vector2(816, 304)
-color = Color(1, 0, 0, 1)
-inverted = true
-
-[node name="Door7" parent="." index="15" unique_id=1694412086 instance=ExtResource("2_4iysr")]
-position = Vector2(848, 304)
-color = Color(1, 0, 0, 1)
-inverted = true
-
-[node name="Door8" parent="." index="16" unique_id=624108924 instance=ExtResource("2_4iysr")]
-position = Vector2(880, 304)
-color = Color(1, 0, 0, 1)
-inverted = true
-
-[node name="Portal" parent="." index="17" unique_id=1527810771 instance=ExtResource("5_gmvg6")]
-position = Vector2(1146, 270)
+[node name="Portal" parent="." index="8" unique_id=1527810771 instance=ExtResource("4_67pyw")]
+position = Vector2(652, 171)
