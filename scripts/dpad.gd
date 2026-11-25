@@ -14,4 +14,5 @@ func check_input(node: Node, suffix: String):
 				return
 			Input.action_press(prefix + suffix)
 			return
-	Input.action_release(prefix + suffix)
+	if Input.is_action_pressed(prefix + suffix):
+		Input.action_release(prefix + suffix)
