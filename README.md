@@ -1,10 +1,10 @@
 # small guy BIG GUY
 small guy BIG GUY is a platformer made in Godot Engine. In this (local) multiplayer game, you and your friend try to solve levels together by reaching the portal. However, one of you is the small guy, who can walk faster and jump higher, while the other is the big guy, who can trigger heavier buttons and boost you up.
 
-# How to Play
+## How to Play
 Small Guy uses WASD to move around (A D for movement, W to jump). Big Guy arrow keys to move around (← → for movement, ↑ to jump). To use a button, you must jump on top of it. You can coordinate movements (constructive interference!) to boost each other up.
 
-# Features
+## Features
 This game features:
 - game, level, and config autosaving. to see this in action, go to options > debug options > save indicator
 - player weight that allows small guy to jump higher and big guy to press more buttons
@@ -17,11 +17,11 @@ This game features:
 - built in FPS and TPS counter in options > debug options
 - a nice smooth camera with auto-zoom
 
-# Development
+## Development
 To develop, `git clone` this repo and use the Godot 4 editor. To export the MacOS liquid glass icon properly and to export for iOS, you need to be on MacOS with Xcode 26+.
 
 ## Installation
-You can easily play this online at the [itch page](https://itstntcraft.itch.io/small-guy-big-guy). Or, you can grab a copy for your OS and architecture from [releases](releases) (or itch downloads) and follow the instructions below.
+You can easily play this online at the [itch page](https://itstntcraft.itch.io/small-guy-big-guy). Or, you can grab a copy for your OS and architecture from [releases](../../releases) (or itch downloads) and follow the instructions below.
 
 ### MacOS
 Unarchive the zip file by double-clicking it. The .app is ad-hoc signed (default Godot behavoir). This means that Apple Gatekeeper will block the app. To open it, you can right click it and click Open. (Also see the [Godot docs](https://docs.godotengine.org/en/stable/tutorials/export/running_on_macos.html#app-is-signed-including-ad-hoc-signatures-but-not-notarized).)
