@@ -15,5 +15,7 @@ func check_input(node: Node, suffix: String):
 			if Input.is_action_pressed(prefix + suffix):
 				return
 			Input.action_press(prefix + suffix)
-			Input.action_release.call_deferred(prefix + suffix)
+			node.set_meta("just_pressed", true)
 			return
+	if node.get_meta("just_pressed", false):
+		Input.action_release(prefix + suffix)
