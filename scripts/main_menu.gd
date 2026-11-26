@@ -7,6 +7,8 @@ extends Control
 @export var button_delay := 0.1
 
 func _ready() -> void:
+	$Version.text = "v" + ProjectSettings.get_setting("application/config/version", "1.0.1")
+	
 	await get_tree().process_frame
 	_play_intro()
 
