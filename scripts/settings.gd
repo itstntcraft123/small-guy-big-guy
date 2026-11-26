@@ -9,6 +9,7 @@ var prev_vsync := DisplayServer.window_get_vsync_mode()
 var prev_fullscreen := DisplayServer.window_get_mode()
 var autosave_speed := 5
 var show_all := false
+var save_in_level := true
 
 func _ready() -> void:
 	Save.load_cfg()
@@ -31,12 +32,13 @@ func save_dict() -> Dictionary:
 		"autosave_speed": autosave_speed,
 		"vsync": DisplayServer.window_get_vsync_mode(),
 		"fullscreen": DisplayServer.window_get_mode(),
-		"show_all": show_all
+		"show_all": show_all,
+		"save_in_level": save_in_level
 	}
 
 func load_dict(save_data: Dictionary) -> void:
 	Utils.update_multiple_from_save(self, save_data,
-		[&"save_indicator_on", &"autosave_speed", &"touch_controls", &"r_to_restart", &"fps_on", &"tps_on", &"show_all"]
+		[&"save_indicator_on", &"autosave_speed", &"touch_controls", &"r_to_restart", &"fps_on", &"tps_on", &"show_all", &"save_in_level"]
 	)
 	DisplayServer.window_set_vsync_mode(save_data.get("vsync", DisplayServer.window_get_vsync_mode()))
 	DisplayServer.window_set_mode(save_data.get("fullscreen", DisplayServer.window_get_mode()))

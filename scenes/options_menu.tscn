@@ -92,6 +92,14 @@ toggle_mode = true
 text = "r to restart: off"
 alignment = 0
 
+[node name="SaveInLevel" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu" unique_id=472504436]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ToggleButton"
+toggle_mode = true
+text = "save inside level: off"
+alignment = 0
+
 [node name="SaveSpeed" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu" unique_id=483443534]
 layout_mode = 2
 focus_mode = 2

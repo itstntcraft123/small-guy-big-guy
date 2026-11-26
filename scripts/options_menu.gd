@@ -16,6 +16,13 @@ func _input(event: InputEvent) -> void:
 func _ready() -> void:
 	Save.load_cfg()
 	refresh_visible()
+	_refresh_settings()
+
+func _refresh_settings() -> void:
+	Utils.set_settings_state(%RestartKey, "r to restart", Settings.r_to_restart)
+	Utils.set_settings_state(%Touch, "touch controls", Settings.touch_controls)
+	Utils.set_settings_state(%SaveInLevel, "save in level", Settings.save_in_level)
+	%SaveSpeedSpinBox.value = Settings.autosave_speed
 
 func refresh_visible() -> void:
 	if Settings.show_all:
@@ -30,9 +37,6 @@ func refresh_visible() -> void:
 func _process(_delta: float) -> void:
 	Utils.set_settings_state(%Fullscreen, "fullscreen", _is_fullscreen())
 	Utils.set_settings_state(%Vsync, "vsync", DisplayServer.window_get_vsync_mode())
-	Utils.set_settings_state(%RestartKey, "r to restart", Settings.r_to_restart)
-	Utils.set_settings_state(%Touch, "touch controls", Settings.touch_controls)
-	%SaveSpeedSpinBox.value = Settings.autosave_speed
 
 func _on_select_menu_button_selected(item: Control) -> void:
 	match item.name:
@@ -50,6 +54,8 @@ func _on_select_menu_button_selected(item: Control) -> void:
 			Settings.touch_controls = item.button_pressed
 		"RestartKey":
 			Settings.r_to_restart = item.button_pressed
+		"SaveInLevel":
+			Settings.save_in_level = item.button_pressed
 		"SaveSpeed":
 			Settings.autosave_speed = int(item.get_child(0).value)
 		"Debug":
@@ -59,6 +65,7 @@ func _on_select_menu_button_selected(item: Control) -> void:
 			get_parent().unhide()
 			Save.save_cfg()
 			queue_free()
+	_refresh_settings()
 
 func _is_fullscreen() -> bool:
 	var mode = DisplayServer.window_get_mode()

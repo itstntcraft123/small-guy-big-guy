@@ -5,6 +5,9 @@ const SAVE_PATH := "user://save.bin" # stores level number
 const CONFIG_PATH := "user://config.cfg" # stores user config like fullscreen
 
 func save_game() -> void:
+	if !Settings.save_in_level:
+		return
+	
 	var data := get_game_save()
 	for node in get_tree().get_nodes_in_group("players") + get_tree().get_nodes_in_group("save"):
 		data[node.get_path()] = node.save_dict()
@@ -27,8 +30,7 @@ func load_game() -> void:
 			node.load_dict(data[key])
 
 func get_game_save() -> Dictionary:
-	if !FileAccess.file_exists(LEVEL_PATH):
-		#print("file doesn't exist: ", LEVEL_PATH)
+	if !FileAccess.file_exists(LEVEL_PATH) or !Settings.save_in_level:
 		return {}
 	
 	var file = FileAccess.open(LEVEL_PATH, FileAccess.READ)
@@ -56,7 +58,6 @@ func save_cfg() -> void:
 
 func load_cfg() -> void:
 	if !FileAccess.file_exists(CONFIG_PATH):
-		#print("file doesn't exist: ", CONFIG_PATH)
 		return
 	
 	var config = ConfigFile.new()
@@ -86,7 +87,6 @@ func save_progress() -> void:
 
 func load_progress() -> void:
 	if !FileAccess.file_exists(SAVE_PATH):
-		#print("file doesn't exist: ", SAVE_PATH)
 		return
 	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
@@ -98,7 +98,6 @@ func load_progress() -> void:
 
 func delete_progress() -> void:
 	if !FileAccess.file_exists(SAVE_PATH):
-		#print("file doesn't exist: ", SAVE_PATH)
 		return
 	
 	var result = DirAccess.remove_absolute(SAVE_PATH)
