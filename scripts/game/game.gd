@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var void_y := 640
 @export var game_menu: PackedScene
 
 func _input(event: InputEvent) -> void:

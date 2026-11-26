@@ -129,8 +129,15 @@ func _physics_process(delta: float) -> void:
 	if rider:
 		remove_collision_exception_with(rider)
 	
-	if global_position.y > 1000:
+	if global_position.y > _get_void_y():
+		# print("death at y = " + str(_get_void_y()))
 		die()
+
+func _get_void_y() -> float:
+	var level := get_tree().current_scene
+	if level != null and "void_y" in level:
+		return level.void_y
+	return 1000.0
 
 func find_player_spawn() -> Vector2:
 	var space := get_world_2d().direct_space_state
