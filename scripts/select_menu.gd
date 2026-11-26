@@ -17,6 +17,9 @@ func _input(event: InputEvent) -> void:
 					return
 				child.grab_focus()
 				return
+	if event.is_action_pressed("ui_cancel") and owner.has_method(&"exit"):
+		get_viewport().set_input_as_handled()
+		owner.exit()
 	
 	if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
 		var focused := get_viewport().gui_get_focus_owner()

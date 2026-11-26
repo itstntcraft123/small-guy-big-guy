@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bia54xe3r51ev"]
+
+[ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_f6ggr"]
+[ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="2_cddtr"]
+[ext_resource type="Script" uid="uid://c6mjy8jrp3dm7" path="res://scripts/backups.gd" id="2_giwxd"]
+
+[node name="Backups" type="MarginContainer" unique_id=2043531575]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_f6ggr")
+script = ExtResource("2_giwxd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1450880685]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=1995427468]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Backups"
+
+[node name="BackupsList" parent="VBoxContainer" unique_id=1078719937 instance=ExtResource("2_cddtr")]
+layout_mode = 2
+
+[node name="Space" type="Control" parent="VBoxContainer" unique_id=1002165767]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OptionsList" parent="VBoxContainer" unique_id=543663428 instance=ExtResource("2_cddtr")]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+vertical = false
+
+[node name="Back" type="Button" parent="VBoxContainer/OptionsList" unique_id=1621420845]
+layout_mode = 2
+text = "back"
+
+[node name="Load" type="Button" parent="VBoxContainer/OptionsList" unique_id=30693896]
+layout_mode = 2
+text = "load"
+
+[node name="Create" type="Button" parent="VBoxContainer/OptionsList" unique_id=1005470468]
+layout_mode = 2
+text = "new..."
+
+[connection signal="button_selected" from="VBoxContainer/OptionsList" to="." method="_on_options_list_button_selected"]

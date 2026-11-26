@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://pr0fw5qrmx6q" path="res://scripts/select_menu.gd" id="1_jsvjb"]
 
-[node name="SelectMenu" type="VBoxContainer" unique_id=543663428]
+[node name="SelectMenu" type="BoxContainer" unique_id=1078719937]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
+vertical = true
 script = ExtResource("1_jsvjb")

@@ -1,17 +1,17 @@
 extends Control
 
 @export var debug_options: PackedScene
+@export var backups: PackedScene
 
 func _input(event: InputEvent) -> void:
 	%ScrollContainer.follow_focus = true
 	if event is InputEventMouseMotion:
 		%ScrollContainer.follow_focus = false
-	
-	if event.is_action_pressed("ui_cancel"):
-		get_viewport().set_input_as_handled()
-		get_parent().unhide()
-		Save.save_cfg()
-		queue_free()
+
+func exit() -> void:
+	Save.save_cfg()
+	get_parent().unhide()
+	queue_free()
 
 func _ready() -> void:
 	Save.load_cfg()
@@ -61,16 +61,13 @@ func _on_select_menu_button_selected(item: Control) -> void:
 		"Debug":
 			add_child(debug_options.instantiate())
 			$MarginContainer.hide()
+		"Backups":
+			add_child(backups.instantiate())
+			$MarginContainer.hide()
 		"Back":
-			get_parent().unhide()
-			Save.save_cfg()
-			queue_free()
+			exit()
 	_refresh_settings()
 
 func _is_fullscreen() -> bool:
 	var mode = DisplayServer.window_get_mode()
 	return mode == DisplayServer.WINDOW_MODE_FULLSCREEN or mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
-
-func unhide() -> void:
-	$MarginContainer.show()
-	%Debug.grab_focus()

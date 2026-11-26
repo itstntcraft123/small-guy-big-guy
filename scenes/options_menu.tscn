@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_ijpji"]
 [ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="1_liyum"]
 [ext_resource type="Script" uid="uid://doykif72smtup" path="res://scripts/options_menu.gd" id="2_hm4m4"]
+[ext_resource type="PackedScene" uid="uid://bia54xe3r51ev" path="res://scenes/backups.tscn" id="3_k61yy"]
 [ext_resource type="PackedScene" uid="uid://io2cdsjc7ao6" path="res://scenes/debug_menu.tscn" id="3_lfjc7"]
 [ext_resource type="PackedScene" uid="uid://c358ma2blmwr7" path="res://scenes/arrow.tscn" id="5_3xsyx"]
 [ext_resource type="Texture2D" uid="uid://crsdifxp57evn" path="res://sprites/arrow.png" id="5_dhn0l"]
@@ -16,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_hm4m4")
 debug_options = ExtResource("3_lfjc7")
+backups = ExtResource("3_k61yy")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1044473709]
 layout_mode = 1
@@ -155,6 +157,17 @@ text = "debug options"
 alignment = 0
 
 [node name="Arrow" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu/Debug" unique_id=100825024 instance=ExtResource("5_3xsyx")]
+layout_mode = 0
+offset_left = 900.0
+offset_right = 943.0
+
+[node name="Backups" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu" unique_id=450569297]
+unique_name_in_owner = true
+layout_mode = 2
+text = "backups"
+alignment = 0
+
+[node name="Arrow" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu/Backups" unique_id=1582219137 instance=ExtResource("5_3xsyx")]
 layout_mode = 0
 offset_left = 900.0
 offset_right = 943.0

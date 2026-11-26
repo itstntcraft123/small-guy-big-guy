@@ -1,11 +1,10 @@
 extends MarginContainer
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		get_viewport().set_input_as_handled()
-		get_parent().unhide()
-		get_parent().refresh_visible()
-		queue_free()
+func exit() -> void:
+	$"../MarginContainer".show()
+	$"../%Debug".grab_focus()
+	get_parent().refresh_visible()
+	queue_free()
 
 func _ready() -> void:
 	_refresh_settings()
@@ -27,7 +26,5 @@ func _on_select_menu_button_selected(item: Object) -> void:
 		"ShowAll":
 			Settings.show_all = item.button_pressed
 		"Back":
-			get_parent().unhide()
-			get_parent().refresh_visible()
-			queue_free()
+			exit()
 	_refresh_settings()

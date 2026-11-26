@@ -2,19 +2,15 @@ extends Control
 
 @export var options_menu: PackedScene 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		get_viewport().set_input_as_handled()
-		get_tree().paused = false
-		$"../..".reset_timer()
-		queue_free()
+func exit() -> void:
+	get_tree().paused = false
+	$"../..".reset_timer()
+	queue_free()
 
 func _on_select_menu_button_selected(item: Control) -> void:
 	match item.name:
 		"BackToGame":
-			get_tree().paused = false
-			$"../..".reset_timer()
-			queue_free()
+			exit()
 		"Restart":
 			Save.delete_game_save()
 			get_tree().paused = false
