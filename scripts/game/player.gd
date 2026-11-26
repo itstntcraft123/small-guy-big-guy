@@ -10,6 +10,15 @@ class_name Player
 @export var size_scale: float = 1.0
 @export var weight: float = 1.0 # small guy 1, big guy 2
 
+@export_group("Death")
+@export var freeze_time := 0.0
+@export var respawn_delay := 1.0
+@export var debris_count := 24
+@export var debris_colors: Array[Color] = [Color("172038"), Color("253a5e"), Color("3c5e8b"), Color("4f8fba")]
+@export var debris_speed := Vector2(150, 400)
+
+var dying := false
+
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var input_dir: float = 0.0
 var pressed_frame: int = -100
@@ -161,9 +170,47 @@ func load_dict(save_data: Dictionary) -> void:
 	small_sprite.flip_h = save_data.get("facing", small_sprite.flip_h)
 
 func die() -> void:
-	hide()
+	if dying:
+		return
+	dying = true
+	
+	set_physics_process(false)
 	velocity = Vector2.ZERO
+	standing_on = null
+	_clear_exceptions()
+	shape.set_deferred("disabled", true)
+	await get_tree().create_timer(freeze_time).timeout
+	
+	small_sprite.hide()
+	_explode()
+	await get_tree().create_timer(respawn_delay).timeout
+	
+	_clear_exceptions()
 	global_position = original_pos
+	velocity = Vector2.ZERO
+	small_sprite.show()
+	shape.set_deferred("disabled", false)
+	set_physics_process(true)
 	Save.save_game()
+	
 	await get_tree().create_timer(0.3).timeout
-	show()
+	dying = false
+
+func _explode() -> void:
+	var parent := get_parent()
+	for i in debris_count:
+		var d := Debris.new()
+		parent.add_child(d)
+		d.global_position = global_position + Vector2(randf_range(-6, 6), randf_range(-6, 6)) * size_scale
+		d.setup(debris_colors.pick_random(), randf_range(3.0, 6.0) * size_scale, 2.5)
+		d.linear_velocity = Vector2.from_angle(randf() * TAU) * randf_range(debris_speed.x, debris_speed.y)
+		d.angular_velocity - randf_range(-10.0, 10.0)
+
+func _clear_exceptions() -> void:
+	for body in get_collision_exceptions():
+		remove_collision_exception_with(body)
+	for other in get_tree().get_nodes_in_group("players"):
+		if other != self:
+			other.remove_collision_exception_with(self)
+	top_rider = null
+	pushed = null
