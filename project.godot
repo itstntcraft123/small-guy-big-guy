@@ -13,7 +13,7 @@ config_version=5
 config/name="Small Guy Big Guy"
 run/main_scene="uid://c7v87tv1yon3k"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://bhiai78nn4b2d"
 
 [autoload]
 
