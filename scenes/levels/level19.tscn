@@ -41,7 +41,7 @@ travel = Vector2(99999, 0)
 duration = 120.0
 
 [node name="MovingPlatform5" parent="." index="9" unique_id=779989694 instance=ExtResource("2_uwxly")]
-position = Vector2(-656, 240)
+position = Vector2(-656, 344)
 travel = Vector2(99999, 0)
 duration = 120.0
 
