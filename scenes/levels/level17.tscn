@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cfuoai66ktlsi" path="res://scenes/objects/presetButtons/big_button.tscn" id="6_blmkr"]
 [ext_resource type="PackedScene" uid="uid://gmykn3i87u1c" path="res://scenes/objects/teleporter.tscn" id="6_fxbhd"]
 
-[node name="Game" unique_id=2126916218 instance=ExtResource("1_ipv6b")]
+[node name="Game2" unique_id=2126916218 instance=ExtResource("1_ipv6b")]
 
 [node name="SmallGuy" parent="." index="1" unique_id=2137464374]
 position = Vector2(-192, 160)
@@ -309,24 +309,20 @@ position = Vector2(496, -1136)
 color = Color(0.0627451, 0.627451, 0.81960785, 1)
 inverted = true
 
-[node name="Teleporter6" parent="." index="66" unique_id=998574742 instance=ExtResource("6_fxbhd")]
-position = Vector2(688, 224)
-teleporter_color = 2
-
-[node name="Door4" parent="." index="67" unique_id=1690481162 instance=ExtResource("3_es4ea")]
+[node name="Door4" parent="." index="66" unique_id=1690481162 instance=ExtResource("3_es4ea")]
 position = Vector2(528, -1168)
 color = Color(0.09803922, 0.73333335, 0.7294118, 1)
 inverted = true
 
-[node name="Door44" parent="." index="68" unique_id=332796786 instance=ExtResource("3_es4ea")]
+[node name="Door44" parent="." index="67" unique_id=332796786 instance=ExtResource("3_es4ea")]
 position = Vector2(552, -1200)
 color = Color(0.0627451, 0.627451, 0.81960785, 1)
 inverted = true
 
-[node name="Door46" parent="." index="69" unique_id=1817267095 instance=ExtResource("3_es4ea")]
+[node name="Door46" parent="." index="68" unique_id=1817267095 instance=ExtResource("3_es4ea")]
 position = Vector2(144, -1264)
 color = Color(0, 0.74509805, 0.1764706, 1)
 
-[node name="Door47" parent="." index="70" unique_id=406775999 instance=ExtResource("3_es4ea")]
+[node name="Door47" parent="." index="69" unique_id=406775999 instance=ExtResource("3_es4ea")]
 position = Vector2(272, -1264)
 color = Color(0, 0.74509805, 0.1764706, 1)
