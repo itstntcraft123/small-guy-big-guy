@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_5px8r"]
 [ext_resource type="PackedScene" uid="uid://c7we4uuf3g5jb" path="res://scenes/objects/moving_platform.tscn" id="2_uwxly"]
 [ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/objects/portal.tscn" id="3_6wnbf"]
+[ext_resource type="Texture2D" uid="uid://rxdgjqa0rj0x" path="res://sprites/autotile/tileplaceholder13tile-autotile.png" id="4_6wnbf"]
 [ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="4_hdnc8"]
 
 [node name="Game" unique_id=2126916218 instance=ExtResource("1_5px8r")]
@@ -20,31 +21,13 @@ tile_map_data = PackedByteArray("AAD8/wcAAAADAAMAAAD7/wcAAAACAAMAAAD6/wcAAAACAAM
 position = Vector2(1231, 207)
 
 [node name="MovingPlatform" parent="." index="6" unique_id=480596936 instance=ExtResource("2_uwxly")]
-position = Vector2(-80, 240)
+position = Vector2(-16, 240)
+texture = ExtResource("4_6wnbf")
+length = 5
 travel = Vector2(928, 0)
 duration = 10.0
 
-[node name="MovingPlatform2" parent="." index="7" unique_id=417395738 instance=ExtResource("2_uwxly")]
-position = Vector2(-49, 240)
-travel = Vector2(928, 0)
-duration = 10.0
-
-[node name="MovingPlatform3" parent="." index="8" unique_id=1717888158 instance=ExtResource("2_uwxly")]
-position = Vector2(-17, 240)
-travel = Vector2(928, 0)
-duration = 10.0
-
-[node name="MovingPlatform4" parent="." index="9" unique_id=43945833 instance=ExtResource("2_uwxly")]
-position = Vector2(15, 240)
-travel = Vector2(928, 0)
-duration = 10.0
-
-[node name="MovingPlatform5" parent="." index="10" unique_id=1778844565 instance=ExtResource("2_uwxly")]
-position = Vector2(47, 240)
-travel = Vector2(928, 0)
-duration = 10.0
-
-[node name="Label" type="Label" parent="." index="11" unique_id=2025715443]
+[node name="Label" type="Label" parent="." index="7" unique_id=2025715443]
 offset_left = -73.0
 offset_top = 153.0
 offset_right = 100.0
@@ -53,7 +36,7 @@ theme_override_fonts/font = ExtResource("4_hdnc8")
 text = "moving platforms!
 beter not miss the train..."
 
-[node name="Label2" type="Label" parent="." index="12" unique_id=429563279]
+[node name="Label2" type="Label" parent="." index="8" unique_id=429563279]
 offset_left = 543.0
 offset_top = 153.0
 offset_right = 716.0
