@@ -18,10 +18,36 @@ This game features:
 - a nice smooth camera with auto-zoom
 
 # Development
-To develop, `git clone` this repo and use the Godot 4 editor.
+To develop, `git clone` this repo and use the Godot 4 editor. To export the MacOS liquid glass icon properly and to export for iOS, you need to be on MacOS with Xcode 26+.
 
 ## Installation
-Grab a copy for your OS and architecture from releases and run it. To run the web build, unzip the file and host it using a web server. Or, you can try this out at the [itch page](https://itstntcraft.itch.io/small-guy-big-guy).
+You can easily play this online at the [itch page](https://itstntcraft.itch.io/small-guy-big-guy). Or, you can grab a copy for your OS and architecture from [releases](releases) (or itch downloads) and follow the instructions below.
+
+### MacOS
+Unarchive the zip file by double-clicking it. The .app is ad-hoc signed (default Godot behavoir). This means that Apple Gatekeeper will block the app. To open it, you can right click it and click Open. (Also see the [Godot docs](https://docs.godotengine.org/en/stable/tutorials/export/running_on_macos.html#app-is-signed-including-ad-hoc-signatures-but-not-notarized).)
+
+### Windows
+Make sure you download the correct .exe file for your architecture. If you see a Windows Defender Smartscreen prompt, click More Info and Run Anyway (this happens because Defender doesn't have reputation history for this game).
+
+### Linux
+You have to make the file executable:
+
+x86-64  
+```chmod +x ~/small-guy-big-guy_linux.x86_64```
+
+arm64  
+```chmod +x ~/small-guy-big-guy_linux.arm64```
+
+If this outputs a file not found error, try looking for the file in your Downloads folder:
+
+x86-64  
+```chmod +x ~/Downloads/small-guy-big-guy_linux.x86_64```
+
+arm64  
+```chmod +x ~/Downloads/small-guy-big-guy_linux.arm64```
+
+### Web
+If you want to self-host the web version, unarchive the web .zip file and use a web server to host it. Note that it will not open by opening it in your browser because of CORS policy. You can open it without a web server using Firefox Local Mode by opening DevTools and following the prompt.
 
 ## Tech Stack
 This game was made in Godot 4. To avoid spending time manually tiling the floor sprite, this awesome [autotiler](https://route1rodent.itch.io/autotiler) was used.
