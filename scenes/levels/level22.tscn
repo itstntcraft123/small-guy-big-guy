@@ -1,0 +1,27 @@
+[gd_scene format=4 uid="uid://mcy1ufnx3rue"]
+
+[ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_qd6tq"]
+[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/objects/portal.tscn" id="3_rml6w"]
+[ext_resource type="PackedScene" uid="uid://c7we4uuf3g5jb" path="res://scenes/objects/moving_platform.tscn" id="5_7acvb"]
+[ext_resource type="Texture2D" uid="uid://by1lmpl82syon" path="res://sprites/tileplaceholder13tile.png" id="6_i03j3"]
+
+[node name="Game" unique_id=2126916218 instance=ExtResource("1_qd6tq")]
+
+[node name="SmallGuy" parent="." index="1" unique_id=2137464374]
+position = Vector2(-232, 144)
+
+[node name="BigGuy" parent="." index="2" unique_id=1109696247]
+position = Vector2(-168, 144)
+
+[node name="TileMapLayer" parent="." index="3" unique_id=752737559]
+tile_map_data = PackedByteArray("AAD8/wcAAAADAAIAAAD7/wcAAAACAAMAAAD6/wcAAAACAAMAAAD5/wcAAAACAAMAAAD4/wcAAAACAAMAAAD3/wcAAAACAAMAAAD2/wcAAAABAAIAAAD2/wYAAAAAAAEAAAD2/wUAAAAAAAEAAAD2/wQAAAAAAAEAAAD2/wMAAAAAAAEAAAD2/wIAAAABAAEAAAD2/wEAAAAAAAEAAAD2/wAAAAAAAAEAAAD2////AAAAAAEAAAD2//7/AAABAAAAAAD3/wIAAAACAAMAAAD4/wIAAAACAAMAAAD5/wIAAAACAAMAAAD6/wIAAAACAAMAAAD7/wIAAAACAAMAAAD8/wIAAAADAAEAAAD8/wEAAAAAAAEAAAD8/wAAAAAAAAEAAAD8////AAAAAAEAAAD8//7/AAADAAAAAAD7//7/AAACAAMAAAD6//7/AAACAAMAAAD5//7/AAACAAMAAAD4//7/AAACAAMAAAD3//7/AAACAAMAAAD8/wMAAAAAAAEAAAD8/wQAAAAAAAEAAAD8/wUAAAAAAAEAAAD8/wYAAAAAAAEAAAA=")
+
+[node name="Portal" parent="." index="5" unique_id=1527810771 instance=ExtResource("3_rml6w")]
+position = Vector2(-272, 48)
+
+[node name="MovingPlatform" parent="." index="6" unique_id=480596936 instance=ExtResource("5_7acvb")]
+position = Vector2(-216, 400)
+texture = ExtResource("6_i03j3")
+length = 1
+travel = Vector2(0, -999)
+duration = 59.0
