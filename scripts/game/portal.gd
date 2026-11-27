@@ -22,7 +22,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if entered.size() >= get_tree().get_nodes_in_group("players").size():
 		await tween.finished
 		var screen_pos: Vector2 = get_viewport().get_canvas_transform() * $CollisionShape2D.global_position
-		IrisTransition.play(screen_pos, Gamemgr.next_level, get_tree())
+		IrisTransition.play(screen_pos, Gamemgr.next_level, get_tree(), $CollisionShape2D)
 	
 func _absorb(body: Node2D) -> Tween:
 	var sprite: Sprite2D = body.get_node("Sprite2D")

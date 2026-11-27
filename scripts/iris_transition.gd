@@ -29,11 +29,17 @@ var _rect: ColorRect
 var _mat: ShaderMaterial
 var _label: Label
 var _color: Color
+var _target: Node2D
 
-static func play(from_screen_pos: Vector2, change_level: Callable, tree: SceneTree, expand_time := 0.7, hold_time := 1.0, shrink_time := 0.7) -> void:
+static func play(from_screen_pos: Vector2, change_level: Callable, tree: SceneTree, target: Node2D, expand_time := 0.7, hold_time := 1.0, shrink_time := 0.7) -> void:
 	var t := IrisTransition.new()
+	t._target = target
 	tree.root.add_child(t)
 	t._run(from_screen_pos, change_level, expand_time, hold_time, shrink_time)
+
+func _process(_delta: float) -> void:
+	if is_instance_valid(_target):
+		_mat.set_shader_parameter("center", _target.get_global_transform_with_canvas().origin)
 
 func _ready() -> void:
 	layer = 100
@@ -81,7 +87,7 @@ func _farthest_corner(from: Vector2) -> float:
 
 func _run(from_pos: Vector2, change_level: Callable, expand_time: float, hold_time: float, shrink_time: float) -> void:
 	_mat.set_shader_parameter(&"center", from_pos)
-	var full := _farthest_corner(from_pos)
+	var full := screen.x
 	var tween := create_tween()
 	tween.tween_method(_set_radius, 4.0, full, expand_time).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
 	await tween.finished
@@ -98,6 +104,7 @@ func _run(from_pos: Vector2, change_level: Callable, expand_time: float, hold_ti
 	var start_r := _farthest_corner(center)
 	tween = create_tween()
 	tween.tween_method(_set_radius, start_r, 0.0, shrink_time).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+	tween.parallel().tween_callback(func(): _label.hide()).set_delay(max(0.0, shrink_time - 0.4))
 	await tween.finished
 	
 	queue_free()
