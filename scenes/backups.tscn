@@ -3,19 +3,10 @@
 [ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_f6ggr"]
 [ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="2_cddtr"]
 [ext_resource type="Script" uid="uid://c6mjy8jrp3dm7" path="res://scripts/backups.gd" id="2_giwxd"]
+[ext_resource type="PackedScene" uid="uid://blvwnqdxumg5o" path="res://scenes/new_backup.tscn" id="3_fr0py"]
 [ext_resource type="PackedScene" uid="uid://bc0qmcvvad0v3" path="res://scenes/backup.tscn" id="4_t1i5m"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7wv1"]
-bg_color = Color(0, 0, 0, 0.47058824)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50
-
-[sub_resource type="Theme" id="Theme_t1i5m"]
-Button/font_sizes/font_size = 64
-
-[node name="Backups" type="Control" unique_id=1225899555]
+[node name="Backups" type="Control" unique_id=1585092821]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_f6ggr")
 script = ExtResource("2_giwxd")
+new_backup_scene = ExtResource("3_fr0py")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2043531575]
 layout_mode = 1
@@ -66,88 +58,8 @@ layout_mode = 2
 text = "load"
 
 [node name="Create" type="Button" parent="MarginContainer/VBoxContainer/OptionsList" unique_id=1005470468]
+unique_name_in_owner = true
 layout_mode = 2
 text = "new"
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1869124329]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.15686275, 0.15686275, 0.15686275, 0.78431374)
-
-[node name="NewBackup" type="MarginContainer" parent="." unique_id=500019469]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 90
-theme_override_constants/margin_top = 90
-theme_override_constants/margin_right = 90
-theme_override_constants/margin_bottom = 90
-
-[node name="Panel" type="Panel" parent="NewBackup" unique_id=1073374693]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_d7wv1")
-
-[node name="MarginContainer" type="MarginContainer" parent="NewBackup" unique_id=1619022963]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="NewBackup/MarginContainer" unique_id=1920948702]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="Title" type="Label" parent="NewBackup/MarginContainer/VBoxContainer" unique_id=1173416663]
-layout_mode = 2
-theme_override_font_sizes/font_size = 84
-text = "New Backup"
-
-[node name="SelectMenu" parent="NewBackup/MarginContainer/VBoxContainer" unique_id=996039590 instance=ExtResource("2_cddtr")]
-layout_mode = 2
-theme = SubResource("Theme_t1i5m")
-theme_override_constants/separation = 0
-
-[node name="Name" type="Label" parent="NewBackup/MarginContainer/VBoxContainer/SelectMenu" unique_id=812002540]
-layout_mode = 2
-text = "name"
-
-[node name="LineEdit" type="LineEdit" parent="NewBackup/MarginContainer/VBoxContainer/SelectMenu/Name" unique_id=1559147547]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -388.0
-offset_top = -40.5
-offset_bottom = 40.5
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="Config" type="Button" parent="NewBackup/MarginContainer/VBoxContainer/SelectMenu" unique_id=368342409]
-layout_mode = 2
-theme_type_variation = &"ToggleButton"
-text = "config: off"
-alignment = 0
-
-[node name="Progress" type="Button" parent="NewBackup/MarginContainer/VBoxContainer/SelectMenu" unique_id=390856367]
-layout_mode = 2
-theme_type_variation = &"ToggleButton"
-text = "progress: off"
-alignment = 0
-
-[node name="LevelData" type="Button" parent="NewBackup/MarginContainer/VBoxContainer/SelectMenu" unique_id=2144346087]
-layout_mode = 2
-theme_type_variation = &"ToggleButton"
-text = "level data: off"
-alignment = 0
 
 [connection signal="button_selected" from="MarginContainer/VBoxContainer/OptionsList" to="." method="_on_options_list_button_selected"]
