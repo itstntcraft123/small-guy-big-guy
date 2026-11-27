@@ -106,15 +106,15 @@ func delete_progress() -> void:
 		push_error("DirAccess delete ", SAVE_PATH, " failed ", DirAccess.get_open_error())
 
 
-func create_backup(backup_name: String, config: bool, game: bool, level: bool) -> void:
+func create_backup(backup_name: String, config: bool = true, game: bool = true, level: bool = true) -> void:
 	if !DirAccess.dir_exists_absolute(BACKUPS_DIR):
 		var dir_result = DirAccess.make_dir_absolute(BACKUPS_DIR)
 		if dir_result != OK:
 			push_error("DirAccess create ", BACKUPS_DIR, " failed ", DirAccess.get_open_error())
 			return
 	
-	var time := str(int(Time.get_unix_time_from_system()))
-	var path := BACKUPS_DIR + time
+	var time := int(Time.get_unix_time_from_system())
+	var path := BACKUPS_DIR + str(time)
 	# add numbers to path until a valid path is found
 	while FileAccess.file_exists(path):
 		if path.contains("x") and path.substr(path.rfind("x") + 1).is_valid_int():
@@ -136,13 +136,17 @@ func create_backup(backup_name: String, config: bool, game: bool, level: bool) -
 	game = write_zip_from_file(zip, SAVE_PATH, game)
 	level = write_zip_from_file(zip, LEVEL_PATH, level)
 	
-	write_zip(zip, "metadata.txt", var_to_str({
+	var cfg := ConfigFile.new()
+	var data := {
 		"name": backup_name,
 		"unix": time,
 		"config": config,
 		"game": game,
 		"level": level
-	}).to_utf8_buffer())
+	}
+	for key in data:
+		cfg.set_value("Metadata", key, data[key])
+	write_zip(zip, "metadata.txt", cfg.encode_to_text().to_utf8_buffer())
 	
 	zip.close()
 
