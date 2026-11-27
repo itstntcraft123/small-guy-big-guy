@@ -6,6 +6,7 @@ var strip_non_numbers_regex := RegEx.new()
 const wide_btn_script: Script = preload("res://scripts/wide_button.gd")
 const wide_linkbtn_script: Script = preload("res://scripts/wide_link_button.gd")
 const wide_label_script: Script = preload("res://scripts/wide_label.gd")
+@export var focus_on_load := true
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -17,18 +18,25 @@ func _input(event: InputEvent) -> void:
 					return
 				child.grab_focus()
 				return
+	
 	if event.is_action_pressed("ui_cancel") and owner.has_method(&"exit"):
 		get_viewport().set_input_as_handled()
 		owner.exit()
 	
 	if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
 		var focused := get_viewport().gui_get_focus_owner()
-		if focused is LineEdit and focused.get_parent() is SpinBox:
+		if focused is LineEdit and self.is_ancestor_of(focused):
+			var label: Control
+			if focused.get_parent() is SpinBox:
+				label = focused.get_parent().get_parent()
+			else:
+				label = focused.get_parent()
+			
 			var children := get_children()
 			var diff := -1 if event.is_action_pressed("ui_up") else 1
 			var focused_index := -1
 			for i in children.size():
-				if children[i] == focused.get_parent().get_parent():
+				if children[i] == label:
 					focused_index = i
 			var new_node := children[focused_index + diff]
 			if focused_index != -1 and new_node is Control and new_node.focus_mode != Control.FOCUS_NONE:
@@ -47,7 +55,7 @@ func _on_spin_box_line_edit_changed(text: String, spinbox: SpinBox) -> void:
 func _ready() -> void:
 	strip_non_numbers_regex.compile("\\D")
 	
-	var focused = false
+	var focused = !focus_on_load
 	for child in get_children():
 		if child is Button:
 			child.set_script(wide_btn_script)
@@ -65,12 +73,17 @@ func _ready() -> void:
 			if not focused:
 				child.grab_focus()
 				focused = true
+		
 		var spinbox := Utils.get_first_child_of_type(child, SpinBox) as SpinBox
 		if spinbox:
 			Utils.connect_focus_signal(spinbox.get_line_edit(), _focus_changed)
 			spinbox.get_line_edit().max_length = 4
 			spinbox.get_line_edit().text_changed.connect(_on_spin_box_line_edit_changed.bind(spinbox))
 			spinbox.value_changed.connect(func (_value): button_selected.emit(child))
+		
+		var lineedit := Utils.get_first_child_of_type(child, LineEdit) as LineEdit
+		if lineedit:
+			Utils.connect_focus_signal(lineedit, _focus_changed)
 
 func _focus_changed(item: Control, focus: bool):
 	if item is Button and item.toggle_mode:
@@ -84,17 +97,26 @@ func _focus_changed(item: Control, focus: bool):
 	
 	var spinbox := Utils.get_first_child_of_type(item, SpinBox) as SpinBox
 	if spinbox and focus:
-		var lineedit := spinbox.get_line_edit()
+		var spinbox_lineedit := spinbox.get_line_edit()
+		spinbox_lineedit.grab_focus()
+		spinbox_lineedit.edit()
+		spinbox_lineedit.select()
+	
+	var lineedit := Utils.get_first_child_of_type(item, LineEdit) as LineEdit
+	if lineedit and focus:
 		lineedit.grab_focus()
 		lineedit.edit()
-		lineedit.select()
 	
 	if item is LineEdit:
-		var button: Control = item.get_parent().get_parent()
-		if focus:
-			button.add_theme_color_override("font_color", button.get_theme_color("font_focus_color", "Button"))
+		var label: Control
+		if item.get_parent() is SpinBox:
+			label = item.get_parent().get_parent()
 		else:
-			button.remove_theme_color_override("font_color")
+			label = item.get_parent()
+		if focus:
+			label.add_theme_color_override("font_color", label.get_theme_color("font_focus_color", "Button"))
+		else:
+			label.remove_theme_color_override("font_color")
 	
 	var arrow := Utils.get_first_child_of_type(item, Label) as Label
 	if arrow:

@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://blvwnqdxumg5o"]
+
+[ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_b754o"]
+[ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="1_ueuni"]
+[ext_resource type="Script" uid="uid://b2o033ouhdus8" path="res://scripts/new_backup.gd" id="2_axvut"]
+
+[node name="MarginContainer" type="MarginContainer" unique_id=431228857]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_b754o")
+script = ExtResource("2_axvut")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=131456842]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=1877389508]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "New Backup"
+
+[node name="DataList" parent="VBoxContainer" unique_id=1078719937 instance=ExtResource("1_ueuni")]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="VBoxContainer/DataList" unique_id=1021978921]
+layout_mode = 2
+focus_mode = 2
+mouse_filter = 0
+text = "name"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/DataList/Name" unique_id=387103091]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 400.0
+offset_right = 964.0
+offset_bottom = 81.0
+placeholder_text = "Backup"
+
+[node name="Config" type="Button" parent="VBoxContainer/DataList" unique_id=1181853897]
+layout_mode = 2
+theme_type_variation = &"ToggleButton"
+text = "config: off"
+alignment = 0
+
+[node name="Progress" type="Button" parent="VBoxContainer/DataList" unique_id=1579607316]
+layout_mode = 2
+theme_type_variation = &"ToggleButton"
+text = "progress: off"
+alignment = 0
+
+[node name="LevelData" type="Button" parent="VBoxContainer/DataList" unique_id=1954168020]
+layout_mode = 2
+theme_type_variation = &"ToggleButton"
+text = "level data: off"
+alignment = 0
+
+[node name="Space" type="Control" parent="VBoxContainer" unique_id=568355048]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OptionsList" parent="VBoxContainer" unique_id=1994737098 instance=ExtResource("1_ueuni")]
+layout_mode = 2
+theme_override_constants/separation = 128
+alignment = 1
+vertical = false
+focus_on_load = false
+
+[node name="Back" type="Button" parent="VBoxContainer/OptionsList" unique_id=1858077142]
+layout_mode = 2
+text = "back"
+
+[node name="Create" type="Button" parent="VBoxContainer/OptionsList" unique_id=900188952]
+layout_mode = 2
+text = "create"
+
+[connection signal="button_selected" from="VBoxContainer/OptionsList" to="." method="_on_options_list_button_selected"]
