@@ -19,10 +19,10 @@ region = Rect2(64, 51, 32, 15)
 atlas = ExtResource("2_dno8n")
 region = Rect2(96, 57, 32, 9)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dno8n"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjiko"]
 size = Vector2(26, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gjxb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkg60"]
 size = Vector2(24, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ao8sq"]
@@ -45,13 +45,13 @@ offset = Vector2(-16, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=200025766]
 position = Vector2(0, -15)
-shape = SubResource("RectangleShape2D_dno8n")
+shape = SubResource("RectangleShape2D_sjiko")
 
 [node name="Platform" type="AnimatableBody2D" parent="." unique_id=1865990670]
 position = Vector2(0, -19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=1352269263]
-shape = SubResource("RectangleShape2D_7gjxb")
+shape = SubResource("RectangleShape2D_kkg60")
 
 [node name="Base" type="StaticBody2D" parent="." unique_id=1984807727]
 
