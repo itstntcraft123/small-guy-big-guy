@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://rxdgjqa0rj0x" path="res://sprites/autotile/tileplaceholder13tile-autotile.png" id="5_wclgm"]
 
 [node name="Game" unique_id=2126916218 instance=ExtResource("1_5px8r")]
+position = Vector2(-2, -2)
 
 [node name="SmallGuy" parent="." index="1" unique_id=2137464374]
 position = Vector2(-600, 144)
