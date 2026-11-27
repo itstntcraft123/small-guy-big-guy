@@ -53,7 +53,11 @@ func save_cfg() -> void:
 	var data: Dictionary = Settings.save_dict()
 	for key in data:
 		config.set_value("Settings", key, data[key])
-	config.save(CONFIG_PATH)
+	
+	var result := config.save(CONFIG_PATH)
+	if result != OK:
+		push_error("ConfigFile save ", CONFIG_PATH, " failed ", result)
+		return
 	
 	DebugLayer.just_saved = true
 
@@ -64,7 +68,7 @@ func load_cfg() -> void:
 	var config = ConfigFile.new()
 	var result = config.load(CONFIG_PATH)
 	if result != OK:
-		push_error("ConfigFile load", CONFIG_PATH, "failed")
+		push_error("ConfigFile load ", CONFIG_PATH, " failed ", result)
 		return
 	
 	var data := {}
@@ -124,12 +128,11 @@ func create_backup(backup_name: String, config: bool = true, game: bool = true, 
 		if len(path.trim_prefix(BACKUPS_DIR)) > 20:
 			push_error("Path too long")
 			return
-	path += ".zip"
 	
 	var zip := ZIPPacker.new()
-	var zip_result = zip.open(path)
+	var zip_result = zip.open(path + ".zip")
 	if zip_result != OK:
-		push_error("ZIPPacker open ", path, " failed")
+		push_error("ZIPPacker open ", path + ".zip", " failed")
 		return
 	
 	config = write_zip_from_file(zip, CONFIG_PATH, config)
@@ -149,6 +152,10 @@ func create_backup(backup_name: String, config: bool = true, game: bool = true, 
 	write_zip(zip, "metadata.txt", cfg.encode_to_text().to_utf8_buffer())
 	
 	zip.close()
+	
+	var result = cfg.save(path + ".txt")
+	if result != OK:
+		push_error("Configfile save ", path + ".txt", " failed ", result)
 
 func write_zip(zip: ZIPPacker, path: String, data: PackedByteArray, condition: bool = true) -> bool:
 	if !condition:
@@ -156,17 +163,17 @@ func write_zip(zip: ZIPPacker, path: String, data: PackedByteArray, condition: b
 	
 	var start_result := zip.start_file(path)
 	if start_result != OK:
-		push_error("ZIPPacker start file ", path, " failed")
+		push_error("ZIPPacker start file ", path, " failed ", start_result)
 		return false
 	
 	var write_result := zip.write_file(data)
 	if write_result != OK:
-		push_error("ZIPPacker write file ", path, " failed")
+		push_error("ZIPPacker write file ", path, " failed ", start_result)
 		return false
 	
 	var close_result := zip.close_file()
 	if close_result != OK:
-		push_error("ZIPPacker close file after writing ", path, " failed")
+		push_error("ZIPPacker close file after writing ", path, " failed ", start_result)
 		return false
 	
 	return true
