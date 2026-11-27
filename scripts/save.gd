@@ -113,8 +113,8 @@ func create_backup(backup_name: String, config: bool, game: bool, level: bool) -
 			push_error("DirAccess create ", BACKUPS_DIR, " failed ", DirAccess.get_open_error())
 			return
 	
-	var time := Time.get_unix_time_from_system()
-	var path := BACKUPS_DIR + str(int(time))
+	var time := str(int(Time.get_unix_time_from_system()))
+	var path := BACKUPS_DIR + time
 	# add numbers to path until a valid path is found
 	while FileAccess.file_exists(path):
 		if path.contains("x") and path.substr(path.rfind("x") + 1).is_valid_int():
@@ -136,13 +136,13 @@ func create_backup(backup_name: String, config: bool, game: bool, level: bool) -
 	game = write_zip_from_file(zip, SAVE_PATH, game)
 	level = write_zip_from_file(zip, LEVEL_PATH, level)
 	
-	write_zip(zip, "metadata.bin", var_to_bytes({
+	write_zip(zip, "metadata.txt", var_to_str({
 		"name": backup_name,
 		"unix": time,
 		"config": config,
 		"game": game,
 		"level": level
-	}))
+	}).to_utf8_buffer())
 	
 	zip.close()
 
@@ -178,8 +178,4 @@ func write_zip_from_file(zip: ZIPPacker, full_path: String, condition: bool = tr
 		return false
 	
 	write_zip(zip, full_path.split("/")[-1], bytes, condition)
-	
 	return true
-
-func _ready() -> void:
-	create_backup("true", true, true, true)
