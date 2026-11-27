@@ -65,16 +65,7 @@ func load_cfg() -> void:
 	if !FileAccess.file_exists(CONFIG_PATH):
 		return
 	
-	var config = ConfigFile.new()
-	var result = config.load(CONFIG_PATH)
-	if result != OK:
-		push_error("ConfigFile load ", CONFIG_PATH, " failed ", result)
-		return
-	
-	var data := {}
-	for key in config.get_section_keys("Settings"):
-		data[key] = config.get_value("Settings", key)
-	Settings.load_dict(data)
+	Settings.load_dict(Utils.config_path_to_dict(CONFIG_PATH, "Settings"))
 
 
 func save_progress() -> void:
@@ -119,6 +110,7 @@ func create_backup(backup_name: String, config: bool = true, game: bool = true, 
 	
 	var time := int(Time.get_unix_time_from_system())
 	var path := BACKUPS_DIR + str(time)
+	
 	# add numbers to path until a valid path is found
 	while FileAccess.file_exists(path):
 		if path.contains("x") and path.substr(path.rfind("x") + 1).is_valid_int():
@@ -155,4 +147,34 @@ func create_backup(backup_name: String, config: bool = true, game: bool = true, 
 	
 	var result = cfg.save(path + ".txt")
 	if result != OK:
-		push_error("Configfile save ", path + ".txt", " failed ", result)
+		push_error("ConfigFile save ", path + ".txt", " failed ", result)
+
+func list_backups() -> Array[Dictionary]:
+	var zips: Array = Array(DirAccess.get_files_at(BACKUPS_DIR)).filter(func(path: String): return path.ends_with(".zip"))
+	var result: Array[Dictionary] = []
+	
+	for zip: String in zips:
+		# try to find .txt metadata, else find embedded metadata
+		var txt := BACKUPS_DIR + zip.trim_suffix(".zip") + ".txt"
+		if FileAccess.file_exists(txt):
+			var dict := Utils.config_path_to_dict(txt, "Metadata")
+			if !dict.is_empty():
+				result.append(dict)
+		else:
+			var abs_path := BACKUPS_DIR + zip
+			var reader := ZIPReader.new()
+			var zip_result := reader.open(abs_path)
+			if zip_result != OK:
+				push_error("ZIPReader read ", abs_path, " failed ", zip_result)
+				continue
+			
+			var config := ConfigFile.new()
+			var config_result := config.parse(reader.read_file("metadata.txt").get_string_from_utf8())
+			if config_result != OK:
+				push_error("ConfigFile read metadata.txt from ", abs_path, " failed ", result)
+			
+			var dict := Utils.configfile_to_dict(config, "Metadata")
+			if !dict.is_empty():
+				result.append(dict)
+	
+	return result

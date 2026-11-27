@@ -73,3 +73,17 @@ func write_zip_from_file(zip: ZIPPacker, full_path: String, condition: bool = tr
 	
 	write_zip(zip, full_path.split("/")[-1], bytes, condition)
 	return true
+
+func configfile_to_dict(config: ConfigFile, section: String) -> Dictionary:
+	var data := {}
+	for key in config.get_section_keys(section):
+		data[key] = config.get_value(section, key)
+	return data
+
+func config_path_to_dict(path: String, section: String) -> Dictionary:
+	var config = ConfigFile.new()
+	var result = config.load(path)
+	if result != OK:
+		push_error("ConfigFile load ", path, " failed ", result)
+		return {}
+	return configfile_to_dict(config, section)
