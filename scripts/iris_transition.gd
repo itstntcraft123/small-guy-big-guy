@@ -44,7 +44,8 @@ func _ready() -> void:
 	shader.code = SHADER_CODE
 	_mat = ShaderMaterial.new()
 	_mat.shader = shader
-	_mat.set_shader_parameter("color", _color)
+	_mat.set_shader_parameter(&"color", _color)
+	_mat.set_shader_parameter(&"size", screen)
 	
 	_rect = ColorRect.new()
 	_rect.size = screen
@@ -56,10 +57,9 @@ func _ready() -> void:
 	_label.size = screen
 	_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	var font := load("res://fonts/VT323.ttf")
-	_label.add_theme_font_override("font", font)
-	_label.add_theme_font_size_override("font_size", 48)
-	_label.add_theme_color_override("font_color", _contrast_color(_color))
+	_label.theme = load("res://theme.tres")
+	_label.add_theme_font_size_override(&"font_size", 48)
+	_label.add_theme_color_override(&"font_color", _contrast_color(_color))
 	_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_label.hide()
 	add_child(_label)
@@ -71,7 +71,7 @@ func _contrast_color(bg: Color) -> Color:
 	return Color.BLACK if luminance > 0.5 else Color.WHITE
 
 func _set_radius(r: float) -> void:
-	_mat.set_shader_parameter("radius", r)
+	_mat.set_shader_parameter(&"radius", r)
 
 func _farthest_corner(from: Vector2) -> float:
 	var d = 0.0
@@ -80,7 +80,7 @@ func _farthest_corner(from: Vector2) -> float:
 	return d + 16.0
 
 func _run(from_pos: Vector2, change_level: Callable, expand_time: float, hold_time: float, shrink_time: float) -> void:
-	_mat.set_shader_parameter("center", from_pos)
+	_mat.set_shader_parameter(&"center", from_pos)
 	var full := _farthest_corner(from_pos)
 	var tween := create_tween()
 	tween.tween_method(_set_radius, 4.0, full, expand_time).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_IN)
@@ -94,7 +94,7 @@ func _run(from_pos: Vector2, change_level: Callable, expand_time: float, hold_ti
 	await get_tree().create_timer(hold_time).timeout
 	
 	var center := screen / 2.0
-	_mat.set_shader_parameter("center", center)
+	_mat.set_shader_parameter(&"center", center)
 	var start_r := _farthest_corner(center)
 	tween = create_tween()
 	tween.tween_method(_set_radius, start_r, 0.0, shrink_time).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
