@@ -38,3 +38,38 @@ func update_from_save(self_node: Node, save_data: Dictionary, var_name: StringNa
 func update_multiple_from_save(self_node: Node, save_data: Dictionary, var_array: Array[StringName]):
 	for item in var_array:
 		update_from_save(self_node, save_data, item)
+
+# Zip helpers
+func write_zip(zip: ZIPPacker, path: String, data: PackedByteArray, condition: bool = true) -> bool:
+	if !condition:
+		return false
+	
+	var start_result := zip.start_file(path)
+	if start_result != OK:
+		push_error("ZIPPacker start file ", path, " failed ", start_result)
+		return false
+	
+	var write_result := zip.write_file(data)
+	if write_result != OK:
+		push_error("ZIPPacker write file ", path, " failed ", start_result)
+		return false
+	
+	var close_result := zip.close_file()
+	if close_result != OK:
+		push_error("ZIPPacker close file after writing ", path, " failed ", start_result)
+		return false
+	
+	return true
+
+func write_zip_from_file(zip: ZIPPacker, full_path: String, condition: bool = true) -> bool:
+	if !condition:
+		return false
+	
+	var bytes := FileAccess.get_file_as_bytes(full_path)
+	if bytes.is_empty():
+		if FileAccess.get_open_error() != ERR_FILE_NOT_FOUND:
+			push_error("FileAccess open file ", full_path, " as bytes empty ", FileAccess.get_open_error())
+		return false
+	
+	write_zip(zip, full_path.split("/")[-1], bytes, condition)
+	return true

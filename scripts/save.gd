@@ -135,9 +135,9 @@ func create_backup(backup_name: String, config: bool = true, game: bool = true, 
 		push_error("ZIPPacker open ", path + ".zip", " failed")
 		return
 	
-	config = write_zip_from_file(zip, CONFIG_PATH, config)
-	game = write_zip_from_file(zip, SAVE_PATH, game)
-	level = write_zip_from_file(zip, LEVEL_PATH, level)
+	config = Utils.write_zip_from_file(zip, CONFIG_PATH, config)
+	game = Utils.write_zip_from_file(zip, SAVE_PATH, game)
+	level = Utils.write_zip_from_file(zip, LEVEL_PATH, level)
 	
 	var cfg := ConfigFile.new()
 	var data := {
@@ -149,44 +149,10 @@ func create_backup(backup_name: String, config: bool = true, game: bool = true, 
 	}
 	for key in data:
 		cfg.set_value("Metadata", key, data[key])
-	write_zip(zip, "metadata.txt", cfg.encode_to_text().to_utf8_buffer())
+	Utils.write_zip(zip, "metadata.txt", cfg.encode_to_text().to_utf8_buffer())
 	
 	zip.close()
 	
 	var result = cfg.save(path + ".txt")
 	if result != OK:
 		push_error("Configfile save ", path + ".txt", " failed ", result)
-
-func write_zip(zip: ZIPPacker, path: String, data: PackedByteArray, condition: bool = true) -> bool:
-	if !condition:
-		return false
-	
-	var start_result := zip.start_file(path)
-	if start_result != OK:
-		push_error("ZIPPacker start file ", path, " failed ", start_result)
-		return false
-	
-	var write_result := zip.write_file(data)
-	if write_result != OK:
-		push_error("ZIPPacker write file ", path, " failed ", start_result)
-		return false
-	
-	var close_result := zip.close_file()
-	if close_result != OK:
-		push_error("ZIPPacker close file after writing ", path, " failed ", start_result)
-		return false
-	
-	return true
-
-func write_zip_from_file(zip: ZIPPacker, full_path: String, condition: bool = true) -> bool:
-	if !condition:
-		return false
-	
-	var bytes := FileAccess.get_file_as_bytes(full_path)
-	if bytes.is_empty():
-		if FileAccess.get_open_error() != ERR_FILE_NOT_FOUND:
-			push_error("FileAccess open file ", full_path, " as bytes empty ", FileAccess.get_open_error())
-		return false
-	
-	write_zip(zip, full_path.split("/")[-1], bytes, condition)
-	return true
