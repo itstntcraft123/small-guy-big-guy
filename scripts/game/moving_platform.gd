@@ -30,6 +30,7 @@ func _ready() -> void:
 	sync_to_physics = true
 	origin = position
 	add_to_group("save")
+	add_to_group("moving_platform")
 
 func _draw() -> void:
 	if texture == null:

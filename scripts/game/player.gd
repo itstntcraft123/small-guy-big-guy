@@ -38,6 +38,11 @@ func _ready() -> void:
 	floor_snap_length = 6.0
 
 func _physics_process(delta: float) -> void:
+	
+	if _is_crushed():
+		die()
+		return
+	
 	var frame := Engine.get_physics_frames()
 	
 	if not is_on_floor():
@@ -100,6 +105,10 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
+	if _is_squished():
+		die()
+		return
+	
 	standing_on = null
 	for i in get_slide_collision_count():
 		var c := get_slide_collision(i)
@@ -132,6 +141,37 @@ func _physics_process(delta: float) -> void:
 	if global_position.y > _get_void_y():
 		# print("death at y = " + str(_get_void_y()))
 		die()
+
+func _is_squished() -> bool:
+	var normals: Array[Vector2] = []
+	var touching_platform := false
+	for i in get_slide_collision_count():
+		var c := get_slide_collision(i)
+		normals.append(c.get_normal())
+		if c.get_collider() is Node and c.get_collider().is_in_group("moving_platform"):
+			touching_platform = true
+	if not touching_platform:
+		return false
+	for a in normals:
+		for b in normals:
+			if a.dot(b) < -0.9:
+				return true
+	return false
+
+func _is_crushed() -> bool:
+	var hit := KinematicCollision2D.new()
+	
+	if not test_move(global_transform, Vector2.ZERO, hit, 0.08, true):
+		return false
+	var c := hit.get_collider()
+	if not (c is Node and c.is_in_group("moving_platform")):
+		return false
+	var push_dir := hit.get_normal()
+	var wall := KinematicCollision2D.new()
+	if test_move(global_transform, push_dir * (hit.get_depth() + 3.0), wall):
+		var w := wall.get_collider()
+		return not (w is Node and w.is_in_group("moving_platform"))
+	return false
 
 func _get_void_y() -> float:
 	var level := get_tree().current_scene
@@ -211,7 +251,7 @@ func _explode() -> void:
 		d.global_position = global_position + Vector2(randf_range(-6, 6), randf_range(-6, 6)) * size_scale
 		d.setup(debris_colors.pick_random(), randf_range(3.0, 6.0) * size_scale, 2.5)
 		d.linear_velocity = Vector2.from_angle(randf() * TAU) * randf_range(debris_speed.x, debris_speed.y)
-		d.angular_velocity - randf_range(-10.0, 10.0)
+		d.angular_velocity = randf_range(-10.0, 10.0)
 
 func _clear_exceptions() -> void:
 	for body in get_collision_exceptions():
