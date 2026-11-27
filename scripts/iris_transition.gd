@@ -56,6 +56,9 @@ func _ready() -> void:
 	_label.size = SCREEN
 	_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	var font := load("res://fonts/VT323.ttf")
+	_label.add_theme_font_override("font", font)
+	_label.add_theme_font_size_override("font_size", 48)
 	_label.add_theme_color_override("font_color", _contrast_color(_color))
 	_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_label.hide()
