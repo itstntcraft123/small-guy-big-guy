@@ -1,7 +1,7 @@
 class_name IrisTransition
 extends CanvasLayer
 
-const SCREEN := Vector2(1152, 648)
+@onready var screen := get_viewport().get_visible_rect().size
 const TOTAL_LEVELS := 50
 const LEVEL_OFFSET := 0
 
@@ -47,13 +47,13 @@ func _ready() -> void:
 	_mat.set_shader_parameter("color", _color)
 	
 	_rect = ColorRect.new()
-	_rect.size = SCREEN
+	_rect.size = screen
 	_rect.material = _mat
 	_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_rect)
 	
 	_label = Label.new()
-	_label.size = SCREEN
+	_label.size = screen
 	_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	var font := load("res://fonts/VT323.ttf")
@@ -75,7 +75,7 @@ func _set_radius(r: float) -> void:
 
 func _farthest_corner(from: Vector2) -> float:
 	var d = 0.0
-	for corner in [Vector2.ZERO, Vector2(SCREEN.x, 0), Vector2(0, SCREEN.y),SCREEN]:
+	for corner in [Vector2.ZERO, Vector2(screen.x, 0), Vector2(0, screen.y), screen]:
 		d = maxf(d, from.distance_to(corner))
 	return d + 16.0
 
@@ -93,7 +93,7 @@ func _run(from_pos: Vector2, change_level: Callable, expand_time: float, hold_ti
 	_label.show()
 	await get_tree().create_timer(hold_time).timeout
 	
-	var center := SCREEN / 2.0
+	var center := screen / 2.0
 	_mat.set_shader_parameter("center", center)
 	var start_r := _farthest_corner(center)
 	tween = create_tween()
