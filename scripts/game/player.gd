@@ -103,6 +103,10 @@ func _physics_process(delta: float) -> void:
 	if test_move(global_transform, Vector2(input_dir, 0)) and !test_move(global_transform.translated(Vector2(0, -0.5)), Vector2(input_dir, 0)):
 		move_and_collide(Vector2(0, -0.5))
 	
+	if _is_pinned_by_riding_platform(delta):
+		die()
+		return
+	
 	move_and_slide()
 	
 	if _is_squished():
@@ -142,6 +146,21 @@ func _physics_process(delta: float) -> void:
 		# print("death at y = " + str(_get_void_y()))
 		die()
 
+
+
+func _is_pinned_by_riding_platform(delta: float) -> bool:
+	if not is_on_floor():
+		return false
+	var pv := get_platform_velocity()
+	if pv.y >= -1.0:
+		return false  # platform isn't moving up
+	var col := KinematicCollision2D.new()
+	# distance the platform will carry us this frame, plus a small margin
+	var motion := Vector2(0, pv.y * delta - 2.0)
+	if test_move(global_transform, motion, col):
+		return not _is_mover(col.get_collider())
+	return false
+
 func _is_squished() -> bool:
 	var normals: Array[Vector2] = []
 	var touching_platform := false
@@ -159,19 +178,19 @@ func _is_squished() -> bool:
 	return false
 
 func _is_crushed() -> bool:
-	var hit := KinematicCollision2D.new()
-	
-	if not test_move(global_transform, Vector2.ZERO, hit, 0.08, true):
-		return false
-	var c := hit.get_collider()
-	if not (c is Node and c.is_in_group("moving_platform")):
-		return false
-	var push_dir := hit.get_normal()
-	var wall := KinematicCollision2D.new()
-	if test_move(global_transform, push_dir * (hit.get_depth() + 3.0), wall):
-		var w := wall.get_collider()
-		return not (w is Node and w.is_in_group("moving_platform"))
+	for dir in [Vector2.UP, Vector2.LEFT]:
+		var a := KinematicCollision2D.new()
+		var b := KinematicCollision2D.new()
+		var hit_a := test_move(global_transform, dir * 2.0, a)
+		var hit_b := test_move(global_transform, -dir * 2.0, b)
+		if not (hit_a and hit_b):
+			continue
+		if _is_mover(a.get_collider()) or _is_mover(b.get_collider()):
+			return true
 	return false
+
+func _is_mover(c: Object) -> bool:
+	return c is Node and c.is_in_group("moving_platform")
 
 func _get_void_y() -> float:
 	var level := get_tree().current_scene
