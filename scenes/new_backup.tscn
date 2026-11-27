@@ -47,13 +47,13 @@ alignment = 0
 [node name="Progress" type="Button" parent="VBoxContainer/DataList" unique_id=1579607316]
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
-text = "progress: off"
+text = "game progress: off"
 alignment = 0
 
 [node name="LevelData" type="Button" parent="VBoxContainer/DataList" unique_id=1954168020]
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
-text = "level data: off"
+text = "current level progress: off"
 alignment = 0
 
 [node name="Space" type="Control" parent="VBoxContainer" unique_id=568355048]
