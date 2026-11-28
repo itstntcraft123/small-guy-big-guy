@@ -15,9 +15,8 @@ func _input(event: InputEvent) -> void:
 		for child in get_children():
 			if (child is Button or child is LinkButton or child is Label) and child == hovered:
 				if child == focused or (focused and child.is_ancestor_of(focused)):
-					return
+					break
 				child.grab_focus()
-				return
 	
 	if event.is_action_pressed("ui_cancel") and owner.has_method(&"exit"):
 		get_viewport().set_input_as_handled()
@@ -39,7 +38,7 @@ func _input(event: InputEvent) -> void:
 				if children[i] == label:
 					focused_index = i
 			var new_node := children[focused_index + diff]
-			if focused_index != -1 and new_node is Control and new_node.focus_mode != Control.FOCUS_NONE:
+			if focused_index != -1 and new_node is Control and new_node.focus_mode != Control.FOCUS_NONE and not (focused_index == 0 and diff == -1):
 				new_node.grab_focus()
 			get_viewport().set_input_as_handled()
 
