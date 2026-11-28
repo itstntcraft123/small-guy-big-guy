@@ -1,18 +1,11 @@
 [gd_scene format=4 uid="uid://bgkmc2ewwxwix"]
 
 [ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_4y3fs"]
-[ext_resource type="Script" uid="uid://ekidv6rd28f4" path="res://scripts/game/portal.gd" id="2_4ta7a"]
 [ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/objects/portal.tscn" id="3_5qb7q"]
 [ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="4_lxfq6"]
 
 [node name="Game" unique_id=2126916218 instance=ExtResource("1_4y3fs")]
-script = ExtResource("2_4ta7a")
-fade_time = 0.3
-move_time = 0.8
-pull_to_center = true
-shrink = true
-spin = true
-spin_turns = 3.0
+game_menu = null
 
 [node name="TileMapLayer" parent="." index="3" unique_id=752737559]
 rotation = -0.0022173794
