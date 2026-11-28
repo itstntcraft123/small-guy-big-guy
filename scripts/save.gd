@@ -181,3 +181,13 @@ func list_backups() -> Array[Dictionary]:
 	
 	result.sort_custom(func(a, b): return a.unix > b.unix)
 	return result
+
+# Migration (Small Guy Big Guy -> small guy BIG GUY)
+func try_migration() -> void:
+	if DirAccess.dir_exists_absolute("user://../Small Guy Big Guy"):
+		var result := DirAccess.rename_absolute("user://../Small Guy Big Guy", "user://../small guy BIG GUY")
+		if result != OK:
+			push_error("DirAccess migrate failed ", result)
+
+func _ready() -> void:
+	try_migration()
