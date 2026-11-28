@@ -45,10 +45,14 @@ theme_override_font_sizes/font_size = 36
 text = "Nov 12, 2026 at 12:23 pm"
 
 [node name="Parameters" type="Label" parent="MarginContainer" unique_id=101173415]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 1
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 2)
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 27
 text = "Config
-Progress
-Level Data"
+Game Progress
+Level Progress"
 horizontal_alignment = 2
