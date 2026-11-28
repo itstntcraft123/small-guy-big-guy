@@ -2,6 +2,7 @@ extends Control
 
 @export var debug_options: PackedScene
 @export var backups: PackedScene
+@export var dev_cheats: PackedScene
 
 func _input(event: InputEvent) -> void:
 	%ScrollContainer.follow_focus = true
@@ -17,6 +18,8 @@ func _ready() -> void:
 	Save.load_cfg()
 	refresh_visible()
 	_refresh_settings()
+	if OS.is_debug_build():
+		%Cheats.show()
 
 func _refresh_settings() -> void:
 	Utils.set_settings_state(%RestartKey, "r to restart", Settings.r_to_restart)
@@ -40,6 +43,10 @@ func _process(_delta: float) -> void:
 
 func _on_select_menu_button_selected(item: Control) -> void:
 	match item.name:
+		"Cheats":
+			if OS.is_debug_build():
+				add_child(dev_cheats.instantiate())
+				$MarginContainer.hide()
 		"Fullscreen":
 			if !item.button_pressed:
 				DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

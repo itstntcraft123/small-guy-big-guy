@@ -6,7 +6,6 @@
 
 [node name="Game" unique_id=2126916218 instance=ExtResource("1_4y3fs")]
 void_y = 2000
-game_menu = null
 
 [node name="TileMapLayer" parent="." index="3" unique_id=752737559]
 rotation = -0.0022173794

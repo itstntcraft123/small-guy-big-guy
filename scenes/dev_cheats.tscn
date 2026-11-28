@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://d232qdsn1jvl0"]
+
+[ext_resource type="Theme" uid="uid://doesdkf2iqydn" path="res://theme.tres" id="1_oun6a"]
+[ext_resource type="Script" uid="uid://bmqijwc75u141" path="res://scripts/dev_cheats.gd" id="2_8y7u8"]
+[ext_resource type="PackedScene" uid="uid://ct5i5yruxnpg" path="res://scenes/select_menu.tscn" id="2_jpxo1"]
+
+[node name="DevCheats" type="MarginContainer" unique_id=443386076]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_oun6a")
+script = ExtResource("2_8y7u8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=405916794]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=906747946]
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "Dev Cheats"
+
+[node name="SelectMenu" parent="VBoxContainer" unique_id=1078719937 instance=ExtResource("2_jpxo1")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GoToLevel" type="Button" parent="VBoxContainer/SelectMenu" unique_id=1506196626]
+layout_mode = 2
+text = "go to level"
+alignment = 0
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/SelectMenu/GoToLevel" unique_id=278769645]
+layout_mode = 0
+offset_left = 850.0
+offset_right = 992.0
+offset_bottom = 81.0
+max_value = 10000.0
+
+[node name="Back" type="Button" parent="VBoxContainer/SelectMenu" unique_id=382790948]
+layout_mode = 2
+text = "no going back :/"
+alignment = 0
+
+[node name="WhyUCheating" type="Label" parent="VBoxContainer" unique_id=1727547677]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+theme_override_font_sizes/font_size = 24
+text = "dirty cheater >:("
+
+[connection signal="button_selected" from="VBoxContainer/SelectMenu" to="." method="_on_select_menu_button_selected"]

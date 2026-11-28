@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://doykif72smtup" path="res://scripts/options_menu.gd" id="2_hm4m4"]
 [ext_resource type="PackedScene" uid="uid://bia54xe3r51ev" path="res://scenes/backups.tscn" id="3_k61yy"]
 [ext_resource type="PackedScene" uid="uid://io2cdsjc7ao6" path="res://scenes/debug_menu.tscn" id="3_lfjc7"]
+[ext_resource type="PackedScene" uid="uid://d232qdsn1jvl0" path="res://scenes/dev_cheats.tscn" id="4_7txom"]
 [ext_resource type="PackedScene" uid="uid://c358ma2blmwr7" path="res://scenes/arrow.tscn" id="5_3xsyx"]
 [ext_resource type="Texture2D" uid="uid://crsdifxp57evn" path="res://sprites/arrow.png" id="5_dhn0l"]
 
@@ -18,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("2_hm4m4")
 debug_options = ExtResource("3_lfjc7")
 backups = ExtResource("3_k61yy")
+dev_cheats = ExtResource("4_7txom")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1044473709]
 layout_mode = 1
@@ -61,6 +63,18 @@ theme_override_constants/margin_bottom = 0
 [node name="SelectMenu" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer" unique_id=543663428 instance=ExtResource("1_liyum")]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Cheats" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu" unique_id=1202402734]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "dev cheats"
+alignment = 0
+
+[node name="Arrow" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu/Cheats" unique_id=100825024 instance=ExtResource("5_3xsyx")]
+layout_mode = 0
+offset_left = 900.0
+offset_right = 943.0
 
 [node name="Fullscreen" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu" unique_id=531943641]
 unique_name_in_owner = true
@@ -156,7 +170,7 @@ layout_mode = 2
 text = "debug options"
 alignment = 0
 
-[node name="Arrow" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu/Debug" unique_id=100825024 instance=ExtResource("5_3xsyx")]
+[node name="Arrow" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/SelectMenu/Debug" unique_id=1887470087 instance=ExtResource("5_3xsyx")]
 layout_mode = 0
 offset_left = 900.0
 offset_right = 943.0
