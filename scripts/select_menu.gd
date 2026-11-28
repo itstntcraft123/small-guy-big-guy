@@ -83,6 +83,8 @@ func _ready() -> void:
 		var lineedit := Utils.get_first_child_of_type(child, LineEdit) as LineEdit
 		if lineedit:
 			Utils.connect_focus_signal(lineedit, _focus_changed)
+			if lineedit.has_focus():
+				child.add_theme_color_override("font_color", child.get_theme_color("font_focus_color", "Button"))
 
 func _focus_changed(item: Control, focus: bool):
 	if item is Button and item.toggle_mode:
