@@ -1,0 +1,119 @@
+[gd_scene format=4 uid="uid://dr85rieiad2pv"]
+
+[ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_dl8k1"]
+[ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="2_6qxay"]
+[ext_resource type="PackedScene" uid="uid://cfuoai66ktlsi" path="res://scenes/objects/presetButtons/big_button.tscn" id="3_j5nko"]
+[ext_resource type="PackedScene" uid="uid://dluceyrb8yq6g" path="res://scenes/objects/presetButtons/heavy_button.tscn" id="4_1avdn"]
+[ext_resource type="PackedScene" uid="uid://boeiut3vvglmq" path="res://scenes/objects/presetButtons/small_button.tscn" id="5_1avdn"]
+[ext_resource type="PackedScene" uid="uid://cxwxhs8g18clk" path="res://scenes/objects/door.tscn" id="6_ool7m"]
+[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/objects/portal.tscn" id="7_ool7m"]
+
+[node name="Game" unique_id=2126916218 instance=ExtResource("1_dl8k1")]
+
+[node name="TileMapLayer" parent="." index="3" unique_id=752737559]
+tile_map_data = PackedByteArray("AAD7/wkAAAACAAMAAAD8/wkAAAACAAMAAAD9/wkAAAACAAMAAAD+/wkAAAACAAMAAAD//wkAAAACAAMAAAAAAAkAAAACAAMAAAABAAkAAAACAAMAAAACAAkAAAACAAMAAAADAAkAAAACAAMAAAAEAAkAAAACAAMAAAAFAAkAAAACAAMAAAAGAAkAAAACAAMAAAAHAAkAAAACAAMAAAAIAAkAAAACAAMAAAAJAAkAAAACAAMAAAAKAAkAAAACAAMAAAALAAkAAAACAAMAAAAMAAkAAAACAAMAAAANAAkAAAACAAMAAAAOAAkAAAACAAMAAAAPAAkAAAACAAMAAAAQAAkAAAACAAMAAAARAAkAAAACAAMAAAASAAkAAAACAAMAAAD6/wkAAAACAAMAAAD5/wkAAAACAAMAAAD4/wkAAAACAAMAAAD3/wkAAAACAAMAAAD2/wkAAAACAAMAAAD1/wkAAAACAAMAAAD0/wkAAAABAAIAAAD0/wgAAAAAAAEAAAD0/wcAAAAAAAEAAAD0/wYAAAAAAAEAAAD0/wUAAAAAAAEAAAD0/wQAAAAAAAEAAAD0/wMAAAAAAAEAAAD0/wIAAAAAAAEAAAD0/wEAAAAAAAEAAAD0/wAAAAAAAAEAAAD0////AAAAAAEAAAD0//7/AAAAAAEAAAD0//3/AAAAAAEAAAD0//z/AAAAAAEAAAD0//v/AAAAAAEAAAD0//r/AAAAAAEAAAD0//n/AAAAAAEAAAD0//j/AAAAAAEAAAD0//f/AAAAAAEAAAD0//b/AAAAAAEAAAD0//X/AAAAAAEAAAD0//T/AAAAAAEAAAD0//P/AAAAAAEAAAD0//L/AAAAAAEAAAD0//H/AAAAAAEAAAD0//D/AAAAAAEAAAD0/+//AAAAAAEAAAD0/+7/AAAAAAEAAAD0/+3/AAAAAAEAAAD0/+z/AAAAAAEAAAD0/+v/AAAAAAEAAAD0/+r/AAAAAAEAAAD0/+n/AAAAAAEAAAD0/+j/AAAAAAEAAAD0/+f/AAAAAAEAAAD0/+b/AAAAAAEAAAD0/+X/AAAAAAAAAAATAAkAAAACAAMAAAAUAAkAAAACAAMAAAAVAAkAAAACAAMAAAAWAAkAAAACAAMAAAAXAAkAAAACAAMAAAAYAAkAAAACAAMAAAAZAAkAAAACAAMAAAAaAAkAAAACAAMAAAAbAAkAAAACAAMAAAAcAAkAAAACAAMAAAAdAAkAAAACAAMAAAAeAAkAAAACAAMAAAAfAAkAAAACAAMAAAAgAAkAAAACAAMAAAAhAAkAAAACAAMAAAAiAAkAAAACAAMAAAAjAAkAAAACAAMAAAAkAAkAAAACAAMAAAAlAAkAAAACAAMAAAAmAAkAAAACAAMAAAAnAAkAAAADAAIAAAATAPv/AAAAAAMAAAAnAO7/AAAAAAEAAAAnAO//AAAAAAEAAAAnAPD/AAAAAAEAAAAnAPH/AAAAAAEAAAAnAPL/AAAAAAEAAAAnAPP/AAAAAAEAAAAnAPT/AAAAAAEAAAAnAPX/AAAAAAEAAAAnAPb/AAAAAAEAAAAnAPf/AAAAAAEAAAAnAPj/AAAAAAEAAAAnAPn/AAAAAAEAAAAnAPr/AAAAAAEAAAAnAPv/AAAAAAEAAAAnAPz/AAAAAAEAAAAnAP3/AAAAAAEAAAAnAP7/AAAAAAEAAAAnAP//AAAAAAEAAAAnAAAAAAAAAAEAAAAnAAEAAAAAAAEAAAAnAAIAAAAAAAEAAAAnAAMAAAAAAAEAAAAnAAQAAAAAAAEAAAAnAAUAAAAAAAEAAAAnAAYAAAAAAAEAAAAnAAcAAAAAAAEAAAAnAAgAAAAAAAEAAAAnAOb/AAAAAAEAAAAnAOf/AAAAAAEAAAAnAOj/AAAAAAEAAAAnAOn/AAAAAAEAAAAnAOr/AAAAAAEAAAAnAOv/AAAAAAEAAAAnAOz/AAAAAAEAAAAnAO3/AAAAAAEAAAAnAOX/AAAAAAAAAAA=")
+
+[node name="Label" type="Label" parent="." index="5" unique_id=121502570]
+offset_left = -71.0
+offset_top = 88.0
+offset_right = 186.0
+offset_bottom = 125.0
+theme_override_fonts/font = ExtResource("2_6qxay")
+text = "the first truely difficult puzzle of many.
+good luck."
+
+[node name="Label3" type="Label" parent="." index="6" unique_id=880595978]
+offset_left = 369.0
+offset_top = 107.0
+offset_right = 735.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("2_6qxay")
+text = "just remember that anything is easy once you know how to.
+and that some things are intentional.
+
+trial
+and
+error"
+
+[node name="big_button" parent="." index="7" unique_id=1331368196 instance=ExtResource("3_j5nko")]
+position = Vector2(592, 288)
+
+[node name="heavy_button" parent="." index="8" unique_id=1567692575 instance=ExtResource("4_1avdn")]
+position = Vector2(624, 288)
+
+[node name="small_button" parent="." index="9" unique_id=487706976 instance=ExtResource("5_1avdn")]
+position = Vector2(624, -160)
+color = Color(0, 1, 0, 1)
+
+[node name="Label2" type="Label" parent="." index="10" unique_id=1519836014]
+offset_left = 509.0
+offset_top = -245.0
+offset_right = 772.0
+offset_bottom = -208.0
+theme_override_fonts/font = ExtResource("2_6qxay")
+text = "\"fix any mistake by making it intentional\"
+ - some artist probably"
+horizontal_alignment = 2
+
+[node name="Door" parent="." index="11" unique_id=1193654706 instance=ExtResource("6_ool7m")]
+position = Vector2(767, 272)
+color = Color(0, 1, 0, 1)
+
+[node name="Door2" parent="." index="12" unique_id=2040149582 instance=ExtResource("6_ool7m")]
+position = Vector2(767, 240)
+color = Color(0, 1, 0, 1)
+
+[node name="Door3" parent="." index="13" unique_id=1339464849 instance=ExtResource("6_ool7m")]
+position = Vector2(767, 208)
+color = Color(0, 1, 0, 1)
+
+[node name="Door4" parent="." index="14" unique_id=725182939 instance=ExtResource("6_ool7m")]
+position = Vector2(767, 176)
+color = Color(0, 1, 0, 1)
+
+[node name="Door5" parent="." index="15" unique_id=12592241 instance=ExtResource("6_ool7m")]
+position = Vector2(767, 144)
+color = Color(0, 1, 0, 1)
+
+[node name="Door6" parent="." index="16" unique_id=2030598596 instance=ExtResource("6_ool7m")]
+position = Vector2(767, 112)
+color = Color(0, 1, 0, 1)
+
+[node name="Door7" parent="." index="17" unique_id=1068713332 instance=ExtResource("6_ool7m")]
+position = Vector2(767, 80)
+color = Color(0, 1, 0, 1)
+
+[node name="Door8" parent="." index="18" unique_id=397906707 instance=ExtResource("6_ool7m")]
+position = Vector2(767, 48)
+color = Color(0, 1, 0, 1)
+
+[node name="Door9" parent="." index="19" unique_id=334168894 instance=ExtResource("6_ool7m")]
+position = Vector2(767, 16)
+color = Color(0, 1, 0, 1)
+
+[node name="Door10" parent="." index="20" unique_id=1651205859 instance=ExtResource("6_ool7m")]
+position = Vector2(767, -16)
+color = Color(0, 1, 0, 1)
+
+[node name="Door11" parent="." index="21" unique_id=2048147583 instance=ExtResource("6_ool7m")]
+position = Vector2(767, -48)
+color = Color(0, 1, 0, 1)
+
+[node name="Door12" parent="." index="22" unique_id=734491469 instance=ExtResource("6_ool7m")]
+position = Vector2(767, -80)
+color = Color(0, 1, 0, 1)
+
+[node name="Door13" parent="." index="23" unique_id=1278097165 instance=ExtResource("6_ool7m")]
+position = Vector2(767, -112)
+color = Color(0, 1, 0, 1)
+
+[node name="Door14" parent="." index="24" unique_id=98078668 instance=ExtResource("6_ool7m")]
+position = Vector2(767, -144)
+color = Color(0, 1, 0, 1)
+
+[node name="Door15" parent="." index="25" unique_id=1938601284 instance=ExtResource("6_ool7m")]
+position = Vector2(767, -176)
+color = Color(0, 1, 0, 1)
+
+[node name="Portal" parent="." index="26" unique_id=1527810771 instance=ExtResource("7_ool7m")]
+position = Vector2(1125, 271)

@@ -1,0 +1,35 @@
+[gd_scene format=4 uid="uid://bgkmc2ewwxwix"]
+
+[ext_resource type="PackedScene" uid="uid://bwoptb407y16w" path="res://scenes/game.tscn" id="1_4y3fs"]
+[ext_resource type="PackedScene" uid="uid://bi0nb5x6oanyb" path="res://scenes/objects/portal.tscn" id="3_5qb7q"]
+[ext_resource type="FontFile" uid="uid://cu481t7pvuwcn" path="res://fonts/VT323.ttf" id="4_lxfq6"]
+
+[node name="Game" unique_id=2126916218 instance=ExtResource("1_4y3fs")]
+void_y = 2000
+game_menu = null
+
+[node name="TileMapLayer" parent="." index="3" unique_id=752737559]
+rotation = -0.0022173794
+tile_map_data = PackedByteArray("AADy/wkAAAACAAMAAADz/wkAAAACAAMAAAD0/wkAAAACAAMAAAD1/wkAAAACAAMAAAD2/wkAAAACAAMAAAD3/wkAAAACAAMAAAD4/wkAAAACAAMAAAD5/wkAAAACAAMAAAD6/wkAAAACAAMAAAD7/wkAAAACAAMAAAD8/wkAAAACAAMAAAD9/wkAAAACAAMAAAD+/wkAAAACAAMAAAD//wkAAAACAAMAAAAAAAkAAAACAAMAAAABAAkAAAACAAMAAAACAAkAAAADAAMAAADx/wkAAAACAAMAAADw/wkAAAACAAMAAADv/wkAAAACAAMAAADu/wkAAAACAAMAAADt/wkAAAACAAMAAADs/wkAAAACAAMAAADr/wkAAAACAAMAAADq/wkAAAACAAMAAADp/wkAAAACAAMAAADo/wkAAAACAAMAAADn/wkAAAACAAMAAADm/wkAAAACAAMAAADl/wkAAAACAAMAAADk/wkAAAACAAMAAADj/wkAAAACAAMAAADi/wkAAAACAAMAAADh/wkAAAACAAMAAADg/wkAAAACAAMAAADf/wkAAAACAAMAAADe/wkAAAACAAMAAADd/wkAAAACAAMAAADc/wkAAAACAAMAAADb/wkAAAACAAMAAADa/wkAAAACAAMAAADZ/wkAAAACAAMAAADY/wkAAAACAAMAAADX/wkAAAACAAMAAADW/wkAAAACAAMAAADV/wkAAAACAAMAAADU/wkAAAACAAMAAADT/wkAAAACAAMAAADS/wkAAAACAAMAAADR/wkAAAACAAMAAADQ/wkAAAACAAMAAADP/wkAAAACAAMAAADO/wkAAAACAAMAAADN/wkAAAACAAMAAADM/wkAAAACAAMAAADL/wkAAAACAAMAAADK/wkAAAACAAMAAADJ/wkAAAACAAMAAADI/wkAAAACAAMAAADH/wkAAAACAAMAAADG/wkAAAACAAMAAADF/wkAAAACAAMAAADE/wkAAAACAAMAAADD/wkAAAACAAMAAADC/wkAAAACAAMAAADB/wkAAAACAAMAAADA/wkAAAACAAMAAAC//wkAAAACAAMAAAC+/wkAAAACAAMAAAC9/wkAAAACAAMAAAC8/wkAAAACAAMAAAC7/wkAAAACAAMAAAC6/wkAAAACAAMAAAC5/wkAAAACAAMAAAC4/wkAAAACAAMAAAC3/wkAAAACAAMAAAC2/wkAAAACAAMAAAC1/wkAAAACAAMAAAC0/wkAAAACAAMAAACz/wkAAAACAAMAAACy/wkAAAACAAMAAACx/wkAAAACAAMAAACw/wkAAAACAAMAAACv/wkAAAACAAMAAACu/wkAAAACAAMAAACt/wkAAAACAAMAAACs/wkAAAACAAMAAACr/wkAAAACAAMAAACq/wkAAAABAAMAAACo/yEAAAAAAAMAAAARAAkAAAADAAMAAAAQAAkAAAACAAMAAAAPAAkAAAABAAMAAAA=")
+
+[node name="Portal" parent="." index="5" unique_id=1527810771 instance=ExtResource("3_5qb7q")]
+position = Vector2(530, 269)
+
+[node name="Label" type="Label" parent="." index="6" unique_id=1149681492]
+offset_left = 208.0
+offset_top = 220.0
+offset_right = 381.0
+offset_bottom = 243.0
+theme_override_fonts/font = ExtResource("4_lxfq6")
+text = "yes, this level is possible"
+
+[node name="Portal2" parent="." index="7" unique_id=187067861 instance=ExtResource("3_5qb7q")]
+position = Vector2(-2796, 1045)
+
+[node name="Label2" type="Label" parent="." index="8" unique_id=275140464]
+offset_left = -2909.0
+offset_top = 992.0
+offset_right = -2704.0
+offset_bottom = 1015.0
+theme_override_fonts/font = ExtResource("4_lxfq6")
+text = "sometimes, just shoot your shot."
