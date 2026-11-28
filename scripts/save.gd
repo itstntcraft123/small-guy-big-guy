@@ -3,8 +3,9 @@ extends Node
 const LEVEL_PATH := "user://level.bin" # "level progress" (stores positions of players in a level)
 const SAVE_PATH := "user://save.bin" # "game progress" (stores level number)
 const CONFIG_PATH := "user://config.cfg" # "config" (stores user config like fullscreen)
-const BACKUPS_DIR := "user://backups/"
+const BACKUPS_DIR := "user://backups/" # directory where backups are placed
 
+# level progress (player pos in level)
 func save_game() -> void:
 	if !Settings.save_in_level:
 		return
@@ -47,7 +48,7 @@ func delete_game_save() -> void:
 		if result != OK:
 			push_error("DirAccess delete ", LEVEL_PATH, " failed ", DirAccess.get_open_error())
 
-
+# user config
 func save_cfg() -> void:
 	var config := ConfigFile.new()
 	var data: Dictionary = Settings.save_dict()
@@ -67,7 +68,7 @@ func load_cfg() -> void:
 	
 	Settings.load_dict(Utils.config_path_to_dict(CONFIG_PATH, "Settings"))
 
-
+# game progress (level number)
 func save_progress() -> void:
 	var level: int = Gamemgr.level
 	
@@ -100,7 +101,7 @@ func delete_progress() -> void:
 	if result != OK:
 		push_error("DirAccess delete ", SAVE_PATH, " failed ", DirAccess.get_open_error())
 
-
+# backups
 func create_backup(backup_name: String, config: bool = true, game: bool = true, level: bool = true) -> void:
 	if !DirAccess.dir_exists_absolute(BACKUPS_DIR):
 		var dir_result = DirAccess.make_dir_absolute(BACKUPS_DIR)
@@ -112,7 +113,7 @@ func create_backup(backup_name: String, config: bool = true, game: bool = true, 
 	var path := BACKUPS_DIR + str(time)
 	
 	# add numbers to path until a valid path is found
-	while FileAccess.file_exists(path):
+	while FileAccess.file_exists(path + ".zip"):
 		if path.contains("x") and path.substr(path.rfind("x") + 1).is_valid_int():
 			path = path.left(path.rfind("x") + 1) + str(int(path.substr(path.rfind("x"))) + 1)
 		else:
@@ -172,6 +173,7 @@ func list_backups() -> Array[Dictionary]:
 			var config_result := config.parse(reader.read_file("metadata.txt").get_string_from_utf8())
 			if config_result != OK:
 				push_error("ConfigFile read metadata.txt from ", abs_path, " failed ", result)
+			config.save(txt)
 			
 			var dict := Utils.configfile_to_dict(config, "Metadata")
 			if !dict.is_empty():
