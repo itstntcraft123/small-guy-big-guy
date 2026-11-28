@@ -149,7 +149,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _is_pinned_by_riding_platform(delta: float) -> bool:
-	if not is_on_floor():
+	if not is_on_floor() or not _is_mover(standing_on):
 		return false
 	var pv := get_platform_velocity()
 	if pv.y >= -1.0:
@@ -158,7 +158,7 @@ func _is_pinned_by_riding_platform(delta: float) -> bool:
 	# distance the platform will carry us this frame, plus a small margin
 	var motion := Vector2(0, pv.y * delta - 2.0)
 	if test_move(global_transform, motion, col):
-		return not _is_mover(col.get_collider())
+		return _is_static_solid(col.get_collider())
 	return false
 
 func _is_squished() -> bool:
@@ -166,8 +166,11 @@ func _is_squished() -> bool:
 	var touching_platform := false
 	for i in get_slide_collision_count():
 		var c := get_slide_collision(i)
+		var col := c.get_collider()
+		if col is Player:
+			continue
 		normals.append(c.get_normal())
-		if c.get_collider() is Node and c.get_collider().is_in_group("moving_platform"):
+		if _is_mover(col):
 			touching_platform = true
 	if not touching_platform:
 		return false
@@ -181,16 +184,22 @@ func _is_crushed() -> bool:
 	for dir in [Vector2.UP, Vector2.LEFT]:
 		var a := KinematicCollision2D.new()
 		var b := KinematicCollision2D.new()
-		var hit_a := test_move(global_transform, dir * 2.0, a)
-		var hit_b := test_move(global_transform, -dir * 2.0, b)
-		if not (hit_a and hit_b):
+		if not (test_move(global_transform, dir * 2.0, a) and test_move(global_transform, -dir * 2.0, b)):
 			continue
-		if _is_mover(a.get_collider()) or _is_mover(b.get_collider()):
+		var ca := a.get_collider()
+		var cb := b.get_collider()
+		if ca is Player or cb is Player: 
+			continue
+		if _is_mover(ca) or _is_mover(cb):
 			return true
 	return false
 
 func _is_mover(c: Object) -> bool:
 	return c is Node and c.is_in_group("moving_platform")
+
+func _is_static_solid(c: Object) -> bool:
+	return c is Node and not (c is Player) and not c.is_in_group("moving_platform")
+
 
 func _get_void_y() -> float:
 	var level := get_tree().current_scene
