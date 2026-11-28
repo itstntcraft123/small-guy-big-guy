@@ -22,6 +22,7 @@ theme_override_font_sizes/font_size = 96
 text = "New Backup"
 
 [node name="DataList" parent="VBoxContainer" unique_id=1078719937 instance=ExtResource("1_ueuni")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Name" type="Label" parent="VBoxContainer/DataList" unique_id=1021978921]
@@ -41,18 +42,21 @@ placeholder_text = "Backup"
 [node name="Config" type="Button" parent="VBoxContainer/DataList" unique_id=1181853897]
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
+toggle_mode = true
 text = "config: off"
 alignment = 0
 
 [node name="Progress" type="Button" parent="VBoxContainer/DataList" unique_id=1579607316]
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
+toggle_mode = true
 text = "game progress: off"
 alignment = 0
 
 [node name="LevelData" type="Button" parent="VBoxContainer/DataList" unique_id=1954168020]
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
+toggle_mode = true
 text = "current level progress: off"
 alignment = 0
 
@@ -69,10 +73,13 @@ focus_on_load = false
 
 [node name="Back" type="Button" parent="VBoxContainer/OptionsList" unique_id=1858077142]
 layout_mode = 2
+focus_neighbor_right = NodePath("../Create")
 text = "back"
 
 [node name="Create" type="Button" parent="VBoxContainer/OptionsList" unique_id=900188952]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Back")
 text = "create"
 
+[connection signal="button_selected" from="VBoxContainer/DataList" to="." method="_on_data_list_button_selected"]
 [connection signal="button_selected" from="VBoxContainer/OptionsList" to="." method="_on_options_list_button_selected"]
