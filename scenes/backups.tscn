@@ -16,6 +16,7 @@ grow_vertical = 2
 theme = ExtResource("1_f6ggr")
 script = ExtResource("2_giwxd")
 new_backup_scene = ExtResource("3_fr0py")
+backup_scene = ExtResource("4_t1i5m")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2043531575]
 layout_mode = 1
@@ -33,14 +34,14 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 96
 text = "Backups"
 
-[node name="BackupsList" parent="MarginContainer/VBoxContainer" unique_id=1078719937 instance=ExtResource("2_cddtr")]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=1492084738]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Backup" parent="MarginContainer/VBoxContainer/BackupsList" unique_id=818385615 instance=ExtResource("4_t1i5m")]
+[node name="BackupsList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=822611826]
+unique_name_in_owner = true
 layout_mode = 2
-
-[node name="Space" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1002165767]
-layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="OptionsList" parent="MarginContainer/VBoxContainer" unique_id=543663428 instance=ExtResource("2_cddtr")]

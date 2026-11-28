@@ -179,4 +179,5 @@ func list_backups() -> Array[Dictionary]:
 			if !dict.is_empty():
 				result.append(dict)
 	
+	result.sort_custom(func(a, b): return a.unix > b.unix)
 	return result

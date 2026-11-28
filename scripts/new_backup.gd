@@ -3,6 +3,7 @@ extends MarginContainer
 func exit() -> void:
 	$"../MarginContainer".show()
 	$"../%Create".grab_focus()
+	get_parent().reload()
 	queue_free()
 
 func _ready() -> void:
@@ -22,5 +23,7 @@ func _on_options_list_button_selected(item: Control) -> void:
 		"Back":
 			exit()
 		"Create":
+			if %DataList/Name/LineEdit.text.is_empty():
+				%DataList/Name/LineEdit.text = "Backup on " + Time.get_date_string_from_system() + " at " + Time.get_time_string_from_system()
 			Save.create_backup(%DataList/Name/LineEdit.text, %DataList/Config.button_pressed, %DataList/Progress.button_pressed, %DataList/LevelData.button_pressed)
 			exit()
