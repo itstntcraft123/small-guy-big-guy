@@ -43,21 +43,24 @@ placeholder_text = "Backup"
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
-text = "config: off"
+button_pressed = true
+text = "config: on"
 alignment = 0
 
 [node name="Progress" type="Button" parent="VBoxContainer/DataList" unique_id=1579607316]
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
-text = "game progress: off"
+button_pressed = true
+text = "game progress: on"
 alignment = 0
 
 [node name="LevelData" type="Button" parent="VBoxContainer/DataList" unique_id=1954168020]
 layout_mode = 2
 theme_type_variation = &"ToggleButton"
 toggle_mode = true
-text = "current level progress: off"
+button_pressed = true
+text = "current level progress: on"
 alignment = 0
 
 [node name="Space" type="Control" parent="VBoxContainer" unique_id=568355048]
