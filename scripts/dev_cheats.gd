@@ -7,6 +7,9 @@ func exit() -> void:
 	queue_free()
 
 func _on_select_menu_button_selected(item: Control) -> void:
+	if !OS.is_debug_build():
+		exit()
+		return
 	match item.name:
 		"GoToLevel":
 			get_tree().paused = false

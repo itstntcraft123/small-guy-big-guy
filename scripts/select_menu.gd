@@ -41,20 +41,6 @@ func _input(event: InputEvent) -> void:
 			if focused_index != -1 and new_node is Control and new_node.focus_mode != Control.FOCUS_NONE and not (focused_index == 0 and diff == -1):
 				new_node.grab_focus()
 			get_viewport().set_input_as_handled()
-	
-	if event.is_action_pressed("ui_accept"):
-		var focused := get_viewport().gui_get_focus_owner()
-		if focused is LineEdit and self.is_ancestor_of(focused):
-			var button: Button
-			if focused.get_parent() is SpinBox and focused.get_parent().get_parent() is Button:
-				button = focused.get_parent().get_parent()
-			elif focused.get_parent() is Button:
-				button = focused.get_parent()
-			if button:
-				get_viewport().set_input_as_handled()
-				button.grab_focus()
-				button.pressed.emit()
-
 
 func _on_spin_box_line_edit_changed(text: String, spinbox: SpinBox) -> void:
 	var lineedit := spinbox.get_line_edit()
@@ -92,10 +78,13 @@ func _ready() -> void:
 			Utils.connect_focus_signal(spinbox.get_line_edit(), _focus_changed)
 			spinbox.get_line_edit().max_length = 4
 			spinbox.get_line_edit().text_changed.connect(_on_spin_box_line_edit_changed.bind(spinbox))
-			spinbox.value_changed.connect(func (_value): button_selected.emit(child))
+			if child is Label:
+				spinbox.value_changed.connect(func (_value): button_selected.emit(child))
 			if spinbox.get_line_edit().has_focus():
 				spinbox.get_line_edit().select()
 				child.add_theme_color_override("font_color", child.get_theme_color("font_focus_color", "Button"))
+			if child is Button:
+				spinbox.get_line_edit().text_submitted.connect(func (_value): button_selected.emit(child))
 		
 		var lineedit := Utils.get_first_child_of_type(child, LineEdit) as LineEdit
 		if lineedit:
